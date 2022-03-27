@@ -1,0 +1,91 @@
+﻿<Window x:Class="Firma.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Firma"
+        mc:Ignorable="d"
+        Title="Inventory Manager" Height="450" Width="800"
+        WindowState="Normal"
+        >
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.Column="0" Margin="3">
+            <MenuItem Header="_Plik"></MenuItem>
+            <MenuItem Header="_Magazyn">
+                <MenuItem Header="Towary">
+                    <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}"></MenuItem>
+                    <MenuItem Header="Dodawanie" Command="{Binding NowyTowarCommand}"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Przyjęcie zewnętrzne (PZ)"></MenuItem>
+                <MenuItem Header="Wydanie zewnętrzne (WZ)"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Program"></MenuItem>
+        </Menu>
+
+        <ToolBar Grid.Row="1" Grid.Column="0">
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Icons/home.png"/>
+                </ToggleButton.Background>
+
+
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding TowaryCommand}"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowyTowarCommand}"></ToggleButton>
+        </ToolBar>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0">
+                <HeaderedContentControl 
+                    Header="Operacje" 
+                    Background="Aqua" 
+                    Content="{Binding Path=Commands}" 
+                    ContentTemplate="{StaticResource CommandsTemplate}" 
+                    Style="{StaticResource MainHCCStyle}"
+                    />
+            </Border>
+            <Border Grid.Column="1">
+                <HeaderedContentControl 
+                    Header="Przestrzeń robocza" 
+                    Background="Aqua" 
+                    Content="{Binding Path=Workspaces}" 
+                    ContentTemplate="{StaticResource WorkspacesTemplate}" 
+                    Style="{StaticResource MainHCCStyle}"                    
+                    />
+            </Border>
+        </Grid>
+
+        <StatusBar Grid.Row="3" Grid.Column="0">
+            <StatusBarItem>
+                <TextBlock>Marcin Siemiński</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock>WSB NLU</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>

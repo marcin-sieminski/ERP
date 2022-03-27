@@ -29,27 +29,42 @@
                 <MenuItem Header="Przyjęcie zewnętrzne (PZ)"></MenuItem>
                 <MenuItem Header="Wydanie zewnętrzne (WZ)"></MenuItem>
             </MenuItem>
+            <MenuItem Header="_Księgowość">
+                <MenuItem Header="Faktury">
+                    <MenuItem Header="Wszystkie" Command="{Binding FakturyCommand}"></MenuItem>
+                    <MenuItem Header="Dodawanie" Command="{Binding NowaFakturaCommand}"></MenuItem>
+                </MenuItem>
+            </MenuItem>
             <MenuItem Header="Program"></MenuItem>
         </Menu>
 
         <ToolBar Grid.Row="1" Grid.Column="0">
-            <ToggleButton Width="32" Height="32" Margin="2">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Icons/home.png"/>
-                </ToggleButton.Background>
-
-
-            </ToggleButton>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <Separator/>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2"></ToggleButton>
-            <Separator/>
             <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding TowaryCommand}"></ToggleButton>
             <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowyTowarCommand}"></ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding FakturyCommand}"></ToggleButton>
+            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowaFakturaCommand}"></ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/home.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/logout.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/delete.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/item.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
         </ToolBar>
 
         <Grid Grid.Row="2">

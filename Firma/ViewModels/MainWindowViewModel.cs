@@ -34,7 +34,9 @@ public class MainWindowViewModel : BaseViewModel
         return new List<CommandViewModel>
         {
             new CommandViewModel("Towary", new BaseCommand(showAllTowar)),
-            new CommandViewModel("Nowy towary", new BaseCommand(createTowar)),
+            new CommandViewModel("Towary", new BaseCommand(() => createView(new NowyTowarViewModel()))),
+            new CommandViewModel("Faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
+            new CommandViewModel("Faktury", new BaseCommand(showAllFaktury)),
         };
     }
     #endregion
@@ -84,9 +86,8 @@ public class MainWindowViewModel : BaseViewModel
 
     #region Funkcje pomocnicze
 
-    private void createTowar()
+    private void createView(WorkspaceViewModel workspace)
     {
-        NowyTowarViewModel workspace = new NowyTowarViewModel();
         Workspaces.Add(workspace);
         setActiveWorkspace(workspace);
     }
@@ -111,6 +112,17 @@ public class MainWindowViewModel : BaseViewModel
             collectionView.MoveCurrentTo(workspace);
         }
     }
+    private void showAllFaktury()
+    {
+        WszystkieFakturyViewModel workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
+        if (workspace is null)
+        {
+            workspace = new WszystkieFakturyViewModel();
+            Workspaces.Add(workspace);
+        }
+        setActiveWorkspace(workspace);
+    }
+
     #endregion
 
     #region Komendy menu i paska narzędzi
@@ -119,7 +131,7 @@ public class MainWindowViewModel : BaseViewModel
     {
         get
         {
-            return new BaseCommand(createTowar);
+            return new BaseCommand(() => createView(new NowyTowarViewModel()));
         }
     }
 
@@ -130,5 +142,20 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(showAllTowar);
         }
     }
+    public ICommand NowaFakturaCommand
+    {
+        get
+        {
+            return new BaseCommand(() => createView(new NowaFakturaViewModel()));
+        }
+    }
+    public ICommand FakturyCommand
+    {
+        get
+        {
+            return new BaseCommand(showAllFaktury);
+        }
+    }
+
     #endregion
 }

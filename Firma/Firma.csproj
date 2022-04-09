@@ -15,14 +15,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Views\Content\Icons\delete.png" />
     <Resource Include="Views\Content\Icons\home.png" />
     <Resource Include="Views\Content\Icons\item.png" />
     <Resource Include="Views\Content\Icons\logout.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ViewResources\BaseResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ViewResources\BaseResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BaseResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

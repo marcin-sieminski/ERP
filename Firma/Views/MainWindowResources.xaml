@@ -116,4 +116,12 @@
       />
     </DataTemplate>
 
+    <Style x:Key="BaseDatePicker" TargetType="{x:Type DatePicker}">
+        <Setter Property="MinWidth" Value="150"></Setter>
+    </Style>
+
+    <Style x:Key="RedDatePicker" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseDatePicker}">
+        <Setter Property="Foreground" Value="Red"></Setter>
+    </Style>
+
 </ResourceDictionary>

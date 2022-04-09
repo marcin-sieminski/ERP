@@ -6,7 +6,101 @@
              xmlns:local="clr-namespace:Firma.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <Label>Tu będą wszystkie towary</Label>
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Data zatrudnienia:" Width="138" Margin="2"/>
+                <DatePicker SelectedDate="01.01.2000" Width="100" Margin="2" Style="{StaticResource BaseDatePicker}"/>
+                <Separator Width="143" Visibility="Hidden"></Separator>
+                <Label Content="Data zwolnienia:" Width="135" Margin="2"/>
+                <DatePicker SelectedDate="01.01.2000" Width="100" Margin="2" Style="{StaticResource BaseDatePicker}"/>
+            </StackPanel>
+        </Border>
+
+        <Expander Header="Umowa o pracę" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="9.562"/>
+                            <ColumnDefinition Width="130.438"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Data zawarcia umowy:" Margin="2,2,2,2" Width="auto" Grid.ColumnSpan="2" />
+                        <DatePicker SelectedDate="01.01.2000"  Margin="2,2,2,2" Width="100" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource BaseDatePicker}"/>
+                        <Label Content="Data rozpoczęcia pracy:" Margin="2,2,2,2" Width="auto" Grid.Row="0"
+                               Grid.Column="3" />
+                        <DatePicker SelectedDate="01.01.2000"  Margin="2,2,0,2" Width="100" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" Style="{StaticResource RedDatePicker}"/>
+                        <Label Content="Rodzaj umowy:" Margin="2,2,2,2" Width="auto" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+                        <ComboBox  Width="auto" Margin="2,2,2,2" Grid.Row="1" Grid.Column="2" IsEnabled="True">
+                            <ComboBoxItem Content="na czas nieokreślony" IsSelected="True" />
+                            <ComboBoxItem Content="Element 2"/>
+                        </ComboBox>
+                        <Label Content="Rodzaj zatrudnienia:" Margin="2" Width="auto" Grid.Column="3" Grid.Row="1" />
+                        <ComboBox  Width="auto" Margin="2,2,2,2" Grid.Row="1" Grid.Column="4" IsEnabled="True">
+                            <ComboBoxItem Content="pracownik" IsSelected="True" />
+                            <ComboBoxItem Content="Element 2"/>
+                        </ComboBox>
+                        <Button Content="Przyczyna zwol." Width="auto" Margin="2" Grid.Row="2" Grid.Column="0" IsEnabled="False" Grid.ColumnSpan="2"/>
+                        <ComboBox  Width="auto" Margin="2" Grid.Row="2" Grid.Column="2" IsEnabled="False" Grid.ColumnSpan="3" >
+                            <ComboBoxItem Content="Element 1"/>
+                        </ComboBox>
+                    </Grid>
+                    <Expander Header="Zastępowany pracownik" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Imię i nazwisko:" Margin="2" Width="auto"/>
+                                <TextBox Margin="2" Width="130"/>
+                                <Separator Width="60" Visibility="Hidden"></Separator>
+                                <CheckBox VerticalAlignment="Center" />
+                                <Label Content="Z listy pracowników" Margin="2" Width="auto"/>
+                                <Separator Width="60" Visibility="Hidden"></Separator>
+                                <Button Content="Pracownik" Width="110" Margin="2" IsEnabled="False"/>
+                                <ComboBox  Width="170" Margin="2" IsEnabled="False" >
+                                    <ComboBoxItem Content="Element 1"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+                    <Expander Header="Pracownik tymczasowy" Grid.Row="2" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox VerticalAlignment="Center" />
+                                <Label Content="Pracownik tymczasowy" Margin="2" Width="auto"/>
+                                <Separator Width="60" Visibility="Hidden"></Separator>
+                                <Button Content="Pracodawca" Width="110" Margin="2" IsEnabled="False"/>
+                                <ComboBox  Width="445" Margin="2" IsEnabled="False" >
+                                    <ComboBoxItem Content="Element 1"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                    </Expander>
+
+                </Grid>
+            </Border>
+        </Expander>
     </Grid>
 </UserControl>

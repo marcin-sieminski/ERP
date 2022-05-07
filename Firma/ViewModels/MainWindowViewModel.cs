@@ -5,14 +5,21 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using System.Windows.Input;
 using Firma.Helpers;
+using Firma.ViewResources;
 
 namespace Firma.ViewModels;
 
 public class MainWindowViewModel : BaseViewModel
 {
+    public MainWindowViewModel()
+    {
+        _WidocznoscMenuBocznego = "Visible";
+    }
+
     #region Przyciski w menu z lewej strony
     private ReadOnlyCollection<CommandViewModel> _Commands { get; set; }
 
@@ -37,6 +44,7 @@ public class MainWindowViewModel : BaseViewModel
             new CommandViewModel("Towary", new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel("Faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
             new CommandViewModel("Faktury", new BaseCommand(showAllFaktury)),
+            new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(() => createView(new KontrahenciViewModel()))),
         };
     }
     #endregion
@@ -156,6 +164,42 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(showAllFaktury);
         }
     }
+    public ICommand KontrahenciCommand
+    {
+        get
+        {
+            return new BaseCommand(() => createView(new KontrahenciViewModel()));
+        }
+    }
 
+    #endregion
+
+    #region WidocznośćMenuBocznego
+    private string _WidocznoscMenuBocznego;
+    public string WidocznoscMenuBocznego
+    {
+        get
+        {
+            return _WidocznoscMenuBocznego;
+        }
+        set
+        {
+            if (value != _WidocznoscMenuBocznego)
+            {
+                _WidocznoscMenuBocznego = value;
+                OnPropertyChanged(() => WidocznoscMenuBocznego);
+            }
+        }
+    }
+
+    private void ZmienWidocznoscMenuBocznego()
+    {
+        WidocznoscMenuBocznego = WidocznoscMenuBocznego == "Visible" ? "Collapsed" : "Visible";
+    }
+
+    public ICommand ZmienWidocznoscMenuBocznegoCommand
+    {
+        get { return new BaseCommand(() => ZmienWidocznoscMenuBocznego()); }
+    }
     #endregion
 }

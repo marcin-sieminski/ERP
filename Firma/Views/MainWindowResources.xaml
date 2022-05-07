@@ -15,8 +15,13 @@
     <DataTemplate DataType="{x:TypeExtension vm:NowaFakturaViewModel}">
         <views:NowaFakturaView/>
     </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieFakturyViewModel}">
         <views:WszystkieFakturyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:TypeExtension vm:KontrahenciViewModel}">
+        <views:KontrahenciView/>
     </DataTemplate>
     <!--Tu koniec łączenia View z ViewModel.-->
 

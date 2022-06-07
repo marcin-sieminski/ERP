@@ -117,11 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Adres" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="DaneAdresoweKontrahenta" xml:space="preserve">
+    <value>Dane Adresowe Kontrahenta</value>
+  </data>
+  <data name="EMail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EMail2" xml:space="preserve">
+    <value>E-mail 2</value>
+  </data>
+  <data name="EMail3" xml:space="preserve">
+    <value>E-mail 3</value>
+  </data>
+  <data name="EMailCC" xml:space="preserve">
+    <value>E-mail CC</value>
+  </data>
+  <data name="FormaPlatnosci" xml:space="preserve">
+    <value>Forma Płatności</value>
+  </data>
+  <data name="Handlowe" xml:space="preserve">
+    <value>Handlowe</value>
+  </data>
+  <data name="ImieINazwisko" xml:space="preserve">
+    <value>Imię i nazwisko</value>
+  </data>
+  <data name="Kategoria" xml:space="preserve">
+    <value>Kategoria</value>
+  </data>
+  <data name="KategoriaPomocnicza" xml:space="preserve">
+    <value>Kategoria Pomocnicza</value>
+  </data>
+  <data name="KlientAktywny" xml:space="preserve">
+    <value>Klient aktywny</value>
+  </data>
+  <data name="Kod" xml:space="preserve">
+    <value>Kod</value>
+  </data>
   <data name="Kontrahenci" xml:space="preserve">
     <value>Kontrahenci</value>
   </data>
+  <data name="LimitKupiecki" xml:space="preserve">
+    <value>Limit Kupiecki</value>
+  </data>
+  <data name="Nazwa" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="NIP" xml:space="preserve">
+    <value>NIP</value>
+  </data>
   <data name="NowyKontrahent" xml:space="preserve">
     <value>Nowy kontrahent</value>
+  </data>
+  <data name="OsobaKontaktowa" xml:space="preserve">
+    <value>Osoba Kontaktowa</value>
+  </data>
+  <data name="Pesel" xml:space="preserve">
+    <value>PESEL</value>
+  </data>
+  <data name="PodstawoweDaneKontrahenta" xml:space="preserve">
+    <value>Podstawowe dane kontrahenta</value>
+  </data>
+  <data name="Rabat" xml:space="preserve">
+    <value>Rabat</value>
+  </data>
+  <data name="Regon" xml:space="preserve">
+    <value>REGON</value>
+  </data>
+  <data name="Rodzaj" xml:space="preserve">
+    <value>Rodzaj</value>
+  </data>
+  <data name="Stanowisko" xml:space="preserve">
+    <value>Stanowisko</value>
+  </data>
+  <data name="TechnologieProdukcjiPieczatek" xml:space="preserve">
+    <value>Technologie Produkcji Pieczątek</value>
+  </data>
+  <data name="Telefon" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="TelefonKomorkowy" xml:space="preserve">
+    <value>Telefon Komórkowy</value>
+  </data>
+  <data name="TerminPlatnosci" xml:space="preserve">
+    <value>Termin Płatności</value>
   </data>
   <data name="Towary" xml:space="preserve">
     <value>Towary</value>

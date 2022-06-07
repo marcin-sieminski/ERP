@@ -20,9 +20,14 @@
         <views:WszystkieFakturyView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:TypeExtension vm:KontrahenciViewModel}">
-        <views:KontrahenciView/>
+    <DataTemplate DataType="{x:TypeExtension vm:WszyscyKontrahenciViewModel}">
+        <views:WszyscyKontrahenciView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyKontrahentViewModel}">
+        <views:NowyKontrahentView/>
+    </DataTemplate>
+
     <!--Tu koniec łączenia View z ViewModel.-->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

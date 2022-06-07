@@ -42,7 +42,6 @@
                 <MenuItem Header="Przyjęcie zewnętrzne (PZ)"/>
                 <MenuItem Header="Wydanie zewnętrzne (WZ)"/>
             </MenuItem>
-            <MenuItem Header="_Handel"/>
             <MenuItem Header="Kasa/_Bank"/>
             <MenuItem Header="_VAT"/>
             <MenuItem Header="_Księgowość">
@@ -51,13 +50,11 @@
                     <MenuItem Header="_Dodawanie" Command="{Binding NowaFakturaCommand}"/>
                 </MenuItem>
                 <MenuItem Header="_PZ">
-                    <MenuItem Header="_Wszystkie" Command="{Binding FakturyCommand}"/>
-                    <MenuItem Header="_Dodawanie" Command="{Binding NowaFakturaCommand}"/>
                 </MenuItem>
-                <MenuItem Header="_Kontrahenci">
-                    <MenuItem Header="_Wszyscy" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+K"/>
-                    <MenuItem Header="_Dodawanie" IsEnabled="False"/>
-                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Kontrahenci">
+                <MenuItem Header="_Wszyscy" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+K"/>
+                <MenuItem Header="_Dodawanie" Command="{Binding NowyKontrahentCommand}" IsEnabled="True"/>
             </MenuItem>
             <MenuItem Header="_Płace i kadry"/>
             <MenuItem Header="_Narzędzia"/>

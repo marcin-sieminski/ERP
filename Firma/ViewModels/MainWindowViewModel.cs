@@ -43,8 +43,8 @@ public class MainWindowViewModel : BaseViewModel
             new CommandViewModel("Nowy towar", new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel("Faktury", new BaseCommand(showAllFaktury)),
             new CommandViewModel("Nowa faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
-            new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(() => createView(new KontrahenciViewModel()))),
-            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel()))),
+            new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(showAllKontrahenci)),
+            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel())))
         };
     }
     #endregion
@@ -131,6 +131,17 @@ public class MainWindowViewModel : BaseViewModel
         setActiveWorkspace(workspace);
     }
 
+    private void showAllKontrahenci()
+    {
+        WszyscyKontrahenciViewModel workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
+        if (workspace is null)
+        {
+            workspace = new WszyscyKontrahenciViewModel();
+            Workspaces.Add(workspace);
+        }
+        setActiveWorkspace(workspace);
+    }
+
     #endregion
 
     #region Komendy menu i paska narzędzi
@@ -171,15 +182,13 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
         }
     }
-
     public ICommand KontrahenciCommand
     {
         get
         {
-            return new BaseCommand(() => createView(new KontrahenciViewModel()));
+            return new BaseCommand(() => createView(new WszyscyKontrahenciViewModel()));
         }
     }
-
     #endregion
 
     #region WidocznośćMenuBocznego

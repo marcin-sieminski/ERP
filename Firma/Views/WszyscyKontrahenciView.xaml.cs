@@ -18,9 +18,9 @@ namespace Firma.Views
     /// <summary>
     /// Interaction logic for KontrahenciView.xaml
     /// </summary>
-    public partial class KontrahenciView : UserControl
+    public partial class WszyscyKontrahenciView : UserControl
     {
-        public KontrahenciView()
+        public WszyscyKontrahenciView()
         {
             InitializeComponent();
         }

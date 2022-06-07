@@ -120,6 +120,9 @@
   <data name="Kontrahenci" xml:space="preserve">
     <value>Kontrahenci</value>
   </data>
+  <data name="NowyKontrahent" xml:space="preserve">
+    <value>Nowy kontrahent</value>
+  </data>
   <data name="Towary" xml:space="preserve">
     <value>Towary</value>
   </data>

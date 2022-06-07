@@ -70,6 +70,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nowy kontrahent.
+        /// </summary>
+        public static string NowyKontrahent {
+            get {
+                return ResourceManager.GetString("NowyKontrahent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Towary.
         /// </summary>
         public static string Towary {

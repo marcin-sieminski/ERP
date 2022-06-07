@@ -5,7 +5,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using System.Windows.Input;
 using Firma.Helpers;
@@ -41,10 +40,11 @@ public class MainWindowViewModel : BaseViewModel
         return new List<CommandViewModel>
         {
             new CommandViewModel("Towary", new BaseCommand(showAllTowar)),
-            new CommandViewModel("Towary", new BaseCommand(() => createView(new NowyTowarViewModel()))),
-            new CommandViewModel("Faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
+            new CommandViewModel("Nowy towar", new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel("Faktury", new BaseCommand(showAllFaktury)),
+            new CommandViewModel("Nowa faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
             new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(() => createView(new KontrahenciViewModel()))),
+            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel()))),
         };
     }
     #endregion
@@ -164,6 +164,14 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(showAllFaktury);
         }
     }
+    public ICommand NowyKontrahentCommand
+    {
+        get
+        {
+            return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
+        }
+    }
+
     public ICommand KontrahenciCommand
     {
         get

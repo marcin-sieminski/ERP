@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Firma"
         xmlns:resx="clr-namespace:Firma.ViewResources"
-        xmlns:ViewModels="clr-namespace:Firma.ViewModels" x:Class="Firma.Views.MainWindow"
+        xmlns:viewModels="clr-namespace:Firma.ViewModels" x:Class="Firma.Views.MainWindow"
         mc:Ignorable="d"
         Title="Inventory Manager" Height="450" Width="800"
         WindowState="Normal"
@@ -15,7 +15,7 @@
     </Window.Resources>
     
     <Window.DataContext>
-        <ViewModels:MainWindowViewModel/>
+        <viewModels:MainWindowViewModel/>
     </Window.DataContext>
     
     <Window.InputBindings>
@@ -31,8 +31,10 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.Column="0" Margin="3">
-            <MenuItem Header="_Plik"/>
-            <MenuItem Header="_Magazyn">
+            <MenuItem Header="_System"/>
+            <MenuItem Header="_Ogólne"/>
+            <MenuItem Header="_CRM"/>
+            <MenuItem Header="_Handel">
                 <MenuItem Header="Towary">
                     <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}"/>
                     <MenuItem Header="Dodawanie" Command="{Binding NowyTowarCommand}"/>
@@ -40,6 +42,9 @@
                 <MenuItem Header="Przyjęcie zewnętrzne (PZ)"/>
                 <MenuItem Header="Wydanie zewnętrzne (WZ)"/>
             </MenuItem>
+            <MenuItem Header="_Handel"/>
+            <MenuItem Header="Kasa/_Bank"/>
+            <MenuItem Header="_VAT"/>
             <MenuItem Header="_Księgowość">
                 <MenuItem Header="_Faktury">
                     <MenuItem Header="_Wszystkie" Command="{Binding FakturyCommand}"/>
@@ -54,8 +59,11 @@
                     <MenuItem Header="_Dodawanie" IsEnabled="False"/>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Program"/>
-            <MenuItem Header="Pokaż/ukryj menu Boczne" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"/>
+            <MenuItem Header="_Płace i kadry"/>
+            <MenuItem Header="_Narzędzia"/>
+            <MenuItem Header="_Widok"/>
+            <MenuItem Header="Pomo_c"/>
+            <MenuItem Header="Menu boczn_e" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"/>
         </Menu>
 
         <ToolBar Grid.Row="1" Grid.Column="0">

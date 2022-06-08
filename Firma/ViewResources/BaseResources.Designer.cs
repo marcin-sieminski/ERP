@@ -329,5 +329,14 @@ namespace Firma.ViewResources {
                 return ResourceManager.GetString("Towary", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pokaż / ukryj menu boczne.
+        /// </summary>
+        public static string ZmienWidocznoscMenu {
+            get {
+                return ResourceManager.GetString("ZmienWidocznoscMenu", resourceCulture);
+            }
+        }
     }
 }

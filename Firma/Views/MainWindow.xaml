@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Firma"
         xmlns:resx="clr-namespace:Firma.ViewResources"
-        xmlns:viewModels="clr-namespace:Firma.ViewModels" x:Class="Firma.Views.MainWindow"
+        xmlns:viewModels="clr-namespace:Firma.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviors="clr-namespace:Firma.Behaviors"
+        x:Class="Firma.Views.MainWindow"
         mc:Ignorable="d"
-        Title="Inventory Manager" Height="450" Width="800"
+        Title="ERP" Height="600" Width="1000"
         WindowState="Normal"
         >
     <Window.Resources>
@@ -18,8 +21,13 @@
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
     
+    <i:Interaction.Behaviors>
+        <behaviors:CloseWindowButtonBehavior KeyBehavior="Esc" />
+    </i:Interaction.Behaviors>
+
     <Window.InputBindings>
         <KeyBinding Key="K" Modifiers="Control" Command="{Binding KontrahenciCommand}"></KeyBinding>
+        <KeyBinding Key="Q" Modifiers="Control" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"></KeyBinding>
     </Window.InputBindings>
     
     <Grid>
@@ -31,9 +39,10 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.Column="0" Margin="3">
-            <MenuItem Header="_System"/>
+            <MenuItem Header="_System">
+                <MenuItem Header="_Zakończ pracę" InputGestureText="Esc" IsEnabled="False"></MenuItem>
+            </MenuItem>
             <MenuItem Header="_Ogólne"/>
-            <MenuItem Header="_CRM"/>
             <MenuItem Header="_Handel">
                 <MenuItem Header="Towary">
                     <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}"/>
@@ -58,12 +67,22 @@
             </MenuItem>
             <MenuItem Header="_Płace i kadry"/>
             <MenuItem Header="_Narzędzia"/>
-            <MenuItem Header="_Widok"/>
-            <MenuItem Header="Pomo_c"/>
-            <MenuItem Header="Menu boczn_e" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"/>
+            <MenuItem Header="_Widok">
+                <MenuItem Header="_Menu boczne" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" InputGestureText="Ctrl+Q"/>
+            </MenuItem>
+            <MenuItem Header="Pomo_c">
+                <MenuItem Header="_Pomoc" IsEnabled="False"></MenuItem>
+                <MenuItem Header="_O programie" IsEnabled="False"></MenuItem>
+            </MenuItem>
         </Menu>
 
         <ToolBar Grid.Row="1" Grid.Column="0">
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZmienWidocznoscMenu}" >
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/menu_open.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator/>
             <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding TowaryCommand}"/>
             <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowyTowarCommand}"/>
             <Separator/>
@@ -90,7 +109,7 @@
                     <ImageBrush ImageSource="/Views/Content/Icons/item.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton ToolTip="{x:Static resx:BaseResources.Kontrahenci}"  Width="32" Height="32" Margin="2" Command="{Binding KontrahenciCommand}">
+            <ToggleButton ToolTip="{x:Static resx:BaseResources.Kontrahenci}" Width="32" Height="32" Margin="2" Command="{Binding KontrahenciCommand}">
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/item.png"/>
                 </ToggleButton.Background>

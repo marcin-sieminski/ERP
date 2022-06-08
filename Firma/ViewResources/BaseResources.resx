@@ -207,4 +207,7 @@
   <data name="Towary" xml:space="preserve">
     <value>Towary</value>
   </data>
+  <data name="ZmienWidocznoscMenu" xml:space="preserve">
+    <value>Pokaż / ukryj menu boczne</value>
+  </data>
 </root>

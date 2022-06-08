@@ -26,7 +26,12 @@
     </i:Interaction.Behaviors>
 
     <Window.InputBindings>
-        <KeyBinding Key="K" Modifiers="Control" Command="{Binding KontrahenciCommand}"></KeyBinding>
+        <KeyBinding Key="T" Modifiers="Control" Command="{Binding NowyTowarCommand}"></KeyBinding>
+        <KeyBinding Key="T" Modifiers="Shift+Control" Command="{Binding TowaryCommand}"></KeyBinding>
+        <KeyBinding Key="F" Modifiers="Control" Command="{Binding NowaFakturaCommand}"></KeyBinding>
+        <KeyBinding Key="F" Modifiers="Shift+Control" Command="{Binding FakturyCommand}"></KeyBinding>
+        <KeyBinding Key="O" Modifiers="Control" Command="{Binding KontrahenciCommand}"></KeyBinding>
+        <KeyBinding Key="O" Modifiers="Shift+Control" Command="{Binding NowyKontrahentCommand}"></KeyBinding>
         <KeyBinding Key="Q" Modifiers="Control" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"></KeyBinding>
     </Window.InputBindings>
     
@@ -42,31 +47,30 @@
             <MenuItem Header="_System">
                 <MenuItem Header="_Zakończ pracę" InputGestureText="Esc" IsEnabled="False"></MenuItem>
             </MenuItem>
-            <MenuItem Header="_Ogólne"/>
             <MenuItem Header="_Handel">
-                <MenuItem Header="Towary">
-                    <MenuItem Header="Wszystkie" Command="{Binding TowaryCommand}"/>
-                    <MenuItem Header="Dodawanie" Command="{Binding NowyTowarCommand}"/>
+                <MenuItem Header="_Towary">
+                    <MenuItem Header="_Wszystkie towary" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
+                    <MenuItem Header="_Nowy towar" Command="{Binding NowyTowarCommand}" InputGestureText="Ctrl+Shift+T"/>
                 </MenuItem>
-                <MenuItem Header="Przyjęcie zewnętrzne (PZ)"/>
-                <MenuItem Header="Wydanie zewnętrzne (WZ)"/>
+                <MenuItem Header="_Przyjęcie zewnętrzne (PZ)"/>
+                <MenuItem Header="_Wydanie zewnętrzne (WZ)"/>
             </MenuItem>
-            <MenuItem Header="Kasa/_Bank"/>
-            <MenuItem Header="_VAT"/>
+            <MenuItem Header="Kasa/_Bank" IsEnabled="False"/>
+            <MenuItem Header="_VAT" IsEnabled="False"/>
             <MenuItem Header="_Księgowość">
                 <MenuItem Header="_Faktury">
-                    <MenuItem Header="_Wszystkie" Command="{Binding FakturyCommand}"/>
-                    <MenuItem Header="_Dodawanie" Command="{Binding NowaFakturaCommand}"/>
+                    <MenuItem Header="_Wszystkie faktury" Command="{Binding FakturyCommand}" InputGestureText="Ctrl+F"/>
+                    <MenuItem Header="_Nowa faktura" Command="{Binding NowaFakturaCommand}" InputGestureText="Ctrl+Shift+F"/>
                 </MenuItem>
                 <MenuItem Header="_PZ">
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Kontrahenci">
-                <MenuItem Header="_Wszyscy" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+K"/>
-                <MenuItem Header="_Dodawanie" Command="{Binding NowyKontrahentCommand}" IsEnabled="True"/>
+            <MenuItem Header="K_ontrahenci">
+                <MenuItem Header="_Wszyscy kontrahenci" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+O"/>
+                <MenuItem Header="_Nowy kontrahent" Command="{Binding NowyKontrahentCommand}" InputGestureText="Ctrl+Shift+O"/>
             </MenuItem>
-            <MenuItem Header="_Płace i kadry"/>
-            <MenuItem Header="_Narzędzia"/>
+            <MenuItem Header="_Płace i kadry" IsEnabled="False"/>
+            <MenuItem Header="_Narzędzia" IsEnabled="False"/>
             <MenuItem Header="_Widok">
                 <MenuItem Header="_Menu boczne" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" InputGestureText="Ctrl+Q"/>
             </MenuItem>

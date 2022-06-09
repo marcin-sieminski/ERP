@@ -115,6 +115,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wykaz wszystkich faktur.
+        /// </summary>
+        public static string FakturyTooltip {
+            get {
+                return ResourceManager.GetString("FakturyTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forma Płatności.
         /// </summary>
         public static string FormaPlatnosci {
@@ -187,6 +196,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wykaz wszystkich kontrahentów.
+        /// </summary>
+        public static string KontrahenciTooltip {
+            get {
+                return ResourceManager.GetString("KontrahenciTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Limit Kupiecki.
         /// </summary>
         public static string LimitKupiecki {
@@ -214,11 +232,38 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dodawanie nowej faktury.
+        /// </summary>
+        public static string NowaFakturaTooltip {
+            get {
+                return ResourceManager.GetString("NowaFakturaTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nowy kontrahent.
         /// </summary>
         public static string NowyKontrahent {
             get {
                 return ResourceManager.GetString("NowyKontrahent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodawanie nowego kontrahenta.
+        /// </summary>
+        public static string NowyKontrahentTooltip {
+            get {
+                return ResourceManager.GetString("NowyKontrahentTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodawanie nowego towaru.
+        /// </summary>
+        public static string NowyTowarTooltip {
+            get {
+                return ResourceManager.GetString("NowyTowarTooltip", resourceCulture);
             }
         }
         
@@ -327,6 +372,15 @@ namespace Firma.ViewResources {
         public static string Towary {
             get {
                 return ResourceManager.GetString("Towary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wykaz wszystkich towarów.
+        /// </summary>
+        public static string TowaryTooltip {
+            get {
+                return ResourceManager.GetString("TowaryTooltip", resourceCulture);
             }
         }
         

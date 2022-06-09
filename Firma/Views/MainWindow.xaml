@@ -52,8 +52,8 @@
                     <MenuItem Header="_Wszystkie towary" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
                     <MenuItem Header="_Nowy towar" Command="{Binding NowyTowarCommand}" InputGestureText="Ctrl+Shift+T"/>
                 </MenuItem>
-                <MenuItem Header="_Przyjęcie zewnętrzne (PZ)"/>
-                <MenuItem Header="_Wydanie zewnętrzne (WZ)"/>
+                <MenuItem Header="_Przyjęcie zewnętrzne (PZ)" IsEnabled="False"/>
+                <MenuItem Header="_Wydanie zewnętrzne (WZ)" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="Kasa/_Bank" IsEnabled="False"/>
             <MenuItem Header="_VAT" IsEnabled="False"/>
@@ -61,8 +61,6 @@
                 <MenuItem Header="_Faktury">
                     <MenuItem Header="_Wszystkie faktury" Command="{Binding FakturyCommand}" InputGestureText="Ctrl+F"/>
                     <MenuItem Header="_Nowa faktura" Command="{Binding NowaFakturaCommand}" InputGestureText="Ctrl+Shift+F"/>
-                </MenuItem>
-                <MenuItem Header="_PZ">
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="K_ontrahenci">
@@ -87,35 +85,36 @@
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator/>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding TowaryCommand}"/>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowyTowarCommand}"/>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding TowaryCommand}" ToolTip="{x:Static resx:BaseResources.TowaryTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/towar_wszystkie.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyTowarCommand}" ToolTip="{x:Static resx:BaseResources.NowyTowarTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/towar_dodaj.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
             <Separator/>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding FakturyCommand}"/>
-            <ToggleButton Width="32" Height="32" Background="Gray" Margin="2" Command="{Binding NowaFakturaCommand}"/>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding FakturyCommand}" ToolTip="{x:Static resx:BaseResources.FakturyTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/faktura_wszystkie.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowaFakturaCommand}" ToolTip="{x:Static resx:BaseResources.NowaFakturaTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/faktura_dodaj.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
             <Separator/>
-            <ToggleButton Width="32" Height="32" Margin="2">
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding KontrahenciCommand}" ToolTip="{x:Static resx:BaseResources.KontrahenciTooltip}" >
                 <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/home.png"/>
+                    <ImageBrush ImageSource="/Views/Content/Icons/kontrahent_wszyscy.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
-            <ToggleButton Width="32" Height="32" Margin="2">
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyKontrahentCommand}" ToolTip="{x:Static resx:BaseResources.NowyKontrahentTooltip}">
                 <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/logout.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Width="32" Height="32" Margin="2">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/delete.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Width="32" Height="32" Margin="2">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/item.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton ToolTip="{x:Static resx:BaseResources.Kontrahenci}" Width="32" Height="32" Margin="2" Command="{Binding KontrahenciCommand}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/item.png"/>
+                    <ImageBrush ImageSource="/Views/Content/Icons/kontrahent_dodaj.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
         </ToolBar>

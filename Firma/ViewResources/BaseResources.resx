@@ -135,6 +135,9 @@
   <data name="EMailCC" xml:space="preserve">
     <value>E-mail CC</value>
   </data>
+  <data name="FakturyTooltip" xml:space="preserve">
+    <value>Wykaz wszystkich faktur</value>
+  </data>
   <data name="FormaPlatnosci" xml:space="preserve">
     <value>Forma Płatności</value>
   </data>
@@ -159,6 +162,9 @@
   <data name="Kontrahenci" xml:space="preserve">
     <value>Kontrahenci</value>
   </data>
+  <data name="KontrahenciTooltip" xml:space="preserve">
+    <value>Wykaz wszystkich kontrahentów</value>
+  </data>
   <data name="LimitKupiecki" xml:space="preserve">
     <value>Limit Kupiecki</value>
   </data>
@@ -168,8 +174,17 @@
   <data name="NIP" xml:space="preserve">
     <value>NIP</value>
   </data>
+  <data name="NowaFakturaTooltip" xml:space="preserve">
+    <value>Dodawanie nowej faktury</value>
+  </data>
   <data name="NowyKontrahent" xml:space="preserve">
     <value>Nowy kontrahent</value>
+  </data>
+  <data name="NowyKontrahentTooltip" xml:space="preserve">
+    <value>Dodawanie nowego kontrahenta</value>
+  </data>
+  <data name="NowyTowarTooltip" xml:space="preserve">
+    <value>Dodawanie nowego towaru</value>
   </data>
   <data name="OsobaKontaktowa" xml:space="preserve">
     <value>Osoba Kontaktowa</value>
@@ -206,6 +221,9 @@
   </data>
   <data name="Towary" xml:space="preserve">
     <value>Towary</value>
+  </data>
+  <data name="TowaryTooltip" xml:space="preserve">
+    <value>Wykaz wszystkich towarów</value>
   </data>
   <data name="ZmienWidocznoscMenu" xml:space="preserve">
     <value>Pokaż / ukryj menu boczne</value>

@@ -9,10 +9,16 @@
 
   <ItemGroup>
     <None Remove="Views\Content\Icons\delete.png" />
+    <None Remove="Views\Content\Icons\faktura_dodaj.png" />
+    <None Remove="Views\Content\Icons\faktura_wszystkie.png" />
     <None Remove="Views\Content\Icons\home.png" />
     <None Remove="Views\Content\Icons\item.png" />
+    <None Remove="Views\Content\Icons\kontrahent_dodaj.png" />
+    <None Remove="Views\Content\Icons\kontrahent_wszyscy.png" />
     <None Remove="Views\Content\Icons\logout.png" />
     <None Remove="Views\Content\Icons\menu_open.png" />
+    <None Remove="Views\Content\Icons\towar_dodaj.png" />
+    <None Remove="Views\Content\Icons\towar_wszystkie.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +27,16 @@
 
   <ItemGroup>
     <Resource Include="Views\Content\Icons\delete.png" />
+    <Resource Include="Views\Content\Icons\faktura_dodaj.png" />
+    <Resource Include="Views\Content\Icons\faktura_wszystkie.png" />
     <Resource Include="Views\Content\Icons\home.png" />
     <Resource Include="Views\Content\Icons\item.png" />
+    <Resource Include="Views\Content\Icons\kontrahent_dodaj.png" />
+    <Resource Include="Views\Content\Icons\kontrahent_wszyscy.png" />
     <Resource Include="Views\Content\Icons\logout.png" />
     <Resource Include="Views\Content\Icons\menu_open.png" />
+    <Resource Include="Views\Content\Icons\towar_dodaj.png" />
+    <Resource Include="Views\Content\Icons\towar_wszystkie.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -186,7 +186,7 @@ public class MainWindowViewModel : BaseViewModel
     {
         get
         {
-            return new BaseCommand(() => createView(new WszyscyKontrahenciViewModel()));
+            return new BaseCommand(showAllKontrahenci);
         }
     }
     #endregion

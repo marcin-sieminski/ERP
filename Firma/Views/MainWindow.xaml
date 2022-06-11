@@ -16,11 +16,11 @@
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"/>
     </Window.Resources>
-    
+
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
-    
+
     <i:Interaction.Behaviors>
         <behaviors:CloseWindowButtonBehavior KeyBehavior="Esc" />
     </i:Interaction.Behaviors>
@@ -34,7 +34,7 @@
         <KeyBinding Key="O" Modifiers="Shift+Control" Command="{Binding NowyKontrahentCommand}"></KeyBinding>
         <KeyBinding Key="Q" Modifiers="Control" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"></KeyBinding>
     </Window.InputBindings>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -43,13 +43,13 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0" Grid.Column="0" Margin="3">
+        <Menu Style="{StaticResource MenuMain}" Grid.Row="0" Grid.Column="0" >
             <MenuItem Header="_System">
                 <MenuItem Header="_Zakończ pracę" InputGestureText="Esc" IsEnabled="False"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Handel">
                 <MenuItem Header="_Towary">
-                    <MenuItem Header="_Wszystkie towary" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
+                    <MenuItem Header="_Lista towarów" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
                     <MenuItem Header="_Nowy towar" Command="{Binding NowyTowarCommand}" InputGestureText="Ctrl+Shift+T"/>
                 </MenuItem>
                 <MenuItem Header="_Przyjęcie zewnętrzne (PZ)" IsEnabled="False"/>
@@ -59,12 +59,12 @@
             <MenuItem Header="_VAT" IsEnabled="False"/>
             <MenuItem Header="_Księgowość">
                 <MenuItem Header="_Faktury">
-                    <MenuItem Header="_Wszystkie faktury" Command="{Binding FakturyCommand}" InputGestureText="Ctrl+F"/>
+                    <MenuItem Header="_Lista faktur" Command="{Binding FakturyCommand}" InputGestureText="Ctrl+F"/>
                     <MenuItem Header="_Nowa faktura" Command="{Binding NowaFakturaCommand}" InputGestureText="Ctrl+Shift+F"/>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="K_ontrahenci">
-                <MenuItem Header="_Wszyscy kontrahenci" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+O"/>
+                <MenuItem Header="_Lista kontrahentów" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+O"/>
                 <MenuItem Header="_Nowy kontrahent" Command="{Binding NowyKontrahentCommand}" InputGestureText="Ctrl+Shift+O"/>
             </MenuItem>
             <MenuItem Header="_Płace i kadry" IsEnabled="False"/>
@@ -78,7 +78,7 @@
             </MenuItem>
         </Menu>
 
-        <ToolBar Grid.Row="1" Grid.Column="0">
+        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolbarMain}" Grid.ColumnSpan="3">
             <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZmienWidocznoscMenu}" >
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/menu_open.png"/>
@@ -119,7 +119,7 @@
             </ToggleButton>
         </ToolBar>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Grid.ColumnSpan="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -128,7 +128,6 @@
             <Border Grid.Column="0" Visibility="{Binding WidocznoscMenuBocznego}">
                 <HeaderedContentControl 
                     Header="Operacje" 
-                    Background="Aqua" 
                     Content="{Binding Commands}" 
                     ContentTemplate="{StaticResource CommandsTemplate}" 
                     Style="{StaticResource MainHCCStyle}"
@@ -137,7 +136,6 @@
             <Border Grid.Column="1">
                 <HeaderedContentControl 
                     Header="Przestrzeń robocza" 
-                    Background="Aqua" 
                     Content="{Binding Workspaces}" 
                     ContentTemplate="{StaticResource WorkspacesTemplate}" 
                     Style="{StaticResource MainHCCStyle}"                    
@@ -145,9 +143,12 @@
             </Border>
         </Grid>
 
-        <StatusBar Grid.Row="3" Grid.Column="0">
+        <StatusBar Style="{StaticResource StatusBarMain}" Grid.Row="3" Grid.Column="0">
             <StatusBarItem>
-                <TextBlock><Run Text="Marcin Siemiński"/></TextBlock>
+                <TextBlock><Run Text="Autor:"/></TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock><Run Text="{x:Static resx:BaseResources.Autor}"/></TextBlock>
             </StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock><Run Text="WSB NLU"/></TextBlock>

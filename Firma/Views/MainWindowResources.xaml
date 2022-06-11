@@ -31,6 +31,7 @@
     <!--Tu koniec łączenia View z ViewModel.-->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="Background" Value="Gray"/>
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
@@ -81,7 +82,7 @@
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding DisplayName}" Command="{Binding Path=Command}" Margin="6" Padding="5"  Background="LightSlateGray" BorderThickness="0"></Button>
+                    <Button Content="{Binding DisplayName}" Command="{Binding Path=Command}" Margin="6" Padding="5"  Background="LightGray" BorderThickness="0"></Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -126,12 +127,17 @@
       />
     </DataTemplate>
 
-    <Style x:Key="BaseDatePicker" TargetType="{x:Type DatePicker}">
-        <Setter Property="MinWidth" Value="150"></Setter>
+    <Style x:Key="ToolbarMain" TargetType="{x:Type ToolBar}" >
+        <Setter Property="Background" Value="LightGray"></Setter>
     </Style>
 
-    <Style x:Key="RedDatePicker" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseDatePicker}">
-        <Setter Property="Foreground" Value="Red"></Setter>
+    <Style x:Key="MenuMain" TargetType="Menu">
+        <Setter Property="Background" Value="LightGray"></Setter>
+        <Setter Property="Margin" Value="3,3,3,3"></Setter>
+    </Style>
+
+    <Style x:Key="StatusBarMain" TargetType="StatusBar">
+        <Setter Property="Background" Value="LightGray"></Setter>
     </Style>
 
 </ResourceDictionary>

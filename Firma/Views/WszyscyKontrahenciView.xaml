@@ -4,9 +4,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Firma.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+
     <Grid>
-            <Label Content="Kontrahenci"></Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" Grid.Column="0" Style="{StaticResource DataGridStandardowy}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Kod}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Nazwa}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.NIP}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Miasto}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Ulica}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Telefon}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.KodPocztowy}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.EMail}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.NrRachunku}"/>
+                <DataGridTextColumn Header="{x:Static resx:BaseResources.Uwagi}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox Grid.Row="1" Grid.Column="0" Header="{x:Static resx:BaseResources.WyszukiwanieKontrahenta}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Label HorizontalAlignment="Left" Content="{x:Static resx:BaseResources.Kryterium}" Grid.Row="0" Style="{StaticResource LabelStandardowy}"/>
+                <Label Grid.Row="1" HorizontalAlignment="Left" Content="{x:Static resx:BaseResources.SzukanaFraza}" Style="{StaticResource LabelStandardowy}"/>
+                
+                <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource ComboBoxStandardowy}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                <Button Grid.Column="2" Grid.Row="0" Content="{x:Static resx:BaseResources.Szukaj}" Style="{StaticResource ButtonStandardowy}"/>
+                <Button Grid.Column="2" Grid.Row="1" Content="{x:Static resx:BaseResources.Wyczyść}" Style="{StaticResource ButtonStandardowy}"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>

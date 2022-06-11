@@ -70,6 +70,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marcin Siemiński.
+        /// </summary>
+        public static string Autor {
+            get {
+                return ResourceManager.GetString("Autor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dane Adresowe Kontrahenta.
         /// </summary>
         public static string DaneAdresoweKontrahenta {
@@ -115,7 +124,16 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wykaz wszystkich faktur.
+        ///   Looks up a localized string similar to Lista faktur.
+        /// </summary>
+        public static string Faktury {
+            get {
+                return ResourceManager.GetString("Faktury", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista wszystkich faktur.
         /// </summary>
         public static string FakturyTooltip {
             get {
@@ -187,7 +205,16 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kontrahenci.
+        ///   Looks up a localized string similar to Kod pocztowy.
+        /// </summary>
+        public static string KodPocztowy {
+            get {
+                return ResourceManager.GetString("KodPocztowy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista kontrahentów.
         /// </summary>
         public static string Kontrahenci {
             get {
@@ -196,11 +223,20 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wykaz wszystkich kontrahentów.
+        ///   Looks up a localized string similar to Lista wszystkich kontrahentów.
         /// </summary>
         public static string KontrahenciTooltip {
             get {
                 return ResourceManager.GetString("KontrahenciTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kryterium wyszukiwania.
+        /// </summary>
+        public static string Kryterium {
+            get {
+                return ResourceManager.GetString("Kryterium", resourceCulture);
             }
         }
         
@@ -210,6 +246,15 @@ namespace Firma.ViewResources {
         public static string LimitKupiecki {
             get {
                 return ResourceManager.GetString("LimitKupiecki", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miasto.
+        /// </summary>
+        public static string Miasto {
+            get {
+                return ResourceManager.GetString("Miasto", resourceCulture);
             }
         }
         
@@ -228,6 +273,15 @@ namespace Firma.ViewResources {
         public static string NIP {
             get {
                 return ResourceManager.GetString("NIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa faktura.
+        /// </summary>
+        public static string NowaFaktura {
+            get {
+                return ResourceManager.GetString("NowaFaktura", resourceCulture);
             }
         }
         
@@ -259,11 +313,29 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nowy towar.
+        /// </summary>
+        public static string NowyTowar {
+            get {
+                return ResourceManager.GetString("NowyTowar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dodawanie nowego towaru.
         /// </summary>
         public static string NowyTowarTooltip {
             get {
                 return ResourceManager.GetString("NowyTowarTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nr rachunku.
+        /// </summary>
+        public static string NrRachunku {
+            get {
+                return ResourceManager.GetString("NrRachunku", resourceCulture);
             }
         }
         
@@ -331,6 +403,24 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Szukaj.
+        /// </summary>
+        public static string Szukaj {
+            get {
+                return ResourceManager.GetString("Szukaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Szukana fraza.
+        /// </summary>
+        public static string SzukanaFraza {
+            get {
+                return ResourceManager.GetString("SzukanaFraza", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Technologie Produkcji Pieczątek.
         /// </summary>
         public static string TechnologieProdukcjiPieczatek {
@@ -367,7 +457,7 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Towary.
+        ///   Looks up a localized string similar to Lista towarów.
         /// </summary>
         public static string Towary {
             get {
@@ -376,11 +466,56 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wykaz wszystkich towarów.
+        ///   Looks up a localized string similar to Lista wszystkich towarów.
         /// </summary>
         public static string TowaryTooltip {
             get {
                 return ResourceManager.GetString("TowaryTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ulica.
+        /// </summary>
+        public static string Ulica {
+            get {
+                return ResourceManager.GetString("Ulica", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uwagi.
+        /// </summary>
+        public static string Uwagi {
+            get {
+                return ResourceManager.GetString("Uwagi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyczyść.
+        /// </summary>
+        public static string Wyczyść {
+            get {
+                return ResourceManager.GetString("Wyczyść", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wyszukiwanie kontrahenta.
+        /// </summary>
+        public static string WyszukiwanieKontrahenta {
+            get {
+                return ResourceManager.GetString("WyszukiwanieKontrahenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zamknij.
+        /// </summary>
+        public static string Zamknij {
+            get {
+                return ResourceManager.GetString("Zamknij", resourceCulture);
             }
         }
         

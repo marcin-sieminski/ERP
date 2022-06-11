@@ -39,10 +39,10 @@ public class MainWindowViewModel : BaseViewModel
     {
         return new List<CommandViewModel>
         {
-            new CommandViewModel("Towary", new BaseCommand(showAllTowar)),
-            new CommandViewModel("Nowy towar", new BaseCommand(() => createView(new NowyTowarViewModel()))),
-            new CommandViewModel("Faktury", new BaseCommand(showAllFaktury)),
-            new CommandViewModel("Nowa faktura", new BaseCommand(() => createView(new NowaFakturaViewModel()))),
+            new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
+            new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
+            new CommandViewModel(BaseResources.Faktury, new BaseCommand(showAllFaktury)),
+            new CommandViewModel(BaseResources.NowaFaktura, new BaseCommand(() => createView(new NowaFakturaViewModel()))),
             new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(showAllKontrahenci)),
             new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel())))
         };

@@ -120,6 +120,9 @@
   <data name="Adres" xml:space="preserve">
     <value>Adres</value>
   </data>
+  <data name="Autor" xml:space="preserve">
+    <value>Marcin Siemiński</value>
+  </data>
   <data name="DaneAdresoweKontrahenta" xml:space="preserve">
     <value>Dane Adresowe Kontrahenta</value>
   </data>
@@ -135,8 +138,11 @@
   <data name="EMailCC" xml:space="preserve">
     <value>E-mail CC</value>
   </data>
+  <data name="Faktury" xml:space="preserve">
+    <value>Lista faktur</value>
+  </data>
   <data name="FakturyTooltip" xml:space="preserve">
-    <value>Wykaz wszystkich faktur</value>
+    <value>Lista wszystkich faktur</value>
   </data>
   <data name="FormaPlatnosci" xml:space="preserve">
     <value>Forma Płatności</value>
@@ -159,20 +165,32 @@
   <data name="Kod" xml:space="preserve">
     <value>Kod</value>
   </data>
+  <data name="KodPocztowy" xml:space="preserve">
+    <value>Kod pocztowy</value>
+  </data>
   <data name="Kontrahenci" xml:space="preserve">
-    <value>Kontrahenci</value>
+    <value>Lista kontrahentów</value>
   </data>
   <data name="KontrahenciTooltip" xml:space="preserve">
-    <value>Wykaz wszystkich kontrahentów</value>
+    <value>Lista wszystkich kontrahentów</value>
+  </data>
+  <data name="Kryterium" xml:space="preserve">
+    <value>Kryterium wyszukiwania</value>
   </data>
   <data name="LimitKupiecki" xml:space="preserve">
     <value>Limit Kupiecki</value>
+  </data>
+  <data name="Miasto" xml:space="preserve">
+    <value>Miasto</value>
   </data>
   <data name="Nazwa" xml:space="preserve">
     <value>Nazwa</value>
   </data>
   <data name="NIP" xml:space="preserve">
     <value>NIP</value>
+  </data>
+  <data name="NowaFaktura" xml:space="preserve">
+    <value>Nowa faktura</value>
   </data>
   <data name="NowaFakturaTooltip" xml:space="preserve">
     <value>Dodawanie nowej faktury</value>
@@ -183,8 +201,14 @@
   <data name="NowyKontrahentTooltip" xml:space="preserve">
     <value>Dodawanie nowego kontrahenta</value>
   </data>
+  <data name="NowyTowar" xml:space="preserve">
+    <value>Nowy towar</value>
+  </data>
   <data name="NowyTowarTooltip" xml:space="preserve">
     <value>Dodawanie nowego towaru</value>
+  </data>
+  <data name="NrRachunku" xml:space="preserve">
+    <value>Nr rachunku</value>
   </data>
   <data name="OsobaKontaktowa" xml:space="preserve">
     <value>Osoba Kontaktowa</value>
@@ -207,6 +231,12 @@
   <data name="Stanowisko" xml:space="preserve">
     <value>Stanowisko</value>
   </data>
+  <data name="Szukaj" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="SzukanaFraza" xml:space="preserve">
+    <value>Szukana fraza</value>
+  </data>
   <data name="TechnologieProdukcjiPieczatek" xml:space="preserve">
     <value>Technologie Produkcji Pieczątek</value>
   </data>
@@ -220,10 +250,25 @@
     <value>Termin Płatności</value>
   </data>
   <data name="Towary" xml:space="preserve">
-    <value>Towary</value>
+    <value>Lista towarów</value>
   </data>
   <data name="TowaryTooltip" xml:space="preserve">
-    <value>Wykaz wszystkich towarów</value>
+    <value>Lista wszystkich towarów</value>
+  </data>
+  <data name="Ulica" xml:space="preserve">
+    <value>Ulica</value>
+  </data>
+  <data name="Uwagi" xml:space="preserve">
+    <value>Uwagi</value>
+  </data>
+  <data name="Wyczyść" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="WyszukiwanieKontrahenta" xml:space="preserve">
+    <value>Wyszukiwanie kontrahenta</value>
+  </data>
+  <data name="Zamknij" xml:space="preserve">
+    <value>Zamknij</value>
   </data>
   <data name="ZmienWidocznoscMenu" xml:space="preserve">
     <value>Pokaż / ukryj menu boczne</value>

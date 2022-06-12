@@ -28,6 +28,13 @@
         <views:NowyKontrahentView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszyscyPracownicyViewModel}">
+        <views:WszyscyPracownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">
+        <views:NowyPracownikView/>
+    </DataTemplate>
     <!--Tu koniec łączenia View z ViewModel.-->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
@@ -139,5 +146,11 @@
     <Style x:Key="StatusBarMain" TargetType="StatusBar">
         <Setter Property="Background" Value="LightGray"></Setter>
     </Style>
+
+    <Style x:Key="GridMainWindow" TargetType="Grid">
+        <Setter Property="Background" Value="#E6E6E6"></Setter>
+    </Style>
+
+    
 
 </ResourceDictionary>

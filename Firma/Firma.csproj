@@ -17,6 +17,8 @@
     <None Remove="Views\Content\Icons\kontrahent_wszyscy.png" />
     <None Remove="Views\Content\Icons\logout.png" />
     <None Remove="Views\Content\Icons\menu_open.png" />
+    <None Remove="Views\Content\Icons\pracownicy_lista.png" />
+    <None Remove="Views\Content\Icons\pracownik_dodaj.png" />
     <None Remove="Views\Content\Icons\towar_dodaj.png" />
     <None Remove="Views\Content\Icons\towar_wszystkie.png" />
   </ItemGroup>
@@ -35,6 +37,8 @@
     <Resource Include="Views\Content\Icons\kontrahent_wszyscy.png" />
     <Resource Include="Views\Content\Icons\logout.png" />
     <Resource Include="Views\Content\Icons\menu_open.png" />
+    <Resource Include="Views\Content\Icons\pracownicy_lista.png" />
+    <Resource Include="Views\Content\Icons\pracownik_dodaj.png" />
     <Resource Include="Views\Content\Icons\towar_dodaj.png" />
     <Resource Include="Views\Content\Icons\towar_wszystkie.png" />
   </ItemGroup>

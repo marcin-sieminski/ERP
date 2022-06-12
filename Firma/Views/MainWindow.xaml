@@ -8,6 +8,7 @@
         xmlns:viewModels="clr-namespace:Firma.ViewModels"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:behaviors="clr-namespace:Firma.Behaviors"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         x:Class="Firma.Views.MainWindow"
         mc:Ignorable="d"
         Title="ERP" Height="600" Width="1000"
@@ -32,10 +33,12 @@
         <KeyBinding Key="F" Modifiers="Shift+Control" Command="{Binding FakturyCommand}"></KeyBinding>
         <KeyBinding Key="O" Modifiers="Control" Command="{Binding KontrahenciCommand}"></KeyBinding>
         <KeyBinding Key="O" Modifiers="Shift+Control" Command="{Binding NowyKontrahentCommand}"></KeyBinding>
+        <KeyBinding Key="P" Modifiers="Control" Command="{Binding PracownicyCommand}"></KeyBinding>
+        <KeyBinding Key="P" Modifiers="Shift+Control" Command="{Binding NowyPracownikCommand}"></KeyBinding>
         <KeyBinding Key="Q" Modifiers="Control" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}"></KeyBinding>
     </Window.InputBindings>
 
-    <Grid>
+    <Grid Style="{StaticResource GridMainWindow}">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
@@ -55,8 +58,6 @@
                 <MenuItem Header="_Przyjęcie zewnętrzne (PZ)" IsEnabled="False"/>
                 <MenuItem Header="_Wydanie zewnętrzne (WZ)" IsEnabled="False"/>
             </MenuItem>
-            <MenuItem Header="Kasa/_Bank" IsEnabled="False"/>
-            <MenuItem Header="_VAT" IsEnabled="False"/>
             <MenuItem Header="_Księgowość">
                 <MenuItem Header="_Faktury">
                     <MenuItem Header="_Lista faktur" Command="{Binding FakturyCommand}" InputGestureText="Ctrl+F"/>
@@ -67,8 +68,10 @@
                 <MenuItem Header="_Lista kontrahentów" Command="{Binding KontrahenciCommand}" InputGestureText="Ctrl+O"/>
                 <MenuItem Header="_Nowy kontrahent" Command="{Binding NowyKontrahentCommand}" InputGestureText="Ctrl+Shift+O"/>
             </MenuItem>
-            <MenuItem Header="_Płace i kadry" IsEnabled="False"/>
-            <MenuItem Header="_Narzędzia" IsEnabled="False"/>
+            <MenuItem Header="_Pracownicy">
+                <MenuItem Header="_Lista pracowników" Command="{Binding PracownicyCommand}" InputGestureText="Ctrl+P"/>
+                <MenuItem Header="_Nowy pracownik" Command="{Binding NowyPracownikCommand}" InputGestureText="Ctrl+Shift+P"/>
+            </MenuItem>
             <MenuItem Header="_Widok">
                 <MenuItem Header="_Menu boczne" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" InputGestureText="Ctrl+Q"/>
             </MenuItem>
@@ -78,7 +81,7 @@
             </MenuItem>
         </Menu>
 
-        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolbarMain}" Grid.ColumnSpan="3">
+        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolbarMain}">
             <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZmienWidocznoscMenu}" >
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/menu_open.png"/>
@@ -117,6 +120,17 @@
                     <ImageBrush ImageSource="/Views/Content/Icons/kontrahent_dodaj.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding PracownicyCommand}" ToolTip="{x:Static resx:BaseResources.PracownicyTooltip}" >
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/pracownicy_lista.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyPracownikCommand}" ToolTip="{x:Static resx:BaseResources.NowyPracownikTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/pracownik_dodaj.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
         </ToolBar>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="3" >
@@ -144,13 +158,26 @@
         </Grid>
 
         <StatusBar Style="{StaticResource StatusBarMain}" Grid.Row="3" Grid.Column="0">
-            <StatusBarItem>
-                <TextBlock><Run Text="Autor:"/></TextBlock>
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+
+            <StatusBarItem Grid.Column="0" HorizontalAlignment="Left">
+                <TextBlock Text="{x:Static resx:BaseResources.Autor}"/>
             </StatusBarItem>
-            <StatusBarItem>
-                <TextBlock><Run Text="{x:Static resx:BaseResources.Autor}"/></TextBlock>
+            <StatusBarItem Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Source={x:Static sys:DateTime.Now}}"/>
             </StatusBarItem>
-            <StatusBarItem HorizontalAlignment="Right">
+            <StatusBarItem Grid.Column="2" HorizontalAlignment="Right">
                 <TextBlock><Run Text="WSB NLU"/></TextBlock>
             </StatusBarItem>
         </StatusBar>

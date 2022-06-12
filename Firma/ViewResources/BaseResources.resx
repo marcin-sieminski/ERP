@@ -120,11 +120,32 @@
   <data name="Adres" xml:space="preserve">
     <value>Adres</value>
   </data>
+  <data name="Anulowane" xml:space="preserve">
+    <value>Anulowane</value>
+  </data>
   <data name="Autor" xml:space="preserve">
     <value>Marcin Siemiński</value>
   </data>
+  <data name="AutorLabel" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Brutto" xml:space="preserve">
+    <value>Brutto</value>
+  </data>
+  <data name="Bufor" xml:space="preserve">
+    <value>Bufor</value>
+  </data>
   <data name="DaneAdresoweKontrahenta" xml:space="preserve">
     <value>Dane Adresowe Kontrahenta</value>
+  </data>
+  <data name="DataSprzedazy" xml:space="preserve">
+    <value>Data sprzedaży</value>
+  </data>
+  <data name="DataWystawienia" xml:space="preserve">
+    <value>Data wystawienia</value>
+  </data>
+  <data name="Do" xml:space="preserve">
+    <value>Do</value>
   </data>
   <data name="EMail" xml:space="preserve">
     <value>E-mail</value>
@@ -144,8 +165,17 @@
   <data name="FakturyTooltip" xml:space="preserve">
     <value>Lista wszystkich faktur</value>
   </data>
+  <data name="FiltrZaawansowany" xml:space="preserve">
+    <value>Filtr zaawansowany</value>
+  </data>
+  <data name="Fiskalne" xml:space="preserve">
+    <value>Fiskalne</value>
+  </data>
   <data name="FormaPlatnosci" xml:space="preserve">
     <value>Forma Płatności</value>
+  </data>
+  <data name="FVMarza" xml:space="preserve">
+    <value>FV marża</value>
   </data>
   <data name="Handlowe" xml:space="preserve">
     <value>Handlowe</value>
@@ -174,6 +204,12 @@
   <data name="KontrahenciTooltip" xml:space="preserve">
     <value>Lista wszystkich kontrahentów</value>
   </data>
+  <data name="Kontrahent" xml:space="preserve">
+    <value>Kontrahent</value>
+  </data>
+  <data name="Korekty" xml:space="preserve">
+    <value>Korekty</value>
+  </data>
   <data name="Kryterium" xml:space="preserve">
     <value>Kryterium wyszukiwania</value>
   </data>
@@ -185,6 +221,12 @@
   </data>
   <data name="Nazwa" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="Netto" xml:space="preserve">
+    <value>Netto</value>
+  </data>
+  <data name="Nie" xml:space="preserve">
+    <value>Nie</value>
   </data>
   <data name="NIP" xml:space="preserve">
     <value>NIP</value>
@@ -201,6 +243,12 @@
   <data name="NowyKontrahentTooltip" xml:space="preserve">
     <value>Dodawanie nowego kontrahenta</value>
   </data>
+  <data name="NowyPracownik" xml:space="preserve">
+    <value>Nowy pracownik</value>
+  </data>
+  <data name="NowyPracownikTooltip" xml:space="preserve">
+    <value>Dodawanie nowego pracownika</value>
+  </data>
   <data name="NowyTowar" xml:space="preserve">
     <value>Nowy towar</value>
   </data>
@@ -210,14 +258,29 @@
   <data name="NrRachunku" xml:space="preserve">
     <value>Nr rachunku</value>
   </data>
+  <data name="NumerDokumentu" xml:space="preserve">
+    <value>Numer dokumentu</value>
+  </data>
+  <data name="Od" xml:space="preserve">
+    <value>Od</value>
+  </data>
   <data name="OsobaKontaktowa" xml:space="preserve">
     <value>Osoba Kontaktowa</value>
   </data>
   <data name="Pesel" xml:space="preserve">
     <value>PESEL</value>
   </data>
+  <data name="Pierwotne" xml:space="preserve">
+    <value>Pierwotne</value>
+  </data>
   <data name="PodstawoweDaneKontrahenta" xml:space="preserve">
     <value>Podstawowe dane kontrahenta</value>
+  </data>
+  <data name="Pracownicy" xml:space="preserve">
+    <value>Lista pracowników</value>
+  </data>
+  <data name="PracownicyTooltip" xml:space="preserve">
+    <value>Lista wszystkich pracowników</value>
   </data>
   <data name="Rabat" xml:space="preserve">
     <value>Rabat</value>
@@ -228,14 +291,26 @@
   <data name="Rodzaj" xml:space="preserve">
     <value>Rodzaj</value>
   </data>
+  <data name="Rozliczone" xml:space="preserve">
+    <value>Rozliczone</value>
+  </data>
+  <data name="SchematNumeracji" xml:space="preserve">
+    <value>Schemat numeracji</value>
+  </data>
   <data name="Stanowisko" xml:space="preserve">
     <value>Stanowisko</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
   </data>
   <data name="Szukaj" xml:space="preserve">
     <value>Szukaj</value>
   </data>
   <data name="SzukanaFraza" xml:space="preserve">
     <value>Szukana fraza</value>
+  </data>
+  <data name="Tak" xml:space="preserve">
+    <value>Tak</value>
   </data>
   <data name="TechnologieProdukcjiPieczatek" xml:space="preserve">
     <value>Technologie Produkcji Pieczątek</value>
@@ -258,6 +333,9 @@
   <data name="Ulica" xml:space="preserve">
     <value>Ulica</value>
   </data>
+  <data name="UtwWZ" xml:space="preserve">
+    <value>Utw. WZ</value>
+  </data>
   <data name="Uwagi" xml:space="preserve">
     <value>Uwagi</value>
   </data>
@@ -267,10 +345,19 @@
   <data name="WyszukiwanieKontrahenta" xml:space="preserve">
     <value>Wyszukiwanie kontrahenta</value>
   </data>
+  <data name="Zaksiegowane" xml:space="preserve">
+    <value>Zaksięgowane</value>
+  </data>
+  <data name="Zaliczkowe" xml:space="preserve">
+    <value>Zaliczkowe</value>
+  </data>
   <data name="Zamknij" xml:space="preserve">
     <value>Zamknij</value>
   </data>
   <data name="ZmienWidocznoscMenu" xml:space="preserve">
     <value>Pokaż / ukryj menu boczne</value>
+  </data>
+  <data name="ZParagonem" xml:space="preserve">
+    <value>Z paragonem</value>
   </data>
 </root>

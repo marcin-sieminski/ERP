@@ -1,4 +1,6 @@
-﻿namespace Firma.ViewModels;
+﻿using Firma.ViewResources;
+
+namespace Firma.ViewModels;
 
 public class WszystkieFakturyViewModel : WorkspaceViewModel
 {
@@ -6,7 +8,7 @@ public class WszystkieFakturyViewModel : WorkspaceViewModel
 
     public WszystkieFakturyViewModel()
     {
-        DisplayName = "Faktury";
+        DisplayName = BaseResources.Faktury;
     }
 
     #endregion

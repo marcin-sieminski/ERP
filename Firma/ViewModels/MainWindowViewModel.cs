@@ -44,7 +44,9 @@ public class MainWindowViewModel : BaseViewModel
             new CommandViewModel(BaseResources.Faktury, new BaseCommand(showAllFaktury)),
             new CommandViewModel(BaseResources.NowaFaktura, new BaseCommand(() => createView(new NowaFakturaViewModel()))),
             new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(showAllKontrahenci)),
-            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel())))
+            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel()))),
+            new CommandViewModel(BaseResources.Pracownicy, new BaseCommand(showAllPracownicy)),
+            new CommandViewModel(BaseResources.NowyPracownik, new BaseCommand(() => createView(new NowyPracownikViewModel()))),
         };
     }
     #endregion
@@ -87,7 +89,7 @@ public class MainWindowViewModel : BaseViewModel
 
     private void onWorkspaceRequestClose(object sender, EventArgs e)
     {
-        WorkspaceViewModel workspace = sender as WorkspaceViewModel;
+        var workspace = sender as WorkspaceViewModel;
         this.Workspaces.Remove(workspace);
     }
     #endregion
@@ -102,7 +104,7 @@ public class MainWindowViewModel : BaseViewModel
 
     private void showAllTowar()
     {
-        WszystkieTowaryViewModel workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
+        var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
         if (workspace is null)
         {
             workspace = new WszystkieTowaryViewModel();
@@ -122,7 +124,7 @@ public class MainWindowViewModel : BaseViewModel
     }
     private void showAllFaktury()
     {
-        WszystkieFakturyViewModel workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
+        var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
         if (workspace is null)
         {
             workspace = new WszystkieFakturyViewModel();
@@ -133,7 +135,7 @@ public class MainWindowViewModel : BaseViewModel
 
     private void showAllKontrahenci()
     {
-        WszyscyKontrahenciViewModel workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
+        var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
         if (workspace is null)
         {
             workspace = new WszyscyKontrahenciViewModel();
@@ -142,10 +144,20 @@ public class MainWindowViewModel : BaseViewModel
         setActiveWorkspace(workspace);
     }
 
+    private void showAllPracownicy()
+    {
+        var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
+        if (workspace is null)
+        {
+            workspace = new WszyscyPracownicyViewModel();
+            Workspaces.Add(workspace);
+        }
+        setActiveWorkspace(workspace);
+    }
+
     #endregion
 
     #region Komendy menu i paska narzędzi
-
     public ICommand NowyTowarCommand
     {
         get
@@ -161,6 +173,7 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(showAllTowar);
         }
     }
+
     public ICommand NowaFakturaCommand
     {
         get
@@ -168,6 +181,7 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(() => createView(new NowaFakturaViewModel()));
         }
     }
+
     public ICommand FakturyCommand
     {
         get
@@ -175,6 +189,7 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(showAllFaktury);
         }
     }
+
     public ICommand NowyKontrahentCommand
     {
         get
@@ -182,11 +197,28 @@ public class MainWindowViewModel : BaseViewModel
             return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
         }
     }
+
     public ICommand KontrahenciCommand
     {
         get
         {
             return new BaseCommand(showAllKontrahenci);
+        }
+    }
+
+    public ICommand NowyPracownikCommand
+    {
+        get
+        {
+            return new BaseCommand(() => createView(new NowyPracownikViewModel()));
+        }
+    }
+
+    public ICommand PracownicyCommand
+    {
+        get
+        {
+            return new BaseCommand(showAllPracownicy);
         }
     }
     #endregion

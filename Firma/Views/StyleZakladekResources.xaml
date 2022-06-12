@@ -6,6 +6,10 @@
     <Style x:Key="LabelStandardowy" TargetType="{x:Type Label}">
         <Setter Property="Margin" Value="3"/>
     </Style>
+    <Style x:Key="LabelPrawy" TargetType="{x:Type Label}">
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+    </Style>
     <Style x:Key="LabelError" TargetType="{x:Type Label}">
         <Setter Property="Height" Value="25"/>
         <Setter Property="Background" Value="Red"/>
@@ -44,5 +48,10 @@
         <Setter Property="Padding" Value="4" />
     </Style>
     
+    <Style x:Key="BaseDatePicker" TargetType="DatePicker">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+    </Style>
 
 </ResourceDictionary>

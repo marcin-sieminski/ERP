@@ -12,7 +12,7 @@
         x:Class="Firma.Views.MainWindow"
         mc:Ignorable="d"
         Title="ERP" Height="600" Width="1000"
-        WindowState="Normal"
+        WindowState="Maximized"
         >
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"/>
@@ -48,15 +48,7 @@
 
         <Menu Style="{StaticResource MenuMain}" Grid.Row="0" Grid.Column="0" >
             <MenuItem Header="_System">
-                <MenuItem Header="_Zakończ pracę" InputGestureText="Esc" IsEnabled="False"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="_Handel">
-                <MenuItem Header="_Towary">
-                    <MenuItem Header="_Lista towarów" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
-                    <MenuItem Header="_Nowy towar" Command="{Binding NowyTowarCommand}" InputGestureText="Ctrl+Shift+T"/>
-                </MenuItem>
-                <MenuItem Header="_Przyjęcie zewnętrzne (PZ)" IsEnabled="False"/>
-                <MenuItem Header="_Wydanie zewnętrzne (WZ)" IsEnabled="False"/>
+                <MenuItem Header="_Generuj raport" IsEnabled="False"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Księgowość">
                 <MenuItem Header="_Faktury">
@@ -72,6 +64,14 @@
                 <MenuItem Header="_Lista pracowników" Command="{Binding PracownicyCommand}" InputGestureText="Ctrl+P"/>
                 <MenuItem Header="_Nowy pracownik" Command="{Binding NowyPracownikCommand}" InputGestureText="Ctrl+Shift+P"/>
             </MenuItem>
+            <MenuItem Header="_Handel">
+                <MenuItem Header="_Towary">
+                    <MenuItem Header="_Lista towarów" Command="{Binding TowaryCommand}" InputGestureText="Ctrl+T"/>
+                    <MenuItem Header="_Nowy towar" Command="{Binding NowyTowarCommand}" InputGestureText="Ctrl+Shift+T"/>
+                </MenuItem>
+                <MenuItem Header="_Przyjęcie zewnętrzne (PZ)" IsEnabled="False"/>
+                <MenuItem Header="_Wydanie zewnętrzne (WZ)" IsEnabled="False"/>
+            </MenuItem>
             <MenuItem Header="_Widok">
                 <MenuItem Header="_Menu boczne" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" InputGestureText="Ctrl+Q"/>
             </MenuItem>
@@ -85,17 +85,6 @@
             <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZmienWidocznoscMenu}" >
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/menu_open.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <Separator/>
-            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding TowaryCommand}" ToolTip="{x:Static resx:BaseResources.TowaryTooltip}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/towar_wszystkie.png"/>
-                </ToggleButton.Background>
-            </ToggleButton>
-            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyTowarCommand}" ToolTip="{x:Static resx:BaseResources.NowyTowarTooltip}">
-                <ToggleButton.Background>
-                    <ImageBrush ImageSource="/Views/Content/Icons/towar_dodaj.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
             <Separator/>
@@ -131,6 +120,18 @@
                     <ImageBrush ImageSource="/Views/Content/Icons/pracownik_dodaj.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
+            <Separator/>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding TowaryCommand}" ToolTip="{x:Static resx:BaseResources.TowaryTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/towar_wszystkie.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyTowarCommand}" ToolTip="{x:Static resx:BaseResources.NowyTowarTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/towar_dodaj.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
+            <Separator/>
         </ToolBar>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="3" >

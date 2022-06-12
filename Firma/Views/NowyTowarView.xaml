@@ -12,11 +12,7 @@
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Style="{StaticResource LabelStandardowy}">Tu będzie dodawanie towaru</Label>
-        <Label Grid.Row="1"  Style="{StaticResource LabelError}">...</Label>
-        <Button Grid.Row="2" Content="OK" Style="{StaticResource ButtonStandardowy}" HorizontalAlignment="Left"></Button>
+        <Label Grid.Row="0" Style="{StaticResource LabelStandardowy}">Dodawanie nowego towaru</Label>
     </Grid>
 </UserControl>

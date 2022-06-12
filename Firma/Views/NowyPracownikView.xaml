@@ -3,101 +3,247 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:resx="clr-namespace:Firma.ViewResources"
+             mc:Ignorable="d" >
+
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Data zatrudnienia:" Width="138" Margin="2"/>
-                <DatePicker SelectedDate="01.01.2000" Style="{StaticResource BaseDatePicker}"/>
-                <Separator Width="143" Visibility="Hidden"></Separator>
-                <Label Content="Data zwolnienia:" Width="135" Margin="2"/>
-                <DatePicker SelectedDate="01.01.2000" Style="{StaticResource BaseDatePicker}"/>
-            </StackPanel>
-        </Border>
 
-        <Expander Header="Umowa o pracę" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
-            <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+        <TabControl Grid.Row="0">
+            <TabItem Header="{x:Static resx:BaseResources.Ogolne}">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="9"/>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Data zawarcia umowy:" Grid.ColumnSpan="2" Style="{StaticResource LabelStandardowy}"/>
-                        <DatePicker SelectedDate="01.01.2000"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource BaseDatePicker}"/>
-                        <Label Content="Data rozpoczęcia pracy:" Grid.Row="0" Grid.Column="3" Style="{StaticResource LabelStandardowy}"/>
-                        <DatePicker SelectedDate="01.01.2000"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" Style="{StaticResource BaseDatePicker}"/>
-                        <Label Content="Rodzaj umowy:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
-                        <ComboBox  Margin="2,2,2,2" Grid.Row="1" Grid.Column="2" IsEnabled="True">
-                            <ComboBoxItem Content="na czas nieokreślony" IsSelected="True" />
-                            <ComboBoxItem Content="Element 2"/>
-                        </ComboBox>
-                        <Label Content="Rodzaj zatrudnienia:" Grid.Column="3" Grid.Row="1" />
-                        <ComboBox  Margin="2,2,2,2" Grid.Row="1" Grid.Column="4" IsEnabled="True">
-                            <ComboBoxItem Content="pracownik" IsSelected="True" />
-                            <ComboBoxItem Content="Element 2"/>
-                        </ComboBox>
-                        <Button Content="Przyczyna zwol." Margin="2" Grid.Row="2" Grid.Column="0" IsEnabled="False" Grid.ColumnSpan="2"/>
-                        <ComboBox  Margin="2" Grid.Row="2" Grid.Column="2" IsEnabled="False" Grid.ColumnSpan="3" >
-                            <ComboBoxItem Content="Element 1"/>
-                        </ComboBox>
-                    </Grid>
-                    <Expander Header="Zastępowany pracownik" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
-                        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="Imię i nazwisko:" Margin="2"/>
-                                <TextBox Margin="2" Width="130"/>
-                                <Separator Width="60" Visibility="Hidden"></Separator>
-                                <CheckBox VerticalAlignment="Center" />
-                                <Label Content="Z listy pracowników" Margin="2" />
-                                <Separator Width="60" Visibility="Hidden"></Separator>
-                                <Button Content="Pracownik" Width="110" Margin="2" IsEnabled="False"/>
-                                <ComboBox  Width="170" Margin="2" IsEnabled="False" >
-                                    <ComboBoxItem Content="Element 1"/>
-                                </ComboBox>
-                            </StackPanel>
-                        </Border>
-                    </Expander>
-                    <Expander Header="Pracownik tymczasowy" Grid.Row="2" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
-                        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox VerticalAlignment="Center" />
-                                <Label Content="Pracownik tymczasowy" Margin="2"/>
-                                <Separator Visibility="Hidden"></Separator>
-                                <Button Content="Pracodawca" Width="110" Margin="2" IsEnabled="False"/>
-                                <ComboBox  Width="445" Margin="2" IsEnabled="False" >
-                                    <ComboBoxItem Content="Element 1"/>
-                                </ComboBox>
-                            </StackPanel>
-                        </Border>
-                    </Expander>
+                    <GroupBox Grid.Row="0" Header="{x:Static resx:BaseResources.DaneOgolne}" Style="{StaticResource GroupBoxStandardowy}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Imie}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.DrugieImie}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Nazwisko}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.NazwiskoRodowe}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.NIP}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.Pesel}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                        </Grid>
+                    </GroupBox>
 
+                    <GroupBox Grid.Row="1" Header="{x:Static resx:BaseResources.DaneTeleadresowe}" Style="{StaticResource GroupBoxStandardowy}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Kraj}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.KrajISO}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Miasto}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.Wojewodztwo}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.Poczta}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.KodPocztowy}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.Ulica}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="4" Grid.Column="0" Content="{x:Static resx:BaseResources.Dodatkowe}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="5" Grid.Column="0" Content="{x:Static resx:BaseResources.Telefon}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="5" Grid.Column="2" Content="{x:Static resx:BaseResources.Fax}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="6" Grid.Column="0" Content="{x:Static resx:BaseResources.TelefonKomorkowy}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="6" Grid.Column="2" Content="{x:Static resx:BaseResources.EMail}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="6" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="7" Grid.Column="0" Content="{x:Static resx:BaseResources.URL}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="7" Grid.Column="2" Content="{x:Static resx:BaseResources.EMail2}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Grid.Row="2" Header="{x:Static resx:BaseResources.Inne}" Style="{StaticResource GroupBoxStandardowy}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.KategoriaPrawaJazdy}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.KategoriaPomocnicza}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.NrRachunku}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.NrUprawnien}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Height="100" Style="{StaticResource TextBoxStandardowy}"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
-            </Border>
-        </Expander>
+            </TabItem>
+            <TabItem Header="{x:Static resx:BaseResources.Zatrudnienie}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Data zatrudnienia:" Width="138" Margin="2"/>
+                            <DatePicker SelectedDate="01.01.2000" Style="{StaticResource BaseDatePicker}"/>
+                            <Separator Width="143" Visibility="Hidden"></Separator>
+                            <Label Content="Data zwolnienia:" Width="135" Margin="2"/>
+                            <DatePicker SelectedDate="01.01.2000" Style="{StaticResource BaseDatePicker}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Expander Header="Umowa o pracę" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="9"/>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="140"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Data zawarcia umowy:" Grid.ColumnSpan="2" Style="{StaticResource LabelStandardowy}"/>
+                                    <DatePicker SelectedDate="01.01.2000"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Style="{StaticResource BaseDatePicker}"/>
+                                    <Label Content="Data rozpoczęcia pracy:" Grid.Row="0" Grid.Column="3" Style="{StaticResource LabelStandardowy}"/>
+                                    <DatePicker SelectedDate="01.01.2000"  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" Style="{StaticResource BaseDatePicker}"/>
+                                    <Label Content="Rodzaj umowy:" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+                                    <ComboBox  Margin="2,2,2,2" Grid.Row="1" Grid.Column="2" IsEnabled="True">
+                                        <ComboBoxItem Content="na czas nieokreślony" IsSelected="True" />
+                                        <ComboBoxItem Content="Element 2"/>
+                                    </ComboBox>
+                                    <Label Content="Rodzaj zatrudnienia:" Grid.Column="3" Grid.Row="1" />
+                                    <ComboBox  Margin="2,2,2,2" Grid.Row="1" Grid.Column="4" IsEnabled="True">
+                                        <ComboBoxItem Content="pracownik" IsSelected="True" />
+                                        <ComboBoxItem Content="Element 2"/>
+                                    </ComboBox>
+                                    <Button Content="Przyczyna zwol." Margin="2" Grid.Row="2" Grid.Column="0" IsEnabled="False" Grid.ColumnSpan="2"/>
+                                    <ComboBox  Margin="2" Grid.Row="2" Grid.Column="2" IsEnabled="False" Grid.ColumnSpan="3" >
+                                        <ComboBoxItem Content="Element 1"/>
+                                    </ComboBox>
+                                </Grid>
+                                <Expander Header="Zastępowany pracownik" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+                                    <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="Imię i nazwisko:" Margin="2"/>
+                                            <TextBox Margin="2" Width="130"/>
+                                            <Separator Width="60" Visibility="Hidden"></Separator>
+                                            <CheckBox VerticalAlignment="Center" />
+                                            <Label Content="Z listy pracowników" Margin="2" />
+                                            <Separator Width="60" Visibility="Hidden"></Separator>
+                                            <Button Content="Pracownik" Width="110" Margin="2" IsEnabled="False"/>
+                                            <ComboBox  Width="170" Margin="2" IsEnabled="False" >
+                                                <ComboBoxItem Content="Element 1"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Border>
+                                </Expander>
+                                <Expander Header="Pracownik tymczasowy" Grid.Row="2" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+                                    <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox VerticalAlignment="Center" />
+                                            <Label Content="Pracownik tymczasowy" Margin="2"/>
+                                            <Separator Visibility="Hidden"></Separator>
+                                            <Button Content="Pracodawca" Width="110" Margin="2" IsEnabled="False"/>
+                                            <ComboBox  Width="445" Margin="2" IsEnabled="False" >
+                                                <ComboBoxItem Content="Element 1"/>
+                                            </ComboBox>
+
+                                        </StackPanel>
+                                    </Border>
+                                </Expander>
+                                <GroupBox Grid.Row="3" Header="{x:Static resx:BaseResources.Inne}" Style="{StaticResource GroupBoxStandardowy}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Height="100" Style="{StaticResource TextBoxStandardowy}"/>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </Border>
+                    </Expander>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Style="{StaticResource ButtonStackPanel}">
+            <Button Content="{x:Static resx:BaseResources.Zapisz}" Style="{StaticResource ButtonStandardowy}"/>
+            <Button Content="{x:Static resx:BaseResources.Drukuj}" Style="{StaticResource ButtonStandardowy}"/>
+            <Button Content="{x:Static resx:BaseResources.Anuluj}" Style="{StaticResource ButtonStandardowy}"/>
+        </StackPanel>
     </Grid>
+
 </UserControl>

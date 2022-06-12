@@ -2,8 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Firma.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:resx="clr-namespace:Firma.ViewResources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1920">
@@ -11,145 +10,213 @@
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
-    <ScrollViewer HorizontalScrollBarVisibility="Visible">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
 
-            <GroupBox Header="{x:Static resx:BaseResources.PodstawoweDaneKontrahenta}" Style="{StaticResource GroupBoxStandardowy}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0">
+            <TabItem Header="{x:Static resx:BaseResources.PodstawoweDaneKontrahenta}">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <GroupBox Header="{x:Static resx:BaseResources.PodstawoweDaneKontrahenta}" Style="{StaticResource GroupBoxStandardowy}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Content="{x:Static resx:BaseResources.Kod}" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                                <Label Content="{x:Static resx:BaseResources.NIP}" Grid.Column="2" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                                <CheckBox Content="{x:Static resx:BaseResources.KlientAktywny}" Grid.Column="4" Style="{StaticResource CheckBoxStandardowy}" Grid.ColumnSpan="3"/>
+                                <Label Content="{x:Static resx:BaseResources.Regon}" Grid.Column="2" Grid.Row="1" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Column="3" Grid.Row="1" Style="{StaticResource TextBoxStandardowy}"/>
+                                <Border Grid.Column="4" Grid.Row="1"  IsEnabled="False" Grid.RowSpan="2" Style="{StaticResource BorderStandardowy}">
+                                    <StackPanel>
+                                        <CheckBox Content="Podmiot gospodarczy" IsChecked="True" Style="{StaticResource CheckBoxStandardowy}"/>
+                                        <CheckBox Content="Osoba fizyczna" Style="{StaticResource CheckBoxStandardowy}"/>
+                                    </StackPanel>
+                                </Border>
+                                <Label Content="{x:Static resx:BaseResources.Rodzaj}" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                    <CheckBox Content="Odb" IsChecked="True" Style="{StaticResource CheckBoxStandardowy}"/>
+                                    <CheckBox Content="Dost" Style="{StaticResource CheckBoxStandardowy}"/>
+                                    <CheckBox Content="Konk" Style="{StaticResource CheckBoxStandardowy}"/>
+                                    <CheckBox Content="Par" Style="{StaticResource CheckBoxStandardowy}"/>
+                                    <CheckBox Content="Pot" Style="{StaticResource CheckBoxStandardowy}"/>
+                                </StackPanel>
+                                <Label Content="{x:Static resx:BaseResources.Pesel}" Grid.Column="2" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBoxStandardowy}"/>
+                                <Label Content="{x:Static resx:BaseResources.Nazwa}" Grid.Column="0" Grid.Row="3" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBoxStandardowy}" Grid.ColumnSpan="4"/>
+
+                                <GroupBox Grid.Column="5" Grid.RowSpan="5" Header="{x:Static resx:BaseResources.Inne}" Style="{StaticResource GroupBoxStandardowy}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Height="100" Style="{StaticResource TextBoxStandardowy}"/>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Header="{x:Static resx:BaseResources.OsobaKontaktowa}" Grid.Row="1" Style="{StaticResource GroupBoxStandardowy}">
+                            <Grid>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{x:Static resx:BaseResources.ImieINazwisko}" Style="{StaticResource LabelStandardowy}"/>
+                                        <TextBox Width="400" Style="{StaticResource TextBoxStandardowy}"/>
+                                        <Label Content="{x:Static resx:BaseResources.TelefonKomorkowy}" Style="{StaticResource LabelStandardowy}"/>
+                                        <TextBox Width="300" Style="{StaticResource TextBoxStandardowy}"/>
+                                        <Label Content="{x:Static resx:BaseResources.EMail}" Style="{StaticResource LabelStandardowy}"/>
+                                        <TextBox Width="300" Style="{StaticResource TextBoxStandardowy}"/>
+                                        <Button Content="{x:Static resx:BaseResources.Dodaj}" Style="{StaticResource ButtonStandardowy}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Header="{x:Static resx:BaseResources.Handlowe}" Grid.Column="1" Grid.RowSpan="2">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="24"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.Kategoria}" Grid.Row="0" Style="{StaticResource LabelStandardowy}"/>
+                                <ComboBox Grid.Row="1" Style="{StaticResource ComboBoxStandardowy}" IsEnabled="False">
+                                    <ComboBoxItem Content="ZAINTERESOWANI" IsSelected="True"/>
+                                </ComboBox>
+                                <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.KategoriaPomocnicza}" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
+                                <ComboBox Grid.Row="3" Style="{StaticResource ComboBoxStandardowy}">
+                                </ComboBox>
+                                <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.FormaPlatnosci}" Grid.Row="4" Style="{StaticResource LabelStandardowy}"/>
+                                <ComboBox Grid.Row="5" Style="{StaticResource ComboBoxStandardowy}" IsEnabled="False">
+                                    <ComboBoxItem Content="gotówka" IsSelected="True"/>
+                                </ComboBox>
+                                <CheckBox Content="{x:Static resx:BaseResources.LimitKupiecki}" Grid.Row="6" Style="{StaticResource CheckBoxStandardowy}"/>
+                                <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.TerminPlatnosci}" Grid.Row="8" Style="{StaticResource LabelStandardowy}"/>
+                                <DatePicker Grid.Row="9" Style="{StaticResource DatePickerStandardowy}"/>
+                                <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.Rabat}" Grid.Row="8" Grid.Column="1" Style="{StaticResource LabelStandardowy}"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" Text="0,00 %" Style="{StaticResource TextBoxStandardowy}"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <DataGrid Grid.Row="2" Grid.ColumnSpan="2" Height="400" Style="{StaticResource DataGridStandardowy}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{x:Static resx:BaseResources.ImieINazwisko}"/>
+                                <DataGridTextColumn Header="{x:Static resx:BaseResources.Stanowisko}"/>
+                                <DataGridTextColumn Header="{x:Static resx:BaseResources.Telefon}"/>
+                                <DataGridTextColumn Header="{x:Static resx:BaseResources.TelefonKomorkowy}"/>
+                                <DataGridTextColumn Header="{x:Static resx:BaseResources.EMail}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="{x:Static resx:BaseResources.DaneTeleadresowe}">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="120"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Label Content="{x:Static resx:BaseResources.Kod}" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Text="TELEGRAF" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
-                    <Label Content="{x:Static resx:BaseResources.NIP}" Grid.Column="2" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
-                    <CheckBox Content="{x:Static resx:BaseResources.KlientAktywny}" Grid.Column="4" Style="{StaticResource CheckBoxStandardowy}" Grid.ColumnSpan="3"/>
-                    <Label Content="{x:Static resx:BaseResources.Regon}" Grid.Column="2" Grid.Row="1" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Grid.Column="3" Grid.Row="1" Style="{StaticResource TextBoxStandardowy}"/>
-                    <Border Grid.Column="4" Grid.Row="1"  IsEnabled="False" Grid.RowSpan="2" Style="{StaticResource BorderStandardowy}">
-                        <StackPanel>
-                            <CheckBox Content="Podmiot gospodarczy" IsChecked="True" Style="{StaticResource CheckBoxStandardowy}"/>
-                            <CheckBox Content="Osoba fizyczna" Style="{StaticResource CheckBoxStandardowy}"/>
-                        </StackPanel>
-                    </Border>
-                    <Label Content="{x:Static resx:BaseResources.Rodzaj}" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
-                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                        <CheckBox Content="Odb" IsChecked="True" Style="{StaticResource CheckBoxStandardowy}"/>
-                        <CheckBox Content="Dost" Style="{StaticResource CheckBoxStandardowy}"/>
-                        <CheckBox Content="Konk" Style="{StaticResource CheckBoxStandardowy}"/>
-                        <CheckBox Content="Par" Style="{StaticResource CheckBoxStandardowy}"/>
-                        <CheckBox Content="Pot" Style="{StaticResource CheckBoxStandardowy}"/>
-                    </StackPanel>
-                    <Label Content="{x:Static resx:BaseResources.Pesel}" Grid.Column="2" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Grid.Column="3" Grid.Row="2" Style="{StaticResource TextBoxStandardowy}"/>
-                    <Label Content="{x:Static resx:BaseResources.Nazwa}" Grid.Column="0" Grid.Row="3" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Text="F.H. Telegraf" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBoxStandardowy}" Grid.ColumnSpan="4"/>
-                    <Label Content="{x:Static resx:BaseResources.Nazwa}" Grid.Column="0" Grid.Row="4" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Text="F.H. Telegraf" Grid.Column="1" Grid.Row="4" Style="{StaticResource TextBoxStandardowy}" Grid.ColumnSpan="2"/>
-                    <TextBox Text="F.H. Telegraf" Grid.Column="3" Grid.Row="4" Style="{StaticResource TextBoxStandardowy}" Grid.ColumnSpan="2"/>
-
-                    <GroupBox Header="{x:Static resx:BaseResources.TechnologieProdukcjiPieczatek}" Grid.Column="5" Grid.RowSpan="5" Style="{StaticResource GroupBoxStandardowy}">
-                        <StackPanel>
-                            <CheckBox Content="Brak pieczątek w ofercie" Style="{StaticResource CheckBoxStandardowy}"/>
-                            <CheckBox Content="Technologia polimerowa" Style="{StaticResource CheckBoxStandardowy}"/>
-                            <CheckBox Content="Technologia laserowa" Style="{StaticResource CheckBoxStandardowy}"/>
-                            <CheckBox Content="Technologia FLASH" Style="{StaticResource CheckBoxStandardowy}"/>
-                            <CheckBox Content="Podzleca" Style="{StaticResource CheckBoxStandardowy}"/>
-                        </StackPanel>
+                    <GroupBox Grid.Row="1" Header="{x:Static resx:BaseResources.DaneTeleadresowe}" Style="{StaticResource GroupBoxStandardowy}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Kraj}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.KrajISO}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Miasto}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.Wojewodztwo}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="1" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.Poczta}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="2" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.KodPocztowy}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.Ulica}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="4" Grid.Column="0" Content="{x:Static resx:BaseResources.Dodatkowe}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="5" Grid.Column="0" Content="{x:Static resx:BaseResources.Telefon}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="5" Grid.Column="2" Content="{x:Static resx:BaseResources.Fax}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="6" Grid.Column="0" Content="{x:Static resx:BaseResources.TelefonKomorkowy}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="6" Grid.Column="2" Content="{x:Static resx:BaseResources.EMail}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="6" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="7" Grid.Column="0" Content="{x:Static resx:BaseResources.URL}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
+                            <Label Grid.Row="7" Grid.Column="2" Content="{x:Static resx:BaseResources.EMail2}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="7" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
+                        </Grid>
                     </GroupBox>
                 </Grid>
-            </GroupBox>
-
-            <GroupBox Header="{x:Static resx:BaseResources.DaneAdresoweKontrahenta}" Grid.Row="1" Style="{StaticResource GroupBoxStandardowy}">
-                <Grid>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{x:Static resx:BaseResources.OsobaKontaktowa}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Width="450" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Content="{x:Static resx:BaseResources.EMail}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Width="120" Style="{StaticResource TextBoxStandardowy}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{x:Static resx:BaseResources.EMail2}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Width="120" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Content="{x:Static resx:BaseResources.EMail3}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Width="120" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Content="{x:Static resx:BaseResources.EMailCC}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Width="120" Style="{StaticResource TextBoxStandardowy}"/>
-
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </GroupBox>
-
-            <GroupBox Header="{x:Static resx:BaseResources.Handlowe}" Grid.Column="1" Grid.RowSpan="2">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="24"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.Kategoria}" Grid.Row="0" Style="{StaticResource LabelStandardowy}"/>
-                    <ComboBox Grid.Row="1" Style="{StaticResource ComboBoxStandardowy}" IsEnabled="False">
-                        <ComboBoxItem Content="ZAINTERESOWANI" IsSelected="True"/>
-                    </ComboBox>
-                    <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.KategoriaPomocnicza}" Grid.Row="2" Style="{StaticResource LabelStandardowy}"/>
-                    <ComboBox Grid.Row="3" Style="{StaticResource ComboBoxStandardowy}">
-                    </ComboBox>
-                    <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.FormaPlatnosci}" Grid.Row="4" Style="{StaticResource LabelStandardowy}"/>
-                    <ComboBox Grid.Row="5" Style="{StaticResource ComboBoxStandardowy}" IsEnabled="False">
-                        <ComboBoxItem Content="gotówka" IsSelected="True"/>
-                    </ComboBox>
-                    <CheckBox Content="{x:Static resx:BaseResources.LimitKupiecki}" Grid.Row="6" Style="{StaticResource CheckBoxStandardowy}"/>
-                    <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.TerminPlatnosci}" Grid.Row="8" Style="{StaticResource LabelStandardowy}"/>
-                    <DatePicker Grid.Row="9" Style="{StaticResource DatePickerStandardowy}"/>
-                    <Label HorizontalAlignment="Center" Content="{x:Static resx:BaseResources.Rabat}" Grid.Row="8" Grid.Column="1" Style="{StaticResource LabelStandardowy}"/>
-                    <TextBox Grid.Row="9" Grid.Column="1" Text="0,00 %" Style="{StaticResource TextBoxStandardowy}"/>
-                </Grid>
-            </GroupBox>
-
-            <DataGrid Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource DataGridStandardowy}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static resx:BaseResources.ImieINazwisko}"/>
-                    <DataGridTextColumn Header="{x:Static resx:BaseResources.Stanowisko}"/>
-                    <DataGridTextColumn Header="{x:Static resx:BaseResources.Telefon}"/>
-                    <DataGridTextColumn Header="{x:Static resx:BaseResources.TelefonKomorkowy}"/>
-                    <DataGridTextColumn Header="{x:Static resx:BaseResources.EMail}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-    </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="1" Style="{StaticResource ButtonStackPanel}">
+            <Button Content="{x:Static resx:BaseResources.Zapisz}" Style="{StaticResource ButtonStandardowy}"/>
+            <Button Content="{x:Static resx:BaseResources.Drukuj}" Style="{StaticResource ButtonStandardowy}"/>
+            <Button Content="{x:Static resx:BaseResources.Anuluj}" Style="{StaticResource ButtonStandardowy}"/>
+        </StackPanel>
+    </Grid>
 </UserControl>

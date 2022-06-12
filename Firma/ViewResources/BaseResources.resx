@@ -123,6 +123,9 @@
   <data name="Anulowane" xml:space="preserve">
     <value>Anulowane</value>
   </data>
+  <data name="Anuluj" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
   <data name="Autor" xml:space="preserve">
     <value>Marcin Siemiński</value>
   </data>
@@ -135,8 +138,17 @@
   <data name="Bufor" xml:space="preserve">
     <value>Bufor</value>
   </data>
+  <data name="Cena" xml:space="preserve">
+    <value>Cena</value>
+  </data>
   <data name="DaneAdresoweKontrahenta" xml:space="preserve">
     <value>Dane Adresowe Kontrahenta</value>
+  </data>
+  <data name="DaneOgolne" xml:space="preserve">
+    <value>Dane ogólne</value>
+  </data>
+  <data name="DaneTeleadresowe" xml:space="preserve">
+    <value>Dane teleadresowe</value>
   </data>
   <data name="DataSprzedazy" xml:space="preserve">
     <value>Data sprzedaży</value>
@@ -144,8 +156,32 @@
   <data name="DataWystawienia" xml:space="preserve">
     <value>Data wystawienia</value>
   </data>
+  <data name="DataZatrudnienia" xml:space="preserve">
+    <value>Data zatrudnienia</value>
+  </data>
+  <data name="DatyIWartosci" xml:space="preserve">
+    <value>Daty i wartości</value>
+  </data>
   <data name="Do" xml:space="preserve">
     <value>Do</value>
+  </data>
+  <data name="Dodaj" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="Dodatkowe" xml:space="preserve">
+    <value>Dodatkowe</value>
+  </data>
+  <data name="Dokument" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="DrugieImie" xml:space="preserve">
+    <value>Drugie imię</value>
+  </data>
+  <data name="Drukuj" xml:space="preserve">
+    <value>Drukuj</value>
+  </data>
+  <data name="EAN" xml:space="preserve">
+    <value>EAN (karta)</value>
   </data>
   <data name="EMail" xml:space="preserve">
     <value>E-mail</value>
@@ -159,11 +195,17 @@
   <data name="EMailCC" xml:space="preserve">
     <value>E-mail CC</value>
   </data>
+  <data name="FakturaOd" xml:space="preserve">
+    <value>Faktura od</value>
+  </data>
   <data name="Faktury" xml:space="preserve">
     <value>Lista faktur</value>
   </data>
   <data name="FakturyTooltip" xml:space="preserve">
     <value>Lista wszystkich faktur</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Fax</value>
   </data>
   <data name="FiltrZaawansowany" xml:space="preserve">
     <value>Filtr zaawansowany</value>
@@ -177,17 +219,35 @@
   <data name="FVMarza" xml:space="preserve">
     <value>FV marża</value>
   </data>
+  <data name="Grupa" xml:space="preserve">
+    <value>Grupa</value>
+  </data>
   <data name="Handlowe" xml:space="preserve">
     <value>Handlowe</value>
   </data>
+  <data name="Ilosc" xml:space="preserve">
+    <value>Ilość</value>
+  </data>
+  <data name="Imie" xml:space="preserve">
+    <value>Imię</value>
+  </data>
   <data name="ImieINazwisko" xml:space="preserve">
     <value>Imię i nazwisko</value>
+  </data>
+  <data name="Inne" xml:space="preserve">
+    <value>Inne</value>
+  </data>
+  <data name="Jm" xml:space="preserve">
+    <value>Jm</value>
   </data>
   <data name="Kategoria" xml:space="preserve">
     <value>Kategoria</value>
   </data>
   <data name="KategoriaPomocnicza" xml:space="preserve">
     <value>Kategoria Pomocnicza</value>
+  </data>
+  <data name="KategoriaPrawaJazdy" xml:space="preserve">
+    <value>Kategoria prawa jazdy</value>
   </data>
   <data name="KlientAktywny" xml:space="preserve">
     <value>Klient aktywny</value>
@@ -210,17 +270,35 @@
   <data name="Korekty" xml:space="preserve">
     <value>Korekty</value>
   </data>
+  <data name="Kraj" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="KrajISO" xml:space="preserve">
+    <value>Kraj ISO</value>
+  </data>
   <data name="Kryterium" xml:space="preserve">
     <value>Kryterium wyszukiwania</value>
   </data>
   <data name="LimitKupiecki" xml:space="preserve">
     <value>Limit Kupiecki</value>
   </data>
+  <data name="Lp" xml:space="preserve">
+    <value>Lp.</value>
+  </data>
+  <data name="Magazyn" xml:space="preserve">
+    <value>Magazyn</value>
+  </data>
   <data name="Miasto" xml:space="preserve">
     <value>Miasto</value>
   </data>
   <data name="Nazwa" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="Nazwisko" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="NazwiskoRodowe" xml:space="preserve">
+    <value>Nazwisko rodowe</value>
   </data>
   <data name="Netto" xml:space="preserve">
     <value>Netto</value>
@@ -258,11 +336,20 @@
   <data name="NrRachunku" xml:space="preserve">
     <value>Nr rachunku</value>
   </data>
+  <data name="NrUprawnien" xml:space="preserve">
+    <value>Nr uprawnien</value>
+  </data>
+  <data name="NrZezwolenia" xml:space="preserve">
+    <value>Nr zezwolenia</value>
+  </data>
   <data name="NumerDokumentu" xml:space="preserve">
     <value>Numer dokumentu</value>
   </data>
   <data name="Od" xml:space="preserve">
     <value>Od</value>
+  </data>
+  <data name="Ogolne" xml:space="preserve">
+    <value>Ogólne</value>
   </data>
   <data name="OsobaKontaktowa" xml:space="preserve">
     <value>Osoba Kontaktowa</value>
@@ -273,8 +360,26 @@
   <data name="Pierwotne" xml:space="preserve">
     <value>Pierwotne</value>
   </data>
+  <data name="Platnosc" xml:space="preserve">
+    <value>Płatność</value>
+  </data>
+  <data name="Platnosci" xml:space="preserve">
+    <value>Płatności</value>
+  </data>
+  <data name="Poczta" xml:space="preserve">
+    <value>Poczta</value>
+  </data>
   <data name="PodstawoweDaneKontrahenta" xml:space="preserve">
     <value>Podstawowe dane kontrahenta</value>
+  </data>
+  <data name="PoTerminie" xml:space="preserve">
+    <value>Po terminie</value>
+  </data>
+  <data name="Pozostaje" xml:space="preserve">
+    <value>Pozostaje</value>
+  </data>
+  <data name="PozycjeFaktury" xml:space="preserve">
+    <value>Pozycje faktury</value>
   </data>
   <data name="Pracownicy" xml:space="preserve">
     <value>Lista pracowników</value>
@@ -285,11 +390,17 @@
   <data name="Rabat" xml:space="preserve">
     <value>Rabat</value>
   </data>
+  <data name="Razem" xml:space="preserve">
+    <value>Razem</value>
+  </data>
   <data name="Regon" xml:space="preserve">
     <value>REGON</value>
   </data>
   <data name="Rodzaj" xml:space="preserve">
     <value>Rodzaj</value>
+  </data>
+  <data name="RodzajZatrudnienia" xml:space="preserve">
+    <value>Rodzaj zatrudnienia</value>
   </data>
   <data name="Rozliczone" xml:space="preserve">
     <value>Rozliczone</value>
@@ -333,17 +444,35 @@
   <data name="Ulica" xml:space="preserve">
     <value>Ulica</value>
   </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Usun" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
   <data name="UtwWZ" xml:space="preserve">
     <value>Utw. WZ</value>
   </data>
   <data name="Uwagi" xml:space="preserve">
     <value>Uwagi</value>
   </data>
+  <data name="Wartosc" xml:space="preserve">
+    <value>Wartość</value>
+  </data>
+  <data name="Wojewodztwo" xml:space="preserve">
+    <value>Województwo</value>
+  </data>
   <data name="Wyczyść" xml:space="preserve">
     <value>Wyczyść</value>
   </data>
   <data name="WyszukiwanieKontrahenta" xml:space="preserve">
     <value>Wyszukiwanie kontrahenta</value>
+  </data>
+  <data name="WyszukiwaniePracownika" xml:space="preserve">
+    <value>Wyszukiwanie pracownika</value>
+  </data>
+  <data name="Zadluzenie" xml:space="preserve">
+    <value>Zadłużenie</value>
   </data>
   <data name="Zaksiegowane" xml:space="preserve">
     <value>Zaksięgowane</value>
@@ -353,6 +482,15 @@
   </data>
   <data name="Zamknij" xml:space="preserve">
     <value>Zamknij</value>
+  </data>
+  <data name="Zapisz" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Zaplacono" xml:space="preserve">
+    <value>Zapłacono</value>
+  </data>
+  <data name="Zatrudnienie" xml:space="preserve">
+    <value>Zatrudnienie</value>
   </data>
   <data name="ZmienWidocznoscMenu" xml:space="preserve">
     <value>Pokaż / ukryj menu boczne</value>

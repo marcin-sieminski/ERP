@@ -16,9 +16,22 @@
     </Style>
     <Style x:Key="ButtonStandardowy" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="25"/>
-        <Setter Property="Width" Value="100"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="Background" Value="LightGray"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="ButtonWaski" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="ButtonStackPanel" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
     <Style x:Key="CheckBoxStandardowy" TargetType="{x:Type CheckBox}">
         <Setter Property="Margin" Value="3"/>

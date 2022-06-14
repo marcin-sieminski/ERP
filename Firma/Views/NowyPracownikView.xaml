@@ -229,7 +229,7 @@
                                             <ColumnDefinition Width="2*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Height="100" Style="{StaticResource TextBoxStandardowy}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Height="200" Style="{StaticResource TextBoxStandardowy}"/>
                                     </Grid>
                                 </GroupBox>
                             </Grid>

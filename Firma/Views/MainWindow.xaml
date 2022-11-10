@@ -12,7 +12,7 @@
         x:Class="Firma.Views.MainWindow"
         mc:Ignorable="d"
         Title="ERP" Height="600" Width="1000"
-        WindowState="Maximized"
+        WindowState="Normal"
         >
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"/>

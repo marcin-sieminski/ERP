@@ -1,8 +1,9 @@
 ﻿using Firma.ViewResources;
 
-namespace Firma.ViewModels;
-
-public class NowyKontrahentViewModel : WorkspaceViewModel
+namespace Firma.ViewModels
 {
-    public NowyKontrahentViewModel() => DisplayName = BaseResources.NowyKontrahent;
+    public class NowyKontrahentViewModel : WorkspaceViewModel
+    {
+        public NowyKontrahentViewModel() => DisplayName = BaseResources.NowyKontrahent;
+    }
 }

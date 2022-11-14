@@ -2,40 +2,40 @@
 using System.Windows.Input;
 using Firma.Helpers;
 
-namespace Firma.ViewModels;
-
-public class WorkspaceViewModel : BaseViewModel
+namespace Firma.ViewModels
 {
-    #region Pola i komendy
-    public string DisplayName { get; set; }
-
-    private BaseCommand _CloseCommand;
-
-    public ICommand CloseCommand
+    public class WorkspaceViewModel : BaseViewModel
     {
-        get
+        #region Pola i komendy
+        public string DisplayName { get; set; }
+
+        private BaseCommand _CloseCommand;
+
+        public ICommand CloseCommand
         {
-            if (_CloseCommand == null)
+            get
             {
-                _CloseCommand = new BaseCommand(() => onRequestClose());
+                if (_CloseCommand == null)
+                {
+                    _CloseCommand = new BaseCommand(() => onRequestClose());
+                }
+
+                return _CloseCommand;
             }
-
-            return _CloseCommand;
         }
-    }
-    #endregion
-    
-    #region RequestClose 
-    public event EventHandler RequestClose;
+        #endregion
 
-    private void onRequestClose()
-    {
-        EventHandler handler = RequestClose;
-        if (handler != null)
+        #region RequestClose 
+        public event EventHandler RequestClose;
+
+        private void onRequestClose()
         {
-            handler(this, EventArgs.Empty);
+            EventHandler handler = RequestClose;
+            if (handler != null)
+            {
+                handler(this, EventArgs.Empty);
+            }
         }
-    } 
-    #endregion
+        #endregion
+    }
 }
-

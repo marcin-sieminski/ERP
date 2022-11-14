@@ -1,15 +1,16 @@
 ﻿using Firma.ViewResources;
 
-namespace Firma.ViewModels;
-
-public class WszystkieFakturyViewModel : WorkspaceViewModel
+namespace Firma.ViewModels
 {
-    #region Konstruktor
-
-    public WszystkieFakturyViewModel()
+    public class WszystkieFakturyViewModel : WorkspaceViewModel
     {
-        DisplayName = BaseResources.Faktury;
-    }
+        #region Konstruktor
 
-    #endregion
+        public WszystkieFakturyViewModel()
+        {
+            DisplayName = BaseResources.Faktury;
+        }
+
+        #endregion
+    }
 }

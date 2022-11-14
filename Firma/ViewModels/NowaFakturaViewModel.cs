@@ -1,11 +1,12 @@
-﻿namespace Firma.ViewModels;
-
-public class NowaFakturaViewModel : WorkspaceViewModel
+﻿namespace Firma.ViewModels
 {
-    #region Konstruktor
-    public NowaFakturaViewModel()
+    public class NowaFakturaViewModel : WorkspaceViewModel
     {
-        DisplayName = "Faktura";
+        #region Konstruktor
+        public NowaFakturaViewModel()
+        {
+            DisplayName = "Faktura";
+        }
+        #endregion
     }
-    #endregion
 }

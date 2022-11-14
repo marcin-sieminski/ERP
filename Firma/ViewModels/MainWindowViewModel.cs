@@ -10,34 +10,34 @@ using System.Linq;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Firma.ViewModels;
-
-public class MainWindowViewModel : BaseViewModel
+namespace Firma.ViewModels
 {
-    public MainWindowViewModel()
+    public class MainWindowViewModel : BaseViewModel
     {
-        _WidocznoscMenuBocznego = "Visible";
-    }
-
-    #region Przyciski w menu z lewej strony
-    private ReadOnlyCollection<CommandViewModel> _Commands { get; set; }
-
-    public ReadOnlyCollection<CommandViewModel> Commands
-    {
-        get
+        public MainWindowViewModel()
         {
-            if (_Commands == null)
-            {
-                List<CommandViewModel> cmds = CreateCommands();
-                _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);
-            }
-            return _Commands;
+            _WidocznoscMenuBocznego = "Visible";
         }
-    }
 
-    private List<CommandViewModel> CreateCommands()
-    {
-        return new List<CommandViewModel>
+        #region Przyciski w menu z lewej strony
+        private ReadOnlyCollection<CommandViewModel> _Commands { get; set; }
+
+        public ReadOnlyCollection<CommandViewModel> Commands
+        {
+            get
+            {
+                if (_Commands == null)
+                {
+                    List<CommandViewModel> cmds = CreateCommands();
+                    _Commands = new ReadOnlyCollection<CommandViewModel>(cmds);
+                }
+                return _Commands;
+            }
+        }
+
+        private List<CommandViewModel> CreateCommands()
+        {
+            return new List<CommandViewModel>
         {
             new CommandViewModel(BaseResources.Faktury, new BaseCommand(showAllFaktury)),
             new CommandViewModel(BaseResources.NowaFaktura, new BaseCommand(() => createView(new NowaFakturaViewModel()))),
@@ -48,207 +48,208 @@ public class MainWindowViewModel : BaseViewModel
             new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
             new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
         };
-    }
-    #endregion
-
-    #region Zakładki
-    private ObservableCollection<WorkspaceViewModel> _Workspaces { get; set; }
-
-    public ObservableCollection<WorkspaceViewModel> Workspaces
-    {
-        get
-        {
-            if (_Workspaces == null)
-            {
-                _Workspaces = new ObservableCollection<WorkspaceViewModel>();
-                _Workspaces.CollectionChanged += onWorkspacesChanged;
-            }
-
-            return _Workspaces;
         }
-    }
+        #endregion
 
-    private void onWorkspacesChanged(object sender, NotifyCollectionChangedEventArgs e)
-    {
-        if (e.NewItems != null && e.NewItems.Count != 0)
+        #region Zakładki
+        private ObservableCollection<WorkspaceViewModel> _Workspaces { get; set; }
+
+        public ObservableCollection<WorkspaceViewModel> Workspaces
         {
-            foreach (WorkspaceViewModel workspace in e.NewItems)
+            get
             {
-                workspace.RequestClose += this.onWorkspaceRequestClose;
+                if (_Workspaces == null)
+                {
+                    _Workspaces = new ObservableCollection<WorkspaceViewModel>();
+                    _Workspaces.CollectionChanged += onWorkspacesChanged;
+                }
+
+                return _Workspaces;
             }
         }
 
-        if (e.OldItems != null && e.OldItems.Count != 0)
+        private void onWorkspacesChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            foreach (WorkspaceViewModel workspace in e.OldItems)
+            if (e.NewItems != null && e.NewItems.Count != 0)
             {
-                workspace.RequestClose -= this.onWorkspaceRequestClose;
+                foreach (WorkspaceViewModel workspace in e.NewItems)
+                {
+                    workspace.RequestClose += this.onWorkspaceRequestClose;
+                }
+            }
+
+            if (e.OldItems != null && e.OldItems.Count != 0)
+            {
+                foreach (WorkspaceViewModel workspace in e.OldItems)
+                {
+                    workspace.RequestClose -= this.onWorkspaceRequestClose;
+                }
             }
         }
-    }
 
-    private void onWorkspaceRequestClose(object sender, EventArgs e)
-    {
-        var workspace = sender as WorkspaceViewModel;
-        this.Workspaces.Remove(workspace);
-    }
-    #endregion
-
-    #region Funkcje pomocnicze
-
-    private void createView(WorkspaceViewModel workspace)
-    {
-        Workspaces.Add(workspace);
-        setActiveWorkspace(workspace);
-    }
-
-    private void showAllTowar()
-    {
-        var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
-        if (workspace is null)
+        private void onWorkspaceRequestClose(object sender, EventArgs e)
         {
-            workspace = new WszystkieTowaryViewModel();
+            var workspace = sender as WorkspaceViewModel;
+            this.Workspaces.Remove(workspace);
+        }
+        #endregion
+
+        #region Funkcje pomocnicze
+
+        private void createView(WorkspaceViewModel workspace)
+        {
             Workspaces.Add(workspace);
+            setActiveWorkspace(workspace);
         }
-        setActiveWorkspace(workspace);
-    }
 
-    private void setActiveWorkspace(WorkspaceViewModel workspace)
-    {
-        Debug.Assert(Workspaces.Contains(workspace)); 
-        ICollectionView collectionView = CollectionViewSource.GetDefaultView(Workspaces); 
-        if (collectionView != null)
+        private void showAllTowar()
         {
-            collectionView.MoveCurrentTo(workspace);
-        }
-    }
-    private void showAllFaktury()
-    {
-        var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
-        if (workspace is null)
-        {
-            workspace = new WszystkieFakturyViewModel();
-            Workspaces.Add(workspace);
-        }
-        setActiveWorkspace(workspace);
-    }
-
-    private void showAllKontrahenci()
-    {
-        var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
-        if (workspace is null)
-        {
-            workspace = new WszyscyKontrahenciViewModel();
-            Workspaces.Add(workspace);
-        }
-        setActiveWorkspace(workspace);
-    }
-
-    private void showAllPracownicy()
-    {
-        var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
-        if (workspace is null)
-        {
-            workspace = new WszyscyPracownicyViewModel();
-            Workspaces.Add(workspace);
-        }
-        setActiveWorkspace(workspace);
-    }
-
-    #endregion
-
-    #region Komendy menu i paska narzędzi
-    public ICommand NowyTowarCommand
-    {
-        get
-        {
-            return new BaseCommand(() => createView(new NowyTowarViewModel()));
-        }
-    }
-
-    public ICommand TowaryCommand
-    {
-        get
-        {
-            return new BaseCommand(showAllTowar);
-        }
-    }
-
-    public ICommand NowaFakturaCommand
-    {
-        get
-        {
-            return new BaseCommand(() => createView(new NowaFakturaViewModel()));
-        }
-    }
-
-    public ICommand FakturyCommand
-    {
-        get
-        {
-            return new BaseCommand(showAllFaktury);
-        }
-    }
-
-    public ICommand NowyKontrahentCommand
-    {
-        get
-        {
-            return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
-        }
-    }
-
-    public ICommand KontrahenciCommand
-    {
-        get
-        {
-            return new BaseCommand(showAllKontrahenci);
-        }
-    }
-
-    public ICommand NowyPracownikCommand
-    {
-        get
-        {
-            return new BaseCommand(() => createView(new NowyPracownikViewModel()));
-        }
-    }
-
-    public ICommand PracownicyCommand
-    {
-        get
-        {
-            return new BaseCommand(showAllPracownicy);
-        }
-    }
-    #endregion
-
-    #region WidocznośćMenuBocznego
-    private string _WidocznoscMenuBocznego;
-    public string WidocznoscMenuBocznego
-    {
-        get
-        {
-            return _WidocznoscMenuBocznego;
-        }
-        set
-        {
-            if (value != _WidocznoscMenuBocznego)
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
+            if (workspace is null)
             {
-                _WidocznoscMenuBocznego = value;
-                OnPropertyChanged(() => WidocznoscMenuBocznego);
+                workspace = new WszystkieTowaryViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
+        private void setActiveWorkspace(WorkspaceViewModel workspace)
+        {
+            Debug.Assert(Workspaces.Contains(workspace));
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(Workspaces);
+            if (collectionView != null)
+            {
+                collectionView.MoveCurrentTo(workspace);
             }
         }
-    }
+        private void showAllFaktury()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieFakturyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
 
-    private void ZmienWidocznoscMenuBocznego()
-    {
-        WidocznoscMenuBocznego = WidocznoscMenuBocznego == "Visible" ? "Collapsed" : "Visible";
-    }
+        private void showAllKontrahenci()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszyscyKontrahenciViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
 
-    public ICommand ZmienWidocznoscMenuBocznegoCommand
-    {
-        get { return new BaseCommand(() => ZmienWidocznoscMenuBocznego()); }
+        private void showAllPracownicy()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszyscyPracownicyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
+        #endregion
+
+        #region Komendy menu i paska narzędzi
+        public ICommand NowyTowarCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyTowarViewModel()));
+            }
+        }
+
+        public ICommand TowaryCommand
+        {
+            get
+            {
+                return new BaseCommand(showAllTowar);
+            }
+        }
+
+        public ICommand NowaFakturaCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowaFakturaViewModel()));
+            }
+        }
+
+        public ICommand FakturyCommand
+        {
+            get
+            {
+                return new BaseCommand(showAllFaktury);
+            }
+        }
+
+        public ICommand NowyKontrahentCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyKontrahentViewModel()));
+            }
+        }
+
+        public ICommand KontrahenciCommand
+        {
+            get
+            {
+                return new BaseCommand(showAllKontrahenci);
+            }
+        }
+
+        public ICommand NowyPracownikCommand
+        {
+            get
+            {
+                return new BaseCommand(() => createView(new NowyPracownikViewModel()));
+            }
+        }
+
+        public ICommand PracownicyCommand
+        {
+            get
+            {
+                return new BaseCommand(showAllPracownicy);
+            }
+        }
+        #endregion
+
+        #region WidocznośćMenuBocznego
+        private string _WidocznoscMenuBocznego;
+        public string WidocznoscMenuBocznego
+        {
+            get
+            {
+                return _WidocznoscMenuBocznego;
+            }
+            set
+            {
+                if (value != _WidocznoscMenuBocznego)
+                {
+                    _WidocznoscMenuBocznego = value;
+                    OnPropertyChanged(() => WidocznoscMenuBocznego);
+                }
+            }
+        }
+
+        private void ZmienWidocznoscMenuBocznego()
+        {
+            WidocznoscMenuBocznego = WidocznoscMenuBocznego == "Visible" ? "Collapsed" : "Visible";
+        }
+
+        public ICommand ZmienWidocznoscMenuBocznegoCommand
+        {
+            get { return new BaseCommand(() => ZmienWidocznoscMenuBocznego()); }
+        }
+        #endregion
     }
-    #endregion
 }

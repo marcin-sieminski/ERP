@@ -1,14 +1,15 @@
-﻿namespace Firma.ViewModels;
-
-public class NowyTowarViewModel : WorkspaceViewModel
+﻿namespace Firma.ViewModels
 {
-    #region Konstruktor
-
-    public NowyTowarViewModel()
+    public class NowyTowarViewModel : WorkspaceViewModel
     {
-        DisplayName = "Towar";
-    }
-    
+        #region Konstruktor
 
-    #endregion
+        public NowyTowarViewModel()
+        {
+            DisplayName = "Towar";
+        }
+
+
+        #endregion
+    }
 }

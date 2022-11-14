@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Firma.ViewModels;
-
-public class CommandViewModel : BaseViewModel
+namespace Firma.ViewModels
 {
-    #region Właściwości
-    public string DisplayName { get; set; }
-    public ICommand Command { get; set; }
-    #endregion
-
-    #region Konstruktor
-    public CommandViewModel(string displayName, ICommand command)
+    public class CommandViewModel : BaseViewModel
     {
-        Command = command ?? throw new ArgumentException("Command");
-        DisplayName = displayName;
+        #region Właściwości
+        public string DisplayName { get; set; }
+        public ICommand Command { get; set; }
+        #endregion
+
+        #region Konstruktor
+        public CommandViewModel(string displayName, ICommand command)
+        {
+            Command = command ?? throw new ArgumentException("Command");
+            DisplayName = displayName;
+        }
+        #endregion
     }
-    #endregion
 }

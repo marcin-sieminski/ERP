@@ -1,13 +1,14 @@
 ﻿using Firma.ViewResources;
 
-namespace Firma.ViewModels;
-
-public class WszystkieTowaryViewModel : WorkspaceViewModel
+namespace Firma.ViewModels
 {
-    #region Konstruktor
-    public WszystkieTowaryViewModel()
+    public class WszystkieTowaryViewModel : WorkspaceViewModel
     {
-        DisplayName = BaseResources.Towary;
+        #region Konstruktor
+        public WszystkieTowaryViewModel()
+        {
+            DisplayName = BaseResources.Towary;
+        }
+        #endregion
     }
-    #endregion
 }

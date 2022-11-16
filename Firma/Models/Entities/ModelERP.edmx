@@ -1,0 +1,2070 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AutoEwidencja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rejestracja" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Marka" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="KlasaPoj" Type="tinyint" Nullable="false" />
+          <Property Name="Pojemnosc" Type="smallint" Nullable="false" />
+          <Property Name="PracownikId" Type="int" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BankiNazwy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Akronim" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Numer" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Centrala" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Swift" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KrajId" Type="int" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="int" Nullable="false" />
+          <Property Name="PowiatId" Type="int" Nullable="false" />
+          <Property Name="GminaId" Type="int" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MiastoId" Type="int" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TelefonSms" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="254" />
+          <Property Name="IBAN" Type="smallint" Nullable="false" />
+          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BankiRachunki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Akronim" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="IBAN" Type="smallint" Nullable="false" />
+          <Property Name="KKrID" Type="int" />
+          <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Typ" Type="int" Nullable="false" />
+          <Property Name="LimitKredytu" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="OprocRachunku" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="OprocKredytu" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="OprocKarne" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="KaraZaPrzekr" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Nieaktywny" Type="smallint" Nullable="false" />
+          <Property Name="PrzelewySEPA" Type="tinyint" Nullable="false" />
+          <Property Name="SplitPay" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dzialy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Nieaktywny" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gminy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KartyKredytowe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Numer" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Typ" Type="smallint" Nullable="false" />
+          <Property Name="Poziom" Type="smallint" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RodzajZakupu" Type="smallint" Nullable="false" />
+          <Property Name="Fiskalny" Type="tinyint" Nullable="false" />
+          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+          <Property Name="KontoSegmentWN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KontoSegmentMA" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KodyCN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="KodSent" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Sent" Type="int" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="Masa" Type="tinyint" Nullable="false" />
+          <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Flaga" Type="smallint" />
+          <Property Name="Zrodlowa" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="EAN" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Grupa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nazwa1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nazwa3" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="KrajId" Type="int" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="int" Nullable="false" />
+          <Property Name="PowiatId" Type="int" Nullable="false" />
+          <Property Name="GminaId" Type="int" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MiastoId" Type="int" Nullable="false" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Adres2" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Regon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Telefon1" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefon2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TelefonSms" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="IBAN" Type="smallint" Nullable="false" />
+          <Property Name="OsTytul" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="OsPlec" Type="tinyint" Nullable="false" />
+          <Property Name="OsNazwisko" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsKraj" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsWojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsPowiat" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsGmina" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsUlica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsNrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OsNrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OsMiasto" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsKodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OsPoczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="OsAdres2" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="OsTelefon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OsGSM" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OsEmail" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Informacje" Type="tinyint" Nullable="false" />
+          <Property Name="Upust" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="LimitKredytu" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="MaxZwloka" Type="smallint" Nullable="false" />
+          <Property Name="TerminPlat" Type="tinyint" Nullable="false" />
+          <Property Name="KontoOdb" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KontoDost" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OpiekunId" Type="int" />
+          <Property Name="SplitPay" Type="tinyint" Nullable="false" />
+          <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kraje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Miasta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Powiaty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DzialId" Type="int" />
+          <Property Name="TypPracownika" Type="tinyint" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Imie1" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="RodzajZatrudnienia" Type="int" Nullable="false" />
+          <Property Name="DataOd" Type="datetime" Nullable="false" />
+          <Property Name="DataDo" Type="datetime" Nullable="false" />
+          <Property Name="ZatrudnionyOd" Type="datetime" />
+          <Property Name="ZatrudnionyDo" Type="datetime" />
+          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
+          <Property Name="IBAN" Type="smallint" Nullable="false" />
+          <Property Name="ZestCzasuPracy" Type="tinyint" Nullable="false" />
+          <Property Name="WypNaKonto" Type="tinyint" Nullable="false" />
+          <Property Name="NrwAktach" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="NazwRodowe" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Imie2" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ImieOjca" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ImieMatki" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NazwRodoweM" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DataUr" Type="datetime" />
+          <Property Name="MiejsceUr" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Obywatelstwo" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Plec" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="StanCywilny" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="KrajId" Type="int" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="int" Nullable="false" />
+          <Property Name="PowiatId" Type="int" Nullable="false" />
+          <Property Name="GminaId" Type="int" Nullable="false" />
+          <Property Name="MLDUlica" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MLDNrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MLDNrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MiastoId" Type="int" Nullable="false" />
+          <Property Name="MLDKodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MLDPoczta" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MLDAdres2" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MLDGminaKod" Type="int" Nullable="false" />
+          <Property Name="HDKTelefon1" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="HDKTelefon2" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NipKraj" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="NipE" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="DowOsobisty" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="DowGdzie" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DowKiedy" Type="datetime" />
+          <Property Name="DowWaznyDo" Type="datetime" />
+          <Property Name="DowKto" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Paszport" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="WyksztalcenieId" Type="int" Nullable="false" />
+          <Property Name="KodKasyChorych" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="KasaChData" Type="datetime" />
+          <Property Name="UBZZusOd" Type="datetime" />
+          <Property Name="WaznoscBadanOkres" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Producenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Typ" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="NumerKat" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="URL" />
+            <PropertyRef Name="Opis" />
+            <PropertyRef Name="JM" />
+            <PropertyRef Name="UdostepniajWCenniku" />
+            <PropertyRef Name="Waluta" />
+            <PropertyRef Name="MinCenaMarza" />
+            <PropertyRef Name="ProducentId" />
+            <PropertyRef Name="IloscMin" />
+            <PropertyRef Name="IloscMinJM" />
+            <PropertyRef Name="IloscMax" />
+            <PropertyRef Name="IloscMaxJM" />
+            <PropertyRef Name="IloscZam" />
+            <PropertyRef Name="IloscZamJM" />
+            <PropertyRef Name="Stawka" />
+            <PropertyRef Name="Prog" />
+            <PropertyRef Name="Upust" />
+            <PropertyRef Name="UpustData" />
+            <PropertyRef Name="UpustGodz" />
+            <PropertyRef Name="BezRabatu" />
+            <PropertyRef Name="MarzaMin" />
+            <PropertyRef Name="NieAktywny" />
+            <PropertyRef Name="Masa" />
+            <PropertyRef Name="KrajPochodzenia" />
+            <PropertyRef Name="CenaZCzteremaMiejscami" />
+            <PropertyRef Name="SplitPay" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Typ" Type="tinyint" Nullable="false" />
+          <Property Name="Produkt" Type="smallint" Nullable="false" />
+          <Property Name="KodCnId" Type="int" />
+          <Property Name="NumerKat" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="KategoriaId" Type="int" />
+          <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UdostepniajWCenniku" Type="tinyint" Nullable="false" />
+          <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MinCenaMarza" Type="decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="KontrahentId" Type="int" />
+          <Property Name="ProducentId" Type="int" Nullable="false" />
+          <Property Name="IloscMin" Type="decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMinJM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IloscMax" Type="decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMaxJM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IloscZam" Type="decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscZamJM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Prog" Type="tinyint" Nullable="false" />
+          <Property Name="Upust" Type="tinyint" Nullable="false" />
+          <Property Name="UpustData" Type="tinyint" Nullable="false" />
+          <Property Name="UpustDataOd" Type="int" />
+          <Property Name="UpustDataDo" Type="int" />
+          <Property Name="UpustGodz" Type="tinyint" Nullable="false" />
+          <Property Name="UpustGodzOd" Type="int" />
+          <Property Name="UpustGodzDo" Type="int" />
+          <Property Name="BezRabatu" Type="tinyint" Nullable="false" />
+          <Property Name="MarzaMin" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="NieAktywny" Type="tinyint" Nullable="false" />
+          <Property Name="Masa" Type="decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="WagaKG" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="KrajPochodzenia" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="CenaZCzteremaMiejscami" Type="tinyint" Nullable="false" />
+          <Property Name="SplitPay" Type="tinyint" Nullable="false" />
+          <Property Name="OpiekunId" Type="int" />
+        </EntityType>
+        <EntityType Name="Wojewodztwa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wyksztalcenie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="BankiNazwy_FK1">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK2">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK3">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK4">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK5">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuEPracownik">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="AutoEwidencja" Type="Self.AutoEwidencja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AutoEwidencja">
+              <PropertyRef Name="PracownikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRaKartaTyp">
+          <End Role="KartyKredytowe" Type="Self.KartyKredytowe" Multiplicity="0..1" />
+          <End Role="BankiRachunki" Type="Self.BankiRachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KartyKredytowe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiRachunki">
+              <PropertyRef Name="KKrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREDzlLink">
+          <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dzialy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="DzialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_KodyCn">
+          <End Role="KodyCN" Type="Self.KodyCN" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KodyCN">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_Producenci">
+          <End Role="Producenci" Type="Self.Producenci" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="ProducentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK2">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK3">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK4">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK5">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_Opiekun_FK">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="OpiekunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Gminy">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Kraj">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Miasta">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Powiaty">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Wojewodztwa">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Wyksztalcenie">
+          <End Role="Wyksztalcenie" Type="Self.Wyksztalcenie" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wyksztalcenie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="WyksztalcenieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_FK">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_Kategorie_FK">
+          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="OpiekunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERPModelStoreContainer">
+          <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankiNazwy" EntityType="Self.BankiNazwy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankiRachunki" EntityType="Self.BankiRachunki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dzialy" EntityType="Self.Dzialy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gminy" EntityType="Self.Gminy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KartyKredytowe" EntityType="Self.KartyKredytowe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KodyCN" EntityType="Self.KodyCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kraje" EntityType="Self.Kraje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Miasta" EntityType="Self.Miasta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Powiaty" EntityType="Self.Powiaty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producenci" EntityType="Self.Producenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Towary].[Id] AS [Id], 
+[Towary].[Typ] AS [Typ], 
+[Towary].[Produkt] AS [Produkt], 
+[Towary].[KodCnId] AS [KodCnId], 
+[Towary].[NumerKat] AS [NumerKat], 
+[Towary].[Nazwa] AS [Nazwa], 
+[Towary].[URL] AS [URL], 
+[Towary].[KategoriaId] AS [KategoriaId], 
+[Towary].[Opis] AS [Opis], 
+[Towary].[JM] AS [JM], 
+[Towary].[UdostepniajWCenniku] AS [UdostepniajWCenniku], 
+[Towary].[Waluta] AS [Waluta], 
+[Towary].[MinCenaMarza] AS [MinCenaMarza], 
+[Towary].[KontrahentId] AS [KontrahentId], 
+[Towary].[ProducentId] AS [ProducentId], 
+[Towary].[IloscMin] AS [IloscMin], 
+[Towary].[IloscMinJM] AS [IloscMinJM], 
+[Towary].[IloscMax] AS [IloscMax], 
+[Towary].[IloscMaxJM] AS [IloscMaxJM], 
+[Towary].[IloscZam] AS [IloscZam], 
+[Towary].[IloscZamJM] AS [IloscZamJM], 
+[Towary].[Stawka] AS [Stawka], 
+[Towary].[Prog] AS [Prog], 
+[Towary].[Upust] AS [Upust], 
+[Towary].[UpustData] AS [UpustData], 
+[Towary].[UpustDataOd] AS [UpustDataOd], 
+[Towary].[UpustDataDo] AS [UpustDataDo], 
+[Towary].[UpustGodz] AS [UpustGodz], 
+[Towary].[UpustGodzOd] AS [UpustGodzOd], 
+[Towary].[UpustGodzDo] AS [UpustGodzDo], 
+[Towary].[BezRabatu] AS [BezRabatu], 
+[Towary].[MarzaMin] AS [MarzaMin], 
+[Towary].[NieAktywny] AS [NieAktywny], 
+[Towary].[Masa] AS [Masa], 
+[Towary].[WagaKG] AS [WagaKG], 
+[Towary].[KrajPochodzenia] AS [KrajPochodzenia], 
+[Towary].[CenaZCzteremaMiejscami] AS [CenaZCzteremaMiejscami], 
+[Towary].[SplitPay] AS [SplitPay], 
+[Towary].[OpiekunId] AS [OpiekunId]
+FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="BankiNazwy_FK1" Association="Self.BankiNazwy_FK1">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK2" Association="Self.BankiNazwy_FK2">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK3" Association="Self.BankiNazwy_FK3">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK4" Association="Self.BankiNazwy_FK4">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK5" Association="Self.BankiNazwy_FK5">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="AutoEwidencja" EntitySet="AutoEwidencja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRaKartaTyp" Association="Self.FK_BRaKartaTyp">
+            <End Role="KartyKredytowe" EntitySet="KartyKredytowe" />
+            <End Role="BankiRachunki" EntitySet="BankiRachunki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
+            <End Role="Dzialy" EntitySet="Dzialy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_KodyCn" Association="Self.FK_Towary_KodyCn">
+            <End Role="KodyCN" EntitySet="KodyCN" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_Producenci" Association="Self.FK_Towary_Producenci">
+            <End Role="Producenci" EntitySet="Producenci" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK" Association="Self.Kontrahenci_FK">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK2" Association="Self.Kontrahenci_FK2">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK3" Association="Self.Kontrahenci_FK3">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK4" Association="Self.Kontrahenci_FK4">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK5" Association="Self.Kontrahenci_FK5">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_Opiekun_FK" Association="Self.Kontrahenci_Opiekun_FK">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Gminy" Association="Self.Pracownicy_Gminy">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Kraj" Association="Self.Pracownicy_Kraj">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Miasta" Association="Self.Pracownicy_Miasta">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Powiaty" Association="Self.Pracownicy_Powiaty">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Wojewodztwa" Association="Self.Pracownicy_Wojewodztwa">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Wyksztalcenie" Association="Self.Pracownicy_Wyksztalcenie">
+            <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_FK" Association="Self.Towary_FK">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_Kategorie_FK" Association="Self.Towary_Kategorie_FK">
+            <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_Pracownicy" Association="Self.Towary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AutoEwidencja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rejestracja" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Marka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KlasaPoj" Type="Byte" Nullable="false" />
+          <Property Name="Pojemnosc" Type="Int16" Nullable="false" />
+          <Property Name="PracownikId" Type="Int32" />
+          <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_AuEPracownik" FromRole="AutoEwidencja" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="BankiNazwy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Akronim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Centrala" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Swift" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajId" Type="Int32" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="Int32" Nullable="false" />
+          <Property Name="PowiatId" Type="Int32" Nullable="false" />
+          <Property Name="GminaId" Type="Int32" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiastoId" Type="Int32" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonSms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="IBAN" Type="Int16" Nullable="false" />
+          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Kraje" Relationship="Self.BankiNazwy_FK1" FromRole="BankiNazwy" ToRole="Kraje" />
+          <NavigationProperty Name="Gminy" Relationship="Self.BankiNazwy_FK2" FromRole="BankiNazwy" ToRole="Gminy" />
+          <NavigationProperty Name="Miasta" Relationship="Self.BankiNazwy_FK3" FromRole="BankiNazwy" ToRole="Miasta" />
+          <NavigationProperty Name="Powiaty" Relationship="Self.BankiNazwy_FK4" FromRole="BankiNazwy" ToRole="Powiaty" />
+          <NavigationProperty Name="Wojewodztwa" Relationship="Self.BankiNazwy_FK5" FromRole="BankiNazwy" ToRole="Wojewodztwa" />
+        </EntityType>
+        <EntityType Name="BankiRachunki">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Akronim" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IBAN" Type="Int16" Nullable="false" />
+          <Property Name="KKrID" Type="Int32" />
+          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Typ" Type="Int32" Nullable="false" />
+          <Property Name="LimitKredytu" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="OprocRachunku" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="OprocKredytu" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="OprocKarne" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="KaraZaPrzekr" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Nieaktywny" Type="Int16" Nullable="false" />
+          <Property Name="PrzelewySEPA" Type="Byte" Nullable="false" />
+          <Property Name="SplitPay" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="KartyKredytowe" Relationship="Self.FK_BRaKartaTyp" FromRole="BankiRachunki" ToRole="KartyKredytowe" />
+        </EntityType>
+        <EntityType Name="Dzialy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Nieaktywny" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PREDzlLink" FromRole="Dzialy" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Gminy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK2" FromRole="Gminy" ToRole="BankiNazwy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK2" FromRole="Gminy" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Gminy" FromRole="Gminy" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="KartyKredytowe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Numer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BankiRachunki" Relationship="Self.FK_BRaKartaTyp" FromRole="KartyKredytowe" ToRole="BankiRachunki" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Typ" Type="Int16" Nullable="false" />
+          <Property Name="Poziom" Type="Int16" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RodzajZakupu" Type="Int16" Nullable="false" />
+          <Property Name="Fiskalny" Type="Byte" Nullable="false" />
+          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
+          <Property Name="KontoSegmentWN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KontoSegmentMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Towary" Relationship="Self.Towary_Kategorie_FK" FromRole="Kategorie" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="KodyCN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KodSent" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sent" Type="Int32" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Masa" Type="Byte" Nullable="false" />
+          <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Flaga" Type="Int16" />
+          <Property Name="Zrodlowa" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_KodyCn" FromRole="KodyCN" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EAN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grupa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajId" Type="Int32" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="Int32" Nullable="false" />
+          <Property Name="PowiatId" Type="Int32" Nullable="false" />
+          <Property Name="GminaId" Type="Int32" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiastoId" Type="Int32" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefon2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonSms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IBAN" Type="Int16" Nullable="false" />
+          <Property Name="OsTytul" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsPlec" Type="Byte" Nullable="false" />
+          <Property Name="OsNazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsKraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsWojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsPowiat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsGmina" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsMiasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsKodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OsPoczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsAdres2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OsTelefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OsGSM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OsEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Informacje" Type="Byte" Nullable="false" />
+          <Property Name="Upust" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="LimitKredytu" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="MaxZwloka" Type="Int16" Nullable="false" />
+          <Property Name="TerminPlat" Type="Byte" Nullable="false" />
+          <Property Name="KontoOdb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KontoDost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpiekunId" Type="Int32" />
+          <Property Name="SplitPay" Type="Byte" Nullable="false" />
+          <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Gminy" Relationship="Self.Kontrahenci_FK2" FromRole="Kontrahenci" ToRole="Gminy" />
+          <NavigationProperty Name="Kraje" Relationship="Self.Kontrahenci_FK" FromRole="Kontrahenci" ToRole="Kraje" />
+          <NavigationProperty Name="Miasta" Relationship="Self.Kontrahenci_FK3" FromRole="Kontrahenci" ToRole="Miasta" />
+          <NavigationProperty Name="Powiaty" Relationship="Self.Kontrahenci_FK4" FromRole="Kontrahenci" ToRole="Powiaty" />
+          <NavigationProperty Name="Wojewodztwa" Relationship="Self.Kontrahenci_FK5" FromRole="Kontrahenci" ToRole="Wojewodztwa" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Kontrahenci" ToRole="Pracownicy" />
+          <NavigationProperty Name="Towary" Relationship="Self.Towary_FK" FromRole="Kontrahenci" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Kraje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK1" FromRole="Kraje" ToRole="BankiNazwy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK" FromRole="Kraje" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Kraj" FromRole="Kraje" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Miasta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK3" FromRole="Miasta" ToRole="BankiNazwy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK3" FromRole="Miasta" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Miasta" FromRole="Miasta" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Powiaty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK4" FromRole="Powiaty" ToRole="BankiNazwy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK4" FromRole="Powiaty" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Powiaty" FromRole="Powiaty" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DzialId" Type="Int32" />
+          <Property Name="TypPracownika" Type="Byte" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RodzajZatrudnienia" Type="Int32" Nullable="false" />
+          <Property Name="DataOd" Type="DateTime" Nullable="false" />
+          <Property Name="DataDo" Type="DateTime" Nullable="false" />
+          <Property Name="ZatrudnionyOd" Type="DateTime" />
+          <Property Name="ZatrudnionyDo" Type="DateTime" />
+          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IBAN" Type="Int16" Nullable="false" />
+          <Property Name="ZestCzasuPracy" Type="Byte" Nullable="false" />
+          <Property Name="WypNaKonto" Type="Byte" Nullable="false" />
+          <Property Name="NrwAktach" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwRodowe" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImieOjca" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImieMatki" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwRodoweM" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUr" Type="DateTime" />
+          <Property Name="MiejsceUr" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Obywatelstwo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plec" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StanCywilny" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KrajId" Type="Int32" Nullable="false" />
+          <Property Name="WojewodztwoId" Type="Int32" Nullable="false" />
+          <Property Name="PowiatId" Type="Int32" Nullable="false" />
+          <Property Name="GminaId" Type="Int32" Nullable="false" />
+          <Property Name="MLDUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MLDNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MLDNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiastoId" Type="Int32" Nullable="false" />
+          <Property Name="MLDKodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MLDPoczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MLDAdres2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MLDGminaKod" Type="Int32" Nullable="false" />
+          <Property Name="HDKTelefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HDKTelefon2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NipKraj" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NipE" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DowOsobisty" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DowGdzie" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DowKiedy" Type="DateTime" />
+          <Property Name="DowWaznyDo" Type="DateTime" />
+          <Property Name="DowKto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Paszport" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WyksztalcenieId" Type="Int32" Nullable="false" />
+          <Property Name="KodKasyChorych" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KasaChData" Type="DateTime" />
+          <Property Name="UBZZusOd" Type="DateTime" />
+          <Property Name="WaznoscBadanOkres" Type="DateTime" />
+          <NavigationProperty Name="AutoEwidencja" Relationship="Self.FK_AuEPracownik" FromRole="Pracownicy" ToRole="AutoEwidencja" />
+          <NavigationProperty Name="Dzialy" Relationship="Self.FK_PREDzlLink" FromRole="Pracownicy" ToRole="Dzialy" />
+          <NavigationProperty Name="Gminy" Relationship="Self.Pracownicy_Gminy" FromRole="Pracownicy" ToRole="Gminy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Pracownicy" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Kraje" Relationship="Self.Pracownicy_Kraj" FromRole="Pracownicy" ToRole="Kraje" />
+          <NavigationProperty Name="Miasta" Relationship="Self.Pracownicy_Miasta" FromRole="Pracownicy" ToRole="Miasta" />
+          <NavigationProperty Name="Powiaty" Relationship="Self.Pracownicy_Powiaty" FromRole="Pracownicy" ToRole="Powiaty" />
+          <NavigationProperty Name="Wojewodztwa" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Pracownicy" ToRole="Wojewodztwa" />
+          <NavigationProperty Name="Wyksztalcenie" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Pracownicy" ToRole="Wyksztalcenie" />
+          <NavigationProperty Name="Towary" Relationship="Self.Towary_Pracownicy" FromRole="Pracownicy" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="Producenci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Producenci" FromRole="Producenci" ToRole="Towary" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Wojewodztwa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK5" FromRole="Wojewodztwa" ToRole="BankiNazwy" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK5" FromRole="Wojewodztwa" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Wojewodztwa" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Wyksztalcenie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Wyksztalcenie" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Typ" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="NumerKat" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="URL" />
+            <PropertyRef Name="Opis" />
+            <PropertyRef Name="JM" />
+            <PropertyRef Name="UdostepniajWCenniku" />
+            <PropertyRef Name="Waluta" />
+            <PropertyRef Name="MinCenaMarza" />
+            <PropertyRef Name="ProducentId" />
+            <PropertyRef Name="IloscMin" />
+            <PropertyRef Name="IloscMinJM" />
+            <PropertyRef Name="IloscMax" />
+            <PropertyRef Name="IloscMaxJM" />
+            <PropertyRef Name="IloscZam" />
+            <PropertyRef Name="IloscZamJM" />
+            <PropertyRef Name="Stawka" />
+            <PropertyRef Name="Prog" />
+            <PropertyRef Name="Upust" />
+            <PropertyRef Name="UpustData" />
+            <PropertyRef Name="UpustGodz" />
+            <PropertyRef Name="BezRabatu" />
+            <PropertyRef Name="MarzaMin" />
+            <PropertyRef Name="NieAktywny" />
+            <PropertyRef Name="Masa" />
+            <PropertyRef Name="KrajPochodzenia" />
+            <PropertyRef Name="CenaZCzteremaMiejscami" />
+            <PropertyRef Name="SplitPay" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Typ" Type="Byte" Nullable="false" />
+          <Property Name="Produkt" Type="Int16" Nullable="false" />
+          <Property Name="KodCnId" Type="Int32" />
+          <Property Name="NumerKat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KategoriaId" Type="Int32" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UdostepniajWCenniku" Type="Byte" Nullable="false" />
+          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MinCenaMarza" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="KontrahentId" Type="Int32" />
+          <Property Name="ProducentId" Type="Int32" Nullable="false" />
+          <Property Name="IloscMin" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMinJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IloscMax" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMaxJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IloscZam" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscZamJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Prog" Type="Byte" Nullable="false" />
+          <Property Name="Upust" Type="Byte" Nullable="false" />
+          <Property Name="UpustData" Type="Byte" Nullable="false" />
+          <Property Name="UpustDataOd" Type="Int32" />
+          <Property Name="UpustDataDo" Type="Int32" />
+          <Property Name="UpustGodz" Type="Byte" Nullable="false" />
+          <Property Name="UpustGodzOd" Type="Int32" />
+          <Property Name="UpustGodzDo" Type="Int32" />
+          <Property Name="BezRabatu" Type="Byte" Nullable="false" />
+          <Property Name="MarzaMin" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="NieAktywny" Type="Byte" Nullable="false" />
+          <Property Name="Masa" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CenaZCzteremaMiejscami" Type="Byte" Nullable="false" />
+          <Property Name="SplitPay" Type="Byte" Nullable="false" />
+          <Property Name="OpiekunId" Type="Int32" />
+          <NavigationProperty Name="Kategorie" Relationship="Self.Towary_Kategorie_FK" FromRole="Towary" ToRole="Kategorie" />
+          <NavigationProperty Name="KodyCN" Relationship="Self.FK_Towary_KodyCn" FromRole="Towary" ToRole="KodyCN" />
+          <NavigationProperty Name="Kontrahenci" Relationship="Self.Towary_FK" FromRole="Towary" ToRole="Kontrahenci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.Towary_Pracownicy" FromRole="Towary" ToRole="Pracownicy" />
+          <NavigationProperty Name="Producenci" Relationship="Self.FK_Towary_Producenci" FromRole="Towary" ToRole="Producenci" />
+        </EntityType>
+        <Association Name="FK_AuEPracownik">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="AutoEwidencja" Type="Self.AutoEwidencja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AutoEwidencja">
+              <PropertyRef Name="PracownikId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK1">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK2">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK3">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK4">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BankiNazwy_FK5">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiNazwy">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRaKartaTyp">
+          <End Role="KartyKredytowe" Type="Self.KartyKredytowe" Multiplicity="0..1" />
+          <End Role="BankiRachunki" Type="Self.BankiRachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KartyKredytowe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BankiRachunki">
+              <PropertyRef Name="KKrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREDzlLink">
+          <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dzialy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="DzialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK2">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Gminy">
+          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gminy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="GminaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_Kategorie_FK">
+          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategorie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_KodyCn">
+          <End Role="KodyCN" Type="Self.KodyCN" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KodyCN">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK3">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK4">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_FK5">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Kontrahenci_Opiekun_FK">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Kontrahenci">
+              <PropertyRef Name="OpiekunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_FK">
+          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="KontrahentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Kraj">
+          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraje">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="KrajId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Miasta">
+          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Miasta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="MiastoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Powiaty">
+          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Powiaty">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="PowiatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Wojewodztwa">
+          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wojewodztwa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pracownicy_Wyksztalcenie">
+          <End Role="Wyksztalcenie" Type="Self.Wyksztalcenie" Multiplicity="1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wyksztalcenie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="WyksztalcenieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Towary_Pracownicy">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="OpiekunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Towary_Producenci">
+          <End Role="Producenci" Type="Self.Producenci" Multiplicity="1" />
+          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producenci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Towary">
+              <PropertyRef Name="ProducentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" />
+          <EntitySet Name="BankiNazwy" EntityType="Self.BankiNazwy" />
+          <EntitySet Name="BankiRachunki" EntityType="Self.BankiRachunki" />
+          <EntitySet Name="Dzialy" EntityType="Self.Dzialy" />
+          <EntitySet Name="Gminy" EntityType="Self.Gminy" />
+          <EntitySet Name="KartyKredytowe" EntityType="Self.KartyKredytowe" />
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" />
+          <EntitySet Name="KodyCN" EntityType="Self.KodyCN" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
+          <EntitySet Name="Kraje" EntityType="Self.Kraje" />
+          <EntitySet Name="Miasta" EntityType="Self.Miasta" />
+          <EntitySet Name="Powiaty" EntityType="Self.Powiaty" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="Producenci" EntityType="Self.Producenci" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" />
+          <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" />
+          <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="AutoEwidencja" EntitySet="AutoEwidencja" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK1" Association="Self.BankiNazwy_FK1">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK2" Association="Self.BankiNazwy_FK2">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK3" Association="Self.BankiNazwy_FK3">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK4" Association="Self.BankiNazwy_FK4">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="BankiNazwy_FK5" Association="Self.BankiNazwy_FK5">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRaKartaTyp" Association="Self.FK_BRaKartaTyp">
+            <End Role="KartyKredytowe" EntitySet="KartyKredytowe" />
+            <End Role="BankiRachunki" EntitySet="BankiRachunki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
+            <End Role="Dzialy" EntitySet="Dzialy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK2" Association="Self.Kontrahenci_FK2">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Gminy" Association="Self.Pracownicy_Gminy">
+            <End Role="Gminy" EntitySet="Gminy" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_Kategorie_FK" Association="Self.Towary_Kategorie_FK">
+            <End Role="Kategorie" EntitySet="Kategorie" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_KodyCn" Association="Self.FK_Towary_KodyCn">
+            <End Role="KodyCN" EntitySet="KodyCN" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK" Association="Self.Kontrahenci_FK">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK3" Association="Self.Kontrahenci_FK3">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK4" Association="Self.Kontrahenci_FK4">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_FK5" Association="Self.Kontrahenci_FK5">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Kontrahenci_Opiekun_FK" Association="Self.Kontrahenci_Opiekun_FK">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_FK" Association="Self.Towary_FK">
+            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Kraj" Association="Self.Pracownicy_Kraj">
+            <End Role="Kraje" EntitySet="Kraje" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Miasta" Association="Self.Pracownicy_Miasta">
+            <End Role="Miasta" EntitySet="Miasta" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Powiaty" Association="Self.Pracownicy_Powiaty">
+            <End Role="Powiaty" EntitySet="Powiaty" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Wojewodztwa" Association="Self.Pracownicy_Wojewodztwa">
+            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Pracownicy_Wyksztalcenie" Association="Self.Pracownicy_Wyksztalcenie">
+            <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="Towary_Pracownicy" Association="Self.Towary_Pracownicy">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Towary_Producenci" Association="Self.FK_Towary_Producenci">
+            <End Role="Producenci" EntitySet="Producenci" />
+            <End Role="Towary" EntitySet="Towary" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities1">
+          <EntitySetMapping Name="AutoEwidencja">
+            <EntityTypeMapping TypeName="ERPModel.AutoEwidencja">
+              <MappingFragment StoreEntitySet="AutoEwidencja">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rejestracja" ColumnName="Rejestracja" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="KlasaPoj" ColumnName="KlasaPoj" />
+                <ScalarProperty Name="Pojemnosc" ColumnName="Pojemnosc" />
+                <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankiNazwy">
+            <EntityTypeMapping TypeName="ERPModel.BankiNazwy">
+              <MappingFragment StoreEntitySet="BankiNazwy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Akronim" ColumnName="Akronim" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="Centrala" ColumnName="Centrala" />
+                <ScalarProperty Name="Swift" ColumnName="Swift" />
+                <ScalarProperty Name="Nazwa1" ColumnName="Nazwa1" />
+                <ScalarProperty Name="Nazwa2" ColumnName="Nazwa2" />
+                <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+                <ScalarProperty Name="WojewodztwoId" ColumnName="WojewodztwoId" />
+                <ScalarProperty Name="PowiatId" ColumnName="PowiatId" />
+                <ScalarProperty Name="GminaId" ColumnName="GminaId" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="MiastoId" ColumnName="MiastoId" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="TelefonSms" ColumnName="TelefonSms" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
+                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankiRachunki">
+            <EntityTypeMapping TypeName="ERPModel.BankiRachunki">
+              <MappingFragment StoreEntitySet="BankiRachunki">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Akronim" ColumnName="Akronim" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="KKrID" ColumnName="KKrID" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="LimitKredytu" ColumnName="LimitKredytu" />
+                <ScalarProperty Name="OprocRachunku" ColumnName="OprocRachunku" />
+                <ScalarProperty Name="OprocKredytu" ColumnName="OprocKredytu" />
+                <ScalarProperty Name="OprocKarne" ColumnName="OprocKarne" />
+                <ScalarProperty Name="KaraZaPrzekr" ColumnName="KaraZaPrzekr" />
+                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="PrzelewySEPA" ColumnName="PrzelewySEPA" />
+                <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dzialy">
+            <EntityTypeMapping TypeName="ERPModel.Dzialy">
+              <MappingFragment StoreEntitySet="Dzialy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gminy">
+            <EntityTypeMapping TypeName="ERPModel.Gminy">
+              <MappingFragment StoreEntitySet="Gminy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KartyKredytowe">
+            <EntityTypeMapping TypeName="ERPModel.KartyKredytowe">
+              <MappingFragment StoreEntitySet="KartyKredytowe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategorie">
+            <EntityTypeMapping TypeName="ERPModel.Kategorie">
+              <MappingFragment StoreEntitySet="Kategorie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Poziom" ColumnName="Poziom" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="RodzajZakupu" ColumnName="RodzajZakupu" />
+                <ScalarProperty Name="Fiskalny" ColumnName="Fiskalny" />
+                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="KontoSegmentWN" ColumnName="KontoSegmentWN" />
+                <ScalarProperty Name="KontoSegmentMA" ColumnName="KontoSegmentMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KodyCN">
+            <EntityTypeMapping TypeName="ERPModel.KodyCN">
+              <MappingFragment StoreEntitySet="KodyCN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="KodSent" ColumnName="KodSent" />
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="Stawka" ColumnName="Stawka" />
+                <ScalarProperty Name="Flaga" ColumnName="Flaga" />
+                <ScalarProperty Name="Zrodlowa" ColumnName="Zrodlowa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontrahenci">
+            <EntityTypeMapping TypeName="ERPModel.Kontrahenci">
+              <MappingFragment StoreEntitySet="Kontrahenci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="EAN" ColumnName="EAN" />
+                <ScalarProperty Name="Grupa" ColumnName="Grupa" />
+                <ScalarProperty Name="Nazwa1" ColumnName="Nazwa1" />
+                <ScalarProperty Name="Nazwa2" ColumnName="Nazwa2" />
+                <ScalarProperty Name="Nazwa3" ColumnName="Nazwa3" />
+                <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+                <ScalarProperty Name="WojewodztwoId" ColumnName="WojewodztwoId" />
+                <ScalarProperty Name="PowiatId" ColumnName="PowiatId" />
+                <ScalarProperty Name="GminaId" ColumnName="GminaId" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="MiastoId" ColumnName="MiastoId" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="Adres2" ColumnName="Adres2" />
+                <ScalarProperty Name="Nip" ColumnName="Nip" />
+                <ScalarProperty Name="Regon" ColumnName="Regon" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="Telefon1" ColumnName="Telefon1" />
+                <ScalarProperty Name="Telefon2" ColumnName="Telefon2" />
+                <ScalarProperty Name="TelefonSms" ColumnName="TelefonSms" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="OsTytul" ColumnName="OsTytul" />
+                <ScalarProperty Name="OsPlec" ColumnName="OsPlec" />
+                <ScalarProperty Name="OsNazwisko" ColumnName="OsNazwisko" />
+                <ScalarProperty Name="OsKraj" ColumnName="OsKraj" />
+                <ScalarProperty Name="OsWojewodztwo" ColumnName="OsWojewodztwo" />
+                <ScalarProperty Name="OsPowiat" ColumnName="OsPowiat" />
+                <ScalarProperty Name="OsGmina" ColumnName="OsGmina" />
+                <ScalarProperty Name="OsUlica" ColumnName="OsUlica" />
+                <ScalarProperty Name="OsNrDomu" ColumnName="OsNrDomu" />
+                <ScalarProperty Name="OsNrLokalu" ColumnName="OsNrLokalu" />
+                <ScalarProperty Name="OsMiasto" ColumnName="OsMiasto" />
+                <ScalarProperty Name="OsKodPocztowy" ColumnName="OsKodPocztowy" />
+                <ScalarProperty Name="OsPoczta" ColumnName="OsPoczta" />
+                <ScalarProperty Name="OsAdres2" ColumnName="OsAdres2" />
+                <ScalarProperty Name="OsTelefon" ColumnName="OsTelefon" />
+                <ScalarProperty Name="OsGSM" ColumnName="OsGSM" />
+                <ScalarProperty Name="OsEmail" ColumnName="OsEmail" />
+                <ScalarProperty Name="Informacje" ColumnName="Informacje" />
+                <ScalarProperty Name="Upust" ColumnName="Upust" />
+                <ScalarProperty Name="LimitKredytu" ColumnName="LimitKredytu" />
+                <ScalarProperty Name="MaxZwloka" ColumnName="MaxZwloka" />
+                <ScalarProperty Name="TerminPlat" ColumnName="TerminPlat" />
+                <ScalarProperty Name="KontoOdb" ColumnName="KontoOdb" />
+                <ScalarProperty Name="KontoDost" ColumnName="KontoDost" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
+                <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
+                <ScalarProperty Name="DokumentTozsamosci" ColumnName="DokumentTozsamosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kraje">
+            <EntityTypeMapping TypeName="ERPModel.Kraje">
+              <MappingFragment StoreEntitySet="Kraje">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Miasta">
+            <EntityTypeMapping TypeName="ERPModel.Miasta">
+              <MappingFragment StoreEntitySet="Miasta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Powiaty">
+            <EntityTypeMapping TypeName="ERPModel.Powiaty">
+              <MappingFragment StoreEntitySet="Powiaty">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="ERPModel.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DzialId" ColumnName="DzialId" />
+                <ScalarProperty Name="TypPracownika" ColumnName="TypPracownika" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie1" ColumnName="Imie1" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="RodzajZatrudnienia" ColumnName="RodzajZatrudnienia" />
+                <ScalarProperty Name="DataOd" ColumnName="DataOd" />
+                <ScalarProperty Name="DataDo" ColumnName="DataDo" />
+                <ScalarProperty Name="ZatrudnionyOd" ColumnName="ZatrudnionyOd" />
+                <ScalarProperty Name="ZatrudnionyDo" ColumnName="ZatrudnionyDo" />
+                <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="ZestCzasuPracy" ColumnName="ZestCzasuPracy" />
+                <ScalarProperty Name="WypNaKonto" ColumnName="WypNaKonto" />
+                <ScalarProperty Name="NrwAktach" ColumnName="NrwAktach" />
+                <ScalarProperty Name="NazwRodowe" ColumnName="NazwRodowe" />
+                <ScalarProperty Name="Imie2" ColumnName="Imie2" />
+                <ScalarProperty Name="ImieOjca" ColumnName="ImieOjca" />
+                <ScalarProperty Name="ImieMatki" ColumnName="ImieMatki" />
+                <ScalarProperty Name="NazwRodoweM" ColumnName="NazwRodoweM" />
+                <ScalarProperty Name="DataUr" ColumnName="DataUr" />
+                <ScalarProperty Name="MiejsceUr" ColumnName="MiejsceUr" />
+                <ScalarProperty Name="Obywatelstwo" ColumnName="Obywatelstwo" />
+                <ScalarProperty Name="Plec" ColumnName="Plec" />
+                <ScalarProperty Name="StanCywilny" ColumnName="StanCywilny" />
+                <ScalarProperty Name="KrajId" ColumnName="KrajId" />
+                <ScalarProperty Name="WojewodztwoId" ColumnName="WojewodztwoId" />
+                <ScalarProperty Name="PowiatId" ColumnName="PowiatId" />
+                <ScalarProperty Name="GminaId" ColumnName="GminaId" />
+                <ScalarProperty Name="MLDUlica" ColumnName="MLDUlica" />
+                <ScalarProperty Name="MLDNrDomu" ColumnName="MLDNrDomu" />
+                <ScalarProperty Name="MLDNrLokalu" ColumnName="MLDNrLokalu" />
+                <ScalarProperty Name="MiastoId" ColumnName="MiastoId" />
+                <ScalarProperty Name="MLDKodPocztowy" ColumnName="MLDKodPocztowy" />
+                <ScalarProperty Name="MLDPoczta" ColumnName="MLDPoczta" />
+                <ScalarProperty Name="MLDAdres2" ColumnName="MLDAdres2" />
+                <ScalarProperty Name="MLDGminaKod" ColumnName="MLDGminaKod" />
+                <ScalarProperty Name="HDKTelefon1" ColumnName="HDKTelefon1" />
+                <ScalarProperty Name="HDKTelefon2" ColumnName="HDKTelefon2" />
+                <ScalarProperty Name="NipKraj" ColumnName="NipKraj" />
+                <ScalarProperty Name="NipE" ColumnName="NipE" />
+                <ScalarProperty Name="DowOsobisty" ColumnName="DowOsobisty" />
+                <ScalarProperty Name="DowGdzie" ColumnName="DowGdzie" />
+                <ScalarProperty Name="DowKiedy" ColumnName="DowKiedy" />
+                <ScalarProperty Name="DowWaznyDo" ColumnName="DowWaznyDo" />
+                <ScalarProperty Name="DowKto" ColumnName="DowKto" />
+                <ScalarProperty Name="Paszport" ColumnName="Paszport" />
+                <ScalarProperty Name="WyksztalcenieId" ColumnName="WyksztalcenieId" />
+                <ScalarProperty Name="KodKasyChorych" ColumnName="KodKasyChorych" />
+                <ScalarProperty Name="KasaChData" ColumnName="KasaChData" />
+                <ScalarProperty Name="UBZZusOd" ColumnName="UBZZusOd" />
+                <ScalarProperty Name="WaznoscBadanOkres" ColumnName="WaznoscBadanOkres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producenci">
+            <EntityTypeMapping TypeName="ERPModel.Producenci">
+              <MappingFragment StoreEntitySet="Producenci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ERPModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wojewodztwa">
+            <EntityTypeMapping TypeName="ERPModel.Wojewodztwa">
+              <MappingFragment StoreEntitySet="Wojewodztwa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wyksztalcenie">
+            <EntityTypeMapping TypeName="ERPModel.Wyksztalcenie">
+              <MappingFragment StoreEntitySet="Wyksztalcenie">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towary">
+            <EntityTypeMapping TypeName="ERPModel.Towary">
+              <MappingFragment StoreEntitySet="Towary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="KodCnId" ColumnName="KodCnId" />
+                <ScalarProperty Name="NumerKat" ColumnName="NumerKat" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="KategoriaId" ColumnName="KategoriaId" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="JM" ColumnName="JM" />
+                <ScalarProperty Name="UdostepniajWCenniku" ColumnName="UdostepniajWCenniku" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+                <ScalarProperty Name="MinCenaMarza" ColumnName="MinCenaMarza" />
+                <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+                <ScalarProperty Name="ProducentId" ColumnName="ProducentId" />
+                <ScalarProperty Name="IloscMin" ColumnName="IloscMin" />
+                <ScalarProperty Name="IloscMinJM" ColumnName="IloscMinJM" />
+                <ScalarProperty Name="IloscMax" ColumnName="IloscMax" />
+                <ScalarProperty Name="IloscMaxJM" ColumnName="IloscMaxJM" />
+                <ScalarProperty Name="IloscZam" ColumnName="IloscZam" />
+                <ScalarProperty Name="IloscZamJM" ColumnName="IloscZamJM" />
+                <ScalarProperty Name="Stawka" ColumnName="Stawka" />
+                <ScalarProperty Name="Prog" ColumnName="Prog" />
+                <ScalarProperty Name="Upust" ColumnName="Upust" />
+                <ScalarProperty Name="UpustData" ColumnName="UpustData" />
+                <ScalarProperty Name="UpustDataOd" ColumnName="UpustDataOd" />
+                <ScalarProperty Name="UpustDataDo" ColumnName="UpustDataDo" />
+                <ScalarProperty Name="UpustGodz" ColumnName="UpustGodz" />
+                <ScalarProperty Name="UpustGodzOd" ColumnName="UpustGodzOd" />
+                <ScalarProperty Name="UpustGodzDo" ColumnName="UpustGodzDo" />
+                <ScalarProperty Name="BezRabatu" ColumnName="BezRabatu" />
+                <ScalarProperty Name="MarzaMin" ColumnName="MarzaMin" />
+                <ScalarProperty Name="NieAktywny" ColumnName="NieAktywny" />
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
+                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
+                <ScalarProperty Name="CenaZCzteremaMiejscami" ColumnName="CenaZCzteremaMiejscami" />
+                <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
+                <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

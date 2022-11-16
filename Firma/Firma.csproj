@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Models\Entities\ModelERP.edmx" />
     <None Remove="Views\Content\Icons\delete.png" />
     <None Remove="Views\Content\Icons\faktura_dodaj.png" />
     <None Remove="Views\Content\Icons\faktura_wszystkie.png" />
@@ -23,8 +24,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EntityDeploy Include="Models\Entities\ModelERP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelERP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="5.0.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Security" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +56,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Models\Entities\ModelERP.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ModelERP.edmx</DependentUpon>
+    </Compile>
     <Compile Update="ViewResources\BaseResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

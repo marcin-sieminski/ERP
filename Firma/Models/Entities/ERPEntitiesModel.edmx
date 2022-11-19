@@ -274,16 +274,6 @@
           <Property Name="Nazwa" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="URL" Type="varchar" MaxLength="250" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Towary">
@@ -692,7 +682,6 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
           <EntitySet Name="Powiaty" EntityType="Self.Powiaty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producenci" EntityType="Self.Producenci" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Towary" EntityType="Self.Towary" store:Type="Tables" store:Schema="dbo">
@@ -1154,16 +1143,6 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="URL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Producenci" FromRole="Producenci" ToRole="Towary" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Wojewodztwa">
           <Key>
             <PropertyRef Name="Id" />
@@ -1564,7 +1543,7 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ERPEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ERPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" />
           <EntitySet Name="BankiNazwy" EntityType="Self.BankiNazwy" />
           <EntitySet Name="BankiRachunki" EntityType="Self.BankiRachunki" />
@@ -1579,7 +1558,6 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <EntitySet Name="Powiaty" EntityType="Self.Powiaty" />
           <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
           <EntitySet Name="Producenci" EntityType="Self.Producenci" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
           <EntitySet Name="Towary" EntityType="Self.Towary" />
@@ -1689,7 +1667,7 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities1">
+        <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities">
           <EntitySetMapping Name="AutoEwidencja">
             <EntityTypeMapping TypeName="ERPModel.AutoEwidencja">
               <MappingFragment StoreEntitySet="AutoEwidencja">
@@ -1970,17 +1948,6 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ERPModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

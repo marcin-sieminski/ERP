@@ -219,6 +219,12 @@
   <data name="FVMarza" xml:space="preserve">
     <value>FV marża</value>
   </data>
+  <data name="Gminy" xml:space="preserve">
+    <value>Gminy</value>
+  </data>
+  <data name="GminyTooltip" xml:space="preserve">
+    <value>Gminy lista</value>
+  </data>
   <data name="Grupa" xml:space="preserve">
     <value>Grupa</value>
   </data>

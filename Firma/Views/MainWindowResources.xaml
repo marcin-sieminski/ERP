@@ -7,6 +7,10 @@
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieTowaryViewModel}">
         <views:WszystkieTowaryView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieGminyViewModel}">
+        <views:WszystkieGminyView/>
+    </DataTemplate>
 
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>

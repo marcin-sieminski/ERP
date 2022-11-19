@@ -367,6 +367,24 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gminy.
+        /// </summary>
+        public static string Gminy {
+            get {
+                return ResourceManager.GetString("Gminy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gminy lista.
+        /// </summary>
+        public static string GminyTooltip {
+            get {
+                return ResourceManager.GetString("GminyTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Grupa.
         /// </summary>
         public static string Grupa {

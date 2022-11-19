@@ -47,6 +47,8 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.NowyPracownik, new BaseCommand(() => createView(new NowyPracownikViewModel()))),
             new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
             new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
+            new CommandViewModel(BaseResources.Gminy, new BaseCommand(showAllGmina)),
+
         };
         }
         #endregion
@@ -113,6 +115,17 @@ namespace Firma.ViewModels
             setActiveWorkspace(workspace);
         }
 
+        private void showAllGmina()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieGminyViewModel) as WszystkieGminyViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieGminyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
         private void setActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(Workspaces.Contains(workspace));
@@ -171,6 +184,13 @@ namespace Firma.ViewModels
             get
             {
                 return new BaseCommand(showAllTowar);
+            }
+        }
+        public ICommand GminyCommand
+        {
+            get
+            {
+                return new BaseCommand(showAllGmina);
             }
         }
 

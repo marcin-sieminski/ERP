@@ -131,6 +131,11 @@
                     <ImageBrush ImageSource="/Views/Content/Icons/towar_dodaj.png"/>
                 </ToggleButton.Background>
             </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding GminyCommand}" ToolTip="{x:Static resx:BaseResources.GminyTooltip}">
+                <ToggleButton.Background>
+                    <ImageBrush ImageSource="/Views/Content/Icons/towar_dodaj.png"/>
+                </ToggleButton.Background>
+            </ToggleButton>
             <Separator/>
         </ToolBar>
 

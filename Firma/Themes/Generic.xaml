@@ -7,28 +7,21 @@
                 <ControlTemplate  TargetType="{x:Type  views:WszystkieViewBase}">
                     <Grid  Margin="0,10,0,0">
                         <Grid.RowDefinitions>
-                            <RowDefinition  Height="34"/>
-                            <RowDefinition  Height="60"/>
-                            <RowDefinition  Height="*"/>
+                            <RowDefinition Height="34"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <ToolBar  Grid.Row="0"  Height="30"  Margin="0,2,0,2">
-                            <ToggleButton  Content="Dodaj"  Width="70"  Height="30"/>
-                            <ToggleButton  Content="Modyfikuj"  Width="70"
- 
-                                           Height="30"/>
- 
-
-                            <ToggleButton  Content="Kasuj"  Width="70"  Height="30"/>
-                            <ToggleButton  Content="Odswiez"  Width="70"  Height="30"
- 
-                                           Command="{Binding  LoadCommand}"/>
+                            <ToggleButton Content="Dodaj"  Width="70"  Height="30"/>
+                            <ToggleButton Content="Modyfikuj"  Width="70" Height="30"/>
+                            <ToggleButton Content="Kasuj"  Width="70"  Height="30"/>
+                            <ToggleButton Content="Odswiez"  Width="70"  Height="30" Command="{Binding  LoadCommand}"/>
                         </ToolBar>
-                        <StackPanel  Grid.Row="1"  Background="Azure">
-                            <Label  Content="Sortowanie  i  filtorowanie"/>
+                        <StackPanel Grid.Row="1"  Background="Azure">
+                            <Label Content="Sortowanie i filtrowanie"/>
                         </StackPanel>
-                        <ContentPresenter  Grid.Row="2"  Margin="0,5,0,5"  />
+                        <ContentPresenter Grid.Row="2" Margin="0,5,0,5"  />
                     </Grid>
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

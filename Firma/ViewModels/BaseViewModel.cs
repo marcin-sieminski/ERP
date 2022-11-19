@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using Firma.Helpers;
 
 namespace Firma.ViewModels
 {
@@ -29,6 +30,18 @@ namespace Firma.ViewModels
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+        #region  Command
+        public  delegate  void  CommandDelegate();
+        protected BaseCommand GetCommand(BaseCommand baseCommand, CommandDelegate function)
+        {
+            if  (baseCommand  ==  null)
+            {
+                baseCommand  =  new  BaseCommand(()  =>  function());
+            }
+            return  baseCommand;
+        }
         #endregion
     }
 }

@@ -477,6 +477,9 @@
   <data name="Wartosc" xml:space="preserve">
     <value>Wartość</value>
   </data>
+  <data name="Wojewodztwa" xml:space="preserve">
+    <value>Województwa</value>
+  </data>
   <data name="Wojewodztwo" xml:space="preserve">
     <value>Województwo</value>
   </data>

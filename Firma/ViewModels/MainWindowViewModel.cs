@@ -51,6 +51,7 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.Kraje, new BaseCommand(showAllKraj)),
             new CommandViewModel(BaseResources.Miasta, new BaseCommand(showAllMiasto)),
             new CommandViewModel(BaseResources.Powiaty, new BaseCommand(showAllPowiat)),
+            new CommandViewModel(BaseResources.Wojewodztwa, new BaseCommand(showAllWojewodztwo)),
         };
         }
         #endregion
@@ -156,6 +157,16 @@ namespace Firma.ViewModels
             if (workspace is null)
             {
                 workspace = new WszystkiePowiatyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+        private void showAllWojewodztwo()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieWojewodztwaViewModel) as WszystkieWojewodztwaViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieWojewodztwaViewModel();
                 Workspaces.Add(workspace);
             }
             setActiveWorkspace(workspace);

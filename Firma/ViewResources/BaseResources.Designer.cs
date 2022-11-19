@@ -1141,6 +1141,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Województwa.
+        /// </summary>
+        public static string Wojewodztwa {
+            get {
+                return ResourceManager.GetString("Wojewodztwa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Województwo.
         /// </summary>
         public static string Wojewodztwo {

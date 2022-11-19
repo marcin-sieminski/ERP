@@ -24,6 +24,10 @@
         <views:WszystkiePowiatyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieWojewodztwaViewModel}">
+        <views:WszystkieWojewództwaView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

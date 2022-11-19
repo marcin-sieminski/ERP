@@ -880,6 +880,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Powiaty.
+        /// </summary>
+        public static string Powiaty {
+            get {
+                return ResourceManager.GetString("Powiaty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pozostaje.
         /// </summary>
         public static string Pozostaje {

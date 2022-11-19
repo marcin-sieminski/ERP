@@ -390,6 +390,9 @@
   <data name="PoTerminie" xml:space="preserve">
     <value>Po terminie</value>
   </data>
+  <data name="Powiaty" xml:space="preserve">
+    <value>Powiaty</value>
+  </data>
   <data name="Pozostaje" xml:space="preserve">
     <value>Pozostaje</value>
   </data>

@@ -20,6 +20,10 @@
         <views:WszystkieMiastaView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkiePowiatyViewModel}">
+        <views:WszystkiePowiatyView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

@@ -48,7 +48,8 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
             new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel(BaseResources.Gminy, new BaseCommand(showAllGmina)),
-
+            new CommandViewModel(BaseResources.Kraje, new BaseCommand(showAllKraj)),
+            new CommandViewModel(BaseResources.Miasta, new BaseCommand(showAllMiasto)),
         };
         }
         #endregion
@@ -121,6 +122,28 @@ namespace Firma.ViewModels
             if (workspace is null)
             {
                 workspace = new WszystkieGminyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
+        private void showAllKraj()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieKrajeViewModel) as WszystkieKrajeViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieKrajeViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
+        private void showAllMiasto()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieMiastaViewModel) as WszystkieMiastaViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieMiastaViewModel();
                 Workspaces.Add(workspace);
             }
             setActiveWorkspace(workspace);

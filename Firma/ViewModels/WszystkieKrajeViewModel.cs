@@ -6,23 +6,23 @@ using Firma.Models.Entities;
 
 namespace Firma.ViewModels
 {
-    public class WszystkieGminyViewModel : WszystkieViewModel<Gmina>
+    public class WszystkieKrajeViewModel : WszystkieViewModel<Kraj>
     {
         #region  Constructor
-        public  WszystkieGminyViewModel() : base("Gminy")
+        public  WszystkieKrajeViewModel() : base("Kraje")
         {
-            base.DisplayName  =  "Gminy";
+            base.DisplayName  =  "Kraje";
         }
         #endregion
         
         #region  Helpers
         public override void Load()
         {
-            List = new ObservableCollection<Gmina>
+            List = new ObservableCollection<Kraj>
             (
-                from gmina in ERPEntities.Gmina 
-                where gmina.IsActive == true
-                select gmina
+                from kraj in ERPEntities.Kraj 
+                where kraj.IsActive == true
+                select kraj
             );
         }
         #endregion

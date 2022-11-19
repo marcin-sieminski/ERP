@@ -14,7 +14,7 @@ namespace Firma.ViewModels
         private  readonly  ERPEntities  erpEntities; 
         private  BaseCommand  _LoadCommand;
         //lista  towarow  zaladowana  z  bazy  danych
-        private  ObservableCollection<Towary>  _TowaryList; 
+        private  ObservableCollection<Towar>  _TowaryList; 
         #endregion  
         
         #region  Properties
@@ -29,7 +29,7 @@ namespace Firma.ViewModels
                 return  _LoadCommand;
             }
         }
-        public  ObservableCollection<Towary>  TowaryList
+        public  ObservableCollection<Towar>  TowaryList
         {
  
             get
@@ -58,8 +58,8 @@ namespace Firma.ViewModels
         #region  Helpers
         private  void  load()
         {
-            TowaryList  =  new  ObservableCollection<Towary>
-                (from  towar  in  erpEntities.Towary  select  towar);
+            TowaryList  =  new  ObservableCollection<Towar>
+                (from  towar  in  erpEntities.Towar  select  towar);
         }
         #endregion
 

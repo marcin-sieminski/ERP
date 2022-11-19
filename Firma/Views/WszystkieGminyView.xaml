@@ -8,8 +8,8 @@
     <Grid>
         <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding  List}">
             <DataGrid.Columns>
-                <DataGridTextColumn  x:Name="id"  Binding="{Binding  Path=id}" Header="Nr"/> 
-                <DataGridTextColumn  x:Name="nazwa"  Binding="{Binding  Path=nazwa}" Header="Nazwa"/>                
+                <DataGridTextColumn  x:Name="Id"  Binding="{Binding  Path=Id}" Header="Nr"/> 
+                <DataGridTextColumn  x:Name="Nazwa"  Binding="{Binding  Path=Nazwa}" Header="Nazwa"/>                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

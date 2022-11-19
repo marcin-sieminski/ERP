@@ -16,9 +16,9 @@
           <Property Name="Pojemnosc" Type="smallint" Nullable="false" />
           <Property Name="PracownikId" Type="int" />
           <Property Name="Opis" Type="nvarchar" MaxLength="254" Nullable="false" />
-          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="BankiNazwy">
+        <EntityType Name="BankNazwa">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -46,9 +46,9 @@
           <Property Name="URL" Type="varchar" MaxLength="254" />
           <Property Name="IBAN" Type="smallint" Nullable="false" />
           <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
-          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="BankiRachunki">
+        <EntityType Name="BankRachunek">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -66,11 +66,11 @@
           <Property Name="OprocKredytu" Type="decimal" Precision="7" Scale="3" Nullable="false" />
           <Property Name="OprocKarne" Type="decimal" Precision="7" Scale="3" Nullable="false" />
           <Property Name="KaraZaPrzekr" Type="decimal" Precision="15" Scale="2" />
-          <Property Name="Nieaktywny" Type="smallint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="PrzelewySEPA" Type="tinyint" Nullable="false" />
           <Property Name="SplitPay" Type="tinyint" Nullable="false" />
         </EntityType>
-        <EntityType Name="Dzialy">
+        <EntityType Name="Dzial">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -78,24 +78,26 @@
           <Property Name="Kod" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="254" Nullable="false" />
           <Property Name="ParentId" Type="int" />
-          <Property Name="Nieaktywny" Type="smallint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Gminy">
+        <EntityType Name="Gmina">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
-        <EntityType Name="KartyKredytowe">
+        <EntityType Name="KartaKredytowa">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Numer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Kategorie">
+        <EntityType Name="Kategoria">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -106,11 +108,11 @@
           <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="RodzajZakupu" Type="smallint" Nullable="false" />
           <Property Name="Fiskalny" Type="tinyint" Nullable="false" />
-          <Property Name="Nieaktywny" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="KontoSegmentWN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="KontoSegmentMA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="KodyCN">
+        <EntityType Name="KodCN">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -123,8 +125,9 @@
           <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" />
           <Property Name="Flaga" Type="smallint" />
           <Property Name="Zrodlowa" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Kontrahenci">
+        <EntityType Name="Kontrahent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -185,29 +188,33 @@
           <Property Name="OpiekunId" Type="int" />
           <Property Name="SplitPay" Type="tinyint" Nullable="false" />
           <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Kraje">
+        <EntityType Name="Kraj">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Miasta">
+        <EntityType Name="Miasto">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Powiaty">
+        <EntityType Name="Powiat">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Pracownicy">
+        <EntityType Name="Pracownik">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -264,8 +271,9 @@
           <Property Name="KasaChData" Type="datetime" />
           <Property Name="UBZZusOd" Type="datetime" />
           <Property Name="WaznoscBadanOkres" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Producenci">
+        <EntityType Name="Producent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -273,10 +281,11 @@
           <Property Name="Kod" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="URL" Type="varchar" MaxLength="250" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Towary">
+warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Towar">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="Typ" />
@@ -298,12 +307,8 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
             <PropertyRef Name="IloscZamJM" />
             <PropertyRef Name="Stawka" />
             <PropertyRef Name="Prog" />
-            <PropertyRef Name="Upust" />
-            <PropertyRef Name="UpustData" />
-            <PropertyRef Name="UpustGodz" />
-            <PropertyRef Name="BezRabatu" />
             <PropertyRef Name="MarzaMin" />
-            <PropertyRef Name="NieAktywny" />
+            <PropertyRef Name="IsActive" />
             <PropertyRef Name="Masa" />
             <PropertyRef Name="KrajPochodzenia" />
             <PropertyRef Name="CenaZCzteremaMiejscami" />
@@ -332,16 +337,16 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
           <Property Name="IloscZamJM" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="Prog" Type="tinyint" Nullable="false" />
-          <Property Name="Upust" Type="tinyint" Nullable="false" />
-          <Property Name="UpustData" Type="tinyint" Nullable="false" />
+          <Property Name="Upust" Type="tinyint" />
+          <Property Name="UpustData" Type="tinyint" />
           <Property Name="UpustDataOd" Type="int" />
           <Property Name="UpustDataDo" Type="int" />
-          <Property Name="UpustGodz" Type="tinyint" Nullable="false" />
+          <Property Name="UpustGodz" Type="tinyint" />
           <Property Name="UpustGodzOd" Type="int" />
           <Property Name="UpustGodzDo" Type="int" />
-          <Property Name="BezRabatu" Type="tinyint" Nullable="false" />
+          <Property Name="BezRabatu" Type="tinyint" />
           <Property Name="MarzaMin" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="NieAktywny" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Masa" Type="decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="WagaKG" Type="decimal" Precision="15" Scale="4" />
           <Property Name="KrajPochodzenia" Type="nvarchar" MaxLength="2" Nullable="false" />
@@ -349,12 +354,13 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
           <Property Name="SplitPay" Type="tinyint" Nullable="false" />
           <Property Name="OpiekunId" Type="int" />
         </EntityType>
-        <EntityType Name="Wojewodztwa">
+        <EntityType Name="Wojewodztwo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Wyksztalcenie">
           <Key>
@@ -362,72 +368,73 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="BankiNazwy_FK1">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK2">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK3">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK4">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK5">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AuEPracownik">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
           <End Role="AutoEwidencja" Type="Self.AutoEwidencja" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AutoEwidencja">
@@ -436,396 +443,396 @@ warning 6002: The table/view 'ERP.dbo.Towary' does not have a primary key define
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRaKartaTyp">
-          <End Role="KartyKredytowe" Type="Self.KartyKredytowe" Multiplicity="0..1" />
-          <End Role="BankiRachunki" Type="Self.BankiRachunki" Multiplicity="*" />
+          <End Role="KartaKredytowa" Type="Self.KartaKredytowa" Multiplicity="0..1" />
+          <End Role="BankRachunek" Type="Self.BankRachunek" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="KartyKredytowe">
+            <Principal Role="KartaKredytowa">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiRachunki">
+            <Dependent Role="BankRachunek">
               <PropertyRef Name="KKrID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PREDzlLink">
-          <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Dzialy">
+            <Principal Role="Dzial">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="DzialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Towary_KodyCn">
-          <End Role="KodyCN" Type="Self.KodyCN" Multiplicity="0..1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="KodCN" Type="Self.KodCN" Multiplicity="0..1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="KodyCN">
+            <Principal Role="KodCN">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KontrahentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Towary_Producenci">
-          <End Role="Producenci" Type="Self.Producenci" Multiplicity="1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Producent" Type="Self.Producent" Multiplicity="1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Producenci">
+            <Principal Role="Producent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="ProducentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK2">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK3">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK4">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK5">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_Opiekun_FK">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="OpiekunId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Gminy">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Kraj">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Miasta">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Powiaty">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Wojewodztwa">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Wyksztalcenie">
           <End Role="Wyksztalcenie" Type="Self.Wyksztalcenie" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Wyksztalcenie">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="WyksztalcenieId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_FK">
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1">
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kontrahenci">
+            <Principal Role="Kontrahent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KontrahentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_Kategorie_FK">
-          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="0..1">
+          <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kategorie">
+            <Principal Role="Kategoria">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KategoriaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_Pracownicy">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="OpiekunId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ERPModelStoreContainer">
           <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BankiNazwy" EntityType="Self.BankiNazwy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BankiRachunki" EntityType="Self.BankiRachunki" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dzialy" EntityType="Self.Dzialy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Gminy" EntityType="Self.Gminy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KartyKredytowe" EntityType="Self.KartyKredytowe" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="KodyCN" EntityType="Self.KodyCN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Kraje" EntityType="Self.Kraje" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Miasta" EntityType="Self.Miasta" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Powiaty" EntityType="Self.Powiaty" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Producenci" EntityType="Self.Producenci" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankNazwa" EntityType="Self.BankNazwa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankRachunek" EntityType="Self.BankRachunek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dzial" EntityType="Self.Dzial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gmina" EntityType="Self.Gmina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KartaKredytowa" EntityType="Self.KartaKredytowa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoria" EntityType="Self.Kategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KodCN" EntityType="Self.KodCN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontrahent" EntityType="Self.Kontrahent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kraj" EntityType="Self.Kraj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Miasto" EntityType="Self.Miasto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Powiat" EntityType="Self.Powiat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producent" EntityType="Self.Producent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wojewodztwo" EntityType="Self.Wojewodztwo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Towary" EntityType="Self.Towary" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Towar" EntityType="Self.Towar" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[Towary].[Id] AS [Id], 
-[Towary].[Typ] AS [Typ], 
-[Towary].[Produkt] AS [Produkt], 
-[Towary].[KodCnId] AS [KodCnId], 
-[Towary].[NumerKat] AS [NumerKat], 
-[Towary].[Nazwa] AS [Nazwa], 
-[Towary].[URL] AS [URL], 
-[Towary].[KategoriaId] AS [KategoriaId], 
-[Towary].[Opis] AS [Opis], 
-[Towary].[JM] AS [JM], 
-[Towary].[UdostepniajWCenniku] AS [UdostepniajWCenniku], 
-[Towary].[Waluta] AS [Waluta], 
-[Towary].[MinCenaMarza] AS [MinCenaMarza], 
-[Towary].[KontrahentId] AS [KontrahentId], 
-[Towary].[ProducentId] AS [ProducentId], 
-[Towary].[IloscMin] AS [IloscMin], 
-[Towary].[IloscMinJM] AS [IloscMinJM], 
-[Towary].[IloscMax] AS [IloscMax], 
-[Towary].[IloscMaxJM] AS [IloscMaxJM], 
-[Towary].[IloscZam] AS [IloscZam], 
-[Towary].[IloscZamJM] AS [IloscZamJM], 
-[Towary].[Stawka] AS [Stawka], 
-[Towary].[Prog] AS [Prog], 
-[Towary].[Upust] AS [Upust], 
-[Towary].[UpustData] AS [UpustData], 
-[Towary].[UpustDataOd] AS [UpustDataOd], 
-[Towary].[UpustDataDo] AS [UpustDataDo], 
-[Towary].[UpustGodz] AS [UpustGodz], 
-[Towary].[UpustGodzOd] AS [UpustGodzOd], 
-[Towary].[UpustGodzDo] AS [UpustGodzDo], 
-[Towary].[BezRabatu] AS [BezRabatu], 
-[Towary].[MarzaMin] AS [MarzaMin], 
-[Towary].[NieAktywny] AS [NieAktywny], 
-[Towary].[Masa] AS [Masa], 
-[Towary].[WagaKG] AS [WagaKG], 
-[Towary].[KrajPochodzenia] AS [KrajPochodzenia], 
-[Towary].[CenaZCzteremaMiejscami] AS [CenaZCzteremaMiejscami], 
-[Towary].[SplitPay] AS [SplitPay], 
-[Towary].[OpiekunId] AS [OpiekunId]
-FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
+[Towar].[Id] AS [Id], 
+[Towar].[Typ] AS [Typ], 
+[Towar].[Produkt] AS [Produkt], 
+[Towar].[KodCnId] AS [KodCnId], 
+[Towar].[NumerKat] AS [NumerKat], 
+[Towar].[Nazwa] AS [Nazwa], 
+[Towar].[URL] AS [URL], 
+[Towar].[KategoriaId] AS [KategoriaId], 
+[Towar].[Opis] AS [Opis], 
+[Towar].[JM] AS [JM], 
+[Towar].[UdostepniajWCenniku] AS [UdostepniajWCenniku], 
+[Towar].[Waluta] AS [Waluta], 
+[Towar].[MinCenaMarza] AS [MinCenaMarza], 
+[Towar].[KontrahentId] AS [KontrahentId], 
+[Towar].[ProducentId] AS [ProducentId], 
+[Towar].[IloscMin] AS [IloscMin], 
+[Towar].[IloscMinJM] AS [IloscMinJM], 
+[Towar].[IloscMax] AS [IloscMax], 
+[Towar].[IloscMaxJM] AS [IloscMaxJM], 
+[Towar].[IloscZam] AS [IloscZam], 
+[Towar].[IloscZamJM] AS [IloscZamJM], 
+[Towar].[Stawka] AS [Stawka], 
+[Towar].[Prog] AS [Prog], 
+[Towar].[Upust] AS [Upust], 
+[Towar].[UpustData] AS [UpustData], 
+[Towar].[UpustDataOd] AS [UpustDataOd], 
+[Towar].[UpustDataDo] AS [UpustDataDo], 
+[Towar].[UpustGodz] AS [UpustGodz], 
+[Towar].[UpustGodzOd] AS [UpustGodzOd], 
+[Towar].[UpustGodzDo] AS [UpustGodzDo], 
+[Towar].[BezRabatu] AS [BezRabatu], 
+[Towar].[MarzaMin] AS [MarzaMin], 
+[Towar].[IsActive] AS [IsActive], 
+[Towar].[Masa] AS [Masa], 
+[Towar].[WagaKG] AS [WagaKG], 
+[Towar].[KrajPochodzenia] AS [KrajPochodzenia], 
+[Towar].[CenaZCzteremaMiejscami] AS [CenaZCzteremaMiejscami], 
+[Towar].[SplitPay] AS [SplitPay], 
+[Towar].[OpiekunId] AS [OpiekunId]
+FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="BankiNazwy_FK1" Association="Self.BankiNazwy_FK1">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK2" Association="Self.BankiNazwy_FK2">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK3" Association="Self.BankiNazwy_FK3">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK4" Association="Self.BankiNazwy_FK4">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK5" Association="Self.BankiNazwy_FK5">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="AutoEwidencja" EntitySet="AutoEwidencja" />
           </AssociationSet>
           <AssociationSet Name="FK_BRaKartaTyp" Association="Self.FK_BRaKartaTyp">
-            <End Role="KartyKredytowe" EntitySet="KartyKredytowe" />
-            <End Role="BankiRachunki" EntitySet="BankiRachunki" />
+            <End Role="KartaKredytowa" EntitySet="KartaKredytowa" />
+            <End Role="BankRachunek" EntitySet="BankRachunek" />
           </AssociationSet>
           <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
-            <End Role="Dzialy" EntitySet="Dzialy" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Dzial" EntitySet="Dzial" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="FK_Towary_KodyCn" Association="Self.FK_Towary_KodyCn">
-            <End Role="KodyCN" EntitySet="KodyCN" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="KodCN" EntitySet="KodCN" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="FK_Towary_Producenci" Association="Self.FK_Towary_Producenci">
-            <End Role="Producenci" EntitySet="Producenci" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK" Association="Self.Kontrahenci_FK">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK2" Association="Self.Kontrahenci_FK2">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK3" Association="Self.Kontrahenci_FK3">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK4" Association="Self.Kontrahenci_FK4">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK5" Association="Self.Kontrahenci_FK5">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_Opiekun_FK" Association="Self.Kontrahenci_Opiekun_FK">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Gminy" Association="Self.Pracownicy_Gminy">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Kraj" Association="Self.Pracownicy_Kraj">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Miasta" Association="Self.Pracownicy_Miasta">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Powiaty" Association="Self.Pracownicy_Powiaty">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Wojewodztwa" Association="Self.Pracownicy_Wojewodztwa">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Wyksztalcenie" Association="Self.Pracownicy_Wyksztalcenie">
             <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Towary_FK" Association="Self.Towary_FK">
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="Towary_Kategorie_FK" Association="Self.Towary_Kategorie_FK">
-            <End Role="Kategorie" EntitySet="Kategorie" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Kategoria" EntitySet="Kategoria" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="Towary_Pracownicy" Association="Self.Towary_Pracownicy">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -844,10 +851,10 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="Pojemnosc" Type="Int16" Nullable="false" />
           <Property Name="PracownikId" Type="Int32" />
           <Property Name="Opis" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_AuEPracownik" FromRole="AutoEwidencja" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_AuEPracownik" FromRole="AutoEwidencja" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="BankiNazwy">
+        <EntityType Name="BankNazwa">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -875,14 +882,14 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="IBAN" Type="Int16" Nullable="false" />
           <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="Kraje" Relationship="Self.BankiNazwy_FK1" FromRole="BankiNazwy" ToRole="Kraje" />
-          <NavigationProperty Name="Gminy" Relationship="Self.BankiNazwy_FK2" FromRole="BankiNazwy" ToRole="Gminy" />
-          <NavigationProperty Name="Miasta" Relationship="Self.BankiNazwy_FK3" FromRole="BankiNazwy" ToRole="Miasta" />
-          <NavigationProperty Name="Powiaty" Relationship="Self.BankiNazwy_FK4" FromRole="BankiNazwy" ToRole="Powiaty" />
-          <NavigationProperty Name="Wojewodztwa" Relationship="Self.BankiNazwy_FK5" FromRole="BankiNazwy" ToRole="Wojewodztwa" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Kraj" Relationship="Self.BankiNazwy_FK1" FromRole="BankNazwa" ToRole="Kraj" />
+          <NavigationProperty Name="Gmina" Relationship="Self.BankiNazwy_FK2" FromRole="BankNazwa" ToRole="Gmina" />
+          <NavigationProperty Name="Miasto" Relationship="Self.BankiNazwy_FK3" FromRole="BankNazwa" ToRole="Miasto" />
+          <NavigationProperty Name="Powiat" Relationship="Self.BankiNazwy_FK4" FromRole="BankNazwa" ToRole="Powiat" />
+          <NavigationProperty Name="Wojewodztwo" Relationship="Self.BankiNazwy_FK5" FromRole="BankNazwa" ToRole="Wojewodztwo" />
         </EntityType>
-        <EntityType Name="BankiRachunki">
+        <EntityType Name="BankRachunek">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -900,12 +907,12 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="OprocKredytu" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
           <Property Name="OprocKarne" Type="Decimal" Precision="7" Scale="3" Nullable="false" />
           <Property Name="KaraZaPrzekr" Type="Decimal" Precision="15" Scale="2" />
-          <Property Name="Nieaktywny" Type="Int16" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="PrzelewySEPA" Type="Byte" Nullable="false" />
           <Property Name="SplitPay" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="KartyKredytowe" Relationship="Self.FK_BRaKartaTyp" FromRole="BankiRachunki" ToRole="KartyKredytowe" />
+          <NavigationProperty Name="KartaKredytowa" Relationship="Self.FK_BRaKartaTyp" FromRole="BankRachunek" ToRole="KartaKredytowa" />
         </EntityType>
-        <EntityType Name="Dzialy">
+        <EntityType Name="Dzial">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -913,29 +920,31 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
-          <Property Name="Nieaktywny" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.FK_PREDzlLink" FromRole="Dzialy" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_PREDzlLink" FromRole="Dzial" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="Gminy">
+        <EntityType Name="Gmina">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK2" FromRole="Gminy" ToRole="BankiNazwy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK2" FromRole="Gminy" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Gminy" FromRole="Gminy" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK2" FromRole="Gmina" ToRole="BankNazwa" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK2" FromRole="Gmina" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Gminy" FromRole="Gmina" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="KartyKredytowe">
+        <EntityType Name="KartaKredytowa">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Numer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BankiRachunki" Relationship="Self.FK_BRaKartaTyp" FromRole="KartyKredytowe" ToRole="BankiRachunki" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BankRachunek" Relationship="Self.FK_BRaKartaTyp" FromRole="KartaKredytowa" ToRole="BankRachunek" />
         </EntityType>
-        <EntityType Name="Kategorie">
+        <EntityType Name="Kategoria">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -946,12 +955,12 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RodzajZakupu" Type="Int16" Nullable="false" />
           <Property Name="Fiskalny" Type="Byte" Nullable="false" />
-          <Property Name="Nieaktywny" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="KontoSegmentWN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KontoSegmentMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Towary" Relationship="Self.Towary_Kategorie_FK" FromRole="Kategorie" ToRole="Towary" />
+          <NavigationProperty Name="Towar" Relationship="Self.Towary_Kategorie_FK" FromRole="Kategoria" ToRole="Towar" />
         </EntityType>
-        <EntityType Name="KodyCN">
+        <EntityType Name="KodCN">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -964,9 +973,10 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="Flaga" Type="Int16" />
           <Property Name="Zrodlowa" Type="Decimal" Precision="5" Scale="2" />
-          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_KodyCn" FromRole="KodyCN" ToRole="Towary" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Towar" Relationship="Self.FK_Towary_KodyCn" FromRole="KodCN" ToRole="Towar" />
         </EntityType>
-        <EntityType Name="Kontrahenci">
+        <EntityType Name="Kontrahent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1027,45 +1037,49 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="OpiekunId" Type="Int32" />
           <Property Name="SplitPay" Type="Byte" Nullable="false" />
           <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Gminy" Relationship="Self.Kontrahenci_FK2" FromRole="Kontrahenci" ToRole="Gminy" />
-          <NavigationProperty Name="Kraje" Relationship="Self.Kontrahenci_FK" FromRole="Kontrahenci" ToRole="Kraje" />
-          <NavigationProperty Name="Miasta" Relationship="Self.Kontrahenci_FK3" FromRole="Kontrahenci" ToRole="Miasta" />
-          <NavigationProperty Name="Powiaty" Relationship="Self.Kontrahenci_FK4" FromRole="Kontrahenci" ToRole="Powiaty" />
-          <NavigationProperty Name="Wojewodztwa" Relationship="Self.Kontrahenci_FK5" FromRole="Kontrahenci" ToRole="Wojewodztwa" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Kontrahenci" ToRole="Pracownicy" />
-          <NavigationProperty Name="Towary" Relationship="Self.Towary_FK" FromRole="Kontrahenci" ToRole="Towary" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gmina" Relationship="Self.Kontrahenci_FK2" FromRole="Kontrahent" ToRole="Gmina" />
+          <NavigationProperty Name="Kraj" Relationship="Self.Kontrahenci_FK" FromRole="Kontrahent" ToRole="Kraj" />
+          <NavigationProperty Name="Miasto" Relationship="Self.Kontrahenci_FK3" FromRole="Kontrahent" ToRole="Miasto" />
+          <NavigationProperty Name="Powiat" Relationship="Self.Kontrahenci_FK4" FromRole="Kontrahent" ToRole="Powiat" />
+          <NavigationProperty Name="Wojewodztwo" Relationship="Self.Kontrahenci_FK5" FromRole="Kontrahent" ToRole="Wojewodztwo" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Kontrahent" ToRole="Pracownik" />
+          <NavigationProperty Name="Towar" Relationship="Self.Towary_FK" FromRole="Kontrahent" ToRole="Towar" />
         </EntityType>
-        <EntityType Name="Kraje">
+        <EntityType Name="Kraj">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK1" FromRole="Kraje" ToRole="BankiNazwy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK" FromRole="Kraje" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Kraj" FromRole="Kraje" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK1" FromRole="Kraj" ToRole="BankNazwa" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK" FromRole="Kraj" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Kraj" FromRole="Kraj" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="Miasta">
+        <EntityType Name="Miasto">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK3" FromRole="Miasta" ToRole="BankiNazwy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK3" FromRole="Miasta" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Miasta" FromRole="Miasta" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK3" FromRole="Miasto" ToRole="BankNazwa" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK3" FromRole="Miasto" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Miasta" FromRole="Miasto" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="Powiaty">
+        <EntityType Name="Powiat">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK4" FromRole="Powiaty" ToRole="BankiNazwy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK4" FromRole="Powiaty" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Powiaty" FromRole="Powiaty" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK4" FromRole="Powiat" ToRole="BankNazwa" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK4" FromRole="Powiat" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Powiaty" FromRole="Powiat" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="Pracownicy">
+        <EntityType Name="Pracownik">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1122,18 +1136,19 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="KasaChData" Type="DateTime" />
           <Property Name="UBZZusOd" Type="DateTime" />
           <Property Name="WaznoscBadanOkres" Type="DateTime" />
-          <NavigationProperty Name="AutoEwidencja" Relationship="Self.FK_AuEPracownik" FromRole="Pracownicy" ToRole="AutoEwidencja" />
-          <NavigationProperty Name="Dzialy" Relationship="Self.FK_PREDzlLink" FromRole="Pracownicy" ToRole="Dzialy" />
-          <NavigationProperty Name="Gminy" Relationship="Self.Pracownicy_Gminy" FromRole="Pracownicy" ToRole="Gminy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Pracownicy" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Kraje" Relationship="Self.Pracownicy_Kraj" FromRole="Pracownicy" ToRole="Kraje" />
-          <NavigationProperty Name="Miasta" Relationship="Self.Pracownicy_Miasta" FromRole="Pracownicy" ToRole="Miasta" />
-          <NavigationProperty Name="Powiaty" Relationship="Self.Pracownicy_Powiaty" FromRole="Pracownicy" ToRole="Powiaty" />
-          <NavigationProperty Name="Wojewodztwa" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Pracownicy" ToRole="Wojewodztwa" />
-          <NavigationProperty Name="Wyksztalcenie" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Pracownicy" ToRole="Wyksztalcenie" />
-          <NavigationProperty Name="Towary" Relationship="Self.Towary_Pracownicy" FromRole="Pracownicy" ToRole="Towary" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AutoEwidencja" Relationship="Self.FK_AuEPracownik" FromRole="Pracownik" ToRole="AutoEwidencja" />
+          <NavigationProperty Name="Dzial" Relationship="Self.FK_PREDzlLink" FromRole="Pracownik" ToRole="Dzial" />
+          <NavigationProperty Name="Gmina" Relationship="Self.Pracownicy_Gminy" FromRole="Pracownik" ToRole="Gmina" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_Opiekun_FK" FromRole="Pracownik" ToRole="Kontrahent" />
+          <NavigationProperty Name="Kraj" Relationship="Self.Pracownicy_Kraj" FromRole="Pracownik" ToRole="Kraj" />
+          <NavigationProperty Name="Miasto" Relationship="Self.Pracownicy_Miasta" FromRole="Pracownik" ToRole="Miasto" />
+          <NavigationProperty Name="Powiat" Relationship="Self.Pracownicy_Powiaty" FromRole="Pracownik" ToRole="Powiat" />
+          <NavigationProperty Name="Wojewodztwo" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Pracownik" ToRole="Wojewodztwo" />
+          <NavigationProperty Name="Wyksztalcenie" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Pracownik" ToRole="Wyksztalcenie" />
+          <NavigationProperty Name="Towar" Relationship="Self.Towary_Pracownicy" FromRole="Pracownik" ToRole="Towar" />
         </EntityType>
-        <EntityType Name="Producenci">
+        <EntityType Name="Producent">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1141,17 +1156,19 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="Kod" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="URL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Towary" Relationship="Self.FK_Towary_Producenci" FromRole="Producenci" ToRole="Towary" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Towar" Relationship="Self.FK_Towary_Producenci" FromRole="Producent" ToRole="Towar" />
         </EntityType>
-        <EntityType Name="Wojewodztwa">
+        <EntityType Name="Wojewodztwo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="BankiNazwy" Relationship="Self.BankiNazwy_FK5" FromRole="Wojewodztwa" ToRole="BankiNazwy" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Kontrahenci_FK5" FromRole="Wojewodztwa" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Wojewodztwa" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK5" FromRole="Wojewodztwo" ToRole="BankNazwa" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK5" FromRole="Wojewodztwo" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Wojewodztwa" FromRole="Wojewodztwo" ToRole="Pracownik" />
         </EntityType>
         <EntityType Name="Wyksztalcenie">
           <Key>
@@ -1159,9 +1176,10 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Wyksztalcenie" ToRole="Pracownicy" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Wyksztalcenie" ToRole="Pracownik" />
         </EntityType>
-        <EntityType Name="Towary">
+        <EntityType Name="Towar">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="Typ" />
@@ -1183,12 +1201,8 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
             <PropertyRef Name="IloscZamJM" />
             <PropertyRef Name="Stawka" />
             <PropertyRef Name="Prog" />
-            <PropertyRef Name="Upust" />
-            <PropertyRef Name="UpustData" />
-            <PropertyRef Name="UpustGodz" />
-            <PropertyRef Name="BezRabatu" />
             <PropertyRef Name="MarzaMin" />
-            <PropertyRef Name="NieAktywny" />
+            <PropertyRef Name="IsActive" />
             <PropertyRef Name="Masa" />
             <PropertyRef Name="KrajPochodzenia" />
             <PropertyRef Name="CenaZCzteremaMiejscami" />
@@ -1217,33 +1231,33 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           <Property Name="IloscZamJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="Prog" Type="Byte" Nullable="false" />
-          <Property Name="Upust" Type="Byte" Nullable="false" />
-          <Property Name="UpustData" Type="Byte" Nullable="false" />
+          <Property Name="Upust" Type="Byte" />
+          <Property Name="UpustData" Type="Byte" />
           <Property Name="UpustDataOd" Type="Int32" />
           <Property Name="UpustDataDo" Type="Int32" />
-          <Property Name="UpustGodz" Type="Byte" Nullable="false" />
+          <Property Name="UpustGodz" Type="Byte" />
           <Property Name="UpustGodzOd" Type="Int32" />
           <Property Name="UpustGodzDo" Type="Int32" />
-          <Property Name="BezRabatu" Type="Byte" Nullable="false" />
+          <Property Name="BezRabatu" Type="Byte" />
           <Property Name="MarzaMin" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="NieAktywny" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Masa" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
           <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CenaZCzteremaMiejscami" Type="Byte" Nullable="false" />
           <Property Name="SplitPay" Type="Byte" Nullable="false" />
           <Property Name="OpiekunId" Type="Int32" />
-          <NavigationProperty Name="Kategorie" Relationship="Self.Towary_Kategorie_FK" FromRole="Towary" ToRole="Kategorie" />
-          <NavigationProperty Name="KodyCN" Relationship="Self.FK_Towary_KodyCn" FromRole="Towary" ToRole="KodyCN" />
-          <NavigationProperty Name="Kontrahenci" Relationship="Self.Towary_FK" FromRole="Towary" ToRole="Kontrahenci" />
-          <NavigationProperty Name="Pracownicy" Relationship="Self.Towary_Pracownicy" FromRole="Towary" ToRole="Pracownicy" />
-          <NavigationProperty Name="Producenci" Relationship="Self.FK_Towary_Producenci" FromRole="Towary" ToRole="Producenci" />
+          <NavigationProperty Name="Kategoria" Relationship="Self.Towary_Kategorie_FK" FromRole="Towar" ToRole="Kategoria" />
+          <NavigationProperty Name="KodCN" Relationship="Self.FK_Towary_KodyCn" FromRole="Towar" ToRole="KodCN" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Towary_FK" FromRole="Towar" ToRole="Kontrahent" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Towary_Pracownicy" FromRole="Towar" ToRole="Pracownik" />
+          <NavigationProperty Name="Producent" Relationship="Self.FK_Towary_Producenci" FromRole="Towar" ToRole="Producent" />
         </EntityType>
         <Association Name="FK_AuEPracownik">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
           <End Role="AutoEwidencja" Type="Self.AutoEwidencja" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AutoEwidencja">
@@ -1252,414 +1266,414 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK1">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK2">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK3">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK4">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="BankiNazwy_FK5">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="BankiNazwy" Type="Self.BankiNazwy" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="BankNazwa" Type="Self.BankNazwa" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiNazwy">
+            <Dependent Role="BankNazwa">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRaKartaTyp">
-          <End Role="KartyKredytowe" Type="Self.KartyKredytowe" Multiplicity="0..1" />
-          <End Role="BankiRachunki" Type="Self.BankiRachunki" Multiplicity="*" />
+          <End Role="KartaKredytowa" Type="Self.KartaKredytowa" Multiplicity="0..1" />
+          <End Role="BankRachunek" Type="Self.BankRachunek" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="KartyKredytowe">
+            <Principal Role="KartaKredytowa">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="BankiRachunki">
+            <Dependent Role="BankRachunek">
               <PropertyRef Name="KKrID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PREDzlLink">
-          <End Role="Dzialy" Type="Self.Dzialy" Multiplicity="0..1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Dzialy">
+            <Principal Role="Dzial">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="DzialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK2">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Gminy">
-          <End Role="Gminy" Type="Self.Gminy" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Gminy">
+            <Principal Role="Gmina">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="GminaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_Kategorie_FK">
-          <End Role="Kategorie" Type="Self.Kategorie" Multiplicity="0..1">
+          <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kategorie">
+            <Principal Role="Kategoria">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KategoriaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Towary_KodyCn">
-          <End Role="KodyCN" Type="Self.KodyCN" Multiplicity="0..1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="KodCN" Type="Self.KodCN" Multiplicity="0..1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="KodyCN">
+            <Principal Role="KodCN">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KontrahentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK3">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK4">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK5">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_Opiekun_FK">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Kontrahenci">
+            <Dependent Role="Kontrahent">
               <PropertyRef Name="OpiekunId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_FK">
-          <End Role="Kontrahenci" Type="Self.Kontrahenci" Multiplicity="0..1">
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kontrahenci">
+            <Principal Role="Kontrahent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="KontrahentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Kraj">
-          <End Role="Kraje" Type="Self.Kraje" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Kraje">
+            <Principal Role="Kraj">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="KrajId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Miasta">
-          <End Role="Miasta" Type="Self.Miasta" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Miasta">
+            <Principal Role="Miasto">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="MiastoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Powiaty">
-          <End Role="Powiaty" Type="Self.Powiaty" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Powiaty">
+            <Principal Role="Powiat">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="PowiatId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Wojewodztwa">
-          <End Role="Wojewodztwa" Type="Self.Wojewodztwa" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Wojewodztwa">
+            <Principal Role="Wojewodztwo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="WojewodztwoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Pracownicy_Wyksztalcenie">
           <End Role="Wyksztalcenie" Type="Self.Wyksztalcenie" Multiplicity="1" />
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Wyksztalcenie">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Pracownicy">
+            <Dependent Role="Pracownik">
               <PropertyRef Name="WyksztalcenieId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="Towary_Pracownicy">
-          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="0..1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pracownicy">
+            <Principal Role="Pracownik">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="OpiekunId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Towary_Producenci">
-          <End Role="Producenci" Type="Self.Producenci" Multiplicity="1" />
-          <End Role="Towary" Type="Self.Towary" Multiplicity="*" />
+          <End Role="Producent" Type="Self.Producent" Multiplicity="1" />
+          <End Role="Towar" Type="Self.Towar" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Producenci">
+            <Principal Role="Producent">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Towary">
+            <Dependent Role="Towar">
               <PropertyRef Name="ProducentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ERPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" />
-          <EntitySet Name="BankiNazwy" EntityType="Self.BankiNazwy" />
-          <EntitySet Name="BankiRachunki" EntityType="Self.BankiRachunki" />
-          <EntitySet Name="Dzialy" EntityType="Self.Dzialy" />
-          <EntitySet Name="Gminy" EntityType="Self.Gminy" />
-          <EntitySet Name="KartyKredytowe" EntityType="Self.KartyKredytowe" />
-          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" />
-          <EntitySet Name="KodyCN" EntityType="Self.KodyCN" />
-          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
-          <EntitySet Name="Kraje" EntityType="Self.Kraje" />
-          <EntitySet Name="Miasta" EntityType="Self.Miasta" />
-          <EntitySet Name="Powiaty" EntityType="Self.Powiaty" />
-          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
-          <EntitySet Name="Producenci" EntityType="Self.Producenci" />
-          <EntitySet Name="Wojewodztwa" EntityType="Self.Wojewodztwa" />
+          <EntitySet Name="BankNazwa" EntityType="Self.BankNazwa" />
+          <EntitySet Name="BankRachunek" EntityType="Self.BankRachunek" />
+          <EntitySet Name="Dzial" EntityType="Self.Dzial" />
+          <EntitySet Name="Gmina" EntityType="Self.Gmina" />
+          <EntitySet Name="KartaKredytowa" EntityType="Self.KartaKredytowa" />
+          <EntitySet Name="Kategoria" EntityType="Self.Kategoria" />
+          <EntitySet Name="KodCN" EntityType="Self.KodCN" />
+          <EntitySet Name="Kontrahent" EntityType="Self.Kontrahent" />
+          <EntitySet Name="Kraj" EntityType="Self.Kraj" />
+          <EntitySet Name="Miasto" EntityType="Self.Miasto" />
+          <EntitySet Name="Powiat" EntityType="Self.Powiat" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Producent" EntityType="Self.Producent" />
+          <EntitySet Name="Wojewodztwo" EntityType="Self.Wojewodztwo" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
-          <EntitySet Name="Towary" EntityType="Self.Towary" />
+          <EntitySet Name="Towar" EntityType="Self.Towar" />
           <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="AutoEwidencja" EntitySet="AutoEwidencja" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK1" Association="Self.BankiNazwy_FK1">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK2" Association="Self.BankiNazwy_FK2">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK3" Association="Self.BankiNazwy_FK3">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK4" Association="Self.BankiNazwy_FK4">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="BankiNazwy_FK5" Association="Self.BankiNazwy_FK5">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="BankiNazwy" EntitySet="BankiNazwy" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="BankNazwa" EntitySet="BankNazwa" />
           </AssociationSet>
           <AssociationSet Name="FK_BRaKartaTyp" Association="Self.FK_BRaKartaTyp">
-            <End Role="KartyKredytowe" EntitySet="KartyKredytowe" />
-            <End Role="BankiRachunki" EntitySet="BankiRachunki" />
+            <End Role="KartaKredytowa" EntitySet="KartaKredytowa" />
+            <End Role="BankRachunek" EntitySet="BankRachunek" />
           </AssociationSet>
           <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
-            <End Role="Dzialy" EntitySet="Dzialy" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Dzial" EntitySet="Dzial" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK2" Association="Self.Kontrahenci_FK2">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Gminy" Association="Self.Pracownicy_Gminy">
-            <End Role="Gminy" EntitySet="Gminy" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Gmina" EntitySet="Gmina" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Towary_Kategorie_FK" Association="Self.Towary_Kategorie_FK">
-            <End Role="Kategorie" EntitySet="Kategorie" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Kategoria" EntitySet="Kategoria" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="FK_Towary_KodyCn" Association="Self.FK_Towary_KodyCn">
-            <End Role="KodyCN" EntitySet="KodyCN" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="KodCN" EntitySet="KodCN" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK" Association="Self.Kontrahenci_FK">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK3" Association="Self.Kontrahenci_FK3">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK4" Association="Self.Kontrahenci_FK4">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK5" Association="Self.Kontrahenci_FK5">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_Opiekun_FK" Association="Self.Kontrahenci_Opiekun_FK">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
           <AssociationSet Name="Towary_FK" Association="Self.Towary_FK">
-            <End Role="Kontrahenci" EntitySet="Kontrahenci" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Kraj" Association="Self.Pracownicy_Kraj">
-            <End Role="Kraje" EntitySet="Kraje" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Miasta" Association="Self.Pracownicy_Miasta">
-            <End Role="Miasta" EntitySet="Miasta" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Miasto" EntitySet="Miasto" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Powiaty" Association="Self.Pracownicy_Powiaty">
-            <End Role="Powiaty" EntitySet="Powiaty" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Powiat" EntitySet="Powiat" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Wojewodztwa" Association="Self.Pracownicy_Wojewodztwa">
-            <End Role="Wojewodztwa" EntitySet="Wojewodztwa" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Pracownicy_Wyksztalcenie" Association="Self.Pracownicy_Wyksztalcenie">
             <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
           <AssociationSet Name="Towary_Pracownicy" Association="Self.Towary_Pracownicy">
-            <End Role="Pracownicy" EntitySet="Pracownicy" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
           <AssociationSet Name="FK_Towary_Producenci" Association="Self.FK_Towary_Producenci">
-            <End Role="Producenci" EntitySet="Producenci" />
-            <End Role="Towary" EntitySet="Towary" />
+            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Towar" EntitySet="Towar" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1678,13 +1692,13 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="Pojemnosc" ColumnName="Pojemnosc" />
                 <ScalarProperty Name="PracownikId" ColumnName="PracownikId" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BankiNazwy">
-            <EntityTypeMapping TypeName="ERPModel.BankiNazwy">
-              <MappingFragment StoreEntitySet="BankiNazwy">
+          <EntitySetMapping Name="BankNazwa">
+            <EntityTypeMapping TypeName="ERPModel.BankNazwa">
+              <MappingFragment StoreEntitySet="BankNazwa">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Akronim" ColumnName="Akronim" />
                 <ScalarProperty Name="Numer" ColumnName="Numer" />
@@ -1709,13 +1723,13 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="IBAN" ColumnName="IBAN" />
                 <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
-                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BankiRachunki">
-            <EntityTypeMapping TypeName="ERPModel.BankiRachunki">
-              <MappingFragment StoreEntitySet="BankiRachunki">
+          <EntitySetMapping Name="BankRachunek">
+            <EntityTypeMapping TypeName="ERPModel.BankRachunek">
+              <MappingFragment StoreEntitySet="BankRachunek">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Akronim" ColumnName="Akronim" />
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />
@@ -1730,43 +1744,45 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="OprocKredytu" ColumnName="OprocKredytu" />
                 <ScalarProperty Name="OprocKarne" ColumnName="OprocKarne" />
                 <ScalarProperty Name="KaraZaPrzekr" ColumnName="KaraZaPrzekr" />
-                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PrzelewySEPA" ColumnName="PrzelewySEPA" />
                 <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Dzialy">
-            <EntityTypeMapping TypeName="ERPModel.Dzialy">
-              <MappingFragment StoreEntitySet="Dzialy">
+          <EntitySetMapping Name="Dzial">
+            <EntityTypeMapping TypeName="ERPModel.Dzial">
+              <MappingFragment StoreEntitySet="Dzial">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Gminy">
-            <EntityTypeMapping TypeName="ERPModel.Gminy">
-              <MappingFragment StoreEntitySet="Gminy">
+          <EntitySetMapping Name="Gmina">
+            <EntityTypeMapping TypeName="ERPModel.Gmina">
+              <MappingFragment StoreEntitySet="Gmina">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KartyKredytowe">
-            <EntityTypeMapping TypeName="ERPModel.KartyKredytowe">
-              <MappingFragment StoreEntitySet="KartyKredytowe">
+          <EntitySetMapping Name="KartaKredytowa">
+            <EntityTypeMapping TypeName="ERPModel.KartaKredytowa">
+              <MappingFragment StoreEntitySet="KartaKredytowa">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kategorie">
-            <EntityTypeMapping TypeName="ERPModel.Kategorie">
-              <MappingFragment StoreEntitySet="Kategorie">
+          <EntitySetMapping Name="Kategoria">
+            <EntityTypeMapping TypeName="ERPModel.Kategoria">
+              <MappingFragment StoreEntitySet="Kategoria">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Typ" ColumnName="Typ" />
                 <ScalarProperty Name="Poziom" ColumnName="Poziom" />
@@ -1774,15 +1790,15 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
                 <ScalarProperty Name="RodzajZakupu" ColumnName="RodzajZakupu" />
                 <ScalarProperty Name="Fiskalny" ColumnName="Fiskalny" />
-                <ScalarProperty Name="Nieaktywny" ColumnName="Nieaktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="KontoSegmentWN" ColumnName="KontoSegmentWN" />
                 <ScalarProperty Name="KontoSegmentMA" ColumnName="KontoSegmentMA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KodyCN">
-            <EntityTypeMapping TypeName="ERPModel.KodyCN">
-              <MappingFragment StoreEntitySet="KodyCN">
+          <EntitySetMapping Name="KodCN">
+            <EntityTypeMapping TypeName="ERPModel.KodCN">
+              <MappingFragment StoreEntitySet="KodCN">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="KodSent" ColumnName="KodSent" />
@@ -1792,12 +1808,13 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="Stawka" ColumnName="Stawka" />
                 <ScalarProperty Name="Flaga" ColumnName="Flaga" />
                 <ScalarProperty Name="Zrodlowa" ColumnName="Zrodlowa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kontrahenci">
-            <EntityTypeMapping TypeName="ERPModel.Kontrahenci">
-              <MappingFragment StoreEntitySet="Kontrahenci">
+          <EntitySetMapping Name="Kontrahent">
+            <EntityTypeMapping TypeName="ERPModel.Kontrahent">
+              <MappingFragment StoreEntitySet="Kontrahent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="EAN" ColumnName="EAN" />
@@ -1855,36 +1872,40 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
                 <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
                 <ScalarProperty Name="DokumentTozsamosci" ColumnName="DokumentTozsamosci" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Kraje">
-            <EntityTypeMapping TypeName="ERPModel.Kraje">
-              <MappingFragment StoreEntitySet="Kraje">
+          <EntitySetMapping Name="Kraj">
+            <EntityTypeMapping TypeName="ERPModel.Kraj">
+              <MappingFragment StoreEntitySet="Kraj">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Miasta">
-            <EntityTypeMapping TypeName="ERPModel.Miasta">
-              <MappingFragment StoreEntitySet="Miasta">
+          <EntitySetMapping Name="Miasto">
+            <EntityTypeMapping TypeName="ERPModel.Miasto">
+              <MappingFragment StoreEntitySet="Miasto">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Powiaty">
-            <EntityTypeMapping TypeName="ERPModel.Powiaty">
-              <MappingFragment StoreEntitySet="Powiaty">
+          <EntitySetMapping Name="Powiat">
+            <EntityTypeMapping TypeName="ERPModel.Powiat">
+              <MappingFragment StoreEntitySet="Powiat">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pracownicy">
-            <EntityTypeMapping TypeName="ERPModel.Pracownicy">
-              <MappingFragment StoreEntitySet="Pracownicy">
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="ERPModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DzialId" ColumnName="DzialId" />
                 <ScalarProperty Name="TypPracownika" ColumnName="TypPracownika" />
@@ -1938,24 +1959,27 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="KasaChData" ColumnName="KasaChData" />
                 <ScalarProperty Name="UBZZusOd" ColumnName="UBZZusOd" />
                 <ScalarProperty Name="WaznoscBadanOkres" ColumnName="WaznoscBadanOkres" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Producenci">
-            <EntityTypeMapping TypeName="ERPModel.Producenci">
-              <MappingFragment StoreEntitySet="Producenci">
+          <EntitySetMapping Name="Producent">
+            <EntityTypeMapping TypeName="ERPModel.Producent">
+              <MappingFragment StoreEntitySet="Producent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Wojewodztwa">
-            <EntityTypeMapping TypeName="ERPModel.Wojewodztwa">
-              <MappingFragment StoreEntitySet="Wojewodztwa">
+          <EntitySetMapping Name="Wojewodztwo">
+            <EntityTypeMapping TypeName="ERPModel.Wojewodztwo">
+              <MappingFragment StoreEntitySet="Wojewodztwo">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1964,12 +1988,13 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
               <MappingFragment StoreEntitySet="Wyksztalcenie">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Towary">
-            <EntityTypeMapping TypeName="ERPModel.Towary">
-              <MappingFragment StoreEntitySet="Towary">
+          <EntitySetMapping Name="Towar">
+            <EntityTypeMapping TypeName="ERPModel.Towar">
+              <MappingFragment StoreEntitySet="Towar">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Typ" ColumnName="Typ" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
@@ -2002,7 +2027,7 @@ FROM [dbo].[Towary] AS [Towary]</DefiningQuery>
                 <ScalarProperty Name="UpustGodzDo" ColumnName="UpustGodzDo" />
                 <ScalarProperty Name="BezRabatu" ColumnName="BezRabatu" />
                 <ScalarProperty Name="MarzaMin" ColumnName="MarzaMin" />
-                <ScalarProperty Name="NieAktywny" ColumnName="NieAktywny" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Masa" ColumnName="Masa" />
                 <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
                 <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />

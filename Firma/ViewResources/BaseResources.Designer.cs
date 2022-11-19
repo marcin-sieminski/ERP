@@ -547,6 +547,24 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kraje.
+        /// </summary>
+        public static string Kraje {
+            get {
+                return ResourceManager.GetString("Kraje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kraje.
+        /// </summary>
+        public static string KrajeTooltip {
+            get {
+                return ResourceManager.GetString("KrajeTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kraj ISO.
         /// </summary>
         public static string KrajISO {
@@ -588,6 +606,15 @@ namespace Firma.ViewResources {
         public static string Magazyn {
             get {
                 return ResourceManager.GetString("Magazyn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miasta.
+        /// </summary>
+        public static string Miasta {
+            get {
+                return ResourceManager.GetString("Miasta", resourceCulture);
             }
         }
         

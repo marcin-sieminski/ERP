@@ -19,31 +19,31 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_AuEPracownik", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "AutoEwidencja", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.AutoEwidencja), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK1", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "BankiNazwy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiNazwy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK2", "Gminy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gminy), "BankiNazwy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiNazwy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK3", "Miasta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasta), "BankiNazwy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiNazwy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK4", "Powiaty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiaty), "BankiNazwy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiNazwy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK5", "Wojewodztwa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwa), "BankiNazwy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiNazwy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_BRaKartaTyp", "KartyKredytowe", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KartyKredytowe), "BankiRachunki", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankiRachunki), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_PREDzlLink", "Dzialy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzialy), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK2", "Gminy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gminy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gminy", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gminy), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Towary_Kategorie_FK", "Kategorie", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kategorie), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_KodyCn", "KodyCN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KodyCN), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK3", "Miasta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasta), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK4", "Powiaty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiaty), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK5", "Wojewodztwa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwa), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahenci), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Towary_FK", "Kontrahenci", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kontrahenci), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Kraj", "Kraje", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraje), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Miasta", "Miasta", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasta), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Powiaty", "Powiaty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiaty), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwa), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Wyksztalcenie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wyksztalcenie), "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownicy), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Towary_Pracownicy", "Pracownicy", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownicy), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_Producenci", "Producenci", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Producenci), "Towary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towary), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AuEPracownik", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "AutoEwidencja", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.AutoEwidencja), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK1", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK3", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasto), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK4", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK5", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_BRaKartaTyp", "KartaKredytowa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KartaKredytowa), "BankRachunek", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankRachunek), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_PREDzlLink", "Dzial", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzial), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Towary_Kategorie_FK", "Kategoria", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kategoria), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_KodyCn", "KodCN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KodCN), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK3", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasto), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK4", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK5", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Towary_FK", "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kontrahent), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Kraj", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Miasta", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasto), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Powiaty", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Wyksztalcenie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wyksztalcenie), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Towary_Pracownicy", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_Producenci", "Producent", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Producent), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
 
 #endregion
 
@@ -114,226 +114,226 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BankiNazwy> BankiNazwy
+        public ObjectSet<BankNazwa> BankNazwa
         {
             get
             {
-                if ((_BankiNazwy == null))
+                if ((_BankNazwa == null))
                 {
-                    _BankiNazwy = base.CreateObjectSet<BankiNazwy>("BankiNazwy");
+                    _BankNazwa = base.CreateObjectSet<BankNazwa>("BankNazwa");
                 }
-                return _BankiNazwy;
+                return _BankNazwa;
             }
         }
-        private ObjectSet<BankiNazwy> _BankiNazwy;
+        private ObjectSet<BankNazwa> _BankNazwa;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BankiRachunki> BankiRachunki
+        public ObjectSet<BankRachunek> BankRachunek
         {
             get
             {
-                if ((_BankiRachunki == null))
+                if ((_BankRachunek == null))
                 {
-                    _BankiRachunki = base.CreateObjectSet<BankiRachunki>("BankiRachunki");
+                    _BankRachunek = base.CreateObjectSet<BankRachunek>("BankRachunek");
                 }
-                return _BankiRachunki;
+                return _BankRachunek;
             }
         }
-        private ObjectSet<BankiRachunki> _BankiRachunki;
+        private ObjectSet<BankRachunek> _BankRachunek;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Dzialy> Dzialy
+        public ObjectSet<Dzial> Dzial
         {
             get
             {
-                if ((_Dzialy == null))
+                if ((_Dzial == null))
                 {
-                    _Dzialy = base.CreateObjectSet<Dzialy>("Dzialy");
+                    _Dzial = base.CreateObjectSet<Dzial>("Dzial");
                 }
-                return _Dzialy;
+                return _Dzial;
             }
         }
-        private ObjectSet<Dzialy> _Dzialy;
+        private ObjectSet<Dzial> _Dzial;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Gminy> Gminy
+        public ObjectSet<Gmina> Gmina
         {
             get
             {
-                if ((_Gminy == null))
+                if ((_Gmina == null))
                 {
-                    _Gminy = base.CreateObjectSet<Gminy>("Gminy");
+                    _Gmina = base.CreateObjectSet<Gmina>("Gmina");
                 }
-                return _Gminy;
+                return _Gmina;
             }
         }
-        private ObjectSet<Gminy> _Gminy;
+        private ObjectSet<Gmina> _Gmina;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<KartyKredytowe> KartyKredytowe
+        public ObjectSet<KartaKredytowa> KartaKredytowa
         {
             get
             {
-                if ((_KartyKredytowe == null))
+                if ((_KartaKredytowa == null))
                 {
-                    _KartyKredytowe = base.CreateObjectSet<KartyKredytowe>("KartyKredytowe");
+                    _KartaKredytowa = base.CreateObjectSet<KartaKredytowa>("KartaKredytowa");
                 }
-                return _KartyKredytowe;
+                return _KartaKredytowa;
             }
         }
-        private ObjectSet<KartyKredytowe> _KartyKredytowe;
+        private ObjectSet<KartaKredytowa> _KartaKredytowa;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Kategorie> Kategorie
+        public ObjectSet<Kategoria> Kategoria
         {
             get
             {
-                if ((_Kategorie == null))
+                if ((_Kategoria == null))
                 {
-                    _Kategorie = base.CreateObjectSet<Kategorie>("Kategorie");
+                    _Kategoria = base.CreateObjectSet<Kategoria>("Kategoria");
                 }
-                return _Kategorie;
+                return _Kategoria;
             }
         }
-        private ObjectSet<Kategorie> _Kategorie;
+        private ObjectSet<Kategoria> _Kategoria;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<KodyCN> KodyCN
+        public ObjectSet<KodCN> KodCN
         {
             get
             {
-                if ((_KodyCN == null))
+                if ((_KodCN == null))
                 {
-                    _KodyCN = base.CreateObjectSet<KodyCN>("KodyCN");
+                    _KodCN = base.CreateObjectSet<KodCN>("KodCN");
                 }
-                return _KodyCN;
+                return _KodCN;
             }
         }
-        private ObjectSet<KodyCN> _KodyCN;
+        private ObjectSet<KodCN> _KodCN;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Kontrahenci> Kontrahenci
+        public ObjectSet<Kontrahent> Kontrahent
         {
             get
             {
-                if ((_Kontrahenci == null))
+                if ((_Kontrahent == null))
                 {
-                    _Kontrahenci = base.CreateObjectSet<Kontrahenci>("Kontrahenci");
+                    _Kontrahent = base.CreateObjectSet<Kontrahent>("Kontrahent");
                 }
-                return _Kontrahenci;
+                return _Kontrahent;
             }
         }
-        private ObjectSet<Kontrahenci> _Kontrahenci;
+        private ObjectSet<Kontrahent> _Kontrahent;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Kraje> Kraje
+        public ObjectSet<Kraj> Kraj
         {
             get
             {
-                if ((_Kraje == null))
+                if ((_Kraj == null))
                 {
-                    _Kraje = base.CreateObjectSet<Kraje>("Kraje");
+                    _Kraj = base.CreateObjectSet<Kraj>("Kraj");
                 }
-                return _Kraje;
+                return _Kraj;
             }
         }
-        private ObjectSet<Kraje> _Kraje;
+        private ObjectSet<Kraj> _Kraj;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Miasta> Miasta
+        public ObjectSet<Miasto> Miasto
         {
             get
             {
-                if ((_Miasta == null))
+                if ((_Miasto == null))
                 {
-                    _Miasta = base.CreateObjectSet<Miasta>("Miasta");
+                    _Miasto = base.CreateObjectSet<Miasto>("Miasto");
                 }
-                return _Miasta;
+                return _Miasto;
             }
         }
-        private ObjectSet<Miasta> _Miasta;
+        private ObjectSet<Miasto> _Miasto;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Powiaty> Powiaty
+        public ObjectSet<Powiat> Powiat
         {
             get
             {
-                if ((_Powiaty == null))
+                if ((_Powiat == null))
                 {
-                    _Powiaty = base.CreateObjectSet<Powiaty>("Powiaty");
+                    _Powiat = base.CreateObjectSet<Powiat>("Powiat");
                 }
-                return _Powiaty;
+                return _Powiat;
             }
         }
-        private ObjectSet<Powiaty> _Powiaty;
+        private ObjectSet<Powiat> _Powiat;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Pracownicy> Pracownicy
+        public ObjectSet<Pracownik> Pracownik
         {
             get
             {
-                if ((_Pracownicy == null))
+                if ((_Pracownik == null))
                 {
-                    _Pracownicy = base.CreateObjectSet<Pracownicy>("Pracownicy");
+                    _Pracownik = base.CreateObjectSet<Pracownik>("Pracownik");
                 }
-                return _Pracownicy;
+                return _Pracownik;
             }
         }
-        private ObjectSet<Pracownicy> _Pracownicy;
+        private ObjectSet<Pracownik> _Pracownik;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Producenci> Producenci
+        public ObjectSet<Producent> Producent
         {
             get
             {
-                if ((_Producenci == null))
+                if ((_Producent == null))
                 {
-                    _Producenci = base.CreateObjectSet<Producenci>("Producenci");
+                    _Producent = base.CreateObjectSet<Producent>("Producent");
                 }
-                return _Producenci;
+                return _Producent;
             }
         }
-        private ObjectSet<Producenci> _Producenci;
+        private ObjectSet<Producent> _Producent;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Wojewodztwa> Wojewodztwa
+        public ObjectSet<Wojewodztwo> Wojewodztwo
         {
             get
             {
-                if ((_Wojewodztwa == null))
+                if ((_Wojewodztwo == null))
                 {
-                    _Wojewodztwa = base.CreateObjectSet<Wojewodztwa>("Wojewodztwa");
+                    _Wojewodztwo = base.CreateObjectSet<Wojewodztwo>("Wojewodztwo");
                 }
-                return _Wojewodztwa;
+                return _Wojewodztwo;
             }
         }
-        private ObjectSet<Wojewodztwa> _Wojewodztwa;
+        private ObjectSet<Wojewodztwo> _Wojewodztwo;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -354,18 +354,18 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Towary> Towary
+        public ObjectSet<Towar> Towar
         {
             get
             {
-                if ((_Towary == null))
+                if ((_Towar == null))
                 {
-                    _Towary = base.CreateObjectSet<Towary>("Towary");
+                    _Towar = base.CreateObjectSet<Towar>("Towar");
                 }
-                return _Towary;
+                return _Towar;
             }
         }
-        private ObjectSet<Towary> _Towary;
+        private ObjectSet<Towar> _Towar;
 
         #endregion
 
@@ -380,115 +380,115 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BankiNazwy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BankNazwa EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBankiNazwy(BankiNazwy bankiNazwy)
+        public void AddToBankNazwa(BankNazwa bankNazwa)
         {
-            base.AddObject("BankiNazwy", bankiNazwy);
+            base.AddObject("BankNazwa", bankNazwa);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BankiRachunki EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BankRachunek EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBankiRachunki(BankiRachunki bankiRachunki)
+        public void AddToBankRachunek(BankRachunek bankRachunek)
         {
-            base.AddObject("BankiRachunki", bankiRachunki);
+            base.AddObject("BankRachunek", bankRachunek);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Dzialy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Dzial EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDzialy(Dzialy dzialy)
+        public void AddToDzial(Dzial dzial)
         {
-            base.AddObject("Dzialy", dzialy);
+            base.AddObject("Dzial", dzial);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Gminy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Gmina EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToGminy(Gminy gminy)
+        public void AddToGmina(Gmina gmina)
         {
-            base.AddObject("Gminy", gminy);
+            base.AddObject("Gmina", gmina);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the KartyKredytowe EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the KartaKredytowa EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKartyKredytowe(KartyKredytowe kartyKredytowe)
+        public void AddToKartaKredytowa(KartaKredytowa kartaKredytowa)
         {
-            base.AddObject("KartyKredytowe", kartyKredytowe);
+            base.AddObject("KartaKredytowa", kartaKredytowa);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Kategorie EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Kategoria EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKategorie(Kategorie kategorie)
+        public void AddToKategoria(Kategoria kategoria)
         {
-            base.AddObject("Kategorie", kategorie);
+            base.AddObject("Kategoria", kategoria);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the KodyCN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the KodCN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKodyCN(KodyCN kodyCN)
+        public void AddToKodCN(KodCN kodCN)
         {
-            base.AddObject("KodyCN", kodyCN);
+            base.AddObject("KodCN", kodCN);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Kontrahenci EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Kontrahent EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKontrahenci(Kontrahenci kontrahenci)
+        public void AddToKontrahent(Kontrahent kontrahent)
         {
-            base.AddObject("Kontrahenci", kontrahenci);
+            base.AddObject("Kontrahent", kontrahent);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Kraje EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Kraj EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKraje(Kraje kraje)
+        public void AddToKraj(Kraj kraj)
         {
-            base.AddObject("Kraje", kraje);
+            base.AddObject("Kraj", kraj);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Miasta EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Miasto EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToMiasta(Miasta miasta)
+        public void AddToMiasto(Miasto miasto)
         {
-            base.AddObject("Miasta", miasta);
+            base.AddObject("Miasto", miasto);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Powiaty EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Powiat EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPowiaty(Powiaty powiaty)
+        public void AddToPowiat(Powiat powiat)
         {
-            base.AddObject("Powiaty", powiaty);
+            base.AddObject("Powiat", powiat);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Pracownicy EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Pracownik EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPracownicy(Pracownicy pracownicy)
+        public void AddToPracownik(Pracownik pracownik)
         {
-            base.AddObject("Pracownicy", pracownicy);
+            base.AddObject("Pracownik", pracownik);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Producenci EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Producent EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToProducenci(Producenci producenci)
+        public void AddToProducent(Producent producent)
         {
-            base.AddObject("Producenci", producenci);
+            base.AddObject("Producent", producent);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Wojewodztwa EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Wojewodztwo EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToWojewodztwa(Wojewodztwa wojewodztwa)
+        public void AddToWojewodztwo(Wojewodztwo wojewodztwo)
         {
-            base.AddObject("Wojewodztwa", wojewodztwa);
+            base.AddObject("Wojewodztwo", wojewodztwo);
         }
     
         /// <summary>
@@ -500,11 +500,11 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Towary EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Towar EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTowary(Towary towary)
+        public void AddToTowar(Towar towar)
         {
-            base.AddObject("Towary", towary);
+            base.AddObject("Towar", towar);
         }
 
         #endregion
@@ -534,8 +534,8 @@ namespace Firma.Models.Entities
         /// <param name="klasaPoj">Initial value of the KlasaPoj property.</param>
         /// <param name="pojemnosc">Initial value of the Pojemnosc property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
-        /// <param name="nieaktywny">Initial value of the Nieaktywny property.</param>
-        public static AutoEwidencja CreateAutoEwidencja(global::System.Int32 id, global::System.String rejestracja, global::System.String marka, global::System.Byte klasaPoj, global::System.Int16 pojemnosc, global::System.String opis, global::System.Byte nieaktywny)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static AutoEwidencja CreateAutoEwidencja(global::System.Int32 id, global::System.String rejestracja, global::System.String marka, global::System.Byte klasaPoj, global::System.Int16 pojemnosc, global::System.String opis, global::System.Boolean isActive)
         {
             AutoEwidencja autoEwidencja = new AutoEwidencja();
             autoEwidencja.Id = id;
@@ -544,7 +544,7 @@ namespace Firma.Models.Entities
             autoEwidencja.KlasaPoj = klasaPoj;
             autoEwidencja.Pojemnosc = pojemnosc;
             autoEwidencja.Opis = opis;
-            autoEwidencja.Nieaktywny = nieaktywny;
+            autoEwidencja.IsActive = isActive;
             return autoEwidencja;
         }
 
@@ -728,24 +728,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Nieaktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _Nieaktywny;
+                return _IsActive;
             }
             set
             {
-                OnNieaktywnyChanging(value);
-                ReportPropertyChanging("Nieaktywny");
-                _Nieaktywny = StructuralObject.SetValidValue(value, "Nieaktywny");
-                ReportPropertyChanged("Nieaktywny");
-                OnNieaktywnyChanged();
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
-        private global::System.Byte _Nieaktywny;
-        partial void OnNieaktywnyChanging(global::System.Byte value);
-        partial void OnNieaktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -757,16 +757,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AuEPracownik", "Pracownicy")]
-        public Pracownicy Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AuEPracownik", "Pracownik")]
+        public Pracownik Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.FK_AuEPracownik", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.FK_AuEPracownik", "Pracownik").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.FK_AuEPracownik", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.FK_AuEPracownik", "Pracownik").Value = value;
             }
         }
         /// <summary>
@@ -774,17 +774,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pracownicy> PracownicyReference
+        public EntityReference<Pracownik> PracownikReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.FK_AuEPracownik", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.FK_AuEPracownik", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("ERPModel.FK_AuEPracownik", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownik>("ERPModel.FK_AuEPracownik", "Pracownik", value);
                 }
             }
         }
@@ -796,15 +796,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="BankiNazwy")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="BankNazwa")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class BankiNazwy : EntityObject
+    public partial class BankNazwa : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new BankiNazwy object.
+        /// Create a new BankNazwa object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="akronim">Initial value of the Akronim property.</param>
@@ -829,35 +829,35 @@ namespace Firma.Models.Entities
         /// <param name="email">Initial value of the Email property.</param>
         /// <param name="iBAN">Initial value of the IBAN property.</param>
         /// <param name="rachunekNr">Initial value of the RachunekNr property.</param>
-        /// <param name="nieaktywny">Initial value of the Nieaktywny property.</param>
-        public static BankiNazwy CreateBankiNazwy(global::System.Int32 id, global::System.String akronim, global::System.String numer, global::System.String centrala, global::System.String swift, global::System.String nazwa1, global::System.String nazwa2, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.Int32 miastoId, global::System.String kodPocztowy, global::System.String poczta, global::System.String telefon, global::System.String telefonSms, global::System.String fax, global::System.String email, global::System.Int16 iBAN, global::System.String rachunekNr, global::System.Byte nieaktywny)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static BankNazwa CreateBankNazwa(global::System.Int32 id, global::System.String akronim, global::System.String numer, global::System.String centrala, global::System.String swift, global::System.String nazwa1, global::System.String nazwa2, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.Int32 miastoId, global::System.String kodPocztowy, global::System.String poczta, global::System.String telefon, global::System.String telefonSms, global::System.String fax, global::System.String email, global::System.Int16 iBAN, global::System.String rachunekNr, global::System.Boolean isActive)
         {
-            BankiNazwy bankiNazwy = new BankiNazwy();
-            bankiNazwy.Id = id;
-            bankiNazwy.Akronim = akronim;
-            bankiNazwy.Numer = numer;
-            bankiNazwy.Centrala = centrala;
-            bankiNazwy.Swift = swift;
-            bankiNazwy.Nazwa1 = nazwa1;
-            bankiNazwy.Nazwa2 = nazwa2;
-            bankiNazwy.KrajId = krajId;
-            bankiNazwy.WojewodztwoId = wojewodztwoId;
-            bankiNazwy.PowiatId = powiatId;
-            bankiNazwy.GminaId = gminaId;
-            bankiNazwy.Ulica = ulica;
-            bankiNazwy.NrDomu = nrDomu;
-            bankiNazwy.NrLokalu = nrLokalu;
-            bankiNazwy.MiastoId = miastoId;
-            bankiNazwy.KodPocztowy = kodPocztowy;
-            bankiNazwy.Poczta = poczta;
-            bankiNazwy.Telefon = telefon;
-            bankiNazwy.TelefonSms = telefonSms;
-            bankiNazwy.Fax = fax;
-            bankiNazwy.Email = email;
-            bankiNazwy.IBAN = iBAN;
-            bankiNazwy.RachunekNr = rachunekNr;
-            bankiNazwy.Nieaktywny = nieaktywny;
-            return bankiNazwy;
+            BankNazwa bankNazwa = new BankNazwa();
+            bankNazwa.Id = id;
+            bankNazwa.Akronim = akronim;
+            bankNazwa.Numer = numer;
+            bankNazwa.Centrala = centrala;
+            bankNazwa.Swift = swift;
+            bankNazwa.Nazwa1 = nazwa1;
+            bankNazwa.Nazwa2 = nazwa2;
+            bankNazwa.KrajId = krajId;
+            bankNazwa.WojewodztwoId = wojewodztwoId;
+            bankNazwa.PowiatId = powiatId;
+            bankNazwa.GminaId = gminaId;
+            bankNazwa.Ulica = ulica;
+            bankNazwa.NrDomu = nrDomu;
+            bankNazwa.NrLokalu = nrLokalu;
+            bankNazwa.MiastoId = miastoId;
+            bankNazwa.KodPocztowy = kodPocztowy;
+            bankNazwa.Poczta = poczta;
+            bankNazwa.Telefon = telefon;
+            bankNazwa.TelefonSms = telefonSms;
+            bankNazwa.Fax = fax;
+            bankNazwa.Email = email;
+            bankNazwa.IBAN = iBAN;
+            bankNazwa.RachunekNr = rachunekNr;
+            bankNazwa.IsActive = isActive;
+            return bankNazwa;
         }
 
         #endregion
@@ -1448,24 +1448,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Nieaktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _Nieaktywny;
+                return _IsActive;
             }
             set
             {
-                OnNieaktywnyChanging(value);
-                ReportPropertyChanging("Nieaktywny");
-                _Nieaktywny = StructuralObject.SetValidValue(value, "Nieaktywny");
-                ReportPropertyChanged("Nieaktywny");
-                OnNieaktywnyChanged();
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
-        private global::System.Byte _Nieaktywny;
-        partial void OnNieaktywnyChanging(global::System.Byte value);
-        partial void OnNieaktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -1477,16 +1477,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK1", "Kraje")]
-        public Kraje Kraje
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK1", "Kraj")]
+        public Kraj Kraj
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.BankiNazwy_FK1", "Kraje").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.BankiNazwy_FK1", "Kraj").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.BankiNazwy_FK1", "Kraje").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.BankiNazwy_FK1", "Kraj").Value = value;
             }
         }
         /// <summary>
@@ -1494,17 +1494,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Kraje> KrajeReference
+        public EntityReference<Kraj> KrajReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.BankiNazwy_FK1", "Kraje");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.BankiNazwy_FK1", "Kraj");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("ERPModel.BankiNazwy_FK1", "Kraje", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraj>("ERPModel.BankiNazwy_FK1", "Kraj", value);
                 }
             }
         }
@@ -1515,16 +1515,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK2", "Gminy")]
-        public Gminy Gminy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK2", "Gmina")]
+        public Gmina Gmina
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.BankiNazwy_FK2", "Gminy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.BankiNazwy_FK2", "Gmina").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.BankiNazwy_FK2", "Gminy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.BankiNazwy_FK2", "Gmina").Value = value;
             }
         }
         /// <summary>
@@ -1532,17 +1532,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Gminy> GminyReference
+        public EntityReference<Gmina> GminaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.BankiNazwy_FK2", "Gminy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.BankiNazwy_FK2", "Gmina");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gminy>("ERPModel.BankiNazwy_FK2", "Gminy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gmina>("ERPModel.BankiNazwy_FK2", "Gmina", value);
                 }
             }
         }
@@ -1553,16 +1553,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK3", "Miasta")]
-        public Miasta Miasta
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK3", "Miasto")]
+        public Miasto Miasto
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.BankiNazwy_FK3", "Miasta").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.BankiNazwy_FK3", "Miasto").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.BankiNazwy_FK3", "Miasta").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.BankiNazwy_FK3", "Miasto").Value = value;
             }
         }
         /// <summary>
@@ -1570,17 +1570,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Miasta> MiastaReference
+        public EntityReference<Miasto> MiastoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.BankiNazwy_FK3", "Miasta");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.BankiNazwy_FK3", "Miasto");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasta>("ERPModel.BankiNazwy_FK3", "Miasta", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasto>("ERPModel.BankiNazwy_FK3", "Miasto", value);
                 }
             }
         }
@@ -1591,16 +1591,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK4", "Powiaty")]
-        public Powiaty Powiaty
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK4", "Powiat")]
+        public Powiat Powiat
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.BankiNazwy_FK4", "Powiaty").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.BankiNazwy_FK4", "Powiat").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.BankiNazwy_FK4", "Powiaty").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.BankiNazwy_FK4", "Powiat").Value = value;
             }
         }
         /// <summary>
@@ -1608,17 +1608,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Powiaty> PowiatyReference
+        public EntityReference<Powiat> PowiatReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.BankiNazwy_FK4", "Powiaty");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.BankiNazwy_FK4", "Powiat");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiaty>("ERPModel.BankiNazwy_FK4", "Powiaty", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiat>("ERPModel.BankiNazwy_FK4", "Powiat", value);
                 }
             }
         }
@@ -1629,16 +1629,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK5", "Wojewodztwa")]
-        public Wojewodztwa Wojewodztwa
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK5", "Wojewodztwo")]
+        public Wojewodztwo Wojewodztwo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.BankiNazwy_FK5", "Wojewodztwa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.BankiNazwy_FK5", "Wojewodztwo").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.BankiNazwy_FK5", "Wojewodztwa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.BankiNazwy_FK5", "Wojewodztwo").Value = value;
             }
         }
         /// <summary>
@@ -1646,17 +1646,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Wojewodztwa> WojewodztwaReference
+        public EntityReference<Wojewodztwo> WojewodztwoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.BankiNazwy_FK5", "Wojewodztwa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.BankiNazwy_FK5", "Wojewodztwo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwa>("ERPModel.BankiNazwy_FK5", "Wojewodztwa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwo>("ERPModel.BankiNazwy_FK5", "Wojewodztwo", value);
                 }
             }
         }
@@ -1668,15 +1668,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="BankiRachunki")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="BankRachunek")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class BankiRachunki : EntityObject
+    public partial class BankRachunek : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new BankiRachunki object.
+        /// Create a new BankRachunek object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="akronim">Initial value of the Akronim property.</param>
@@ -1690,28 +1690,28 @@ namespace Firma.Models.Entities
         /// <param name="oprocRachunku">Initial value of the OprocRachunku property.</param>
         /// <param name="oprocKredytu">Initial value of the OprocKredytu property.</param>
         /// <param name="oprocKarne">Initial value of the OprocKarne property.</param>
-        /// <param name="nieaktywny">Initial value of the Nieaktywny property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="przelewySEPA">Initial value of the PrzelewySEPA property.</param>
         /// <param name="splitPay">Initial value of the SplitPay property.</param>
-        public static BankiRachunki CreateBankiRachunki(global::System.Int32 id, global::System.String akronim, global::System.String symbol, global::System.String nazwa, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.String waluta, global::System.Int32 typ, global::System.Decimal limitKredytu, global::System.Decimal oprocRachunku, global::System.Decimal oprocKredytu, global::System.Decimal oprocKarne, global::System.Int16 nieaktywny, global::System.Byte przelewySEPA, global::System.Byte splitPay)
+        public static BankRachunek CreateBankRachunek(global::System.Int32 id, global::System.String akronim, global::System.String symbol, global::System.String nazwa, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.String waluta, global::System.Int32 typ, global::System.Decimal limitKredytu, global::System.Decimal oprocRachunku, global::System.Decimal oprocKredytu, global::System.Decimal oprocKarne, global::System.Boolean isActive, global::System.Byte przelewySEPA, global::System.Byte splitPay)
         {
-            BankiRachunki bankiRachunki = new BankiRachunki();
-            bankiRachunki.Id = id;
-            bankiRachunki.Akronim = akronim;
-            bankiRachunki.Symbol = symbol;
-            bankiRachunki.Nazwa = nazwa;
-            bankiRachunki.RachunekNr = rachunekNr;
-            bankiRachunki.IBAN = iBAN;
-            bankiRachunki.Waluta = waluta;
-            bankiRachunki.Typ = typ;
-            bankiRachunki.LimitKredytu = limitKredytu;
-            bankiRachunki.OprocRachunku = oprocRachunku;
-            bankiRachunki.OprocKredytu = oprocKredytu;
-            bankiRachunki.OprocKarne = oprocKarne;
-            bankiRachunki.Nieaktywny = nieaktywny;
-            bankiRachunki.PrzelewySEPA = przelewySEPA;
-            bankiRachunki.SplitPay = splitPay;
-            return bankiRachunki;
+            BankRachunek bankRachunek = new BankRachunek();
+            bankRachunek.Id = id;
+            bankRachunek.Akronim = akronim;
+            bankRachunek.Symbol = symbol;
+            bankRachunek.Nazwa = nazwa;
+            bankRachunek.RachunekNr = rachunekNr;
+            bankRachunek.IBAN = iBAN;
+            bankRachunek.Waluta = waluta;
+            bankRachunek.Typ = typ;
+            bankRachunek.LimitKredytu = limitKredytu;
+            bankRachunek.OprocRachunku = oprocRachunku;
+            bankRachunek.OprocKredytu = oprocKredytu;
+            bankRachunek.OprocKarne = oprocKarne;
+            bankRachunek.IsActive = isActive;
+            bankRachunek.PrzelewySEPA = przelewySEPA;
+            bankRachunek.SplitPay = splitPay;
+            return bankRachunek;
         }
 
         #endregion
@@ -2062,24 +2062,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Nieaktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _Nieaktywny;
+                return _IsActive;
             }
             set
             {
-                OnNieaktywnyChanging(value);
-                ReportPropertyChanging("Nieaktywny");
-                _Nieaktywny = StructuralObject.SetValidValue(value, "Nieaktywny");
-                ReportPropertyChanged("Nieaktywny");
-                OnNieaktywnyChanged();
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
-        private global::System.Int16 _Nieaktywny;
-        partial void OnNieaktywnyChanging(global::System.Int16 value);
-        partial void OnNieaktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2139,16 +2139,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_BRaKartaTyp", "KartyKredytowe")]
-        public KartyKredytowe KartyKredytowe
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_BRaKartaTyp", "KartaKredytowa")]
+        public KartaKredytowa KartaKredytowa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartyKredytowe>("ERPModel.FK_BRaKartaTyp", "KartyKredytowe").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartaKredytowa>("ERPModel.FK_BRaKartaTyp", "KartaKredytowa").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartyKredytowe>("ERPModel.FK_BRaKartaTyp", "KartyKredytowe").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartaKredytowa>("ERPModel.FK_BRaKartaTyp", "KartaKredytowa").Value = value;
             }
         }
         /// <summary>
@@ -2156,17 +2156,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<KartyKredytowe> KartyKredytoweReference
+        public EntityReference<KartaKredytowa> KartaKredytowaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartyKredytowe>("ERPModel.FK_BRaKartaTyp", "KartyKredytowe");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KartaKredytowa>("ERPModel.FK_BRaKartaTyp", "KartaKredytowa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KartyKredytowe>("ERPModel.FK_BRaKartaTyp", "KartyKredytowe", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KartaKredytowa>("ERPModel.FK_BRaKartaTyp", "KartaKredytowa", value);
                 }
             }
         }
@@ -2178,28 +2178,28 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Dzialy")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Dzial")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Dzialy : EntityObject
+    public partial class Dzial : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Dzialy object.
+        /// Create a new Dzial object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        /// <param name="nieaktywny">Initial value of the Nieaktywny property.</param>
-        public static Dzialy CreateDzialy(global::System.Int32 id, global::System.String kod, global::System.String nazwa, global::System.Int16 nieaktywny)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Dzial CreateDzial(global::System.Int32 id, global::System.String kod, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Dzialy dzialy = new Dzialy();
-            dzialy.Id = id;
-            dzialy.Kod = kod;
-            dzialy.Nazwa = nazwa;
-            dzialy.Nieaktywny = nieaktywny;
-            return dzialy;
+            Dzial dzial = new Dzial();
+            dzial.Id = id;
+            dzial.Kod = kod;
+            dzial.Nazwa = nazwa;
+            dzial.IsActive = isActive;
+            return dzial;
         }
 
         #endregion
@@ -2310,24 +2310,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Nieaktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _Nieaktywny;
+                return _IsActive;
             }
             set
             {
-                OnNieaktywnyChanging(value);
-                ReportPropertyChanging("Nieaktywny");
-                _Nieaktywny = StructuralObject.SetValidValue(value, "Nieaktywny");
-                ReportPropertyChanged("Nieaktywny");
-                OnNieaktywnyChanged();
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
-        private global::System.Int16 _Nieaktywny;
-        partial void OnNieaktywnyChanging(global::System.Int16 value);
-        partial void OnNieaktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -2339,18 +2339,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PREDzlLink", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PREDzlLink", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.FK_PREDzlLink", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.FK_PREDzlLink", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.FK_PREDzlLink", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.FK_PREDzlLink", "Pracownik", value);
                 }
             }
         }
@@ -2362,24 +2362,24 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Gminy")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Gmina")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Gminy : EntityObject
+    public partial class Gmina : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Gminy object.
+        /// Create a new Gmina object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Gminy CreateGminy(global::System.Int32 id, global::System.String nazwa)
+        public static Gmina CreateGmina(global::System.Int32 id, global::System.String nazwa)
         {
-            Gminy gminy = new Gminy();
-            gminy.Id = id;
-            gminy.Nazwa = nazwa;
-            return gminy;
+            Gmina gmina = new Gmina();
+            gmina.Id = id;
+            gmina.Nazwa = nazwa;
+            return gmina;
         }
 
         #endregion
@@ -2436,6 +2436,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -2447,18 +2471,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK2", "BankiNazwy")]
-        public EntityCollection<BankiNazwy> BankiNazwy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK2", "BankNazwa")]
+        public EntityCollection<BankNazwa> BankNazwa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK2", "BankiNazwy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK2", "BankNazwa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK2", "BankiNazwy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK2", "BankNazwa", value);
                 }
             }
         }
@@ -2469,18 +2493,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK2", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK2", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK2", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK2", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK2", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK2", "Kontrahent", value);
                 }
             }
         }
@@ -2491,18 +2515,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Gminy", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Gminy", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Gminy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Gminy", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Gminy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Gminy", "Pracownik", value);
                 }
             }
         }
@@ -2514,26 +2538,28 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="KartyKredytowe")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="KartaKredytowa")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class KartyKredytowe : EntityObject
+    public partial class KartaKredytowa : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new KartyKredytowe object.
+        /// Create a new KartaKredytowa object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
         /// <param name="numer">Initial value of the Numer property.</param>
-        public static KartyKredytowe CreateKartyKredytowe(global::System.Int32 id, global::System.String nazwa, global::System.String numer)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static KartaKredytowa CreateKartaKredytowa(global::System.Int32 id, global::System.String nazwa, global::System.String numer, global::System.Boolean isActive)
         {
-            KartyKredytowe kartyKredytowe = new KartyKredytowe();
-            kartyKredytowe.Id = id;
-            kartyKredytowe.Nazwa = nazwa;
-            kartyKredytowe.Numer = numer;
-            return kartyKredytowe;
+            KartaKredytowa kartaKredytowa = new KartaKredytowa();
+            kartaKredytowa.Id = id;
+            kartaKredytowa.Nazwa = nazwa;
+            kartaKredytowa.Numer = numer;
+            kartaKredytowa.IsActive = isActive;
+            return kartaKredytowa;
         }
 
         #endregion
@@ -2614,6 +2640,30 @@ namespace Firma.Models.Entities
         private global::System.String _Numer;
         partial void OnNumerChanging(global::System.String value);
         partial void OnNumerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -2625,18 +2675,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_BRaKartaTyp", "BankiRachunki")]
-        public EntityCollection<BankiRachunki> BankiRachunki
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_BRaKartaTyp", "BankRachunek")]
+        public EntityCollection<BankRachunek> BankRachunek
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiRachunki>("ERPModel.FK_BRaKartaTyp", "BankiRachunki");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankRachunek>("ERPModel.FK_BRaKartaTyp", "BankRachunek");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiRachunki>("ERPModel.FK_BRaKartaTyp", "BankiRachunki", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankRachunek>("ERPModel.FK_BRaKartaTyp", "BankRachunek", value);
                 }
             }
         }
@@ -2648,15 +2698,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kategorie")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kategoria")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Kategorie : EntityObject
+    public partial class Kategoria : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Kategorie object.
+        /// Create a new Kategoria object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="typ">Initial value of the Typ property.</param>
@@ -2665,23 +2715,23 @@ namespace Firma.Models.Entities
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="rodzajZakupu">Initial value of the RodzajZakupu property.</param>
         /// <param name="fiskalny">Initial value of the Fiskalny property.</param>
-        /// <param name="nieaktywny">Initial value of the Nieaktywny property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="kontoSegmentWN">Initial value of the KontoSegmentWN property.</param>
         /// <param name="kontoSegmentMA">Initial value of the KontoSegmentMA property.</param>
-        public static Kategorie CreateKategorie(global::System.Int32 id, global::System.Int16 typ, global::System.Int16 poziom, global::System.String kod, global::System.String opis, global::System.Int16 rodzajZakupu, global::System.Byte fiskalny, global::System.Byte nieaktywny, global::System.String kontoSegmentWN, global::System.String kontoSegmentMA)
+        public static Kategoria CreateKategoria(global::System.Int32 id, global::System.Int16 typ, global::System.Int16 poziom, global::System.String kod, global::System.String opis, global::System.Int16 rodzajZakupu, global::System.Byte fiskalny, global::System.Boolean isActive, global::System.String kontoSegmentWN, global::System.String kontoSegmentMA)
         {
-            Kategorie kategorie = new Kategorie();
-            kategorie.Id = id;
-            kategorie.Typ = typ;
-            kategorie.Poziom = poziom;
-            kategorie.Kod = kod;
-            kategorie.Opis = opis;
-            kategorie.RodzajZakupu = rodzajZakupu;
-            kategorie.Fiskalny = fiskalny;
-            kategorie.Nieaktywny = nieaktywny;
-            kategorie.KontoSegmentWN = kontoSegmentWN;
-            kategorie.KontoSegmentMA = kontoSegmentMA;
-            return kategorie;
+            Kategoria kategoria = new Kategoria();
+            kategoria.Id = id;
+            kategoria.Typ = typ;
+            kategoria.Poziom = poziom;
+            kategoria.Kod = kod;
+            kategoria.Opis = opis;
+            kategoria.RodzajZakupu = rodzajZakupu;
+            kategoria.Fiskalny = fiskalny;
+            kategoria.IsActive = isActive;
+            kategoria.KontoSegmentWN = kontoSegmentWN;
+            kategoria.KontoSegmentMA = kontoSegmentMA;
+            return kategoria;
         }
 
         #endregion
@@ -2864,24 +2914,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Nieaktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _Nieaktywny;
+                return _IsActive;
             }
             set
             {
-                OnNieaktywnyChanging(value);
-                ReportPropertyChanging("Nieaktywny");
-                _Nieaktywny = StructuralObject.SetValidValue(value, "Nieaktywny");
-                ReportPropertyChanged("Nieaktywny");
-                OnNieaktywnyChanged();
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
-        private global::System.Byte _Nieaktywny;
-        partial void OnNieaktywnyChanging(global::System.Byte value);
-        partial void OnNieaktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2941,18 +2991,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Kategorie_FK", "Towary")]
-        public EntityCollection<Towary> Towary
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Kategorie_FK", "Towar")]
+        public EntityCollection<Towar> Towar
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("ERPModel.Towary_Kategorie_FK", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towar>("ERPModel.Towary_Kategorie_FK", "Towar");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("ERPModel.Towary_Kategorie_FK", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towar>("ERPModel.Towary_Kategorie_FK", "Towar", value);
                 }
             }
         }
@@ -2964,15 +3014,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="KodyCN")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="KodCN")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class KodyCN : EntityObject
+    public partial class KodCN : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new KodyCN object.
+        /// Create a new KodCN object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
@@ -2980,16 +3030,18 @@ namespace Firma.Models.Entities
         /// <param name="sent">Initial value of the Sent property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="masa">Initial value of the Masa property.</param>
-        public static KodyCN CreateKodyCN(global::System.Int32 id, global::System.String kod, global::System.String kodSent, global::System.Int32 sent, global::System.String opis, global::System.Byte masa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static KodCN CreateKodCN(global::System.Int32 id, global::System.String kod, global::System.String kodSent, global::System.Int32 sent, global::System.String opis, global::System.Byte masa, global::System.Boolean isActive)
         {
-            KodyCN kodyCN = new KodyCN();
-            kodyCN.Id = id;
-            kodyCN.Kod = kod;
-            kodyCN.KodSent = kodSent;
-            kodyCN.Sent = sent;
-            kodyCN.Opis = opis;
-            kodyCN.Masa = masa;
-            return kodyCN;
+            KodCN kodCN = new KodCN();
+            kodCN.Id = id;
+            kodCN.Kod = kod;
+            kodCN.KodSent = kodSent;
+            kodCN.Sent = sent;
+            kodCN.Opis = opis;
+            kodCN.Masa = masa;
+            kodCN.IsActive = isActive;
+            return kodCN;
         }
 
         #endregion
@@ -3214,6 +3266,30 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Decimal> _Zrodlowa;
         partial void OnZrodlowaChanging(Nullable<global::System.Decimal> value);
         partial void OnZrodlowaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -3225,18 +3301,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_KodyCn", "Towary")]
-        public EntityCollection<Towary> Towary
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_KodyCn", "Towar")]
+        public EntityCollection<Towar> Towar
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("ERPModel.FK_Towary_KodyCn", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towar>("ERPModel.FK_Towary_KodyCn", "Towar");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("ERPModel.FK_Towary_KodyCn", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towar>("ERPModel.FK_Towary_KodyCn", "Towar", value);
                 }
             }
         }
@@ -3248,15 +3324,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kontrahenci")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kontrahent")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Kontrahenci : EntityObject
+    public partial class Kontrahent : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Kontrahenci object.
+        /// Create a new Kontrahent object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
@@ -3314,66 +3390,68 @@ namespace Firma.Models.Entities
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="splitPay">Initial value of the SplitPay property.</param>
         /// <param name="dokumentTozsamosci">Initial value of the DokumentTozsamosci property.</param>
-        public static Kontrahenci CreateKontrahenci(global::System.Int32 id, global::System.String kod, global::System.String eAN, global::System.String grupa, global::System.String nazwa1, global::System.String nazwa2, global::System.String nazwa3, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.Int32 miastoId, global::System.String kodPocztowy, global::System.String poczta, global::System.String adres2, global::System.String nip, global::System.String regon, global::System.String pesel, global::System.String telefon1, global::System.String telefon2, global::System.String telefonSms, global::System.String fax, global::System.String email, global::System.String uRL, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.String osTytul, global::System.Byte osPlec, global::System.String osNazwisko, global::System.String osKraj, global::System.String osWojewodztwo, global::System.String osPowiat, global::System.String osGmina, global::System.String osUlica, global::System.String osNrDomu, global::System.String osNrLokalu, global::System.String osMiasto, global::System.String osKodPocztowy, global::System.String osPoczta, global::System.String osAdres2, global::System.String osTelefon, global::System.String osGSM, global::System.String osEmail, global::System.Byte informacje, global::System.Decimal upust, global::System.Decimal limitKredytu, global::System.Int16 maxZwloka, global::System.Byte terminPlat, global::System.String kontoOdb, global::System.String kontoDost, global::System.String opis, global::System.Byte splitPay, global::System.String dokumentTozsamosci)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Kontrahent CreateKontrahent(global::System.Int32 id, global::System.String kod, global::System.String eAN, global::System.String grupa, global::System.String nazwa1, global::System.String nazwa2, global::System.String nazwa3, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String ulica, global::System.String nrDomu, global::System.String nrLokalu, global::System.Int32 miastoId, global::System.String kodPocztowy, global::System.String poczta, global::System.String adres2, global::System.String nip, global::System.String regon, global::System.String pesel, global::System.String telefon1, global::System.String telefon2, global::System.String telefonSms, global::System.String fax, global::System.String email, global::System.String uRL, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.String osTytul, global::System.Byte osPlec, global::System.String osNazwisko, global::System.String osKraj, global::System.String osWojewodztwo, global::System.String osPowiat, global::System.String osGmina, global::System.String osUlica, global::System.String osNrDomu, global::System.String osNrLokalu, global::System.String osMiasto, global::System.String osKodPocztowy, global::System.String osPoczta, global::System.String osAdres2, global::System.String osTelefon, global::System.String osGSM, global::System.String osEmail, global::System.Byte informacje, global::System.Decimal upust, global::System.Decimal limitKredytu, global::System.Int16 maxZwloka, global::System.Byte terminPlat, global::System.String kontoOdb, global::System.String kontoDost, global::System.String opis, global::System.Byte splitPay, global::System.String dokumentTozsamosci, global::System.Boolean isActive)
         {
-            Kontrahenci kontrahenci = new Kontrahenci();
-            kontrahenci.Id = id;
-            kontrahenci.Kod = kod;
-            kontrahenci.EAN = eAN;
-            kontrahenci.Grupa = grupa;
-            kontrahenci.Nazwa1 = nazwa1;
-            kontrahenci.Nazwa2 = nazwa2;
-            kontrahenci.Nazwa3 = nazwa3;
-            kontrahenci.KrajId = krajId;
-            kontrahenci.WojewodztwoId = wojewodztwoId;
-            kontrahenci.PowiatId = powiatId;
-            kontrahenci.GminaId = gminaId;
-            kontrahenci.Ulica = ulica;
-            kontrahenci.NrDomu = nrDomu;
-            kontrahenci.NrLokalu = nrLokalu;
-            kontrahenci.MiastoId = miastoId;
-            kontrahenci.KodPocztowy = kodPocztowy;
-            kontrahenci.Poczta = poczta;
-            kontrahenci.Adres2 = adres2;
-            kontrahenci.Nip = nip;
-            kontrahenci.Regon = regon;
-            kontrahenci.Pesel = pesel;
-            kontrahenci.Telefon1 = telefon1;
-            kontrahenci.Telefon2 = telefon2;
-            kontrahenci.TelefonSms = telefonSms;
-            kontrahenci.Fax = fax;
-            kontrahenci.Email = email;
-            kontrahenci.URL = uRL;
-            kontrahenci.RachunekNr = rachunekNr;
-            kontrahenci.IBAN = iBAN;
-            kontrahenci.OsTytul = osTytul;
-            kontrahenci.OsPlec = osPlec;
-            kontrahenci.OsNazwisko = osNazwisko;
-            kontrahenci.OsKraj = osKraj;
-            kontrahenci.OsWojewodztwo = osWojewodztwo;
-            kontrahenci.OsPowiat = osPowiat;
-            kontrahenci.OsGmina = osGmina;
-            kontrahenci.OsUlica = osUlica;
-            kontrahenci.OsNrDomu = osNrDomu;
-            kontrahenci.OsNrLokalu = osNrLokalu;
-            kontrahenci.OsMiasto = osMiasto;
-            kontrahenci.OsKodPocztowy = osKodPocztowy;
-            kontrahenci.OsPoczta = osPoczta;
-            kontrahenci.OsAdres2 = osAdres2;
-            kontrahenci.OsTelefon = osTelefon;
-            kontrahenci.OsGSM = osGSM;
-            kontrahenci.OsEmail = osEmail;
-            kontrahenci.Informacje = informacje;
-            kontrahenci.Upust = upust;
-            kontrahenci.LimitKredytu = limitKredytu;
-            kontrahenci.MaxZwloka = maxZwloka;
-            kontrahenci.TerminPlat = terminPlat;
-            kontrahenci.KontoOdb = kontoOdb;
-            kontrahenci.KontoDost = kontoDost;
-            kontrahenci.Opis = opis;
-            kontrahenci.SplitPay = splitPay;
-            kontrahenci.DokumentTozsamosci = dokumentTozsamosci;
-            return kontrahenci;
+            Kontrahent kontrahent = new Kontrahent();
+            kontrahent.Id = id;
+            kontrahent.Kod = kod;
+            kontrahent.EAN = eAN;
+            kontrahent.Grupa = grupa;
+            kontrahent.Nazwa1 = nazwa1;
+            kontrahent.Nazwa2 = nazwa2;
+            kontrahent.Nazwa3 = nazwa3;
+            kontrahent.KrajId = krajId;
+            kontrahent.WojewodztwoId = wojewodztwoId;
+            kontrahent.PowiatId = powiatId;
+            kontrahent.GminaId = gminaId;
+            kontrahent.Ulica = ulica;
+            kontrahent.NrDomu = nrDomu;
+            kontrahent.NrLokalu = nrLokalu;
+            kontrahent.MiastoId = miastoId;
+            kontrahent.KodPocztowy = kodPocztowy;
+            kontrahent.Poczta = poczta;
+            kontrahent.Adres2 = adres2;
+            kontrahent.Nip = nip;
+            kontrahent.Regon = regon;
+            kontrahent.Pesel = pesel;
+            kontrahent.Telefon1 = telefon1;
+            kontrahent.Telefon2 = telefon2;
+            kontrahent.TelefonSms = telefonSms;
+            kontrahent.Fax = fax;
+            kontrahent.Email = email;
+            kontrahent.URL = uRL;
+            kontrahent.RachunekNr = rachunekNr;
+            kontrahent.IBAN = iBAN;
+            kontrahent.OsTytul = osTytul;
+            kontrahent.OsPlec = osPlec;
+            kontrahent.OsNazwisko = osNazwisko;
+            kontrahent.OsKraj = osKraj;
+            kontrahent.OsWojewodztwo = osWojewodztwo;
+            kontrahent.OsPowiat = osPowiat;
+            kontrahent.OsGmina = osGmina;
+            kontrahent.OsUlica = osUlica;
+            kontrahent.OsNrDomu = osNrDomu;
+            kontrahent.OsNrLokalu = osNrLokalu;
+            kontrahent.OsMiasto = osMiasto;
+            kontrahent.OsKodPocztowy = osKodPocztowy;
+            kontrahent.OsPoczta = osPoczta;
+            kontrahent.OsAdres2 = osAdres2;
+            kontrahent.OsTelefon = osTelefon;
+            kontrahent.OsGSM = osGSM;
+            kontrahent.OsEmail = osEmail;
+            kontrahent.Informacje = informacje;
+            kontrahent.Upust = upust;
+            kontrahent.LimitKredytu = limitKredytu;
+            kontrahent.MaxZwloka = maxZwloka;
+            kontrahent.TerminPlat = terminPlat;
+            kontrahent.KontoOdb = kontoOdb;
+            kontrahent.KontoDost = kontoDost;
+            kontrahent.Opis = opis;
+            kontrahent.SplitPay = splitPay;
+            kontrahent.DokumentTozsamosci = dokumentTozsamosci;
+            kontrahent.IsActive = isActive;
+            return kontrahent;
         }
 
         #endregion
@@ -4750,6 +4828,30 @@ namespace Firma.Models.Entities
         private global::System.String _DokumentTozsamosci;
         partial void OnDokumentTozsamosciChanging(global::System.String value);
         partial void OnDokumentTozsamosciChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -4761,16 +4863,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK2", "Gminy")]
-        public Gminy Gminy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK2", "Gmina")]
+        public Gmina Gmina
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Kontrahenci_FK2", "Gminy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Kontrahenci_FK2", "Gmina").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Kontrahenci_FK2", "Gminy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Kontrahenci_FK2", "Gmina").Value = value;
             }
         }
         /// <summary>
@@ -4778,17 +4880,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Gminy> GminyReference
+        public EntityReference<Gmina> GminaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Kontrahenci_FK2", "Gminy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Kontrahenci_FK2", "Gmina");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gminy>("ERPModel.Kontrahenci_FK2", "Gminy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gmina>("ERPModel.Kontrahenci_FK2", "Gmina", value);
                 }
             }
         }
@@ -4799,16 +4901,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK", "Kraje")]
-        public Kraje Kraje
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK", "Kraj")]
+        public Kraj Kraj
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Kontrahenci_FK", "Kraje").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Kontrahenci_FK", "Kraj").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Kontrahenci_FK", "Kraje").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Kontrahenci_FK", "Kraj").Value = value;
             }
         }
         /// <summary>
@@ -4816,17 +4918,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Kraje> KrajeReference
+        public EntityReference<Kraj> KrajReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Kontrahenci_FK", "Kraje");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Kontrahenci_FK", "Kraj");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("ERPModel.Kontrahenci_FK", "Kraje", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraj>("ERPModel.Kontrahenci_FK", "Kraj", value);
                 }
             }
         }
@@ -4837,16 +4939,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK3", "Miasta")]
-        public Miasta Miasta
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK3", "Miasto")]
+        public Miasto Miasto
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Kontrahenci_FK3", "Miasta").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Kontrahenci_FK3", "Miasto").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Kontrahenci_FK3", "Miasta").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Kontrahenci_FK3", "Miasto").Value = value;
             }
         }
         /// <summary>
@@ -4854,17 +4956,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Miasta> MiastaReference
+        public EntityReference<Miasto> MiastoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Kontrahenci_FK3", "Miasta");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Kontrahenci_FK3", "Miasto");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasta>("ERPModel.Kontrahenci_FK3", "Miasta", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasto>("ERPModel.Kontrahenci_FK3", "Miasto", value);
                 }
             }
         }
@@ -4875,16 +4977,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK4", "Powiaty")]
-        public Powiaty Powiaty
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK4", "Powiat")]
+        public Powiat Powiat
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Kontrahenci_FK4", "Powiaty").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Kontrahenci_FK4", "Powiat").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Kontrahenci_FK4", "Powiaty").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Kontrahenci_FK4", "Powiat").Value = value;
             }
         }
         /// <summary>
@@ -4892,17 +4994,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Powiaty> PowiatyReference
+        public EntityReference<Powiat> PowiatReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Kontrahenci_FK4", "Powiaty");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Kontrahenci_FK4", "Powiat");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiaty>("ERPModel.Kontrahenci_FK4", "Powiaty", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiat>("ERPModel.Kontrahenci_FK4", "Powiat", value);
                 }
             }
         }
@@ -4913,16 +5015,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK5", "Wojewodztwa")]
-        public Wojewodztwa Wojewodztwa
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK5", "Wojewodztwo")]
+        public Wojewodztwo Wojewodztwo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Kontrahenci_FK5", "Wojewodztwa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Kontrahenci_FK5", "Wojewodztwo").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Kontrahenci_FK5", "Wojewodztwa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Kontrahenci_FK5", "Wojewodztwo").Value = value;
             }
         }
         /// <summary>
@@ -4930,17 +5032,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Wojewodztwa> WojewodztwaReference
+        public EntityReference<Wojewodztwo> WojewodztwoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Kontrahenci_FK5", "Wojewodztwa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Kontrahenci_FK5", "Wojewodztwo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwa>("ERPModel.Kontrahenci_FK5", "Wojewodztwa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwo>("ERPModel.Kontrahenci_FK5", "Wojewodztwo", value);
                 }
             }
         }
@@ -4951,16 +5053,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Pracownicy")]
-        public Pracownicy Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Pracownik")]
+        public Pracownik Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownik").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownik").Value = value;
             }
         }
         /// <summary>
@@ -4968,17 +5070,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pracownicy> PracownicyReference
+        public EntityReference<Pracownik> PracownikReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownik>("ERPModel.Kontrahenci_Opiekun_FK", "Pracownik", value);
                 }
             }
         }
@@ -4989,18 +5091,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_FK", "Towary")]
-        public EntityCollection<Towary> Towary
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_FK", "Towar")]
+        public EntityCollection<Towar> Towar
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("ERPModel.Towary_FK", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towar>("ERPModel.Towary_FK", "Towar");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("ERPModel.Towary_FK", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towar>("ERPModel.Towary_FK", "Towar", value);
                 }
             }
         }
@@ -5012,24 +5114,26 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kraje")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Kraj")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Kraje : EntityObject
+    public partial class Kraj : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Kraje object.
+        /// Create a new Kraj object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Kraje CreateKraje(global::System.Int32 id, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Kraj CreateKraj(global::System.Int32 id, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Kraje kraje = new Kraje();
-            kraje.Id = id;
-            kraje.Nazwa = nazwa;
-            return kraje;
+            Kraj kraj = new Kraj();
+            kraj.Id = id;
+            kraj.Nazwa = nazwa;
+            kraj.IsActive = isActive;
+            return kraj;
         }
 
         #endregion
@@ -5086,6 +5190,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -5097,18 +5225,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK1", "BankiNazwy")]
-        public EntityCollection<BankiNazwy> BankiNazwy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK1", "BankNazwa")]
+        public EntityCollection<BankNazwa> BankNazwa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK1", "BankiNazwy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK1", "BankNazwa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK1", "BankiNazwy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK1", "BankNazwa", value);
                 }
             }
         }
@@ -5119,18 +5247,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK", "Kontrahent", value);
                 }
             }
         }
@@ -5141,18 +5269,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Kraj", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Kraj", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Kraj", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Kraj", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Kraj", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Kraj", "Pracownik", value);
                 }
             }
         }
@@ -5164,24 +5292,26 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Miasta")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Miasto")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Miasta : EntityObject
+    public partial class Miasto : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Miasta object.
+        /// Create a new Miasto object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Miasta CreateMiasta(global::System.Int32 id, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Miasto CreateMiasto(global::System.Int32 id, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Miasta miasta = new Miasta();
-            miasta.Id = id;
-            miasta.Nazwa = nazwa;
-            return miasta;
+            Miasto miasto = new Miasto();
+            miasto.Id = id;
+            miasto.Nazwa = nazwa;
+            miasto.IsActive = isActive;
+            return miasto;
         }
 
         #endregion
@@ -5238,6 +5368,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -5249,18 +5403,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK3", "BankiNazwy")]
-        public EntityCollection<BankiNazwy> BankiNazwy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK3", "BankNazwa")]
+        public EntityCollection<BankNazwa> BankNazwa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK3", "BankiNazwy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK3", "BankNazwa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK3", "BankiNazwy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK3", "BankNazwa", value);
                 }
             }
         }
@@ -5271,18 +5425,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK3", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK3", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK3", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK3", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK3", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK3", "Kontrahent", value);
                 }
             }
         }
@@ -5293,18 +5447,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Miasta", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Miasta", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Miasta", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Miasta", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Miasta", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Miasta", "Pracownik", value);
                 }
             }
         }
@@ -5316,24 +5470,26 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Powiaty")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Powiat")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Powiaty : EntityObject
+    public partial class Powiat : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Powiaty object.
+        /// Create a new Powiat object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Powiaty CreatePowiaty(global::System.Int32 id, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Powiat CreatePowiat(global::System.Int32 id, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Powiaty powiaty = new Powiaty();
-            powiaty.Id = id;
-            powiaty.Nazwa = nazwa;
-            return powiaty;
+            Powiat powiat = new Powiat();
+            powiat.Id = id;
+            powiat.Nazwa = nazwa;
+            powiat.IsActive = isActive;
+            return powiat;
         }
 
         #endregion
@@ -5390,6 +5546,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -5401,18 +5581,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK4", "BankiNazwy")]
-        public EntityCollection<BankiNazwy> BankiNazwy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK4", "BankNazwa")]
+        public EntityCollection<BankNazwa> BankNazwa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK4", "BankiNazwy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK4", "BankNazwa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK4", "BankiNazwy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK4", "BankNazwa", value);
                 }
             }
         }
@@ -5423,18 +5603,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK4", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK4", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK4", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK4", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK4", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK4", "Kontrahent", value);
                 }
             }
         }
@@ -5445,18 +5625,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Powiaty", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Powiaty", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Powiaty", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Powiaty", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Powiaty", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Powiaty", "Pracownik", value);
                 }
             }
         }
@@ -5468,15 +5648,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Pracownicy")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Pracownik")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Pracownicy : EntityObject
+    public partial class Pracownik : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Pracownicy object.
+        /// Create a new Pracownik object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="typPracownika">Initial value of the TypPracownika property.</param>
@@ -5522,54 +5702,56 @@ namespace Firma.Models.Entities
         /// <param name="paszport">Initial value of the Paszport property.</param>
         /// <param name="wyksztalcenieId">Initial value of the WyksztalcenieId property.</param>
         /// <param name="kodKasyChorych">Initial value of the KodKasyChorych property.</param>
-        public static Pracownicy CreatePracownicy(global::System.Int32 id, global::System.Byte typPracownika, global::System.String nazwisko, global::System.String imie1, global::System.String pesel, global::System.Int32 rodzajZatrudnienia, global::System.DateTime dataOd, global::System.DateTime dataDo, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.Byte zestCzasuPracy, global::System.Byte wypNaKonto, global::System.String nrwAktach, global::System.String nazwRodowe, global::System.String imie2, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwRodoweM, global::System.String miejsceUr, global::System.String obywatelstwo, global::System.String plec, global::System.String stanCywilny, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String mLDUlica, global::System.String mLDNrDomu, global::System.String mLDNrLokalu, global::System.Int32 miastoId, global::System.String mLDKodPocztowy, global::System.String mLDPoczta, global::System.String mLDAdres2, global::System.Int32 mLDGminaKod, global::System.String hDKTelefon1, global::System.String hDKTelefon2, global::System.String nipKraj, global::System.String nipE, global::System.String dowOsobisty, global::System.String dowGdzie, global::System.String dowKto, global::System.String paszport, global::System.Int32 wyksztalcenieId, global::System.String kodKasyChorych)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Pracownik CreatePracownik(global::System.Int32 id, global::System.Byte typPracownika, global::System.String nazwisko, global::System.String imie1, global::System.String pesel, global::System.Int32 rodzajZatrudnienia, global::System.DateTime dataOd, global::System.DateTime dataDo, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.Byte zestCzasuPracy, global::System.Byte wypNaKonto, global::System.String nrwAktach, global::System.String nazwRodowe, global::System.String imie2, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwRodoweM, global::System.String miejsceUr, global::System.String obywatelstwo, global::System.String plec, global::System.String stanCywilny, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String mLDUlica, global::System.String mLDNrDomu, global::System.String mLDNrLokalu, global::System.Int32 miastoId, global::System.String mLDKodPocztowy, global::System.String mLDPoczta, global::System.String mLDAdres2, global::System.Int32 mLDGminaKod, global::System.String hDKTelefon1, global::System.String hDKTelefon2, global::System.String nipKraj, global::System.String nipE, global::System.String dowOsobisty, global::System.String dowGdzie, global::System.String dowKto, global::System.String paszport, global::System.Int32 wyksztalcenieId, global::System.String kodKasyChorych, global::System.Boolean isActive)
         {
-            Pracownicy pracownicy = new Pracownicy();
-            pracownicy.Id = id;
-            pracownicy.TypPracownika = typPracownika;
-            pracownicy.Nazwisko = nazwisko;
-            pracownicy.Imie1 = imie1;
-            pracownicy.Pesel = pesel;
-            pracownicy.RodzajZatrudnienia = rodzajZatrudnienia;
-            pracownicy.DataOd = dataOd;
-            pracownicy.DataDo = dataDo;
-            pracownicy.RachunekNr = rachunekNr;
-            pracownicy.IBAN = iBAN;
-            pracownicy.ZestCzasuPracy = zestCzasuPracy;
-            pracownicy.WypNaKonto = wypNaKonto;
-            pracownicy.NrwAktach = nrwAktach;
-            pracownicy.NazwRodowe = nazwRodowe;
-            pracownicy.Imie2 = imie2;
-            pracownicy.ImieOjca = imieOjca;
-            pracownicy.ImieMatki = imieMatki;
-            pracownicy.NazwRodoweM = nazwRodoweM;
-            pracownicy.MiejsceUr = miejsceUr;
-            pracownicy.Obywatelstwo = obywatelstwo;
-            pracownicy.Plec = plec;
-            pracownicy.StanCywilny = stanCywilny;
-            pracownicy.KrajId = krajId;
-            pracownicy.WojewodztwoId = wojewodztwoId;
-            pracownicy.PowiatId = powiatId;
-            pracownicy.GminaId = gminaId;
-            pracownicy.MLDUlica = mLDUlica;
-            pracownicy.MLDNrDomu = mLDNrDomu;
-            pracownicy.MLDNrLokalu = mLDNrLokalu;
-            pracownicy.MiastoId = miastoId;
-            pracownicy.MLDKodPocztowy = mLDKodPocztowy;
-            pracownicy.MLDPoczta = mLDPoczta;
-            pracownicy.MLDAdres2 = mLDAdres2;
-            pracownicy.MLDGminaKod = mLDGminaKod;
-            pracownicy.HDKTelefon1 = hDKTelefon1;
-            pracownicy.HDKTelefon2 = hDKTelefon2;
-            pracownicy.NipKraj = nipKraj;
-            pracownicy.NipE = nipE;
-            pracownicy.DowOsobisty = dowOsobisty;
-            pracownicy.DowGdzie = dowGdzie;
-            pracownicy.DowKto = dowKto;
-            pracownicy.Paszport = paszport;
-            pracownicy.WyksztalcenieId = wyksztalcenieId;
-            pracownicy.KodKasyChorych = kodKasyChorych;
-            return pracownicy;
+            Pracownik pracownik = new Pracownik();
+            pracownik.Id = id;
+            pracownik.TypPracownika = typPracownika;
+            pracownik.Nazwisko = nazwisko;
+            pracownik.Imie1 = imie1;
+            pracownik.Pesel = pesel;
+            pracownik.RodzajZatrudnienia = rodzajZatrudnienia;
+            pracownik.DataOd = dataOd;
+            pracownik.DataDo = dataDo;
+            pracownik.RachunekNr = rachunekNr;
+            pracownik.IBAN = iBAN;
+            pracownik.ZestCzasuPracy = zestCzasuPracy;
+            pracownik.WypNaKonto = wypNaKonto;
+            pracownik.NrwAktach = nrwAktach;
+            pracownik.NazwRodowe = nazwRodowe;
+            pracownik.Imie2 = imie2;
+            pracownik.ImieOjca = imieOjca;
+            pracownik.ImieMatki = imieMatki;
+            pracownik.NazwRodoweM = nazwRodoweM;
+            pracownik.MiejsceUr = miejsceUr;
+            pracownik.Obywatelstwo = obywatelstwo;
+            pracownik.Plec = plec;
+            pracownik.StanCywilny = stanCywilny;
+            pracownik.KrajId = krajId;
+            pracownik.WojewodztwoId = wojewodztwoId;
+            pracownik.PowiatId = powiatId;
+            pracownik.GminaId = gminaId;
+            pracownik.MLDUlica = mLDUlica;
+            pracownik.MLDNrDomu = mLDNrDomu;
+            pracownik.MLDNrLokalu = mLDNrLokalu;
+            pracownik.MiastoId = miastoId;
+            pracownik.MLDKodPocztowy = mLDKodPocztowy;
+            pracownik.MLDPoczta = mLDPoczta;
+            pracownik.MLDAdres2 = mLDAdres2;
+            pracownik.MLDGminaKod = mLDGminaKod;
+            pracownik.HDKTelefon1 = hDKTelefon1;
+            pracownik.HDKTelefon2 = hDKTelefon2;
+            pracownik.NipKraj = nipKraj;
+            pracownik.NipE = nipE;
+            pracownik.DowOsobisty = dowOsobisty;
+            pracownik.DowGdzie = dowGdzie;
+            pracownik.DowKto = dowKto;
+            pracownik.Paszport = paszport;
+            pracownik.WyksztalcenieId = wyksztalcenieId;
+            pracownik.KodKasyChorych = kodKasyChorych;
+            pracownik.IsActive = isActive;
+            return pracownik;
         }
 
         #endregion
@@ -6850,6 +7032,30 @@ namespace Firma.Models.Entities
         private Nullable<global::System.DateTime> _WaznoscBadanOkres;
         partial void OnWaznoscBadanOkresChanging(Nullable<global::System.DateTime> value);
         partial void OnWaznoscBadanOkresChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -6883,16 +7089,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PREDzlLink", "Dzialy")]
-        public Dzialy Dzialy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PREDzlLink", "Dzial")]
+        public Dzial Dzial
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzialy>("ERPModel.FK_PREDzlLink", "Dzialy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_PREDzlLink", "Dzial").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzialy>("ERPModel.FK_PREDzlLink", "Dzialy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_PREDzlLink", "Dzial").Value = value;
             }
         }
         /// <summary>
@@ -6900,17 +7106,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Dzialy> DzialyReference
+        public EntityReference<Dzial> DzialReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzialy>("ERPModel.FK_PREDzlLink", "Dzialy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_PREDzlLink", "Dzial");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dzialy>("ERPModel.FK_PREDzlLink", "Dzialy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dzial>("ERPModel.FK_PREDzlLink", "Dzial", value);
                 }
             }
         }
@@ -6921,16 +7127,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Gminy", "Gminy")]
-        public Gminy Gminy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Gminy", "Gmina")]
+        public Gmina Gmina
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Pracownicy_Gminy", "Gminy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Pracownicy_Gminy", "Gmina").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Pracownicy_Gminy", "Gminy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Pracownicy_Gminy", "Gmina").Value = value;
             }
         }
         /// <summary>
@@ -6938,17 +7144,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Gminy> GminyReference
+        public EntityReference<Gmina> GminaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gminy>("ERPModel.Pracownicy_Gminy", "Gminy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Gmina>("ERPModel.Pracownicy_Gminy", "Gmina");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gminy>("ERPModel.Pracownicy_Gminy", "Gminy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Gmina>("ERPModel.Pracownicy_Gminy", "Gmina", value);
                 }
             }
         }
@@ -6959,18 +7165,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_Opiekun_FK", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_Opiekun_FK", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_Opiekun_FK", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_Opiekun_FK", "Kontrahent", value);
                 }
             }
         }
@@ -6981,16 +7187,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Kraj", "Kraje")]
-        public Kraje Kraje
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Kraj", "Kraj")]
+        public Kraj Kraj
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Pracownicy_Kraj", "Kraje").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Pracownicy_Kraj", "Kraj").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Pracownicy_Kraj", "Kraje").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Pracownicy_Kraj", "Kraj").Value = value;
             }
         }
         /// <summary>
@@ -6998,17 +7204,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Kraje> KrajeReference
+        public EntityReference<Kraj> KrajReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraje>("ERPModel.Pracownicy_Kraj", "Kraje");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kraj>("ERPModel.Pracownicy_Kraj", "Kraj");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraje>("ERPModel.Pracownicy_Kraj", "Kraje", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kraj>("ERPModel.Pracownicy_Kraj", "Kraj", value);
                 }
             }
         }
@@ -7019,16 +7225,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Miasta", "Miasta")]
-        public Miasta Miasta
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Miasta", "Miasto")]
+        public Miasto Miasto
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Pracownicy_Miasta", "Miasta").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Pracownicy_Miasta", "Miasto").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Pracownicy_Miasta", "Miasta").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Pracownicy_Miasta", "Miasto").Value = value;
             }
         }
         /// <summary>
@@ -7036,17 +7242,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Miasta> MiastaReference
+        public EntityReference<Miasto> MiastoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasta>("ERPModel.Pracownicy_Miasta", "Miasta");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Miasto>("ERPModel.Pracownicy_Miasta", "Miasto");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasta>("ERPModel.Pracownicy_Miasta", "Miasta", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Miasto>("ERPModel.Pracownicy_Miasta", "Miasto", value);
                 }
             }
         }
@@ -7057,16 +7263,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Powiaty", "Powiaty")]
-        public Powiaty Powiaty
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Powiaty", "Powiat")]
+        public Powiat Powiat
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Pracownicy_Powiaty", "Powiaty").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Pracownicy_Powiaty", "Powiat").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Pracownicy_Powiaty", "Powiaty").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Pracownicy_Powiaty", "Powiat").Value = value;
             }
         }
         /// <summary>
@@ -7074,17 +7280,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Powiaty> PowiatyReference
+        public EntityReference<Powiat> PowiatReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiaty>("ERPModel.Pracownicy_Powiaty", "Powiaty");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Powiat>("ERPModel.Pracownicy_Powiaty", "Powiat");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiaty>("ERPModel.Pracownicy_Powiaty", "Powiaty", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Powiat>("ERPModel.Pracownicy_Powiaty", "Powiat", value);
                 }
             }
         }
@@ -7095,16 +7301,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwa")]
-        public Wojewodztwa Wojewodztwa
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwo")]
+        public Wojewodztwo Wojewodztwo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwo").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwo").Value = value;
             }
         }
         /// <summary>
@@ -7112,17 +7318,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Wojewodztwa> WojewodztwaReference
+        public EntityReference<Wojewodztwo> WojewodztwoReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwa>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Wojewodztwo>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwa>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Wojewodztwo>("ERPModel.Pracownicy_Wojewodztwa", "Wojewodztwo", value);
                 }
             }
         }
@@ -7171,18 +7377,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Pracownicy", "Towary")]
-        public EntityCollection<Towary> Towary
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Pracownicy", "Towar")]
+        public EntityCollection<Towar> Towar
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("ERPModel.Towary_Pracownicy", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towar>("ERPModel.Towary_Pracownicy", "Towar");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("ERPModel.Towary_Pracownicy", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towar>("ERPModel.Towary_Pracownicy", "Towar", value);
                 }
             }
         }
@@ -7194,26 +7400,28 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Producenci")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Producent")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Producenci : EntityObject
+    public partial class Producent : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Producenci object.
+        /// Create a new Producent object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Producenci CreateProducenci(global::System.Int32 id, global::System.String kod, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Producent CreateProducent(global::System.Int32 id, global::System.String kod, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Producenci producenci = new Producenci();
-            producenci.Id = id;
-            producenci.Kod = kod;
-            producenci.Nazwa = nazwa;
-            return producenci;
+            Producent producent = new Producent();
+            producent.Id = id;
+            producent.Kod = kod;
+            producent.Nazwa = nazwa;
+            producent.IsActive = isActive;
+            return producent;
         }
 
         #endregion
@@ -7318,6 +7526,30 @@ namespace Firma.Models.Entities
         private global::System.String _URL;
         partial void OnURLChanging(global::System.String value);
         partial void OnURLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -7329,18 +7561,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_Producenci", "Towary")]
-        public EntityCollection<Towary> Towary
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_Producenci", "Towar")]
+        public EntityCollection<Towar> Towar
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towary>("ERPModel.FK_Towary_Producenci", "Towary");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Towar>("ERPModel.FK_Towary_Producenci", "Towar");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towary>("ERPModel.FK_Towary_Producenci", "Towary", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Towar>("ERPModel.FK_Towary_Producenci", "Towar", value);
                 }
             }
         }
@@ -7352,15 +7584,15 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Towary")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Towar")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Towary : EntityObject
+    public partial class Towar : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Towary object.
+        /// Create a new Towar object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="typ">Initial value of the Typ property.</param>
@@ -7382,50 +7614,42 @@ namespace Firma.Models.Entities
         /// <param name="iloscZamJM">Initial value of the IloscZamJM property.</param>
         /// <param name="stawka">Initial value of the Stawka property.</param>
         /// <param name="prog">Initial value of the Prog property.</param>
-        /// <param name="upust">Initial value of the Upust property.</param>
-        /// <param name="upustData">Initial value of the UpustData property.</param>
-        /// <param name="upustGodz">Initial value of the UpustGodz property.</param>
-        /// <param name="bezRabatu">Initial value of the BezRabatu property.</param>
         /// <param name="marzaMin">Initial value of the MarzaMin property.</param>
-        /// <param name="nieAktywny">Initial value of the NieAktywny property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="masa">Initial value of the Masa property.</param>
         /// <param name="krajPochodzenia">Initial value of the KrajPochodzenia property.</param>
         /// <param name="cenaZCzteremaMiejscami">Initial value of the CenaZCzteremaMiejscami property.</param>
         /// <param name="splitPay">Initial value of the SplitPay property.</param>
-        public static Towary CreateTowary(global::System.Int32 id, global::System.Byte typ, global::System.Int16 produkt, global::System.String numerKat, global::System.String nazwa, global::System.String uRL, global::System.String opis, global::System.String jM, global::System.Byte udostepniajWCenniku, global::System.String waluta, global::System.Decimal minCenaMarza, global::System.Int32 producentId, global::System.Decimal iloscMin, global::System.String iloscMinJM, global::System.Decimal iloscMax, global::System.String iloscMaxJM, global::System.Decimal iloscZam, global::System.String iloscZamJM, global::System.Decimal stawka, global::System.Byte prog, global::System.Byte upust, global::System.Byte upustData, global::System.Byte upustGodz, global::System.Byte bezRabatu, global::System.Decimal marzaMin, global::System.Byte nieAktywny, global::System.Decimal masa, global::System.String krajPochodzenia, global::System.Byte cenaZCzteremaMiejscami, global::System.Byte splitPay)
+        public static Towar CreateTowar(global::System.Int32 id, global::System.Byte typ, global::System.Int16 produkt, global::System.String numerKat, global::System.String nazwa, global::System.String uRL, global::System.String opis, global::System.String jM, global::System.Byte udostepniajWCenniku, global::System.String waluta, global::System.Decimal minCenaMarza, global::System.Int32 producentId, global::System.Decimal iloscMin, global::System.String iloscMinJM, global::System.Decimal iloscMax, global::System.String iloscMaxJM, global::System.Decimal iloscZam, global::System.String iloscZamJM, global::System.Decimal stawka, global::System.Byte prog, global::System.Decimal marzaMin, global::System.Boolean isActive, global::System.Decimal masa, global::System.String krajPochodzenia, global::System.Byte cenaZCzteremaMiejscami, global::System.Byte splitPay)
         {
-            Towary towary = new Towary();
-            towary.Id = id;
-            towary.Typ = typ;
-            towary.Produkt = produkt;
-            towary.NumerKat = numerKat;
-            towary.Nazwa = nazwa;
-            towary.URL = uRL;
-            towary.Opis = opis;
-            towary.JM = jM;
-            towary.UdostepniajWCenniku = udostepniajWCenniku;
-            towary.Waluta = waluta;
-            towary.MinCenaMarza = minCenaMarza;
-            towary.ProducentId = producentId;
-            towary.IloscMin = iloscMin;
-            towary.IloscMinJM = iloscMinJM;
-            towary.IloscMax = iloscMax;
-            towary.IloscMaxJM = iloscMaxJM;
-            towary.IloscZam = iloscZam;
-            towary.IloscZamJM = iloscZamJM;
-            towary.Stawka = stawka;
-            towary.Prog = prog;
-            towary.Upust = upust;
-            towary.UpustData = upustData;
-            towary.UpustGodz = upustGodz;
-            towary.BezRabatu = bezRabatu;
-            towary.MarzaMin = marzaMin;
-            towary.NieAktywny = nieAktywny;
-            towary.Masa = masa;
-            towary.KrajPochodzenia = krajPochodzenia;
-            towary.CenaZCzteremaMiejscami = cenaZCzteremaMiejscami;
-            towary.SplitPay = splitPay;
-            return towary;
+            Towar towar = new Towar();
+            towar.Id = id;
+            towar.Typ = typ;
+            towar.Produkt = produkt;
+            towar.NumerKat = numerKat;
+            towar.Nazwa = nazwa;
+            towar.URL = uRL;
+            towar.Opis = opis;
+            towar.JM = jM;
+            towar.UdostepniajWCenniku = udostepniajWCenniku;
+            towar.Waluta = waluta;
+            towar.MinCenaMarza = minCenaMarza;
+            towar.ProducentId = producentId;
+            towar.IloscMin = iloscMin;
+            towar.IloscMinJM = iloscMinJM;
+            towar.IloscMax = iloscMax;
+            towar.IloscMaxJM = iloscMaxJM;
+            towar.IloscZam = iloscZam;
+            towar.IloscZamJM = iloscZamJM;
+            towar.Stawka = stawka;
+            towar.Prog = prog;
+            towar.MarzaMin = marzaMin;
+            towar.IsActive = isActive;
+            towar.Masa = masa;
+            towar.KrajPochodzenia = krajPochodzenia;
+            towar.CenaZCzteremaMiejscami = cenaZCzteremaMiejscami;
+            towar.SplitPay = splitPay;
+            return towar;
         }
 
         #endregion
@@ -8047,9 +8271,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte Upust
+        public Nullable<global::System.Byte> Upust
         {
             get
             {
@@ -8057,26 +8281,23 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Upust != value)
-                {
-                    OnUpustChanging(value);
-                    ReportPropertyChanging("Upust");
-                    _Upust = StructuralObject.SetValidValue(value, "Upust");
-                    ReportPropertyChanged("Upust");
-                    OnUpustChanged();
-                }
+                OnUpustChanging(value);
+                ReportPropertyChanging("Upust");
+                _Upust = StructuralObject.SetValidValue(value, "Upust");
+                ReportPropertyChanged("Upust");
+                OnUpustChanged();
             }
         }
-        private global::System.Byte _Upust;
-        partial void OnUpustChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _Upust;
+        partial void OnUpustChanging(Nullable<global::System.Byte> value);
         partial void OnUpustChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte UpustData
+        public Nullable<global::System.Byte> UpustData
         {
             get
             {
@@ -8084,18 +8305,15 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_UpustData != value)
-                {
-                    OnUpustDataChanging(value);
-                    ReportPropertyChanging("UpustData");
-                    _UpustData = StructuralObject.SetValidValue(value, "UpustData");
-                    ReportPropertyChanged("UpustData");
-                    OnUpustDataChanged();
-                }
+                OnUpustDataChanging(value);
+                ReportPropertyChanging("UpustData");
+                _UpustData = StructuralObject.SetValidValue(value, "UpustData");
+                ReportPropertyChanged("UpustData");
+                OnUpustDataChanged();
             }
         }
-        private global::System.Byte _UpustData;
-        partial void OnUpustDataChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _UpustData;
+        partial void OnUpustDataChanging(Nullable<global::System.Byte> value);
         partial void OnUpustDataChanged();
     
         /// <summary>
@@ -8149,9 +8367,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte UpustGodz
+        public Nullable<global::System.Byte> UpustGodz
         {
             get
             {
@@ -8159,18 +8377,15 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_UpustGodz != value)
-                {
-                    OnUpustGodzChanging(value);
-                    ReportPropertyChanging("UpustGodz");
-                    _UpustGodz = StructuralObject.SetValidValue(value, "UpustGodz");
-                    ReportPropertyChanged("UpustGodz");
-                    OnUpustGodzChanged();
-                }
+                OnUpustGodzChanging(value);
+                ReportPropertyChanging("UpustGodz");
+                _UpustGodz = StructuralObject.SetValidValue(value, "UpustGodz");
+                ReportPropertyChanged("UpustGodz");
+                OnUpustGodzChanged();
             }
         }
-        private global::System.Byte _UpustGodz;
-        partial void OnUpustGodzChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _UpustGodz;
+        partial void OnUpustGodzChanging(Nullable<global::System.Byte> value);
         partial void OnUpustGodzChanged();
     
         /// <summary>
@@ -8224,9 +8439,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte BezRabatu
+        public Nullable<global::System.Byte> BezRabatu
         {
             get
             {
@@ -8234,18 +8449,15 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_BezRabatu != value)
-                {
-                    OnBezRabatuChanging(value);
-                    ReportPropertyChanging("BezRabatu");
-                    _BezRabatu = StructuralObject.SetValidValue(value, "BezRabatu");
-                    ReportPropertyChanged("BezRabatu");
-                    OnBezRabatuChanged();
-                }
+                OnBezRabatuChanging(value);
+                ReportPropertyChanging("BezRabatu");
+                _BezRabatu = StructuralObject.SetValidValue(value, "BezRabatu");
+                ReportPropertyChanged("BezRabatu");
+                OnBezRabatuChanged();
             }
         }
-        private global::System.Byte _BezRabatu;
-        partial void OnBezRabatuChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _BezRabatu;
+        partial void OnBezRabatuChanging(Nullable<global::System.Byte> value);
         partial void OnBezRabatuChanged();
     
         /// <summary>
@@ -8280,27 +8492,27 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte NieAktywny
+        public global::System.Boolean IsActive
         {
             get
             {
-                return _NieAktywny;
+                return _IsActive;
             }
             set
             {
-                if (_NieAktywny != value)
+                if (_IsActive != value)
                 {
-                    OnNieAktywnyChanging(value);
-                    ReportPropertyChanging("NieAktywny");
-                    _NieAktywny = StructuralObject.SetValidValue(value, "NieAktywny");
-                    ReportPropertyChanged("NieAktywny");
-                    OnNieAktywnyChanged();
+                    OnIsActiveChanging(value);
+                    ReportPropertyChanging("IsActive");
+                    _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                    ReportPropertyChanged("IsActive");
+                    OnIsActiveChanged();
                 }
             }
         }
-        private global::System.Byte _NieAktywny;
-        partial void OnNieAktywnyChanging(global::System.Byte value);
-        partial void OnNieAktywnyChanged();
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8468,16 +8680,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Kategorie_FK", "Kategorie")]
-        public Kategorie Kategorie
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Kategorie_FK", "Kategoria")]
+        public Kategoria Kategoria
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategorie>("ERPModel.Towary_Kategorie_FK", "Kategorie").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategoria>("ERPModel.Towary_Kategorie_FK", "Kategoria").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategorie>("ERPModel.Towary_Kategorie_FK", "Kategorie").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategoria>("ERPModel.Towary_Kategorie_FK", "Kategoria").Value = value;
             }
         }
         /// <summary>
@@ -8485,17 +8697,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Kategorie> KategorieReference
+        public EntityReference<Kategoria> KategoriaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategorie>("ERPModel.Towary_Kategorie_FK", "Kategorie");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kategoria>("ERPModel.Towary_Kategorie_FK", "Kategoria");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kategorie>("ERPModel.Towary_Kategorie_FK", "Kategorie", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kategoria>("ERPModel.Towary_Kategorie_FK", "Kategoria", value);
                 }
             }
         }
@@ -8506,16 +8718,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_KodyCn", "KodyCN")]
-        public KodyCN KodyCN
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_KodyCn", "KodCN")]
+        public KodCN KodCN
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodyCN>("ERPModel.FK_Towary_KodyCn", "KodyCN").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodCN>("ERPModel.FK_Towary_KodyCn", "KodCN").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodyCN>("ERPModel.FK_Towary_KodyCn", "KodyCN").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodCN>("ERPModel.FK_Towary_KodyCn", "KodCN").Value = value;
             }
         }
         /// <summary>
@@ -8523,17 +8735,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<KodyCN> KodyCNReference
+        public EntityReference<KodCN> KodCNReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodyCN>("ERPModel.FK_Towary_KodyCn", "KodyCN");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<KodCN>("ERPModel.FK_Towary_KodyCn", "KodCN");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KodyCN>("ERPModel.FK_Towary_KodyCn", "KodyCN", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<KodCN>("ERPModel.FK_Towary_KodyCn", "KodCN", value);
                 }
             }
         }
@@ -8544,16 +8756,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_FK", "Kontrahenci")]
-        public Kontrahenci Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_FK", "Kontrahent")]
+        public Kontrahent Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("ERPModel.Towary_FK", "Kontrahenci").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Towary_FK", "Kontrahent").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("ERPModel.Towary_FK", "Kontrahenci").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Towary_FK", "Kontrahent").Value = value;
             }
         }
         /// <summary>
@@ -8561,17 +8773,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Kontrahenci> KontrahenciReference
+        public EntityReference<Kontrahent> KontrahentReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahenci>("ERPModel.Towary_FK", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Towary_FK", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahenci>("ERPModel.Towary_FK", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahent>("ERPModel.Towary_FK", "Kontrahent", value);
                 }
             }
         }
@@ -8582,16 +8794,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Pracownicy", "Pracownicy")]
-        public Pracownicy Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Towary_Pracownicy", "Pracownik")]
+        public Pracownik Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Towary_Pracownicy", "Pracownicy").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Towary_Pracownicy", "Pracownik").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Towary_Pracownicy", "Pracownicy").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Towary_Pracownicy", "Pracownik").Value = value;
             }
         }
         /// <summary>
@@ -8599,17 +8811,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Pracownicy> PracownicyReference
+        public EntityReference<Pracownik> PracownikReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownicy>("ERPModel.Towary_Pracownicy", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pracownik>("ERPModel.Towary_Pracownicy", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownicy>("ERPModel.Towary_Pracownicy", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pracownik>("ERPModel.Towary_Pracownicy", "Pracownik", value);
                 }
             }
         }
@@ -8620,16 +8832,16 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_Producenci", "Producenci")]
-        public Producenci Producenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Towary_Producenci", "Producent")]
+        public Producent Producent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producenci>("ERPModel.FK_Towary_Producenci", "Producenci").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producent>("ERPModel.FK_Towary_Producenci", "Producent").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producenci>("ERPModel.FK_Towary_Producenci", "Producenci").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producent>("ERPModel.FK_Towary_Producenci", "Producent").Value = value;
             }
         }
         /// <summary>
@@ -8637,17 +8849,17 @@ namespace Firma.Models.Entities
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Producenci> ProducenciReference
+        public EntityReference<Producent> ProducentReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producenci>("ERPModel.FK_Towary_Producenci", "Producenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Producent>("ERPModel.FK_Towary_Producenci", "Producent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Producenci>("ERPModel.FK_Towary_Producenci", "Producenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Producent>("ERPModel.FK_Towary_Producenci", "Producent", value);
                 }
             }
         }
@@ -8659,24 +8871,26 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Wojewodztwa")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Wojewodztwo")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Wojewodztwa : EntityObject
+    public partial class Wojewodztwo : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Wojewodztwa object.
+        /// Create a new Wojewodztwo object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Wojewodztwa CreateWojewodztwa(global::System.Int32 id, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Wojewodztwo CreateWojewodztwo(global::System.Int32 id, global::System.String nazwa, global::System.Boolean isActive)
         {
-            Wojewodztwa wojewodztwa = new Wojewodztwa();
-            wojewodztwa.Id = id;
-            wojewodztwa.Nazwa = nazwa;
-            return wojewodztwa;
+            Wojewodztwo wojewodztwo = new Wojewodztwo();
+            wojewodztwo.Id = id;
+            wojewodztwo.Nazwa = nazwa;
+            wojewodztwo.IsActive = isActive;
+            return wojewodztwo;
         }
 
         #endregion
@@ -8733,6 +8947,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -8744,18 +8982,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK5", "BankiNazwy")]
-        public EntityCollection<BankiNazwy> BankiNazwy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "BankiNazwy_FK5", "BankNazwa")]
+        public EntityCollection<BankNazwa> BankNazwa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK5", "BankiNazwy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK5", "BankNazwa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankiNazwy>("ERPModel.BankiNazwy_FK5", "BankiNazwy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BankNazwa>("ERPModel.BankiNazwy_FK5", "BankNazwa", value);
                 }
             }
         }
@@ -8766,18 +9004,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK5", "Kontrahenci")]
-        public EntityCollection<Kontrahenci> Kontrahenci
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahenci_FK5", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK5", "Kontrahenci");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK5", "Kontrahent");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahenci>("ERPModel.Kontrahenci_FK5", "Kontrahenci", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahenci_FK5", "Kontrahent", value);
                 }
             }
         }
@@ -8788,18 +9026,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Wojewodztwa", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Wojewodztwa", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Wojewodztwa", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Wojewodztwa", "Pracownik", value);
                 }
             }
         }
@@ -8823,11 +9061,13 @@ namespace Firma.Models.Entities
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        public static Wyksztalcenie CreateWyksztalcenie(global::System.Int32 id, global::System.String nazwa)
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static Wyksztalcenie CreateWyksztalcenie(global::System.Int32 id, global::System.String nazwa, global::System.Boolean isActive)
         {
             Wyksztalcenie wyksztalcenie = new Wyksztalcenie();
             wyksztalcenie.Id = id;
             wyksztalcenie.Nazwa = nazwa;
+            wyksztalcenie.IsActive = isActive;
             return wyksztalcenie;
         }
 
@@ -8885,6 +9125,30 @@ namespace Firma.Models.Entities
         private global::System.String _Nazwa;
         partial void OnNazwaChanging(global::System.String value);
         partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
 
         #endregion
 
@@ -8896,18 +9160,18 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Pracownicy")]
-        public EntityCollection<Pracownicy> Pracownicy
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Pracownik")]
+        public EntityCollection<Pracownik> Pracownik
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Wyksztalcenie", "Pracownicy");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pracownik>("ERPModel.Pracownicy_Wyksztalcenie", "Pracownik");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownicy>("ERPModel.Pracownicy_Wyksztalcenie", "Pracownicy", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Wyksztalcenie", "Pracownik", value);
                 }
             }
         }

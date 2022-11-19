@@ -12,6 +12,14 @@
         <views:WszystkieGminyView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieKrajeViewModel}">
+        <views:WszystkieKrajeView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieMiastaViewModel}">
+        <views:WszystkieMiastaView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

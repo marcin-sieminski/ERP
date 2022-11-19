@@ -279,6 +279,12 @@
   <data name="Kraj" xml:space="preserve">
     <value>Kraj</value>
   </data>
+  <data name="Kraje" xml:space="preserve">
+    <value>Kraje</value>
+  </data>
+  <data name="KrajeTooltip" xml:space="preserve">
+    <value>Kraje</value>
+  </data>
   <data name="KrajISO" xml:space="preserve">
     <value>Kraj ISO</value>
   </data>
@@ -293,6 +299,9 @@
   </data>
   <data name="Magazyn" xml:space="preserve">
     <value>Magazyn</value>
+  </data>
+  <data name="Miasta" xml:space="preserve">
+    <value>Miasta</value>
   </data>
   <data name="Miasto" xml:space="preserve">
     <value>Miasto</value>

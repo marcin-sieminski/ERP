@@ -264,6 +264,9 @@
   <data name="KodPocztowy" xml:space="preserve">
     <value>Kod pocztowy</value>
   </data>
+  <data name="KodyCN" xml:space="preserve">
+    <value>Kody CN</value>
+  </data>
   <data name="Kontrahenci" xml:space="preserve">
     <value>Lista kontrahentów</value>
   </data>

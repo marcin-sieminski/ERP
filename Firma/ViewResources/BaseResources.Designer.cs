@@ -502,6 +502,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kody CN.
+        /// </summary>
+        public static string KodyCN {
+            get {
+                return ResourceManager.GetString("KodyCN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lista kontrahentów.
         /// </summary>
         public static string Kontrahenci {

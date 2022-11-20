@@ -3026,20 +3026,14 @@ namespace Firma.Models.Entities
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
-        /// <param name="kodSent">Initial value of the KodSent property.</param>
-        /// <param name="sent">Initial value of the Sent property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
-        /// <param name="masa">Initial value of the Masa property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
-        public static KodCN CreateKodCN(global::System.Int32 id, global::System.String kod, global::System.String kodSent, global::System.Int32 sent, global::System.String opis, global::System.Byte masa, global::System.Boolean isActive)
+        public static KodCN CreateKodCN(global::System.Int32 id, global::System.String kod, global::System.String opis, global::System.Boolean isActive)
         {
             KodCN kodCN = new KodCN();
             kodCN.Id = id;
             kodCN.Kod = kod;
-            kodCN.KodSent = kodSent;
-            kodCN.Sent = sent;
             kodCN.Opis = opis;
-            kodCN.Masa = masa;
             kodCN.IsActive = isActive;
             return kodCN;
         }
@@ -3104,54 +3098,6 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String KodSent
-        {
-            get
-            {
-                return _KodSent;
-            }
-            set
-            {
-                OnKodSentChanging(value);
-                ReportPropertyChanging("KodSent");
-                _KodSent = StructuralObject.SetValidValue(value, false, "KodSent");
-                ReportPropertyChanged("KodSent");
-                OnKodSentChanged();
-            }
-        }
-        private global::System.String _KodSent;
-        partial void OnKodSentChanging(global::System.String value);
-        partial void OnKodSentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Sent
-        {
-            get
-            {
-                return _Sent;
-            }
-            set
-            {
-                OnSentChanging(value);
-                ReportPropertyChanging("Sent");
-                _Sent = StructuralObject.SetValidValue(value, "Sent");
-                ReportPropertyChanged("Sent");
-                OnSentChanged();
-            }
-        }
-        private global::System.Int32 _Sent;
-        partial void OnSentChanging(global::System.Int32 value);
-        partial void OnSentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.String Opis
         {
             get
@@ -3176,102 +3122,6 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Byte Masa
-        {
-            get
-            {
-                return _Masa;
-            }
-            set
-            {
-                OnMasaChanging(value);
-                ReportPropertyChanging("Masa");
-                _Masa = StructuralObject.SetValidValue(value, "Masa");
-                ReportPropertyChanged("Masa");
-                OnMasaChanged();
-            }
-        }
-        private global::System.Byte _Masa;
-        partial void OnMasaChanging(global::System.Byte value);
-        partial void OnMasaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Stawka
-        {
-            get
-            {
-                return _Stawka;
-            }
-            set
-            {
-                OnStawkaChanging(value);
-                ReportPropertyChanging("Stawka");
-                _Stawka = StructuralObject.SetValidValue(value, "Stawka");
-                ReportPropertyChanged("Stawka");
-                OnStawkaChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _Stawka;
-        partial void OnStawkaChanging(Nullable<global::System.Decimal> value);
-        partial void OnStawkaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int16> Flaga
-        {
-            get
-            {
-                return _Flaga;
-            }
-            set
-            {
-                OnFlagaChanging(value);
-                ReportPropertyChanging("Flaga");
-                _Flaga = StructuralObject.SetValidValue(value, "Flaga");
-                ReportPropertyChanged("Flaga");
-                OnFlagaChanged();
-            }
-        }
-        private Nullable<global::System.Int16> _Flaga;
-        partial void OnFlagaChanging(Nullable<global::System.Int16> value);
-        partial void OnFlagaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> Zrodlowa
-        {
-            get
-            {
-                return _Zrodlowa;
-            }
-            set
-            {
-                OnZrodlowaChanging(value);
-                ReportPropertyChanging("Zrodlowa");
-                _Zrodlowa = StructuralObject.SetValidValue(value, "Zrodlowa");
-                ReportPropertyChanged("Zrodlowa");
-                OnZrodlowaChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _Zrodlowa;
-        partial void OnZrodlowaChanging(Nullable<global::System.Decimal> value);
-        partial void OnZrodlowaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
             get
@@ -3290,6 +3140,30 @@ namespace Firma.Models.Entities
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Komentarz
+        {
+            get
+            {
+                return _Komentarz;
+            }
+            set
+            {
+                OnKomentarzChanging(value);
+                ReportPropertyChanging("Komentarz");
+                _Komentarz = StructuralObject.SetValidValue(value, true, "Komentarz");
+                ReportPropertyChanged("Komentarz");
+                OnKomentarzChanged();
+            }
+        }
+        private global::System.String _Komentarz;
+        partial void OnKomentarzChanging(global::System.String value);
+        partial void OnKomentarzChanged();
 
         #endregion
 

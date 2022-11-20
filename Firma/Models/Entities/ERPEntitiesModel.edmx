@@ -117,15 +117,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Kod" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="KodSent" Type="varchar" MaxLength="4" Nullable="false" />
-          <Property Name="Sent" Type="int" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="1024" Nullable="false" />
-          <Property Name="Masa" Type="tinyint" Nullable="false" />
-          <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="Flaga" Type="smallint" />
-          <Property Name="Zrodlowa" Type="decimal" Precision="5" Scale="2" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Komentarz" Type="nvarchar" MaxLength="1024" />
         </EntityType>
         <EntityType Name="Kontrahent">
           <Key>
@@ -965,15 +960,10 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Kod" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="KodSent" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Sent" Type="Int32" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Masa" Type="Byte" Nullable="false" />
-          <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="Flaga" Type="Int16" />
-          <Property Name="Zrodlowa" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Komentarz" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Towar" Relationship="Self.FK_Towary_KodyCn" FromRole="KodCN" ToRole="Towar" />
         </EntityType>
         <EntityType Name="Kontrahent">
@@ -1801,14 +1791,9 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
               <MappingFragment StoreEntitySet="KodCN">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
-                <ScalarProperty Name="KodSent" ColumnName="KodSent" />
-                <ScalarProperty Name="Sent" ColumnName="Sent" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="Masa" ColumnName="Masa" />
-                <ScalarProperty Name="Stawka" ColumnName="Stawka" />
-                <ScalarProperty Name="Flaga" ColumnName="Flaga" />
-                <ScalarProperty Name="Zrodlowa" ColumnName="Zrodlowa" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Komentarz" ColumnName="Komentarz" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

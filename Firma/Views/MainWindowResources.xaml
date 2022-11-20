@@ -32,6 +32,10 @@
         <views:WszystkieWyksztalceniaView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieKodyCNViewModel}">
+        <views:WszystkieKodyCNView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

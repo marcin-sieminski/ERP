@@ -7,7 +7,7 @@ namespace Firma.ViewModels
     public class WszystkieWojewodztwaViewModel : WszystkieViewModel<Wojewodztwo>
     {
         #region  Constructor
-        public  WszystkieWojewodztwaViewModel() : base(ViewResources.BaseResources.Powiaty)
+        public  WszystkieWojewodztwaViewModel() : base(ViewResources.BaseResources.Wojewodztwa)
         {
         }
         #endregion

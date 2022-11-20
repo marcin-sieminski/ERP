@@ -3,15 +3,15 @@ using System.Linq;
 using System.Windows.Input;
 using Firma.Helpers;
 using Firma.Models.Entities;
+using Firma.ViewResources;
 
 namespace Firma.ViewModels
 {
     public class WszystkieGminyViewModel : WszystkieViewModel<Gmina>
     {
         #region  Constructor
-        public  WszystkieGminyViewModel() : base("Gminy")
+        public  WszystkieGminyViewModel() : base(BaseResources.Gminy)
         {
-            base.DisplayName  =  "Gminy";
         }
         #endregion
         

@@ -246,6 +246,9 @@
   <data name="Jm" xml:space="preserve">
     <value>Jm</value>
   </data>
+  <data name="KartyKredytowe" xml:space="preserve">
+    <value>Karty kredytowe</value>
+  </data>
   <data name="Kategoria" xml:space="preserve">
     <value>Kategoria</value>
   </data>

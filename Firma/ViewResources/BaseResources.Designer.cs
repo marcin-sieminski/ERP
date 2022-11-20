@@ -448,6 +448,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Karty kredytowe.
+        /// </summary>
+        public static string KartyKredytowe {
+            get {
+                return ResourceManager.GetString("KartyKredytowe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategoria.
         /// </summary>
         public static string Kategoria {

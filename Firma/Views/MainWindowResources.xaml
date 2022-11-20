@@ -36,6 +36,10 @@
         <views:WszystkieKodyCNView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszystkieKartyKredytoweViewModel}">
+        <views:WszystkieKartyKredytoweView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

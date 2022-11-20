@@ -1168,6 +1168,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wykształcenia.
+        /// </summary>
+        public static string Wyksztalcenia {
+            get {
+                return ResourceManager.GetString("Wyksztalcenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyszukiwanie kontrahenta.
         /// </summary>
         public static string WyszukiwanieKontrahenta {

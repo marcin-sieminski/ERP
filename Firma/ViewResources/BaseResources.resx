@@ -486,6 +486,9 @@
   <data name="Wyczyść" xml:space="preserve">
     <value>Wyczyść</value>
   </data>
+  <data name="Wyksztalcenia" xml:space="preserve">
+    <value>Wykształcenia</value>
+  </data>
   <data name="WyszukiwanieKontrahenta" xml:space="preserve">
     <value>Wyszukiwanie kontrahenta</value>
   </data>

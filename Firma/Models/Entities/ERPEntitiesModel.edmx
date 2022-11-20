@@ -102,12 +102,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Typ" Type="smallint" Nullable="false" />
-          <Property Name="Poziom" Type="smallint" Nullable="false" />
           <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Opis" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="RodzajZakupu" Type="smallint" Nullable="false" />
-          <Property Name="Fiskalny" Type="tinyint" Nullable="false" />
+          <Property Name="Fiskalny" Type="bit" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="KontoSegmentWN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="KontoSegmentMA" Type="varchar" MaxLength="50" Nullable="false" />
@@ -449,6 +446,18 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Dzial_Dzial">
+          <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
+          <End Role="Dzial1" Type="Self.Dzial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dzial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dzial1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PREDzlLink">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
@@ -757,6 +766,10 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <End Role="KartaKredytowa" EntitySet="KartaKredytowa" />
             <End Role="BankRachunek" EntitySet="BankRachunek" />
           </AssociationSet>
+          <AssociationSet Name="FK_Dzial_Dzial" Association="Self.FK_Dzial_Dzial">
+            <End Role="Dzial" EntitySet="Dzial" />
+            <End Role="Dzial1" EntitySet="Dzial" />
+          </AssociationSet>
           <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -916,6 +929,8 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="Nazwa" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Dzial1" Relationship="Self.FK_Dzial_Dzial" FromRole="Dzial" ToRole="Dzial1" />
+          <NavigationProperty Name="Dzial2" Relationship="Self.FK_Dzial_Dzial" FromRole="Dzial1" ToRole="Dzial" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK_PREDzlLink" FromRole="Dzial" ToRole="Pracownik" />
         </EntityType>
         <EntityType Name="Gmina">
@@ -944,12 +959,9 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Typ" Type="Int16" Nullable="false" />
-          <Property Name="Poziom" Type="Int16" Nullable="false" />
           <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RodzajZakupu" Type="Int16" Nullable="false" />
-          <Property Name="Fiskalny" Type="Byte" Nullable="false" />
+          <Property Name="Fiskalny" Type="Boolean" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="KontoSegmentWN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KontoSegmentMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1327,6 +1339,18 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Dzial_Dzial">
+          <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
+          <End Role="Dzial1" Type="Self.Dzial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dzial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dzial1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PREDzlLink">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="0..1" />
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
@@ -1593,6 +1617,10 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <End Role="KartaKredytowa" EntitySet="KartaKredytowa" />
             <End Role="BankRachunek" EntitySet="BankRachunek" />
           </AssociationSet>
+          <AssociationSet Name="FK_Dzial_Dzial" Association="Self.FK_Dzial_Dzial">
+            <End Role="Dzial" EntitySet="Dzial" />
+            <End Role="Dzial1" EntitySet="Dzial" />
+          </AssociationSet>
           <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -1774,11 +1802,8 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <EntityTypeMapping TypeName="ERPModel.Kategoria">
               <MappingFragment StoreEntitySet="Kategoria">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Typ" ColumnName="Typ" />
-                <ScalarProperty Name="Poziom" ColumnName="Poziom" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="RodzajZakupu" ColumnName="RodzajZakupu" />
                 <ScalarProperty Name="Fiskalny" ColumnName="Fiskalny" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="KontoSegmentWN" ColumnName="KontoSegmentWN" />

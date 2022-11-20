@@ -258,6 +258,9 @@
   <data name="KategoriaPrawaJazdy" xml:space="preserve">
     <value>Kategoria prawa jazdy</value>
   </data>
+  <data name="Kategorie" xml:space="preserve">
+    <value>Kategorie</value>
+  </data>
   <data name="KlientAktywny" xml:space="preserve">
     <value>Klient aktywny</value>
   </data>

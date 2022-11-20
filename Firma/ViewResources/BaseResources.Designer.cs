@@ -484,6 +484,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kategorie.
+        /// </summary>
+        public static string Kategorie {
+            get {
+                return ResourceManager.GetString("Kategorie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Klient aktywny.
         /// </summary>
         public static string KlientAktywny {

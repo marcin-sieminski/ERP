@@ -26,6 +26,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK4", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK5", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_BRaKartaTyp", "KartaKredytowa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KartaKredytowa), "BankRachunek", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankRachunek), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_Dzial_Dzial", "Dzial", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzial), "Dzial1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Dzial), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_PREDzlLink", "Dzial", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzial), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
@@ -2339,6 +2340,66 @@ namespace Firma.Models.Entities
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Dzial_Dzial", "Dzial1")]
+        public EntityCollection<Dzial> Dzial1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_Dzial_Dzial", "Dzial")]
+        public Dzial Dzial2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Dzial> Dzial2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Dzial>("ERPModel.FK_Dzial_Dzial", "Dzial", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PREDzlLink", "Pracownik")]
         public EntityCollection<Pracownik> Pracownik
         {
@@ -2709,24 +2770,18 @@ namespace Firma.Models.Entities
         /// Create a new Kategoria object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="typ">Initial value of the Typ property.</param>
-        /// <param name="poziom">Initial value of the Poziom property.</param>
         /// <param name="kod">Initial value of the Kod property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
-        /// <param name="rodzajZakupu">Initial value of the RodzajZakupu property.</param>
         /// <param name="fiskalny">Initial value of the Fiskalny property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="kontoSegmentWN">Initial value of the KontoSegmentWN property.</param>
         /// <param name="kontoSegmentMA">Initial value of the KontoSegmentMA property.</param>
-        public static Kategoria CreateKategoria(global::System.Int32 id, global::System.Int16 typ, global::System.Int16 poziom, global::System.String kod, global::System.String opis, global::System.Int16 rodzajZakupu, global::System.Byte fiskalny, global::System.Boolean isActive, global::System.String kontoSegmentWN, global::System.String kontoSegmentMA)
+        public static Kategoria CreateKategoria(global::System.Int32 id, global::System.String kod, global::System.String opis, global::System.Boolean fiskalny, global::System.Boolean isActive, global::System.String kontoSegmentWN, global::System.String kontoSegmentMA)
         {
             Kategoria kategoria = new Kategoria();
             kategoria.Id = id;
-            kategoria.Typ = typ;
-            kategoria.Poziom = poziom;
             kategoria.Kod = kod;
             kategoria.Opis = opis;
-            kategoria.RodzajZakupu = rodzajZakupu;
             kategoria.Fiskalny = fiskalny;
             kategoria.IsActive = isActive;
             kategoria.KontoSegmentWN = kontoSegmentWN;
@@ -2764,54 +2819,6 @@ namespace Firma.Models.Entities
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Typ
-        {
-            get
-            {
-                return _Typ;
-            }
-            set
-            {
-                OnTypChanging(value);
-                ReportPropertyChanging("Typ");
-                _Typ = StructuralObject.SetValidValue(value, "Typ");
-                ReportPropertyChanged("Typ");
-                OnTypChanged();
-            }
-        }
-        private global::System.Int16 _Typ;
-        partial void OnTypChanging(global::System.Int16 value);
-        partial void OnTypChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 Poziom
-        {
-            get
-            {
-                return _Poziom;
-            }
-            set
-            {
-                OnPoziomChanging(value);
-                ReportPropertyChanging("Poziom");
-                _Poziom = StructuralObject.SetValidValue(value, "Poziom");
-                ReportPropertyChanged("Poziom");
-                OnPoziomChanged();
-            }
-        }
-        private global::System.Int16 _Poziom;
-        partial void OnPoziomChanging(global::System.Int16 value);
-        partial void OnPoziomChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2866,31 +2873,7 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 RodzajZakupu
-        {
-            get
-            {
-                return _RodzajZakupu;
-            }
-            set
-            {
-                OnRodzajZakupuChanging(value);
-                ReportPropertyChanging("RodzajZakupu");
-                _RodzajZakupu = StructuralObject.SetValidValue(value, "RodzajZakupu");
-                ReportPropertyChanged("RodzajZakupu");
-                OnRodzajZakupuChanged();
-            }
-        }
-        private global::System.Int16 _RodzajZakupu;
-        partial void OnRodzajZakupuChanging(global::System.Int16 value);
-        partial void OnRodzajZakupuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte Fiskalny
+        public global::System.Boolean Fiskalny
         {
             get
             {
@@ -2905,8 +2888,8 @@ namespace Firma.Models.Entities
                 OnFiskalnyChanged();
             }
         }
-        private global::System.Byte _Fiskalny;
-        partial void OnFiskalnyChanging(global::System.Byte value);
+        private global::System.Boolean _Fiskalny;
+        partial void OnFiskalnyChanging(global::System.Boolean value);
         partial void OnFiskalnyChanged();
     
         /// <summary>

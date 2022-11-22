@@ -55,7 +55,7 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.Wyksztalcenia, new BaseCommand(showAllWyksztalcenie)),
             new CommandViewModel(BaseResources.KodyCN, new BaseCommand(showAllKodCN)),
             new CommandViewModel(BaseResources.KartyKredytowe, new BaseCommand(showAllKartyKredytowe)),
-            new CommandViewModel(BaseResources.Kategoria, new BaseCommand(showAllKategorie)),
+            new CommandViewModel(BaseResources.Kategorie, new BaseCommand(showAllKategorie)),
         };
         }
         #endregion

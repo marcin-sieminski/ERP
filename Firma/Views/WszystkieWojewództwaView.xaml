@@ -7,10 +7,10 @@
                         mc:Ignorable="d" 
                         d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding  List}">
+        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn  x:Name="Id"  Binding="{Binding  Path=Id}" Header="Nr"/> 
-                <DataGridTextColumn  x:Name="Nazwa"  Binding="{Binding  Path=Nazwa}" Header="Nazwa"/>                
+                <DataGridTextColumn  x:Name="Id"  Binding="{Binding Path=Id}" Header="Nr"/> 
+                <DataGridTextColumn  x:Name="Nazwa"  Binding="{Binding Path=Nazwa}" Header="Nazwa"/>                
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

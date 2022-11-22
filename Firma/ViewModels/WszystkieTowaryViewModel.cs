@@ -1,65 +1,41 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
-using Firma.Helpers;
 using Firma.Models.Entities;
-using Firma.ViewResources;
+using Firma.Models.EntitiesForView;
 
 namespace Firma.ViewModels
 {
-    public class WszystkieTowaryViewModel : WorkspaceViewModel
+    public class WszystkieTowaryViewModel : WszystkieViewModel<TowaryForAllView>
     {
-        #region  Fields
-        //polaczenie  z  baza  danych
-        private  readonly  ERPEntities  erpEntities; 
-        private  BaseCommand  _LoadCommand;
-        //lista  towarow  zaladowana  z  bazy  danych
-        private  ObservableCollection<Towar>  _TowaryList; 
-        #endregion  
-        
-        #region  Properties
-        public  ICommand  LoadCommand
-        {
-            get
-            {
-                if  (_LoadCommand  ==  null)
-                {
-                    _LoadCommand  =  new  BaseCommand(()  =>  load());
-                }
-                return  _LoadCommand;
-            }
-        }
-        public  ObservableCollection<Towar>  TowaryList
-        {
- 
-            get
-            {
-
-                if  (_TowaryList  ==  null) load();
-                return  _TowaryList;
-
-
-            }
-            set
-            {
-                _TowaryList  =  value; OnPropertyChanged(()  =>  TowaryList);
-            }
-        }
-        #endregion  //Properties
-        
         #region  Constructor
-        public  WszystkieTowaryViewModel()
+        public  WszystkieTowaryViewModel() : base("Wszystkie towary")
         {
-            base.DisplayName  =  "Wszystkie  towary";
-            erpEntities  =  new  ERPEntities();
         }
-        #endregion  //  Constructor
+        #endregion 
         
         #region  Helpers
-        private  void  load()
+        public override void Load()
         {
-            TowaryList  =  new  ObservableCollection<Towar>
-                (from  towar  in  erpEntities.Towar  select  towar);
+            List  =  new  ObservableCollection<TowaryForAllView>
+                (
+                    from towar in  ERPEntities.Towar  select new TowaryForAllView
+                    {
+                        Id = towar.Id,
+                        KodCN = towar.KodCN.Kod,
+                        NumerKatalogowy = towar.NumerKat,
+                        Nazwa = towar.Nazwa,
+                        URL= towar.URL,
+                        KategoriaKod = towar.Kategoria.Kod,
+                        Opis = towar.Opis,
+                        JM = towar.JM,
+                        Waluta = towar.Waluta,
+                        Cena = towar.Cena,
+                        NazwaKontrahenta = towar.Kontrahent.Nazwa,
+                        NazwaProducenta = towar.Producent.Nazwa,
+                        Waga = towar.WagaKG.Value,
+                        OpiekunImieNazwisko = towar.Pracownik.Imie1 + " " + towar.Pracownik.Nazwisko
+                    }
+                );
         }
         #endregion
 

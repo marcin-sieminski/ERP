@@ -124,62 +124,58 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Kod" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="EAN" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="Grupa" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Nazwa1" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwa2" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Nazwa3" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="KrajId" Type="int" Nullable="false" />
-          <Property Name="WojewodztwoId" Type="int" Nullable="false" />
-          <Property Name="PowiatId" Type="int" Nullable="false" />
-          <Property Name="GminaId" Type="int" Nullable="false" />
-          <Property Name="Ulica" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="MiastoId" Type="int" Nullable="false" />
-          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Poczta" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Adres2" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Nip" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Regon" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Pesel" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="Telefon1" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Telefon2" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="TelefonSms" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Fax" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="127" Nullable="false" />
-          <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
-          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
-          <Property Name="IBAN" Type="smallint" Nullable="false" />
-          <Property Name="OsTytul" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="OsPlec" Type="tinyint" Nullable="false" />
-          <Property Name="OsNazwisko" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsKraj" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsWojewodztwo" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsPowiat" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsGmina" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsUlica" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsNrDomu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="OsNrLokalu" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="OsMiasto" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsKodPocztowy" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="OsPoczta" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="OsAdres2" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="OsTelefon" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="OsGSM" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="OsEmail" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Informacje" Type="tinyint" Nullable="false" />
-          <Property Name="Upust" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="LimitKredytu" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="MaxZwloka" Type="smallint" Nullable="false" />
-          <Property Name="TerminPlat" Type="tinyint" Nullable="false" />
-          <Property Name="KontoOdb" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="KontoDost" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kod" Type="varchar" MaxLength="20" />
+          <Property Name="Grupa" Type="varchar" MaxLength="20" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
+          <Property Name="KrajId" Type="int" />
+          <Property Name="WojewodztwoId" Type="int" />
+          <Property Name="PowiatId" Type="int" />
+          <Property Name="GminaId" Type="int" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="40" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" />
+          <Property Name="MiastoId" Type="int" />
+          <Property Name="KodPocztowy" Type="varchar" MaxLength="10" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="40" />
+          <Property Name="Adres2" Type="nvarchar" MaxLength="40" />
+          <Property Name="Nip" Type="nvarchar" MaxLength="20" />
+          <Property Name="Regon" Type="varchar" MaxLength="20" />
+          <Property Name="Pesel" Type="nvarchar" MaxLength="11" />
+          <Property Name="Telefon" Type="varchar" MaxLength="20" />
+          <Property Name="TelefonSms" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="127" />
+          <Property Name="URL" Type="varchar" MaxLength="254" />
+          <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" />
+          <Property Name="IBAN" Type="smallint" />
+          <Property Name="OsTytul" Type="nvarchar" MaxLength="20" />
+          <Property Name="OsPlec" Type="tinyint" />
+          <Property Name="OsNazwisko" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsKraj" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsWojewodztwo" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsPowiat" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsGmina" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsUlica" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsNrDomu" Type="nvarchar" MaxLength="10" />
+          <Property Name="OsNrLokalu" Type="nvarchar" MaxLength="10" />
+          <Property Name="OsMiasto" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsKodPocztowy" Type="varchar" MaxLength="10" />
+          <Property Name="OsPoczta" Type="nvarchar" MaxLength="40" />
+          <Property Name="OsAdres2" Type="nvarchar" MaxLength="256" />
+          <Property Name="OsTelefon" Type="varchar" MaxLength="20" />
+          <Property Name="OsGSM" Type="varchar" MaxLength="20" />
+          <Property Name="OsEmail" Type="nvarchar" MaxLength="40" />
+          <Property Name="Informacje" Type="tinyint" />
+          <Property Name="Upust" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="LimitKredytu" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="MaxZwloka" Type="smallint" />
+          <Property Name="TerminPlat" Type="tinyint" />
+          <Property Name="KontoOdb" Type="nvarchar" MaxLength="50" />
+          <Property Name="KontoDost" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opis" Type="nvarchar(max)" />
           <Property Name="OpiekunId" Type="int" />
-          <Property Name="SplitPay" Type="tinyint" Nullable="false" />
-          <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SplitPay" Type="tinyint" />
+          <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Kraj">
@@ -280,8 +276,6 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
         <EntityType Name="Towar">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Typ" />
-            <PropertyRef Name="Produkt" />
             <PropertyRef Name="NumerKat" />
             <PropertyRef Name="Nazwa" />
             <PropertyRef Name="URL" />
@@ -289,7 +283,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
             <PropertyRef Name="JM" />
             <PropertyRef Name="UdostepniajWCenniku" />
             <PropertyRef Name="Waluta" />
-            <PropertyRef Name="MinCenaMarza" />
+            <PropertyRef Name="Cena" />
             <PropertyRef Name="ProducentId" />
             <PropertyRef Name="IloscMin" />
             <PropertyRef Name="IloscMinJM" />
@@ -303,12 +297,9 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
             <PropertyRef Name="IsActive" />
             <PropertyRef Name="Masa" />
             <PropertyRef Name="KrajPochodzenia" />
-            <PropertyRef Name="CenaZCzteremaMiejscami" />
             <PropertyRef Name="SplitPay" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Typ" Type="tinyint" Nullable="false" />
-          <Property Name="Produkt" Type="smallint" Nullable="false" />
           <Property Name="KodCnId" Type="int" />
           <Property Name="NumerKat" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
@@ -318,7 +309,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           <Property Name="JM" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="UdostepniajWCenniku" Type="tinyint" Nullable="false" />
           <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="MinCenaMarza" Type="decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="KontrahentId" Type="int" />
           <Property Name="ProducentId" Type="int" Nullable="false" />
           <Property Name="IloscMin" Type="decimal" Precision="15" Scale="4" Nullable="false" />
@@ -342,7 +333,6 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           <Property Name="Masa" Type="decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="WagaKG" Type="decimal" Precision="15" Scale="4" />
           <Property Name="KrajPochodzenia" Type="nvarchar" MaxLength="2" Nullable="false" />
-          <Property Name="CenaZCzteremaMiejscami" Type="tinyint" Nullable="false" />
           <Property Name="SplitPay" Type="tinyint" Nullable="false" />
           <Property Name="OpiekunId" Type="int" />
         </EntityType>
@@ -495,7 +485,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK">
-          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kraj">
@@ -507,7 +497,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK2">
-          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gmina">
@@ -519,7 +509,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK3">
-          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Miasto">
@@ -531,7 +521,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK4">
-          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Powiat">
@@ -543,7 +533,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK5">
-          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Wojewodztwo">
@@ -698,8 +688,6 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           <EntitySet Name="Towar" EntityType="Self.Towar" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Towar].[Id] AS [Id], 
-[Towar].[Typ] AS [Typ], 
-[Towar].[Produkt] AS [Produkt], 
 [Towar].[KodCnId] AS [KodCnId], 
 [Towar].[NumerKat] AS [NumerKat], 
 [Towar].[Nazwa] AS [Nazwa], 
@@ -709,7 +697,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
 [Towar].[JM] AS [JM], 
 [Towar].[UdostepniajWCenniku] AS [UdostepniajWCenniku], 
 [Towar].[Waluta] AS [Waluta], 
-[Towar].[MinCenaMarza] AS [MinCenaMarza], 
+[Towar].[Cena] AS [Cena], 
 [Towar].[KontrahentId] AS [KontrahentId], 
 [Towar].[ProducentId] AS [ProducentId], 
 [Towar].[IloscMin] AS [IloscMin], 
@@ -733,7 +721,6 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
 [Towar].[Masa] AS [Masa], 
 [Towar].[WagaKG] AS [WagaKG], 
 [Towar].[KrajPochodzenia] AS [KrajPochodzenia], 
-[Towar].[CenaZCzteremaMiejscami] AS [CenaZCzteremaMiejscami], 
 [Towar].[SplitPay] AS [SplitPay], 
 [Towar].[OpiekunId] AS [OpiekunId]
 FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
@@ -983,62 +970,58 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EAN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Grupa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nazwa1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nazwa2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nazwa3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KrajId" Type="Int32" Nullable="false" />
-          <Property Name="WojewodztwoId" Type="Int32" Nullable="false" />
-          <Property Name="PowiatId" Type="Int32" Nullable="false" />
-          <Property Name="GminaId" Type="Int32" Nullable="false" />
-          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiastoId" Type="Int32" Nullable="false" />
-          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Adres2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telefon1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Telefon2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TelefonSms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IBAN" Type="Int16" Nullable="false" />
-          <Property Name="OsTytul" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsPlec" Type="Byte" Nullable="false" />
-          <Property Name="OsNazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsKraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsWojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsPowiat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsGmina" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsMiasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsKodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OsPoczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsAdres2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OsTelefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OsGSM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OsEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Informacje" Type="Byte" Nullable="false" />
-          <Property Name="Upust" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="LimitKredytu" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="MaxZwloka" Type="Int16" Nullable="false" />
-          <Property Name="TerminPlat" Type="Byte" Nullable="false" />
-          <Property Name="KontoOdb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="KontoDost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Grupa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KrajId" Type="Int32" />
+          <Property Name="WojewodztwoId" Type="Int32" />
+          <Property Name="PowiatId" Type="Int32" />
+          <Property Name="GminaId" Type="Int32" />
+          <Property Name="Ulica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MiastoId" Type="Int32" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Adres2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonSms" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" />
+          <Property Name="IBAN" Type="Int16" />
+          <Property Name="OsTytul" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OsPlec" Type="Byte" />
+          <Property Name="OsNazwisko" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsKraj" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsWojewodztwo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsPowiat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsGmina" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsUlica" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsNrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OsNrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OsMiasto" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsKodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OsPoczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OsAdres2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="OsTelefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OsGSM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OsEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Informacje" Type="Byte" />
+          <Property Name="Upust" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LimitKredytu" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="MaxZwloka" Type="Int16" />
+          <Property Name="TerminPlat" Type="Byte" />
+          <Property Name="KontoOdb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KontoDost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OpiekunId" Type="Int32" />
-          <Property Name="SplitPay" Type="Byte" Nullable="false" />
-          <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SplitPay" Type="Byte" />
+          <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Gmina" Relationship="Self.Kontrahenci_FK2" FromRole="Kontrahent" ToRole="Gmina" />
           <NavigationProperty Name="Kraj" Relationship="Self.Kontrahenci_FK" FromRole="Kontrahent" ToRole="Kraj" />
@@ -1184,8 +1167,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
         <EntityType Name="Towar">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Typ" />
-            <PropertyRef Name="Produkt" />
             <PropertyRef Name="NumerKat" />
             <PropertyRef Name="Nazwa" />
             <PropertyRef Name="URL" />
@@ -1193,7 +1174,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <PropertyRef Name="JM" />
             <PropertyRef Name="UdostepniajWCenniku" />
             <PropertyRef Name="Waluta" />
-            <PropertyRef Name="MinCenaMarza" />
+            <PropertyRef Name="Cena" />
             <PropertyRef Name="ProducentId" />
             <PropertyRef Name="IloscMin" />
             <PropertyRef Name="IloscMinJM" />
@@ -1207,12 +1188,9 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <PropertyRef Name="IsActive" />
             <PropertyRef Name="Masa" />
             <PropertyRef Name="KrajPochodzenia" />
-            <PropertyRef Name="CenaZCzteremaMiejscami" />
             <PropertyRef Name="SplitPay" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Typ" Type="Byte" Nullable="false" />
-          <Property Name="Produkt" Type="Int16" Nullable="false" />
           <Property Name="KodCnId" Type="Int32" />
           <Property Name="NumerKat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
@@ -1222,7 +1200,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="JM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UdostepniajWCenniku" Type="Byte" Nullable="false" />
           <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MinCenaMarza" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="KontrahentId" Type="Int32" />
           <Property Name="ProducentId" Type="Int32" Nullable="false" />
           <Property Name="IloscMin" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
@@ -1246,7 +1224,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="Masa" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
           <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CenaZCzteremaMiejscami" Type="Byte" Nullable="false" />
           <Property Name="SplitPay" Type="Byte" Nullable="false" />
           <Property Name="OpiekunId" Type="Int32" />
           <NavigationProperty Name="Kategoria" Relationship="Self.Towary_Kategorie_FK" FromRole="Towar" ToRole="Kategoria" />
@@ -1364,7 +1341,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK2">
-          <End Role="Gmina" Type="Self.Gmina" Multiplicity="1" />
+          <End Role="Gmina" Type="Self.Gmina" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gmina">
@@ -1414,7 +1391,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK">
-          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kraj">
@@ -1426,7 +1403,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK3">
-          <End Role="Miasto" Type="Self.Miasto" Multiplicity="1" />
+          <End Role="Miasto" Type="Self.Miasto" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Miasto">
@@ -1438,7 +1415,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK4">
-          <End Role="Powiat" Type="Self.Powiat" Multiplicity="1" />
+          <End Role="Powiat" Type="Self.Powiat" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Powiat">
@@ -1450,7 +1427,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="Kontrahenci_FK5">
-          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
+          <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="0..1" />
           <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Wojewodztwo">
@@ -1827,11 +1804,8 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
               <MappingFragment StoreEntitySet="Kontrahent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Kod" ColumnName="Kod" />
-                <ScalarProperty Name="EAN" ColumnName="EAN" />
                 <ScalarProperty Name="Grupa" ColumnName="Grupa" />
-                <ScalarProperty Name="Nazwa1" ColumnName="Nazwa1" />
-                <ScalarProperty Name="Nazwa2" ColumnName="Nazwa2" />
-                <ScalarProperty Name="Nazwa3" ColumnName="Nazwa3" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="KrajId" ColumnName="KrajId" />
                 <ScalarProperty Name="WojewodztwoId" ColumnName="WojewodztwoId" />
                 <ScalarProperty Name="PowiatId" ColumnName="PowiatId" />
@@ -1846,8 +1820,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="Nip" ColumnName="Nip" />
                 <ScalarProperty Name="Regon" ColumnName="Regon" />
                 <ScalarProperty Name="Pesel" ColumnName="Pesel" />
-                <ScalarProperty Name="Telefon1" ColumnName="Telefon1" />
-                <ScalarProperty Name="Telefon2" ColumnName="Telefon2" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
                 <ScalarProperty Name="TelefonSms" ColumnName="TelefonSms" />
                 <ScalarProperty Name="Fax" ColumnName="Fax" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -2006,8 +1979,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <EntityTypeMapping TypeName="ERPModel.Towar">
               <MappingFragment StoreEntitySet="Towar">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Typ" ColumnName="Typ" />
-                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="KodCnId" ColumnName="KodCnId" />
                 <ScalarProperty Name="NumerKat" ColumnName="NumerKat" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
@@ -2017,7 +1988,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="JM" ColumnName="JM" />
                 <ScalarProperty Name="UdostepniajWCenniku" ColumnName="UdostepniajWCenniku" />
                 <ScalarProperty Name="Waluta" ColumnName="Waluta" />
-                <ScalarProperty Name="MinCenaMarza" ColumnName="MinCenaMarza" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
                 <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
                 <ScalarProperty Name="ProducentId" ColumnName="ProducentId" />
                 <ScalarProperty Name="IloscMin" ColumnName="IloscMin" />
@@ -2041,7 +2012,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="Masa" ColumnName="Masa" />
                 <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
                 <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
-                <ScalarProperty Name="CenaZCzteremaMiejscami" ColumnName="CenaZCzteremaMiejscami" />
                 <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
                 <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
               </MappingFragment>

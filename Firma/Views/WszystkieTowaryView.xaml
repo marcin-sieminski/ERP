@@ -7,15 +7,20 @@
     Height="600" Width="1100">
     
     <Grid>
-        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding  TowaryList}">
+        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn  x:Name="id"  Binding="{Binding  Path=id}" Header="Nr"/> 
-                <DataGridTextColumn  x:Name="kod"  Binding="{Binding  Path=kod}" Header="Kod"/> 
-                <DataGridTextColumn  x:Name="nazwa"  Binding="{Binding  Path=nazwa}" Header="Nazwa"/>                
-                <DataGridTextColumn  x:Name="stawkaVatSprzedazy"  Binding="{Binding Path=stawkaVatSprzedazy}"  Header="Stawka  Vat  Sprzedazy"/>
-                <DataGridTextColumn  x:Name="stawkaVatZakupu"  Binding="{Binding Path=stawkaVatZakupu}"  Header="Stawka  Vat  Zakupu"/>
-                <DataGridTextColumn  x:Name="cena"  Binding="{Binding  Path=cena}" Header="Telefon"/>
-                <DataGridTextColumn  x:Name="marza"  Binding="{Binding  Path=marza}" Header="Marza"/>
+                <DataGridTextColumn  x:Name="Id" Binding="{Binding Path=Id}" Header="Nr"/> 
+                <DataGridTextColumn  x:Name="KodCN" Binding="{Binding Path=KodCN}" Header="Kod CN"/> 
+                <DataGridTextColumn  x:Name="NumerKatalogowy" Binding="{Binding Path=NumerKatalogowy}" Header="Numer Katalogowy"/>                
+                <DataGridTextColumn  x:Name="Nazwa" Binding="{Binding Path=Nazwa}" Header="Nazwa"/>
+                <DataGridTextColumn  x:Name="URL" Binding="{Binding Path=URL}" Header="URL"/>
+                <DataGridTextColumn  x:Name="Opis" Binding="{Binding Path=Opis}" Header="Opis"/>
+                <DataGridTextColumn  x:Name="JM" Binding="{Binding Path=JM}" Header="JM"/>
+                <DataGridTextColumn  x:Name="Waluta" Binding="{Binding Path=Waluta}" Header="Waluta"/>
+                <DataGridTextColumn  x:Name="Cena" Binding="{Binding Path=Cena}" Header="Cena"/>
+                <DataGridTextColumn  x:Name="NazwaKontrahenta" Binding="{Binding Path=NazwaKontrahenta}" Header="Nazwa Kontrahenta"/>
+                <DataGridTextColumn  x:Name="NazwaProducenta" Binding="{Binding Path=NazwaProducenta}" Header="Nazwa Producenta"/>
+                <DataGridTextColumn  x:Name="OpiekunImieNazwisko" Binding="{Binding Path=OpiekunImieNazwisko}" Header="Opiekun Imie Nazwisko"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

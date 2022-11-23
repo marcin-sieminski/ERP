@@ -952,6 +952,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Producenci.
+        /// </summary>
+        public static string Producenci {
+            get {
+                return ResourceManager.GetString("Producenci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rabat.
         /// </summary>
         public static string Rabat {

@@ -56,6 +56,7 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.KodyCN, new BaseCommand(showAllKodCN)),
             new CommandViewModel(BaseResources.KartyKredytowe, new BaseCommand(showAllKartyKredytowe)),
             new CommandViewModel(BaseResources.Kategorie, new BaseCommand(showAllKategorie)),
+            new CommandViewModel(BaseResources.Producenci, new BaseCommand(showAllProducenci))
         };
         }
         #endregion
@@ -215,6 +216,17 @@ namespace Firma.ViewModels
             if (workspace is null)
             {
                 workspace = new WszystkieKategorieViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+        }
+
+        private void showAllProducenci()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyProducenciViewModel) as WszyscyProducenciViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszyscyProducenciViewModel();
                 Workspaces.Add(workspace);
             }
             setActiveWorkspace(workspace);

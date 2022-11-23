@@ -44,6 +44,10 @@
         <views:WszystkieKategorieView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:TypeExtension vm:WszyscyProducenciViewModel}">
+        <views:WszyscyProducenciView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:TypeExtension vm:NowyTowarViewModel}">
         <views:NowyTowarView/>
     </DataTemplate>

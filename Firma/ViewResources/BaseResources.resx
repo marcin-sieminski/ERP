@@ -414,6 +414,9 @@
   <data name="PracownicyTooltip" xml:space="preserve">
     <value>Lista wszystkich pracowników</value>
   </data>
+  <data name="Producenci" xml:space="preserve">
+    <value>Producenci</value>
+  </data>
   <data name="Rabat" xml:space="preserve">
     <value>Rabat</value>
   </data>

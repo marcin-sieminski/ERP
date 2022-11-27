@@ -15,7 +15,7 @@
                             <ToggleButton Content="Dodaj"  Width="70"  Height="30"/>
                             <ToggleButton Content="Modyfikuj"  Width="70" Height="30"/>
                             <ToggleButton Content="Kasuj"  Width="70"  Height="30"/>
-                            <ToggleButton Content="Odswiez"  Width="70"  Height="30" Command="{Binding  LoadCommand}"/>
+                            <ToggleButton Content="Odswiez"  Width="70"  Height="30" Command="{Binding LoadCommand}"/>
                         </ToolBar>
                         <StackPanel Grid.Row="1"  Background="Azure">
                             <Label Content="Sortowanie i filtrowanie"/>

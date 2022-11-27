@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Firma"
         xmlns:resx="clr-namespace:Firma.ViewResources"
         xmlns:viewModels="clr-namespace:Firma.ViewModels"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -39,6 +38,10 @@
     </Window.InputBindings>
 
     <Grid Style="{StaticResource GridMainWindow}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="769*"/>
+            <ColumnDefinition Width="231*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
@@ -46,7 +49,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Menu Style="{StaticResource MenuMain}" Grid.Row="0" Grid.Column="0" >
+        <Menu Style="{StaticResource MenuMain}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="3,3,3,3" >
             <MenuItem Header="_System">
                 <MenuItem Header="_Generuj raport" IsEnabled="False"></MenuItem>
             </MenuItem>
@@ -81,7 +84,7 @@
             </MenuItem>
         </Menu>
 
-        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolbarMain}">
+        <ToolBar Grid.Row="1" Grid.Column="0" Style="{StaticResource ToolbarMain}" Grid.ColumnSpan="2">
             <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZmienWidocznoscMenuBocznegoCommand}" ToolTip="{x:Static resx:BaseResources.ZmienWidocznoscMenu}" >
                 <ToggleButton.Background>
                     <ImageBrush ImageSource="/Views/Content/Icons/menu_open.png"/>
@@ -163,7 +166,7 @@
             </Border>
         </Grid>
 
-        <StatusBar Style="{StaticResource StatusBarMain}" Grid.Row="3" Grid.Column="0">
+        <StatusBar Style="{StaticResource StatusBarMain}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,684,0,0" Grid.RowSpan="2">
             <StatusBar.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>

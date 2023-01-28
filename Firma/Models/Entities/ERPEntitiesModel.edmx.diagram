@@ -4,6 +4,51 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram DiagramId="28637b0043504ed583c9658ac626daec" Name="Diagram1">
+        <EntityTypeShape EntityType="ERPModel.AutoEwidencja" Width="1.5" PointX="11.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.BankNazwa" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.BankRachunek" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Dzial" Width="1.5" PointX="6.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Gmina" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.KartaKredytowa" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Kategoria" Width="1.5" PointX="12" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.KodCN" Width="1.5" PointX="12" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Kontrahent" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Kraj" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Miasto" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Powiat" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Pracownik" Width="1.5" PointX="9" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Producent" Width="1.5" PointX="12" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Wojewodztwo" Width="1.5" PointX="0.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Wyksztalcenie" Width="1.5" PointX="6.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Towar" Width="1.5" PointX="14.25" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="ERPModel.FK_AuEPracownik" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.BankiNazwy_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.BankiNazwy_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.BankiNazwy_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.BankiNazwy_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.BankiNazwy_FK5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.FK_BRaKartaTyp" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.FK_Dzial_Dzial" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.FK_PREDzlLink" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_FK2" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Gminy" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Towary_Kategorie_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.FK_Towary_KodyCn" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_FK3" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_FK4" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_FK5" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Kontrahenci_Opiekun_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Towary_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Kraj" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Miasta" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Powiaty" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Wojewodztwa" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Pracownicy_Wyksztalcenie" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.Towary_Pracownicy" ManuallyRouted="false" />
+        <AssociationConnector Association="ERPModel.FK_Towary_Producenci" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

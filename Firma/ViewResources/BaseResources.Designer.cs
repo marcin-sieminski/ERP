@@ -1105,7 +1105,7 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista towarów.
+        ///   Looks up a localized string similar to Towary.
         /// </summary>
         public static string Towary {
             get {

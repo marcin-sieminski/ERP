@@ -8,7 +8,7 @@ namespace Firma.ViewModels
     public class WszystkieTowaryViewModel : WszystkieViewModel<TowaryForAllView>
     {
         #region  Constructor
-        public  WszystkieTowaryViewModel() : base("Wszystkie towary")
+        public  WszystkieTowaryViewModel() : base("Towary")
         {
         }
         #endregion 

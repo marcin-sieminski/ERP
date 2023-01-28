@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace Firma.Views
 {
-    public partial class NowyTowarView : UserControl
+    public partial class NowyTowarView : JedenViewBase
     {
         public NowyTowarView()
         {

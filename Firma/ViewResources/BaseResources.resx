@@ -466,7 +466,7 @@
     <value>Termin Płatności</value>
   </data>
   <data name="Towary" xml:space="preserve">
-    <value>Lista towarów</value>
+    <value>Towary</value>
   </data>
   <data name="TowaryTooltip" xml:space="preserve">
     <value>Lista wszystkich towarów</value>

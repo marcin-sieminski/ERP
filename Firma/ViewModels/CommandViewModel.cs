@@ -15,6 +15,7 @@ namespace Firma.ViewModels
         {
             Command = command ?? throw new ArgumentException("Command");
             DisplayName = displayName;
+            this.Command = command;
         }
         #endregion
     }

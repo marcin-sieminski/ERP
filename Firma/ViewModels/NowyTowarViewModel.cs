@@ -1,68 +1,92 @@
-﻿using System.Windows.Input;
-using Firma.Helpers;
-using Firma.Models.Entities;
-using Firma.ViewResources;
+﻿using Firma.Models.Entities;
+using Firma.ViewModels.Abstract;
 
 namespace Firma.ViewModels
 {
-    public class NowyTowarViewModel : WorkspaceViewModel
+    public class NowyTowarViewModel : JedenViewModel<Towar>
     {
-        #region Fields
-        private ERPEntities entities; 
-        private Towar towar;
-        private BaseCommand _SaveCommand;
-        #endregion
-        
         #region Konstruktor
-
-        public NowyTowarViewModel()
+        public NowyTowarViewModel() : base("Towar")
         {
-            DisplayName = BaseResources.NowyTowar;
-            entities = new ERPEntities();
-            towar = new Towar();
+            Item = new Towar();
         }
         #endregion
 
-        #region Properties 
-        public string Nazwa
+        #region Properties
+        public int Kod 
         {
-            get
-            {
-                return towar.Nazwa;
-            }
+            get => Item.Kod.Value;
             set
             {
-                if (value  ==  towar.Nazwa) return;
-                towar.Nazwa  =  value; OnPropertyChanged(()=>Nazwa);
+                if (value != Item.Kod)
+                    Item.Kod = value;
+                base.OnPropertyChanged(() => Kod);
             }
- }
-        #endregion  //Properties
+        }
 
-        #region  Command
-        public  ICommand  SaveCommand
+        public string Nazwa
         {
-            get
+            get => Item.Nazwa;
+            set
             {
-                if  (_SaveCommand  ==  null)
-                {
-                    _SaveCommand  =  new  BaseCommand(()  =>  saveAndClose());
-                }
-                return  _SaveCommand;
+                if (value != Item.Nazwa)
+                    Item.Nazwa = value;
+                base.OnPropertyChanged(() => Nazwa);
             }
         }
-        #endregion  //Command
-        
-        #region  Helpers 
-        public  void  Save()
+
+        public decimal? StawkaVatSprzedazy
         {
-            entities.Towar.AddObject(towar);
-            entities.SaveChanges();
+            get => Item.StawkaVatSprzedazy;
+            set
+            {
+                if (value != Item.StawkaVatSprzedazy)
+                    Item.StawkaVatSprzedazy = value.Value;
+                base.OnPropertyChanged(() => StawkaVatSprzedazy);
+            }
         }
-        private  void  saveAndClose()
+
+        public decimal? StawkaVatZakupu
         {
-            Save();
+            get => Item.StawkaVatZakupu;
+            set
+            {
+                if (value != Item.StawkaVatZakupu)
+                    Item.StawkaVatZakupu = value;
+                base.OnPropertyChanged(() => StawkaVatZakupu);
+            }
+        }
+
+        public decimal? Cena
+        {
+            get => Item.Cena;
+            set
+            {
+                if (value != Item.Cena)
+                    Item.Cena = value.Value;
+                base.OnPropertyChanged(() => Cena);
+            }
+        }
+
+        public decimal? Marza
+        {
+            get => Item.Marza;
+            set
+            {
+                if (value != Item.Marza)
+                    Item.Marza = value.Value;
+                base.OnPropertyChanged(() => Marza);
+            }
         }
         #endregion
 
+        #region MyRegion
+        protected override void Save()
+        {
+            Item.IsActive = true;
+            Db.Towar.AddObject(Item);
+            Db.SaveChanges();
+        }
+        #endregion
     }
 }

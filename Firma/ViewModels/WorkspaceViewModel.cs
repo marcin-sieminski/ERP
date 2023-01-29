@@ -17,7 +17,7 @@ namespace Firma.ViewModels
             {
                 if (_CloseCommand == null)
                 {
-                    _CloseCommand = new BaseCommand(() => onRequestClose());
+                    _CloseCommand = new BaseCommand(() => OnRequestClose());
                 }
 
                 return _CloseCommand;
@@ -28,7 +28,7 @@ namespace Firma.ViewModels
         #region RequestClose 
         public event EventHandler RequestClose;
 
-        private void onRequestClose()
+        protected void OnRequestClose()
         {
             EventHandler handler = RequestClose;
             if (handler != null)

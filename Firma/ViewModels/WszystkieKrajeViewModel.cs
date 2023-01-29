@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Firma.Helpers;
 using Firma.Models.Entities;
+using Firma.ViewModels.Abstract;
 
 namespace Firma.ViewModels
 {
@@ -20,11 +22,37 @@ namespace Firma.ViewModels
         {
             List = new ObservableCollection<Kraj>
             (
-                from kraj in ERPEntities.Kraj 
+                from kraj in erpEntities.Kraj 
                 where kraj.IsActive == true
                 select kraj
             );
         }
+
+        protected override void Open()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void Filter()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OrderBy()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override List<KeyValuePair<string, string>> GetListOfItemsFilter()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override List<KeyValuePair<string, string>> GetListOfItemsOrderBy()
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
     }
 }

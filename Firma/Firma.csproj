@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Models\Entities\ERPEntitiesModel.edmx" />
+    <None Remove="Models\Entities\ERPEntities.edmx" />
     <None Remove="Views\Content\Icons\delete.png" />
     <None Remove="Views\Content\Icons\faktura_dodaj.png" />
     <None Remove="Views\Content\Icons\faktura_wszystkie.png" />
@@ -24,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EntityDeploy Include="Models\Entities\ERPEntitiesModel.edmx">
+    <EntityDeploy Include="Models\Entities\ERPEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ERPEntitiesModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ERPEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
 
@@ -56,10 +56,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Entities\ERPEntitiesModel.Designer.cs">
+    <Compile Update="Models\Entities\ERPEntities.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ERPEntitiesModel.edmx</DependentUpon>
+      <DependentUpon>ERPEntities.edmx</DependentUpon>
     </Compile>
     <Compile Update="ViewResources\BaseResources.Designer.cs">
       <DesignTime>True</DesignTime>

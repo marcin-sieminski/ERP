@@ -28,6 +28,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_BRaKartaTyp", "KartaKredytowa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KartaKredytowa), "BankRachunek", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankRachunek), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_Dzial_Dzial", "Dzial", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzial), "Dzial1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Dzial), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_PREDzlLink", "Dzial", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Dzial), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Faktura_Kontrahent_FK", "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kontrahent), "Faktura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktura), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Faktura_SposobPlatnosci_FK", "SposobPlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.SposobPlatnosci), "Faktura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktura), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "PozycjaFaktury_FK", "Faktura", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Faktura), "PozycjaFaktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjaFaktury), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Gmina), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Towary_Kategorie_FK", "Kategoria", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kategoria), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
@@ -41,6 +44,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Kraj", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Miasta", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasto), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Powiaty", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "PozycjaFaktury_Towar_FK", "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towar), "PozycjaFaktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjaFaktury), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Wyksztalcenie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wyksztalcenie), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Towary_Pracownicy", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
@@ -95,6 +99,22 @@ namespace Firma.Models.Entities
         #endregion
     
         #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Adres> Adres
+        {
+            get
+            {
+                if ((_Adres == null))
+                {
+                    _Adres = base.CreateObjectSet<Adres>("Adres");
+                }
+                return _Adres;
+            }
+        }
+        private ObjectSet<Adres> _Adres;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -159,6 +179,22 @@ namespace Firma.Models.Entities
             }
         }
         private ObjectSet<Dzial> _Dzial;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Faktura> Faktura
+        {
+            get
+            {
+                if ((_Faktura == null))
+                {
+                    _Faktura = base.CreateObjectSet<Faktura>("Faktura");
+                }
+                return _Faktura;
+            }
+        }
+        private ObjectSet<Faktura> _Faktura;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -291,6 +327,22 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<PozycjaFaktury> PozycjaFaktury
+        {
+            get
+            {
+                if ((_PozycjaFaktury == null))
+                {
+                    _PozycjaFaktury = base.CreateObjectSet<PozycjaFaktury>("PozycjaFaktury");
+                }
+                return _PozycjaFaktury;
+            }
+        }
+        private ObjectSet<PozycjaFaktury> _PozycjaFaktury;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Pracownik> Pracownik
         {
             get
@@ -323,6 +375,70 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Rodzaj> Rodzaj
+        {
+            get
+            {
+                if ((_Rodzaj == null))
+                {
+                    _Rodzaj = base.CreateObjectSet<Rodzaj>("Rodzaj");
+                }
+                return _Rodzaj;
+            }
+        }
+        private ObjectSet<Rodzaj> _Rodzaj;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SposobPlatnosci> SposobPlatnosci
+        {
+            get
+            {
+                if ((_SposobPlatnosci == null))
+                {
+                    _SposobPlatnosci = base.CreateObjectSet<SposobPlatnosci>("SposobPlatnosci");
+                }
+                return _SposobPlatnosci;
+            }
+        }
+        private ObjectSet<SposobPlatnosci> _SposobPlatnosci;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Status> Status
+        {
+            get
+            {
+                if ((_Status == null))
+                {
+                    _Status = base.CreateObjectSet<Status>("Status");
+                }
+                return _Status;
+            }
+        }
+        private ObjectSet<Status> _Status;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Towar> Towar
+        {
+            get
+            {
+                if ((_Towar == null))
+                {
+                    _Towar = base.CreateObjectSet<Towar>("Towar");
+                }
+                return _Towar;
+            }
+        }
+        private ObjectSet<Towar> _Towar;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Wojewodztwo> Wojewodztwo
         {
             get
@@ -351,26 +467,18 @@ namespace Firma.Models.Entities
             }
         }
         private ObjectSet<Wyksztalcenie> _Wyksztalcenie;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Towar> Towar
-        {
-            get
-            {
-                if ((_Towar == null))
-                {
-                    _Towar = base.CreateObjectSet<Towar>("Towar");
-                }
-                return _Towar;
-            }
-        }
-        private ObjectSet<Towar> _Towar;
 
         #endregion
 
         #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Adres EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToAdres(Adres adres)
+        {
+            base.AddObject("Adres", adres);
+        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the AutoEwidencja EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -402,6 +510,14 @@ namespace Firma.Models.Entities
         public void AddToDzial(Dzial dzial)
         {
             base.AddObject("Dzial", dzial);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Faktura EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToFaktura(Faktura faktura)
+        {
+            base.AddObject("Faktura", faktura);
         }
     
         /// <summary>
@@ -469,6 +585,14 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the PozycjaFaktury EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPozycjaFaktury(PozycjaFaktury pozycjaFaktury)
+        {
+            base.AddObject("PozycjaFaktury", pozycjaFaktury);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Pracownik EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPracownik(Pracownik pracownik)
@@ -482,6 +606,38 @@ namespace Firma.Models.Entities
         public void AddToProducent(Producent producent)
         {
             base.AddObject("Producent", producent);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Rodzaj EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRodzaj(Rodzaj rodzaj)
+        {
+            base.AddObject("Rodzaj", rodzaj);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SposobPlatnosci EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSposobPlatnosci(SposobPlatnosci sposobPlatnosci)
+        {
+            base.AddObject("SposobPlatnosci", sposobPlatnosci);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Status EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToStatus(Status status)
+        {
+            base.AddObject("Status", status);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Towar EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTowar(Towar towar)
+        {
+            base.AddObject("Towar", towar);
         }
     
         /// <summary>
@@ -499,14 +655,6 @@ namespace Firma.Models.Entities
         {
             base.AddObject("Wyksztalcenie", wyksztalcenie);
         }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Towar EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTowar(Towar towar)
-        {
-            base.AddObject("Towar", towar);
-        }
 
         #endregion
 
@@ -515,6 +663,254 @@ namespace Firma.Models.Entities
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Adres")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Adres : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Adres object.
+        /// </summary>
+        /// <param name="idAdresu">Initial value of the IdAdresu property.</param>
+        public static Adres CreateAdres(global::System.Int32 idAdresu)
+        {
+            Adres adres = new Adres();
+            adres.IdAdresu = idAdresu;
+            return adres;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdAdresu
+        {
+            get
+            {
+                return _IdAdresu;
+            }
+            set
+            {
+                if (_IdAdresu != value)
+                {
+                    OnIdAdresuChanging(value);
+                    ReportPropertyChanging("IdAdresu");
+                    _IdAdresu = StructuralObject.SetValidValue(value, "IdAdresu");
+                    ReportPropertyChanged("IdAdresu");
+                    OnIdAdresuChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdAdresu;
+        partial void OnIdAdresuChanging(global::System.Int32 value);
+        partial void OnIdAdresuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Ulica
+        {
+            get
+            {
+                return _Ulica;
+            }
+            set
+            {
+                OnUlicaChanging(value);
+                ReportPropertyChanging("Ulica");
+                _Ulica = StructuralObject.SetValidValue(value, true, "Ulica");
+                ReportPropertyChanged("Ulica");
+                OnUlicaChanged();
+            }
+        }
+        private global::System.String _Ulica;
+        partial void OnUlicaChanging(global::System.String value);
+        partial void OnUlicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Miejscowosc
+        {
+            get
+            {
+                return _Miejscowosc;
+            }
+            set
+            {
+                OnMiejscowoscChanging(value);
+                ReportPropertyChanging("Miejscowosc");
+                _Miejscowosc = StructuralObject.SetValidValue(value, true, "Miejscowosc");
+                ReportPropertyChanged("Miejscowosc");
+                OnMiejscowoscChanged();
+            }
+        }
+        private global::System.String _Miejscowosc;
+        partial void OnMiejscowoscChanging(global::System.String value);
+        partial void OnMiejscowoscChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NrDomu
+        {
+            get
+            {
+                return _NrDomu;
+            }
+            set
+            {
+                OnNrDomuChanging(value);
+                ReportPropertyChanging("NrDomu");
+                _NrDomu = StructuralObject.SetValidValue(value, true, "NrDomu");
+                ReportPropertyChanged("NrDomu");
+                OnNrDomuChanged();
+            }
+        }
+        private global::System.String _NrDomu;
+        partial void OnNrDomuChanging(global::System.String value);
+        partial void OnNrDomuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NrLokalu
+        {
+            get
+            {
+                return _NrLokalu;
+            }
+            set
+            {
+                OnNrLokaluChanging(value);
+                ReportPropertyChanging("NrLokalu");
+                _NrLokalu = StructuralObject.SetValidValue(value, true, "NrLokalu");
+                ReportPropertyChanged("NrLokalu");
+                OnNrLokaluChanged();
+            }
+        }
+        private global::System.String _NrLokalu;
+        partial void OnNrLokaluChanging(global::System.String value);
+        partial void OnNrLokaluChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KodPocztowy
+        {
+            get
+            {
+                return _KodPocztowy;
+            }
+            set
+            {
+                OnKodPocztowyChanging(value);
+                ReportPropertyChanging("KodPocztowy");
+                _KodPocztowy = StructuralObject.SetValidValue(value, true, "KodPocztowy");
+                ReportPropertyChanged("KodPocztowy");
+                OnKodPocztowyChanged();
+            }
+        }
+        private global::System.String _KodPocztowy;
+        partial void OnKodPocztowyChanging(global::System.String value);
+        partial void OnKodPocztowyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Poczta
+        {
+            get
+            {
+                return _Poczta;
+            }
+            set
+            {
+                OnPocztaChanging(value);
+                ReportPropertyChanging("Poczta");
+                _Poczta = StructuralObject.SetValidValue(value, true, "Poczta");
+                ReportPropertyChanged("Poczta");
+                OnPocztaChanged();
+            }
+        }
+        private global::System.String _Poczta;
+        partial void OnPocztaChanging(global::System.String value);
+        partial void OnPocztaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Kraj
+        {
+            get
+            {
+                return _Kraj;
+            }
+            set
+            {
+                OnKrajChanging(value);
+                ReportPropertyChanging("Kraj");
+                _Kraj = StructuralObject.SetValidValue(value, true, "Kraj");
+                ReportPropertyChanged("Kraj");
+                OnKrajChanged();
+            }
+        }
+        private global::System.String _Kraj;
+        partial void OnKrajChanging(global::System.String value);
+        partial void OnKrajChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsActiveChanged();
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1467,6 +1863,54 @@ namespace Firma.Models.Entities
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataUtworzenia
+        {
+            get
+            {
+                return _DataUtworzenia;
+            }
+            set
+            {
+                OnDataUtworzeniaChanging(value);
+                ReportPropertyChanging("DataUtworzenia");
+                _DataUtworzenia = StructuralObject.SetValidValue(value, "DataUtworzenia");
+                ReportPropertyChanged("DataUtworzenia");
+                OnDataUtworzeniaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataUtworzenia;
+        partial void OnDataUtworzeniaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataUtworzeniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataModyfikacji
+        {
+            get
+            {
+                return _DataModyfikacji;
+            }
+            set
+            {
+                OnDataModyfikacjiChanging(value);
+                ReportPropertyChanging("DataModyfikacji");
+                _DataModyfikacji = StructuralObject.SetValidValue(value, "DataModyfikacji");
+                ReportPropertyChanged("DataModyfikacji");
+                OnDataModyfikacjiChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataModyfikacji;
+        partial void OnDataModyfikacjiChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataModyfikacjiChanged();
 
         #endregion
 
@@ -2412,6 +2856,332 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.FK_PREDzlLink", "Pracownik", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Faktura")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Faktura : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Faktura object.
+        /// </summary>
+        /// <param name="idFaktury">Initial value of the IdFaktury property.</param>
+        public static Faktura CreateFaktura(global::System.Int32 idFaktury)
+        {
+            Faktura faktura = new Faktura();
+            faktura.IdFaktury = idFaktury;
+            return faktura;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdFaktury
+        {
+            get
+            {
+                return _IdFaktury;
+            }
+            set
+            {
+                if (_IdFaktury != value)
+                {
+                    OnIdFakturyChanging(value);
+                    ReportPropertyChanging("IdFaktury");
+                    _IdFaktury = StructuralObject.SetValidValue(value, "IdFaktury");
+                    ReportPropertyChanged("IdFaktury");
+                    OnIdFakturyChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdFaktury;
+        partial void OnIdFakturyChanging(global::System.Int32 value);
+        partial void OnIdFakturyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Numer
+        {
+            get
+            {
+                return _Numer;
+            }
+            set
+            {
+                OnNumerChanging(value);
+                ReportPropertyChanging("Numer");
+                _Numer = StructuralObject.SetValidValue(value, true, "Numer");
+                ReportPropertyChanged("Numer");
+                OnNumerChanged();
+            }
+        }
+        private global::System.String _Numer;
+        partial void OnNumerChanging(global::System.String value);
+        partial void OnNumerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DataWystawienia
+        {
+            get
+            {
+                return _DataWystawienia;
+            }
+            set
+            {
+                OnDataWystawieniaChanging(value);
+                ReportPropertyChanging("DataWystawienia");
+                _DataWystawienia = StructuralObject.SetValidValue(value, "DataWystawienia");
+                ReportPropertyChanged("DataWystawienia");
+                OnDataWystawieniaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DataWystawienia;
+        partial void OnDataWystawieniaChanging(Nullable<global::System.DateTime> value);
+        partial void OnDataWystawieniaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdKontrahenta
+        {
+            get
+            {
+                return _IdKontrahenta;
+            }
+            set
+            {
+                OnIdKontrahentaChanging(value);
+                ReportPropertyChanging("IdKontrahenta");
+                _IdKontrahenta = StructuralObject.SetValidValue(value, "IdKontrahenta");
+                ReportPropertyChanged("IdKontrahenta");
+                OnIdKontrahentaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdKontrahenta;
+        partial void OnIdKontrahentaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdKontrahentaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> TerminPlatnosci
+        {
+            get
+            {
+                return _TerminPlatnosci;
+            }
+            set
+            {
+                OnTerminPlatnosciChanging(value);
+                ReportPropertyChanging("TerminPlatnosci");
+                _TerminPlatnosci = StructuralObject.SetValidValue(value, "TerminPlatnosci");
+                ReportPropertyChanged("TerminPlatnosci");
+                OnTerminPlatnosciChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _TerminPlatnosci;
+        partial void OnTerminPlatnosciChanging(Nullable<global::System.DateTime> value);
+        partial void OnTerminPlatnosciChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdSposobuPlatnosci
+        {
+            get
+            {
+                return _IdSposobuPlatnosci;
+            }
+            set
+            {
+                OnIdSposobuPlatnosciChanging(value);
+                ReportPropertyChanging("IdSposobuPlatnosci");
+                _IdSposobuPlatnosci = StructuralObject.SetValidValue(value, "IdSposobuPlatnosci");
+                ReportPropertyChanged("IdSposobuPlatnosci");
+                OnIdSposobuPlatnosciChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdSposobuPlatnosci;
+        partial void OnIdSposobuPlatnosciChanging(Nullable<global::System.Int32> value);
+        partial void OnIdSposobuPlatnosciChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CzyZatwierdzona
+        {
+            get
+            {
+                return _CzyZatwierdzona;
+            }
+            set
+            {
+                OnCzyZatwierdzonaChanging(value);
+                ReportPropertyChanging("CzyZatwierdzona");
+                _CzyZatwierdzona = StructuralObject.SetValidValue(value, "CzyZatwierdzona");
+                ReportPropertyChanged("CzyZatwierdzona");
+                OnCzyZatwierdzonaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CzyZatwierdzona;
+        partial void OnCzyZatwierdzonaChanging(Nullable<global::System.Boolean> value);
+        partial void OnCzyZatwierdzonaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CzyAktywna
+        {
+            get
+            {
+                return _CzyAktywna;
+            }
+            set
+            {
+                OnCzyAktywnaChanging(value);
+                ReportPropertyChanging("CzyAktywna");
+                _CzyAktywna = StructuralObject.SetValidValue(value, "CzyAktywna");
+                ReportPropertyChanged("CzyAktywna");
+                OnCzyAktywnaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CzyAktywna;
+        partial void OnCzyAktywnaChanging(Nullable<global::System.Boolean> value);
+        partial void OnCzyAktywnaChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Faktura_Kontrahent_FK", "Kontrahent")]
+        public Kontrahent Kontrahent
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Faktura_Kontrahent_FK", "Kontrahent").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Faktura_Kontrahent_FK", "Kontrahent").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Kontrahent> KontrahentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Kontrahent>("ERPModel.Faktura_Kontrahent_FK", "Kontrahent");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahent>("ERPModel.Faktura_Kontrahent_FK", "Kontrahent", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Faktura_SposobPlatnosci_FK", "SposobPlatnosci")]
+        public SposobPlatnosci SposobPlatnosci
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SposobPlatnosci>("ERPModel.Faktura_SposobPlatnosci_FK", "SposobPlatnosci").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SposobPlatnosci>("ERPModel.Faktura_SposobPlatnosci_FK", "SposobPlatnosci").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SposobPlatnosci> SposobPlatnosciReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SposobPlatnosci>("ERPModel.Faktura_SposobPlatnosci_FK", "SposobPlatnosci");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SposobPlatnosci>("ERPModel.Faktura_SposobPlatnosci_FK", "SposobPlatnosci", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "PozycjaFaktury_FK", "PozycjaFaktury")]
+        public EntityCollection<PozycjaFaktury> PozycjaFaktury
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjaFaktury>("ERPModel.PozycjaFaktury_FK", "PozycjaFaktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjaFaktury>("ERPModel.PozycjaFaktury_FK", "PozycjaFaktury", value);
                 }
             }
         }
@@ -3549,24 +4319,24 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Adres2
+        public global::System.String Adres
         {
             get
             {
-                return _Adres2;
+                return _Adres;
             }
             set
             {
-                OnAdres2Changing(value);
-                ReportPropertyChanging("Adres2");
-                _Adres2 = StructuralObject.SetValidValue(value, true, "Adres2");
-                ReportPropertyChanged("Adres2");
-                OnAdres2Changed();
+                OnAdresChanging(value);
+                ReportPropertyChanging("Adres");
+                _Adres = StructuralObject.SetValidValue(value, true, "Adres");
+                ReportPropertyChanged("Adres");
+                OnAdresChanged();
             }
         }
-        private global::System.String _Adres2;
-        partial void OnAdres2Changing(global::System.String value);
-        partial void OnAdres2Changed();
+        private global::System.String _Adres;
+        partial void OnAdresChanging(global::System.String value);
+        partial void OnAdresChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4503,10 +5273,104 @@ namespace Firma.Models.Entities
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdRodzaju
+        {
+            get
+            {
+                return _IdRodzaju;
+            }
+            set
+            {
+                OnIdRodzajuChanging(value);
+                ReportPropertyChanging("IdRodzaju");
+                _IdRodzaju = StructuralObject.SetValidValue(value, "IdRodzaju");
+                ReportPropertyChanged("IdRodzaju");
+                OnIdRodzajuChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdRodzaju;
+        partial void OnIdRodzajuChanging(Nullable<global::System.Int32> value);
+        partial void OnIdRodzajuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdAdresu
+        {
+            get
+            {
+                return _IdAdresu;
+            }
+            set
+            {
+                OnIdAdresuChanging(value);
+                ReportPropertyChanging("IdAdresu");
+                _IdAdresu = StructuralObject.SetValidValue(value, "IdAdresu");
+                ReportPropertyChanged("IdAdresu");
+                OnIdAdresuChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdAdresu;
+        partial void OnIdAdresuChanging(Nullable<global::System.Int32> value);
+        partial void OnIdAdresuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdStatusu
+        {
+            get
+            {
+                return _IdStatusu;
+            }
+            set
+            {
+                OnIdStatusuChanging(value);
+                ReportPropertyChanging("IdStatusu");
+                _IdStatusu = StructuralObject.SetValidValue(value, "IdStatusu");
+                ReportPropertyChanged("IdStatusu");
+                OnIdStatusuChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdStatusu;
+        partial void OnIdStatusuChanging(Nullable<global::System.Int32> value);
+        partial void OnIdStatusuChanged();
 
         #endregion
 
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Faktura_Kontrahent_FK", "Faktura")]
+        public EntityCollection<Faktura> Faktura
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktura>("ERPModel.Faktura_Kontrahent_FK", "Faktura");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktura>("ERPModel.Faktura_Kontrahent_FK", "Faktura", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -5288,6 +6152,288 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pracownik>("ERPModel.Pracownicy_Powiaty", "Pracownik", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="PozycjaFaktury")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PozycjaFaktury : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PozycjaFaktury object.
+        /// </summary>
+        /// <param name="idPozycjiFaktury">Initial value of the IdPozycjiFaktury property.</param>
+        /// <param name="idTowar">Initial value of the IdTowar property.</param>
+        public static PozycjaFaktury CreatePozycjaFaktury(global::System.Int32 idPozycjiFaktury, global::System.Int32 idTowar)
+        {
+            PozycjaFaktury pozycjaFaktury = new PozycjaFaktury();
+            pozycjaFaktury.IdPozycjiFaktury = idPozycjiFaktury;
+            pozycjaFaktury.IdTowar = idTowar;
+            return pozycjaFaktury;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdPozycjiFaktury
+        {
+            get
+            {
+                return _IdPozycjiFaktury;
+            }
+            set
+            {
+                if (_IdPozycjiFaktury != value)
+                {
+                    OnIdPozycjiFakturyChanging(value);
+                    ReportPropertyChanging("IdPozycjiFaktury");
+                    _IdPozycjiFaktury = StructuralObject.SetValidValue(value, "IdPozycjiFaktury");
+                    ReportPropertyChanged("IdPozycjiFaktury");
+                    OnIdPozycjiFakturyChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdPozycjiFaktury;
+        partial void OnIdPozycjiFakturyChanging(global::System.Int32 value);
+        partial void OnIdPozycjiFakturyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdFaktury
+        {
+            get
+            {
+                return _IdFaktury;
+            }
+            set
+            {
+                OnIdFakturyChanging(value);
+                ReportPropertyChanging("IdFaktury");
+                _IdFaktury = StructuralObject.SetValidValue(value, "IdFaktury");
+                ReportPropertyChanged("IdFaktury");
+                OnIdFakturyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdFaktury;
+        partial void OnIdFakturyChanging(Nullable<global::System.Int32> value);
+        partial void OnIdFakturyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdTowar
+        {
+            get
+            {
+                return _IdTowar;
+            }
+            set
+            {
+                OnIdTowarChanging(value);
+                ReportPropertyChanging("IdTowar");
+                _IdTowar = StructuralObject.SetValidValue(value, "IdTowar");
+                ReportPropertyChanged("IdTowar");
+                OnIdTowarChanged();
+            }
+        }
+        private global::System.Int32 _IdTowar;
+        partial void OnIdTowarChanging(global::System.Int32 value);
+        partial void OnIdTowarChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Cena
+        {
+            get
+            {
+                return _Cena;
+            }
+            set
+            {
+                OnCenaChanging(value);
+                ReportPropertyChanging("Cena");
+                _Cena = StructuralObject.SetValidValue(value, "Cena");
+                ReportPropertyChanged("Cena");
+                OnCenaChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Cena;
+        partial void OnCenaChanging(Nullable<global::System.Decimal> value);
+        partial void OnCenaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Ilosc
+        {
+            get
+            {
+                return _Ilosc;
+            }
+            set
+            {
+                OnIloscChanging(value);
+                ReportPropertyChanging("Ilosc");
+                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
+                ReportPropertyChanged("Ilosc");
+                OnIloscChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Ilosc;
+        partial void OnIloscChanging(Nullable<global::System.Decimal> value);
+        partial void OnIloscChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Rabat
+        {
+            get
+            {
+                return _Rabat;
+            }
+            set
+            {
+                OnRabatChanging(value);
+                ReportPropertyChanging("Rabat");
+                _Rabat = StructuralObject.SetValidValue(value, "Rabat");
+                ReportPropertyChanged("Rabat");
+                OnRabatChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Rabat;
+        partial void OnRabatChanging(Nullable<global::System.Decimal> value);
+        partial void OnRabatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CzyAktywny;
+        partial void OnCzyAktywnyChanging(Nullable<global::System.Boolean> value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "PozycjaFaktury_FK", "Faktura")]
+        public Faktura Faktura
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktura>("ERPModel.PozycjaFaktury_FK", "Faktura").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktura>("ERPModel.PozycjaFaktury_FK", "Faktura").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Faktura> FakturaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faktura>("ERPModel.PozycjaFaktury_FK", "Faktura");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Faktura>("ERPModel.PozycjaFaktury_FK", "Faktura", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "PozycjaFaktury_Towar_FK", "Towar")]
+        public Towar Towar
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towar>("ERPModel.PozycjaFaktury_Towar_FK", "Towar").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towar>("ERPModel.PozycjaFaktury_Towar_FK", "Towar").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Towar> TowarReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Towar>("ERPModel.PozycjaFaktury_Towar_FK", "Towar");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Towar>("ERPModel.PozycjaFaktury_Towar_FK", "Towar", value);
                 }
             }
         }
@@ -7235,6 +8381,404 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Rodzaj")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Rodzaj : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Rodzaj object.
+        /// </summary>
+        /// <param name="idRodzaju">Initial value of the IdRodzaju property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static Rodzaj CreateRodzaj(global::System.Int32 idRodzaju, global::System.String nazwa, global::System.Boolean czyAktywny)
+        {
+            Rodzaj rodzaj = new Rodzaj();
+            rodzaj.IdRodzaju = idRodzaju;
+            rodzaj.Nazwa = nazwa;
+            rodzaj.CzyAktywny = czyAktywny;
+            return rodzaj;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdRodzaju
+        {
+            get
+            {
+                return _IdRodzaju;
+            }
+            set
+            {
+                if (_IdRodzaju != value)
+                {
+                    OnIdRodzajuChanging(value);
+                    ReportPropertyChanging("IdRodzaju");
+                    _IdRodzaju = StructuralObject.SetValidValue(value, "IdRodzaju");
+                    ReportPropertyChanged("IdRodzaju");
+                    OnIdRodzajuChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdRodzaju;
+        partial void OnIdRodzajuChanging(global::System.Int32 value);
+        partial void OnIdRodzajuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, true, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="SposobPlatnosci")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SposobPlatnosci : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SposobPlatnosci object.
+        /// </summary>
+        /// <param name="idSposobuPlatnosci">Initial value of the IdSposobuPlatnosci property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static SposobPlatnosci CreateSposobPlatnosci(global::System.Int32 idSposobuPlatnosci, global::System.String nazwa, global::System.Boolean czyAktywny)
+        {
+            SposobPlatnosci sposobPlatnosci = new SposobPlatnosci();
+            sposobPlatnosci.IdSposobuPlatnosci = idSposobuPlatnosci;
+            sposobPlatnosci.Nazwa = nazwa;
+            sposobPlatnosci.CzyAktywny = czyAktywny;
+            return sposobPlatnosci;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdSposobuPlatnosci
+        {
+            get
+            {
+                return _IdSposobuPlatnosci;
+            }
+            set
+            {
+                if (_IdSposobuPlatnosci != value)
+                {
+                    OnIdSposobuPlatnosciChanging(value);
+                    ReportPropertyChanging("IdSposobuPlatnosci");
+                    _IdSposobuPlatnosci = StructuralObject.SetValidValue(value, "IdSposobuPlatnosci");
+                    ReportPropertyChanged("IdSposobuPlatnosci");
+                    OnIdSposobuPlatnosciChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdSposobuPlatnosci;
+        partial void OnIdSposobuPlatnosciChanging(global::System.Int32 value);
+        partial void OnIdSposobuPlatnosciChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Opis
+        {
+            get
+            {
+                return _Opis;
+            }
+            set
+            {
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, true, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
+            }
+        }
+        private global::System.String _Opis;
+        partial void OnOpisChanging(global::System.String value);
+        partial void OnOpisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Faktura_SposobPlatnosci_FK", "Faktura")]
+        public EntityCollection<Faktura> Faktura
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Faktura>("ERPModel.Faktura_SposobPlatnosci_FK", "Faktura");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Faktura>("ERPModel.Faktura_SposobPlatnosci_FK", "Faktura", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Status")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Status : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Status object.
+        /// </summary>
+        /// <param name="idStatusu">Initial value of the IdStatusu property.</param>
+        /// <param name="nazwa">Initial value of the Nazwa property.</param>
+        /// <param name="czyAktywny">Initial value of the CzyAktywny property.</param>
+        public static Status CreateStatus(global::System.Int32 idStatusu, global::System.String nazwa, global::System.Boolean czyAktywny)
+        {
+            Status status = new Status();
+            status.IdStatusu = idStatusu;
+            status.Nazwa = nazwa;
+            status.CzyAktywny = czyAktywny;
+            return status;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdStatusu
+        {
+            get
+            {
+                return _IdStatusu;
+            }
+            set
+            {
+                if (_IdStatusu != value)
+                {
+                    OnIdStatusuChanging(value);
+                    ReportPropertyChanging("IdStatusu");
+                    _IdStatusu = StructuralObject.SetValidValue(value, "IdStatusu");
+                    ReportPropertyChanged("IdStatusu");
+                    OnIdStatusuChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdStatusu;
+        partial void OnIdStatusuChanging(global::System.Int32 value);
+        partial void OnIdStatusuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nazwa
+        {
+            get
+            {
+                return _Nazwa;
+            }
+            set
+            {
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
+            }
+        }
+        private global::System.String _Nazwa;
+        partial void OnNazwaChanging(global::System.String value);
+        partial void OnNazwaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CzyAktywny
+        {
+            get
+            {
+                return _CzyAktywny;
+            }
+            set
+            {
+                OnCzyAktywnyChanging(value);
+                ReportPropertyChanging("CzyAktywny");
+                _CzyAktywny = StructuralObject.SetValidValue(value, "CzyAktywny");
+                ReportPropertyChanged("CzyAktywny");
+                OnCzyAktywnyChanged();
+            }
+        }
+        private global::System.Boolean _CzyAktywny;
+        partial void OnCzyAktywnyChanging(global::System.Boolean value);
+        partial void OnCzyAktywnyChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Towar")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -7251,7 +8795,6 @@ namespace Firma.Models.Entities
         /// <param name="uRL">Initial value of the URL property.</param>
         /// <param name="opis">Initial value of the Opis property.</param>
         /// <param name="jM">Initial value of the JM property.</param>
-        /// <param name="udostepniajWCenniku">Initial value of the UdostepniajWCenniku property.</param>
         /// <param name="waluta">Initial value of the Waluta property.</param>
         /// <param name="cena">Initial value of the Cena property.</param>
         /// <param name="producentId">Initial value of the ProducentId property.</param>
@@ -7259,16 +8802,16 @@ namespace Firma.Models.Entities
         /// <param name="iloscMinJM">Initial value of the IloscMinJM property.</param>
         /// <param name="iloscMax">Initial value of the IloscMax property.</param>
         /// <param name="iloscMaxJM">Initial value of the IloscMaxJM property.</param>
-        /// <param name="iloscZam">Initial value of the IloscZam property.</param>
+        /// <param name="ilosc">Initial value of the Ilosc property.</param>
         /// <param name="iloscZamJM">Initial value of the IloscZamJM property.</param>
-        /// <param name="stawka">Initial value of the Stawka property.</param>
+        /// <param name="stawkaVatSprzedazy">Initial value of the StawkaVatSprzedazy property.</param>
         /// <param name="prog">Initial value of the Prog property.</param>
-        /// <param name="marzaMin">Initial value of the MarzaMin property.</param>
+        /// <param name="marza">Initial value of the Marza property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="masa">Initial value of the Masa property.</param>
         /// <param name="krajPochodzenia">Initial value of the KrajPochodzenia property.</param>
         /// <param name="splitPay">Initial value of the SplitPay property.</param>
-        public static Towar CreateTowar(global::System.Int32 id, global::System.String numerKat, global::System.String nazwa, global::System.String uRL, global::System.String opis, global::System.String jM, global::System.Byte udostepniajWCenniku, global::System.String waluta, global::System.Decimal cena, global::System.Int32 producentId, global::System.Decimal iloscMin, global::System.String iloscMinJM, global::System.Decimal iloscMax, global::System.String iloscMaxJM, global::System.Decimal iloscZam, global::System.String iloscZamJM, global::System.Decimal stawka, global::System.Byte prog, global::System.Decimal marzaMin, global::System.Boolean isActive, global::System.Decimal masa, global::System.String krajPochodzenia, global::System.Byte splitPay)
+        public static Towar CreateTowar(global::System.Int32 id, global::System.String numerKat, global::System.String nazwa, global::System.String uRL, global::System.String opis, global::System.String jM, global::System.String waluta, global::System.Decimal cena, global::System.Int32 producentId, global::System.Decimal iloscMin, global::System.String iloscMinJM, global::System.Decimal iloscMax, global::System.String iloscMaxJM, global::System.Decimal ilosc, global::System.String iloscZamJM, global::System.Decimal stawkaVatSprzedazy, global::System.Byte prog, global::System.Decimal marza, global::System.Boolean isActive, global::System.Decimal masa, global::System.String krajPochodzenia, global::System.Byte splitPay)
         {
             Towar towar = new Towar();
             towar.Id = id;
@@ -7277,7 +8820,6 @@ namespace Firma.Models.Entities
             towar.URL = uRL;
             towar.Opis = opis;
             towar.JM = jM;
-            towar.UdostepniajWCenniku = udostepniajWCenniku;
             towar.Waluta = waluta;
             towar.Cena = cena;
             towar.ProducentId = producentId;
@@ -7285,11 +8827,11 @@ namespace Firma.Models.Entities
             towar.IloscMinJM = iloscMinJM;
             towar.IloscMax = iloscMax;
             towar.IloscMaxJM = iloscMaxJM;
-            towar.IloscZam = iloscZam;
+            towar.Ilosc = ilosc;
             towar.IloscZamJM = iloscZamJM;
-            towar.Stawka = stawka;
+            towar.StawkaVatSprzedazy = stawkaVatSprzedazy;
             towar.Prog = prog;
-            towar.MarzaMin = marzaMin;
+            towar.Marza = marza;
             towar.IsActive = isActive;
             towar.Masa = masa;
             towar.KrajPochodzenia = krajPochodzenia;
@@ -7333,29 +8875,29 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> KodCnId
+        public Nullable<global::System.Int32> Kod
         {
             get
             {
-                return _KodCnId;
+                return _Kod;
             }
             set
             {
-                OnKodCnIdChanging(value);
-                ReportPropertyChanging("KodCnId");
-                _KodCnId = StructuralObject.SetValidValue(value, "KodCnId");
-                ReportPropertyChanged("KodCnId");
-                OnKodCnIdChanged();
+                OnKodChanging(value);
+                ReportPropertyChanging("Kod");
+                _Kod = StructuralObject.SetValidValue(value, "Kod");
+                ReportPropertyChanged("Kod");
+                OnKodChanged();
             }
         }
-        private Nullable<global::System.Int32> _KodCnId;
-        partial void OnKodCnIdChanging(Nullable<global::System.Int32> value);
-        partial void OnKodCnIdChanged();
+        private Nullable<global::System.Int32> _Kod;
+        partial void OnKodChanging(Nullable<global::System.Int32> value);
+        partial void OnKodChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String NumerKat
         {
@@ -7365,14 +8907,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_NumerKat != value)
-                {
-                    OnNumerKatChanging(value);
-                    ReportPropertyChanging("NumerKat");
-                    _NumerKat = StructuralObject.SetValidValue(value, false, "NumerKat");
-                    ReportPropertyChanged("NumerKat");
-                    OnNumerKatChanged();
-                }
+                OnNumerKatChanging(value);
+                ReportPropertyChanging("NumerKat");
+                _NumerKat = StructuralObject.SetValidValue(value, false, "NumerKat");
+                ReportPropertyChanged("NumerKat");
+                OnNumerKatChanged();
             }
         }
         private global::System.String _NumerKat;
@@ -7382,7 +8921,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Nazwa
         {
@@ -7392,14 +8931,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Nazwa != value)
-                {
-                    OnNazwaChanging(value);
-                    ReportPropertyChanging("Nazwa");
-                    _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
-                    ReportPropertyChanged("Nazwa");
-                    OnNazwaChanged();
-                }
+                OnNazwaChanging(value);
+                ReportPropertyChanging("Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                ReportPropertyChanged("Nazwa");
+                OnNazwaChanged();
             }
         }
         private global::System.String _Nazwa;
@@ -7409,7 +8945,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String URL
         {
@@ -7419,14 +8955,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_URL != value)
-                {
-                    OnURLChanging(value);
-                    ReportPropertyChanging("URL");
-                    _URL = StructuralObject.SetValidValue(value, false, "URL");
-                    ReportPropertyChanged("URL");
-                    OnURLChanged();
-                }
+                OnURLChanging(value);
+                ReportPropertyChanging("URL");
+                _URL = StructuralObject.SetValidValue(value, false, "URL");
+                ReportPropertyChanged("URL");
+                OnURLChanged();
             }
         }
         private global::System.String _URL;
@@ -7460,7 +8993,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Opis
         {
@@ -7470,14 +9003,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Opis != value)
-                {
-                    OnOpisChanging(value);
-                    ReportPropertyChanging("Opis");
-                    _Opis = StructuralObject.SetValidValue(value, false, "Opis");
-                    ReportPropertyChanged("Opis");
-                    OnOpisChanged();
-                }
+                OnOpisChanging(value);
+                ReportPropertyChanging("Opis");
+                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                ReportPropertyChanged("Opis");
+                OnOpisChanged();
             }
         }
         private global::System.String _Opis;
@@ -7487,7 +9017,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String JM
         {
@@ -7497,14 +9027,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_JM != value)
-                {
-                    OnJMChanging(value);
-                    ReportPropertyChanging("JM");
-                    _JM = StructuralObject.SetValidValue(value, false, "JM");
-                    ReportPropertyChanged("JM");
-                    OnJMChanged();
-                }
+                OnJMChanging(value);
+                ReportPropertyChanging("JM");
+                _JM = StructuralObject.SetValidValue(value, false, "JM");
+                ReportPropertyChanged("JM");
+                OnJMChanged();
             }
         }
         private global::System.String _JM;
@@ -7514,34 +9041,31 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte UdostepniajWCenniku
+        public Nullable<global::System.Decimal> StawkaVatZakupu
         {
             get
             {
-                return _UdostepniajWCenniku;
+                return _StawkaVatZakupu;
             }
             set
             {
-                if (_UdostepniajWCenniku != value)
-                {
-                    OnUdostepniajWCennikuChanging(value);
-                    ReportPropertyChanging("UdostepniajWCenniku");
-                    _UdostepniajWCenniku = StructuralObject.SetValidValue(value, "UdostepniajWCenniku");
-                    ReportPropertyChanged("UdostepniajWCenniku");
-                    OnUdostepniajWCennikuChanged();
-                }
+                OnStawkaVatZakupuChanging(value);
+                ReportPropertyChanging("StawkaVatZakupu");
+                _StawkaVatZakupu = StructuralObject.SetValidValue(value, "StawkaVatZakupu");
+                ReportPropertyChanged("StawkaVatZakupu");
+                OnStawkaVatZakupuChanged();
             }
         }
-        private global::System.Byte _UdostepniajWCenniku;
-        partial void OnUdostepniajWCennikuChanging(global::System.Byte value);
-        partial void OnUdostepniajWCennikuChanged();
+        private Nullable<global::System.Decimal> _StawkaVatZakupu;
+        partial void OnStawkaVatZakupuChanging(Nullable<global::System.Decimal> value);
+        partial void OnStawkaVatZakupuChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Waluta
         {
@@ -7551,14 +9075,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Waluta != value)
-                {
-                    OnWalutaChanging(value);
-                    ReportPropertyChanging("Waluta");
-                    _Waluta = StructuralObject.SetValidValue(value, false, "Waluta");
-                    ReportPropertyChanged("Waluta");
-                    OnWalutaChanged();
-                }
+                OnWalutaChanging(value);
+                ReportPropertyChanging("Waluta");
+                _Waluta = StructuralObject.SetValidValue(value, false, "Waluta");
+                ReportPropertyChanged("Waluta");
+                OnWalutaChanged();
             }
         }
         private global::System.String _Waluta;
@@ -7568,7 +9089,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Cena
         {
@@ -7578,14 +9099,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Cena != value)
-                {
-                    OnCenaChanging(value);
-                    ReportPropertyChanging("Cena");
-                    _Cena = StructuralObject.SetValidValue(value, "Cena");
-                    ReportPropertyChanged("Cena");
-                    OnCenaChanged();
-                }
+                OnCenaChanging(value);
+                ReportPropertyChanging("Cena");
+                _Cena = StructuralObject.SetValidValue(value, "Cena");
+                ReportPropertyChanged("Cena");
+                OnCenaChanged();
             }
         }
         private global::System.Decimal _Cena;
@@ -7619,7 +9137,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ProducentId
         {
@@ -7629,14 +9147,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_ProducentId != value)
-                {
-                    OnProducentIdChanging(value);
-                    ReportPropertyChanging("ProducentId");
-                    _ProducentId = StructuralObject.SetValidValue(value, "ProducentId");
-                    ReportPropertyChanged("ProducentId");
-                    OnProducentIdChanged();
-                }
+                OnProducentIdChanging(value);
+                ReportPropertyChanging("ProducentId");
+                _ProducentId = StructuralObject.SetValidValue(value, "ProducentId");
+                ReportPropertyChanged("ProducentId");
+                OnProducentIdChanged();
             }
         }
         private global::System.Int32 _ProducentId;
@@ -7646,7 +9161,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal IloscMin
         {
@@ -7656,14 +9171,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IloscMin != value)
-                {
-                    OnIloscMinChanging(value);
-                    ReportPropertyChanging("IloscMin");
-                    _IloscMin = StructuralObject.SetValidValue(value, "IloscMin");
-                    ReportPropertyChanged("IloscMin");
-                    OnIloscMinChanged();
-                }
+                OnIloscMinChanging(value);
+                ReportPropertyChanging("IloscMin");
+                _IloscMin = StructuralObject.SetValidValue(value, "IloscMin");
+                ReportPropertyChanged("IloscMin");
+                OnIloscMinChanged();
             }
         }
         private global::System.Decimal _IloscMin;
@@ -7673,7 +9185,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IloscMinJM
         {
@@ -7683,14 +9195,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IloscMinJM != value)
-                {
-                    OnIloscMinJMChanging(value);
-                    ReportPropertyChanging("IloscMinJM");
-                    _IloscMinJM = StructuralObject.SetValidValue(value, false, "IloscMinJM");
-                    ReportPropertyChanged("IloscMinJM");
-                    OnIloscMinJMChanged();
-                }
+                OnIloscMinJMChanging(value);
+                ReportPropertyChanging("IloscMinJM");
+                _IloscMinJM = StructuralObject.SetValidValue(value, false, "IloscMinJM");
+                ReportPropertyChanged("IloscMinJM");
+                OnIloscMinJMChanged();
             }
         }
         private global::System.String _IloscMinJM;
@@ -7700,7 +9209,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal IloscMax
         {
@@ -7710,14 +9219,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IloscMax != value)
-                {
-                    OnIloscMaxChanging(value);
-                    ReportPropertyChanging("IloscMax");
-                    _IloscMax = StructuralObject.SetValidValue(value, "IloscMax");
-                    ReportPropertyChanged("IloscMax");
-                    OnIloscMaxChanged();
-                }
+                OnIloscMaxChanging(value);
+                ReportPropertyChanging("IloscMax");
+                _IloscMax = StructuralObject.SetValidValue(value, "IloscMax");
+                ReportPropertyChanged("IloscMax");
+                OnIloscMaxChanged();
             }
         }
         private global::System.Decimal _IloscMax;
@@ -7727,7 +9233,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IloscMaxJM
         {
@@ -7737,14 +9243,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IloscMaxJM != value)
-                {
-                    OnIloscMaxJMChanging(value);
-                    ReportPropertyChanging("IloscMaxJM");
-                    _IloscMaxJM = StructuralObject.SetValidValue(value, false, "IloscMaxJM");
-                    ReportPropertyChanged("IloscMaxJM");
-                    OnIloscMaxJMChanged();
-                }
+                OnIloscMaxJMChanging(value);
+                ReportPropertyChanging("IloscMaxJM");
+                _IloscMaxJM = StructuralObject.SetValidValue(value, false, "IloscMaxJM");
+                ReportPropertyChanged("IloscMaxJM");
+                OnIloscMaxJMChanged();
             }
         }
         private global::System.String _IloscMaxJM;
@@ -7754,34 +9257,31 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal IloscZam
+        public global::System.Decimal Ilosc
         {
             get
             {
-                return _IloscZam;
+                return _Ilosc;
             }
             set
             {
-                if (_IloscZam != value)
-                {
-                    OnIloscZamChanging(value);
-                    ReportPropertyChanging("IloscZam");
-                    _IloscZam = StructuralObject.SetValidValue(value, "IloscZam");
-                    ReportPropertyChanged("IloscZam");
-                    OnIloscZamChanged();
-                }
+                OnIloscChanging(value);
+                ReportPropertyChanging("Ilosc");
+                _Ilosc = StructuralObject.SetValidValue(value, "Ilosc");
+                ReportPropertyChanged("Ilosc");
+                OnIloscChanged();
             }
         }
-        private global::System.Decimal _IloscZam;
-        partial void OnIloscZamChanging(global::System.Decimal value);
-        partial void OnIloscZamChanged();
+        private global::System.Decimal _Ilosc;
+        partial void OnIloscChanging(global::System.Decimal value);
+        partial void OnIloscChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IloscZamJM
         {
@@ -7791,14 +9291,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IloscZamJM != value)
-                {
-                    OnIloscZamJMChanging(value);
-                    ReportPropertyChanging("IloscZamJM");
-                    _IloscZamJM = StructuralObject.SetValidValue(value, false, "IloscZamJM");
-                    ReportPropertyChanged("IloscZamJM");
-                    OnIloscZamJMChanged();
-                }
+                OnIloscZamJMChanging(value);
+                ReportPropertyChanging("IloscZamJM");
+                _IloscZamJM = StructuralObject.SetValidValue(value, false, "IloscZamJM");
+                ReportPropertyChanged("IloscZamJM");
+                OnIloscZamJMChanged();
             }
         }
         private global::System.String _IloscZamJM;
@@ -7808,34 +9305,31 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal Stawka
+        public global::System.Decimal StawkaVatSprzedazy
         {
             get
             {
-                return _Stawka;
+                return _StawkaVatSprzedazy;
             }
             set
             {
-                if (_Stawka != value)
-                {
-                    OnStawkaChanging(value);
-                    ReportPropertyChanging("Stawka");
-                    _Stawka = StructuralObject.SetValidValue(value, "Stawka");
-                    ReportPropertyChanged("Stawka");
-                    OnStawkaChanged();
-                }
+                OnStawkaVatSprzedazyChanging(value);
+                ReportPropertyChanging("StawkaVatSprzedazy");
+                _StawkaVatSprzedazy = StructuralObject.SetValidValue(value, "StawkaVatSprzedazy");
+                ReportPropertyChanged("StawkaVatSprzedazy");
+                OnStawkaVatSprzedazyChanged();
             }
         }
-        private global::System.Decimal _Stawka;
-        partial void OnStawkaChanging(global::System.Decimal value);
-        partial void OnStawkaChanged();
+        private global::System.Decimal _StawkaVatSprzedazy;
+        partial void OnStawkaVatSprzedazyChanging(global::System.Decimal value);
+        partial void OnStawkaVatSprzedazyChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte Prog
         {
@@ -7845,14 +9339,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Prog != value)
-                {
-                    OnProgChanging(value);
-                    ReportPropertyChanging("Prog");
-                    _Prog = StructuralObject.SetValidValue(value, "Prog");
-                    ReportPropertyChanged("Prog");
-                    OnProgChanged();
-                }
+                OnProgChanging(value);
+                ReportPropertyChanging("Prog");
+                _Prog = StructuralObject.SetValidValue(value, "Prog");
+                ReportPropertyChanged("Prog");
+                OnProgChanged();
             }
         }
         private global::System.Byte _Prog;
@@ -8054,34 +9545,31 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Decimal MarzaMin
+        public global::System.Decimal Marza
         {
             get
             {
-                return _MarzaMin;
+                return _Marza;
             }
             set
             {
-                if (_MarzaMin != value)
-                {
-                    OnMarzaMinChanging(value);
-                    ReportPropertyChanging("MarzaMin");
-                    _MarzaMin = StructuralObject.SetValidValue(value, "MarzaMin");
-                    ReportPropertyChanged("MarzaMin");
-                    OnMarzaMinChanged();
-                }
+                OnMarzaChanging(value);
+                ReportPropertyChanging("Marza");
+                _Marza = StructuralObject.SetValidValue(value, "Marza");
+                ReportPropertyChanged("Marza");
+                OnMarzaChanged();
             }
         }
-        private global::System.Decimal _MarzaMin;
-        partial void OnMarzaMinChanging(global::System.Decimal value);
-        partial void OnMarzaMinChanged();
+        private global::System.Decimal _Marza;
+        partial void OnMarzaChanging(global::System.Decimal value);
+        partial void OnMarzaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
@@ -8091,14 +9579,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_IsActive != value)
-                {
-                    OnIsActiveChanging(value);
-                    ReportPropertyChanging("IsActive");
-                    _IsActive = StructuralObject.SetValidValue(value, "IsActive");
-                    ReportPropertyChanged("IsActive");
-                    OnIsActiveChanged();
-                }
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
         private global::System.Boolean _IsActive;
@@ -8108,7 +9593,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Masa
         {
@@ -8118,14 +9603,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_Masa != value)
-                {
-                    OnMasaChanging(value);
-                    ReportPropertyChanging("Masa");
-                    _Masa = StructuralObject.SetValidValue(value, "Masa");
-                    ReportPropertyChanged("Masa");
-                    OnMasaChanged();
-                }
+                OnMasaChanging(value);
+                ReportPropertyChanging("Masa");
+                _Masa = StructuralObject.SetValidValue(value, "Masa");
+                ReportPropertyChanged("Masa");
+                OnMasaChanged();
             }
         }
         private global::System.Decimal _Masa;
@@ -8159,7 +9641,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String KrajPochodzenia
         {
@@ -8169,14 +9651,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_KrajPochodzenia != value)
-                {
-                    OnKrajPochodzeniaChanging(value);
-                    ReportPropertyChanging("KrajPochodzenia");
-                    _KrajPochodzenia = StructuralObject.SetValidValue(value, false, "KrajPochodzenia");
-                    ReportPropertyChanged("KrajPochodzenia");
-                    OnKrajPochodzeniaChanged();
-                }
+                OnKrajPochodzeniaChanging(value);
+                ReportPropertyChanging("KrajPochodzenia");
+                _KrajPochodzenia = StructuralObject.SetValidValue(value, false, "KrajPochodzenia");
+                ReportPropertyChanged("KrajPochodzenia");
+                OnKrajPochodzeniaChanged();
             }
         }
         private global::System.String _KrajPochodzenia;
@@ -8186,7 +9665,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte SplitPay
         {
@@ -8196,14 +9675,11 @@ namespace Firma.Models.Entities
             }
             set
             {
-                if (_SplitPay != value)
-                {
-                    OnSplitPayChanging(value);
-                    ReportPropertyChanging("SplitPay");
-                    _SplitPay = StructuralObject.SetValidValue(value, "SplitPay");
-                    ReportPropertyChanged("SplitPay");
-                    OnSplitPayChanged();
-                }
+                OnSplitPayChanging(value);
+                ReportPropertyChanging("SplitPay");
+                _SplitPay = StructuralObject.SetValidValue(value, "SplitPay");
+                ReportPropertyChanged("SplitPay");
+                OnSplitPayChanged();
             }
         }
         private global::System.Byte _SplitPay;
@@ -8348,6 +9824,28 @@ namespace Firma.Models.Entities
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Kontrahent>("ERPModel.Towary_FK", "Kontrahent", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "PozycjaFaktury_Towar_FK", "PozycjaFaktury")]
+        public EntityCollection<PozycjaFaktury> PozycjaFaktury
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PozycjaFaktury>("ERPModel.PozycjaFaktury_Towar_FK", "PozycjaFaktury");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PozycjaFaktury>("ERPModel.PozycjaFaktury_Towar_FK", "PozycjaFaktury", value);
                 }
             }
         }

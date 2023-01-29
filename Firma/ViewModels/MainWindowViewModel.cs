@@ -1,5 +1,6 @@
 ﻿using Firma.Helpers;
 using Firma.ViewResources;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,7 @@ namespace Firma.ViewModels
         public MainWindowViewModel()
         {
             _WidocznoscMenuBocznego = "Visible";
+            Messenger.Default.Register<string>(this, message => Open(message));
         }
 
         #region Przyciski w menu z lewej strony
@@ -102,6 +104,17 @@ namespace Firma.ViewModels
             var workspace = sender as WorkspaceViewModel;
             this.Workspaces.Remove(workspace);
         }
+        
+        private void Open(string message)
+        {
+            switch (message)
+            {
+                case "Towary Show":
+                    WszystkieTowaryViewModel wszystkieTowaryViewModel = showAllTowary();
+                    break;
+            };
+        }
+
         #endregion
 
         #region Funkcje pomocnicze
@@ -110,6 +123,17 @@ namespace Firma.ViewModels
         {
             Workspaces.Add(workspace);
             setActiveWorkspace(workspace);
+        }
+
+        private void ShowAllItems<T>() where T : WorkspaceViewModel
+        {
+            T workspace = this.Workspaces.FirstOrDefault(vm => vm is T) as T;
+            if (workspace == null)
+            {
+                workspace = Activator.CreateInstance<T>() as T;
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
         }
 
         private void showAllTowar()
@@ -121,6 +145,18 @@ namespace Firma.ViewModels
                 Workspaces.Add(workspace);
             }
             setActiveWorkspace(workspace);
+        }
+
+        private WszystkieTowaryViewModel showAllTowary()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszystkieTowaryViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+            return workspace;
         }
 
         private void showAllGmina()
@@ -241,6 +277,7 @@ namespace Firma.ViewModels
                 collectionView.MoveCurrentTo(workspace);
             }
         }
+
         private void showAllFaktury()
         {
             var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieFakturyViewModel) as WszystkieFakturyViewModel;
@@ -272,6 +309,17 @@ namespace Firma.ViewModels
                 Workspaces.Add(workspace);
             }
             setActiveWorkspace(workspace);
+        }
+
+        private void showRaportSprzedazy()
+        {
+            RaportSprzedazyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RaportSprzedazyViewModel) as RaportSprzedazyViewModel;
+            if (workspace == null)
+            {
+                workspace = new RaportSprzedazyViewModel();
+                this.Workspaces.Add(workspace);
+            }
+            this.setActiveWorkspace(workspace);
         }
 
         #endregion

@@ -439,6 +439,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rabat musi być z zakresu od 0 do 100.
+        /// </summary>
+        public static string InvalidRabat {
+            get {
+                return ResourceManager.GetString("InvalidRabat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jm.
         /// </summary>
         public static string Jm {
@@ -1101,6 +1110,15 @@ namespace Firma.ViewResources {
         public static string TerminPlatnosci {
             get {
                 return ResourceManager.GetString("TerminPlatnosci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ta wartość musi być dodatnia.
+        /// </summary>
+        public static string ThisValueHasToBePositiv {
+            get {
+                return ResourceManager.GetString("ThisValueHasToBePositiv", resourceCulture);
             }
         }
         

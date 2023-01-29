@@ -1,6 +1,6 @@
 ﻿namespace Firma.Models.EntitiesForView
 {
-    public class TowaryForAllView
+    public class TowarForAllView
     {
         #region Properties
         public int Id { get; set; }

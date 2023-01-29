@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="IdAdresu" />
+          </Key>
+          <Property Name="IdAdresu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="10" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="10" />
+          <Property Name="KodPocztowy" Type="nvarchar" MaxLength="10" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kraj" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="AutoEwidencja">
           <Key>
             <PropertyRef Name="Id" />
@@ -47,6 +61,8 @@
           <Property Name="IBAN" Type="smallint" Nullable="false" />
           <Property Name="RachunekNr" Type="nvarchar" MaxLength="51" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="datetime" />
+          <Property Name="DataModyfikacji" Type="datetime" />
         </EntityType>
         <EntityType Name="BankRachunek">
           <Key>
@@ -79,6 +95,19 @@
           <Property Name="Nazwa" Type="nvarchar" MaxLength="254" Nullable="false" />
           <Property Name="ParentId" Type="int" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faktura">
+          <Key>
+            <PropertyRef Name="IdFaktury" />
+          </Key>
+          <Property Name="IdFaktury" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numer" Type="nchar" MaxLength="10" />
+          <Property Name="DataWystawienia" Type="date" />
+          <Property Name="IdKontrahenta" Type="int" />
+          <Property Name="TerminPlatnosci" Type="date" />
+          <Property Name="IdSposobuPlatnosci" Type="int" />
+          <Property Name="CzyZatwierdzona" Type="bit" />
+          <Property Name="CzyAktywna" Type="bit" />
         </EntityType>
         <EntityType Name="Gmina">
           <Key>
@@ -137,7 +166,7 @@
           <Property Name="MiastoId" Type="int" />
           <Property Name="KodPocztowy" Type="varchar" MaxLength="10" />
           <Property Name="Poczta" Type="nvarchar" MaxLength="40" />
-          <Property Name="Adres2" Type="nvarchar" MaxLength="40" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="40" />
           <Property Name="Nip" Type="nvarchar" MaxLength="20" />
           <Property Name="Regon" Type="varchar" MaxLength="20" />
           <Property Name="Pesel" Type="nvarchar" MaxLength="11" />
@@ -177,6 +206,9 @@
           <Property Name="SplitPay" Type="tinyint" />
           <Property Name="DokumentTozsamosci" Type="nvarchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IdRodzaju" Type="int" />
+          <Property Name="IdAdresu" Type="int" />
+          <Property Name="IdStatusu" Type="int" />
         </EntityType>
         <EntityType Name="Kraj">
           <Key>
@@ -201,6 +233,18 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="127" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PozycjaFaktury">
+          <Key>
+            <PropertyRef Name="IdPozycjiFaktury" />
+          </Key>
+          <Property Name="IdPozycjiFaktury" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFaktury" Type="int" />
+          <Property Name="IdTowar" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Ilosc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Rabat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CzyAktywny" Type="bit" />
         </EntityType>
         <EntityType Name="Pracownik">
           <Key>
@@ -271,54 +315,56 @@
           <Property Name="URL" Type="varchar" MaxLength="250" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rodzaj">
+          <Key>
+            <PropertyRef Name="IdRodzaju" />
+          </Key>
+          <Property Name="IdRodzaju" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SposobPlatnosci">
+          <Key>
+            <PropertyRef Name="IdSposobuPlatnosci" />
+          </Key>
+          <Property Name="IdSposobuPlatnosci" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar(max)" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatusu" />
+          </Key>
+          <Property Name="IdStatusu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CzyAktywny" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Towar">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="NumerKat" />
-            <PropertyRef Name="Nazwa" />
-            <PropertyRef Name="URL" />
-            <PropertyRef Name="Opis" />
-            <PropertyRef Name="JM" />
-            <PropertyRef Name="UdostepniajWCenniku" />
-            <PropertyRef Name="Waluta" />
-            <PropertyRef Name="Cena" />
-            <PropertyRef Name="ProducentId" />
-            <PropertyRef Name="IloscMin" />
-            <PropertyRef Name="IloscMinJM" />
-            <PropertyRef Name="IloscMax" />
-            <PropertyRef Name="IloscMaxJM" />
-            <PropertyRef Name="IloscZam" />
-            <PropertyRef Name="IloscZamJM" />
-            <PropertyRef Name="Stawka" />
-            <PropertyRef Name="Prog" />
-            <PropertyRef Name="MarzaMin" />
-            <PropertyRef Name="IsActive" />
-            <PropertyRef Name="Masa" />
-            <PropertyRef Name="KrajPochodzenia" />
-            <PropertyRef Name="SplitPay" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="KodCnId" Type="int" />
+          <Property Name="Kod" Type="int" />
           <Property Name="NumerKat" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="URL" Type="varchar" MaxLength="254" Nullable="false" />
           <Property Name="KategoriaId" Type="int" />
           <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
           <Property Name="JM" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UdostepniajWCenniku" Type="tinyint" Nullable="false" />
+          <Property Name="StawkaVatZakupu" Type="decimal" Precision="3" Scale="0" />
           <Property Name="Waluta" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="Cena" Type="decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="Cena" Type="money" Nullable="false" />
           <Property Name="KontrahentId" Type="int" />
           <Property Name="ProducentId" Type="int" Nullable="false" />
           <Property Name="IloscMin" Type="decimal" Precision="15" Scale="4" Nullable="false" />
           <Property Name="IloscMinJM" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="IloscMax" Type="decimal" Precision="15" Scale="4" Nullable="false" />
           <Property Name="IloscMaxJM" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="IloscZam" Type="decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="Ilosc" Type="decimal" Precision="15" Scale="4" Nullable="false" />
           <Property Name="IloscZamJM" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Stawka" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="StawkaVatSprzedazy" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="Prog" Type="tinyint" Nullable="false" />
           <Property Name="Upust" Type="tinyint" />
           <Property Name="UpustData" Type="tinyint" />
@@ -328,7 +374,7 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           <Property Name="UpustGodzOd" Type="int" />
           <Property Name="UpustGodzDo" Type="int" />
           <Property Name="BezRabatu" Type="tinyint" />
-          <Property Name="MarzaMin" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Marza" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Masa" Type="decimal" Precision="15" Scale="3" Nullable="false" />
           <Property Name="WagaKG" Type="decimal" Precision="15" Scale="4" />
@@ -409,6 +455,30 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
             </Principal>
             <Dependent Role="BankNazwa">
               <PropertyRef Name="WojewodztwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Faktura_Kontrahent_FK">
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="0..1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Faktura_SposobPlatnosci_FK">
+          <End Role="SposobPlatnosci" Type="Self.SposobPlatnosci" Multiplicity="0..1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobPlatnosci">
+              <PropertyRef Name="IdSposobuPlatnosci" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="IdSposobuPlatnosci" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -553,6 +623,30 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
             </Principal>
             <Dependent Role="Kontrahent">
               <PropertyRef Name="OpiekunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PozycjaFaktury_FK">
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="0..1" />
+          <End Role="PozycjaFaktury" Type="Self.PozycjaFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktura">
+              <PropertyRef Name="IdFaktury" />
+            </Principal>
+            <Dependent Role="PozycjaFaktury">
+              <PropertyRef Name="IdFaktury" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PozycjaFaktury_Towar_FK">
+          <End Role="Towar" Type="Self.Towar" Multiplicity="1" />
+          <End Role="PozycjaFaktury" Type="Self.PozycjaFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjaFaktury">
+              <PropertyRef Name="IdTowar" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -669,10 +763,12 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ERPModelStoreContainer">
+          <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankNazwa" EntityType="Self.BankNazwa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankRachunek" EntityType="Self.BankRachunek" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dzial" EntityType="Self.Dzial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faktura" EntityType="Self.Faktura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gmina" EntityType="Self.Gmina" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KartaKredytowa" EntityType="Self.KartaKredytowa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kategoria" EntityType="Self.Kategoria" Schema="dbo" store:Type="Tables" />
@@ -681,50 +777,15 @@ warning 6002: The table/view 'ERP.dbo.Towar' does not have a primary key defined
           <EntitySet Name="Kraj" EntityType="Self.Kraj" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Miasto" EntityType="Self.Miasto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Powiat" EntityType="Self.Powiat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PozycjaFaktury" EntityType="Self.PozycjaFaktury" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producent" EntityType="Self.Producent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rodzaj" EntityType="Self.Rodzaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SposobPlatnosci" EntityType="Self.SposobPlatnosci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towar" EntityType="Self.Towar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wojewodztwo" EntityType="Self.Wojewodztwo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Towar" EntityType="Self.Towar" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[Towar].[Id] AS [Id], 
-[Towar].[KodCnId] AS [KodCnId], 
-[Towar].[NumerKat] AS [NumerKat], 
-[Towar].[Nazwa] AS [Nazwa], 
-[Towar].[URL] AS [URL], 
-[Towar].[KategoriaId] AS [KategoriaId], 
-[Towar].[Opis] AS [Opis], 
-[Towar].[JM] AS [JM], 
-[Towar].[UdostepniajWCenniku] AS [UdostepniajWCenniku], 
-[Towar].[Waluta] AS [Waluta], 
-[Towar].[Cena] AS [Cena], 
-[Towar].[KontrahentId] AS [KontrahentId], 
-[Towar].[ProducentId] AS [ProducentId], 
-[Towar].[IloscMin] AS [IloscMin], 
-[Towar].[IloscMinJM] AS [IloscMinJM], 
-[Towar].[IloscMax] AS [IloscMax], 
-[Towar].[IloscMaxJM] AS [IloscMaxJM], 
-[Towar].[IloscZam] AS [IloscZam], 
-[Towar].[IloscZamJM] AS [IloscZamJM], 
-[Towar].[Stawka] AS [Stawka], 
-[Towar].[Prog] AS [Prog], 
-[Towar].[Upust] AS [Upust], 
-[Towar].[UpustData] AS [UpustData], 
-[Towar].[UpustDataOd] AS [UpustDataOd], 
-[Towar].[UpustDataDo] AS [UpustDataDo], 
-[Towar].[UpustGodz] AS [UpustGodz], 
-[Towar].[UpustGodzOd] AS [UpustGodzOd], 
-[Towar].[UpustGodzDo] AS [UpustGodzDo], 
-[Towar].[BezRabatu] AS [BezRabatu], 
-[Towar].[MarzaMin] AS [MarzaMin], 
-[Towar].[IsActive] AS [IsActive], 
-[Towar].[Masa] AS [Masa], 
-[Towar].[WagaKG] AS [WagaKG], 
-[Towar].[KrajPochodzenia] AS [KrajPochodzenia], 
-[Towar].[SplitPay] AS [SplitPay], 
-[Towar].[OpiekunId] AS [OpiekunId]
-FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="BankiNazwy_FK1" Association="Self.BankiNazwy_FK1">
             <End Role="Kraj" EntitySet="Kraj" />
             <End Role="BankNazwa" EntitySet="BankNazwa" />
@@ -744,6 +805,14 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <AssociationSet Name="BankiNazwy_FK5" Association="Self.BankiNazwy_FK5">
             <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
             <End Role="BankNazwa" EntitySet="BankNazwa" />
+          </AssociationSet>
+          <AssociationSet Name="Faktura_Kontrahent_FK" Association="Self.Faktura_Kontrahent_FK">
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
+            <End Role="Faktura" EntitySet="Faktura" />
+          </AssociationSet>
+          <AssociationSet Name="Faktura_SposobPlatnosci_FK" Association="Self.Faktura_SposobPlatnosci_FK">
+            <End Role="SposobPlatnosci" EntitySet="SposobPlatnosci" />
+            <End Role="Faktura" EntitySet="Faktura" />
           </AssociationSet>
           <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -793,6 +862,14 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="Kontrahent" EntitySet="Kontrahent" />
           </AssociationSet>
+          <AssociationSet Name="PozycjaFaktury_FK" Association="Self.PozycjaFaktury_FK">
+            <End Role="Faktura" EntitySet="Faktura" />
+            <End Role="PozycjaFaktury" EntitySet="PozycjaFaktury" />
+          </AssociationSet>
+          <AssociationSet Name="PozycjaFaktury_Towar_FK" Association="Self.PozycjaFaktury_Towar_FK">
+            <End Role="Towar" EntitySet="Towar" />
+            <End Role="PozycjaFaktury" EntitySet="PozycjaFaktury" />
+          </AssociationSet>
           <AssociationSet Name="Pracownicy_Gminy" Association="Self.Pracownicy_Gminy">
             <End Role="Gmina" EntitySet="Gmina" />
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -835,6 +912,20 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adres">
+          <Key>
+            <PropertyRef Name="IdAdresu" />
+          </Key>
+          <Property Name="IdAdresu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NrDomu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NrLokalu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Poczta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kraj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
         <EntityType Name="AutoEwidencja">
           <Key>
             <PropertyRef Name="Id" />
@@ -878,6 +969,8 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="IBAN" Type="Int16" Nullable="false" />
           <Property Name="RachunekNr" Type="String" MaxLength="51" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DataUtworzenia" Type="DateTime" />
+          <Property Name="DataModyfikacji" Type="DateTime" />
           <NavigationProperty Name="Kraj" Relationship="Self.BankiNazwy_FK1" FromRole="BankNazwa" ToRole="Kraj" />
           <NavigationProperty Name="Gmina" Relationship="Self.BankiNazwy_FK2" FromRole="BankNazwa" ToRole="Gmina" />
           <NavigationProperty Name="Miasto" Relationship="Self.BankiNazwy_FK3" FromRole="BankNazwa" ToRole="Miasto" />
@@ -919,6 +1012,22 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <NavigationProperty Name="Dzial1" Relationship="Self.FK_Dzial_Dzial" FromRole="Dzial" ToRole="Dzial1" />
           <NavigationProperty Name="Dzial2" Relationship="Self.FK_Dzial_Dzial" FromRole="Dzial1" ToRole="Dzial" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK_PREDzlLink" FromRole="Dzial" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Faktura">
+          <Key>
+            <PropertyRef Name="IdFaktury" />
+          </Key>
+          <Property Name="IdFaktury" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numer" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DataWystawienia" Type="DateTime" />
+          <Property Name="IdKontrahenta" Type="Int32" />
+          <Property Name="TerminPlatnosci" Type="DateTime" />
+          <Property Name="IdSposobuPlatnosci" Type="Int32" />
+          <Property Name="CzyZatwierdzona" Type="Boolean" />
+          <Property Name="CzyAktywna" Type="Boolean" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Faktura_Kontrahent_FK" FromRole="Faktura" ToRole="Kontrahent" />
+          <NavigationProperty Name="SposobPlatnosci" Relationship="Self.Faktura_SposobPlatnosci_FK" FromRole="Faktura" ToRole="SposobPlatnosci" />
+          <NavigationProperty Name="PozycjaFaktury" Relationship="Self.PozycjaFaktury_FK" FromRole="Faktura" ToRole="PozycjaFaktury" />
         </EntityType>
         <EntityType Name="Gmina">
           <Key>
@@ -983,7 +1092,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="MiastoId" Type="Int32" />
           <Property Name="KodPocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Poczta" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Adres2" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Nip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Regon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
@@ -1023,6 +1132,10 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="SplitPay" Type="Byte" />
           <Property Name="DokumentTozsamosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IdRodzaju" Type="Int32" />
+          <Property Name="IdAdresu" Type="Int32" />
+          <Property Name="IdStatusu" Type="Int32" />
+          <NavigationProperty Name="Faktura" Relationship="Self.Faktura_Kontrahent_FK" FromRole="Kontrahent" ToRole="Faktura" />
           <NavigationProperty Name="Gmina" Relationship="Self.Kontrahenci_FK2" FromRole="Kontrahent" ToRole="Gmina" />
           <NavigationProperty Name="Kraj" Relationship="Self.Kontrahenci_FK" FromRole="Kontrahent" ToRole="Kraj" />
           <NavigationProperty Name="Miasto" Relationship="Self.Kontrahenci_FK3" FromRole="Kontrahent" ToRole="Miasto" />
@@ -1063,6 +1176,20 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <NavigationProperty Name="BankNazwa" Relationship="Self.BankiNazwy_FK4" FromRole="Powiat" ToRole="BankNazwa" />
           <NavigationProperty Name="Kontrahent" Relationship="Self.Kontrahenci_FK4" FromRole="Powiat" ToRole="Kontrahent" />
           <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Powiaty" FromRole="Powiat" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="PozycjaFaktury">
+          <Key>
+            <PropertyRef Name="IdPozycjiFaktury" />
+          </Key>
+          <Property Name="IdPozycjiFaktury" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFaktury" Type="Int32" />
+          <Property Name="IdTowar" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Ilosc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Rabat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CzyAktywny" Type="Boolean" />
+          <NavigationProperty Name="Faktura" Relationship="Self.PozycjaFaktury_FK" FromRole="PozycjaFaktury" ToRole="Faktura" />
+          <NavigationProperty Name="Towar" Relationship="Self.PozycjaFaktury_Towar_FK" FromRole="PozycjaFaktury" ToRole="Towar" />
         </EntityType>
         <EntityType Name="Pracownik">
           <Key>
@@ -1144,6 +1271,80 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Towar" Relationship="Self.FK_Towary_Producenci" FromRole="Producent" ToRole="Towar" />
         </EntityType>
+        <EntityType Name="Rodzaj">
+          <Key>
+            <PropertyRef Name="IdRodzaju" />
+          </Key>
+          <Property Name="IdRodzaju" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SposobPlatnosci">
+          <Key>
+            <PropertyRef Name="IdSposobuPlatnosci" />
+          </Key>
+          <Property Name="IdSposobuPlatnosci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Faktura" Relationship="Self.Faktura_SposobPlatnosci_FK" FromRole="SposobPlatnosci" ToRole="Faktura" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IdStatusu" />
+          </Key>
+          <Property Name="IdStatusu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CzyAktywny" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Towar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kod" Type="Int32" />
+          <Property Name="NumerKat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KategoriaId" Type="Int32" />
+          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StawkaVatZakupu" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="KontrahentId" Type="Int32" />
+          <Property Name="ProducentId" Type="Int32" Nullable="false" />
+          <Property Name="IloscMin" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMinJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IloscMax" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscMaxJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
+          <Property Name="IloscZamJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StawkaVatSprzedazy" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="Prog" Type="Byte" Nullable="false" />
+          <Property Name="Upust" Type="Byte" />
+          <Property Name="UpustData" Type="Byte" />
+          <Property Name="UpustDataOd" Type="Int32" />
+          <Property Name="UpustDataDo" Type="Int32" />
+          <Property Name="UpustGodz" Type="Byte" />
+          <Property Name="UpustGodzOd" Type="Int32" />
+          <Property Name="UpustGodzDo" Type="Int32" />
+          <Property Name="BezRabatu" Type="Byte" />
+          <Property Name="Marza" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Masa" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+          <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SplitPay" Type="Byte" Nullable="false" />
+          <Property Name="OpiekunId" Type="Int32" />
+          <NavigationProperty Name="Kategoria" Relationship="Self.Towary_Kategorie_FK" FromRole="Towar" ToRole="Kategoria" />
+          <NavigationProperty Name="KodCN" Relationship="Self.FK_Towary_KodyCn" FromRole="Towar" ToRole="KodCN" />
+          <NavigationProperty Name="Kontrahent" Relationship="Self.Towary_FK" FromRole="Towar" ToRole="Kontrahent" />
+          <NavigationProperty Name="PozycjaFaktury" Relationship="Self.PozycjaFaktury_Towar_FK" FromRole="Towar" ToRole="PozycjaFaktury" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.Towary_Pracownicy" FromRole="Towar" ToRole="Pracownik" />
+          <NavigationProperty Name="Producent" Relationship="Self.FK_Towary_Producenci" FromRole="Towar" ToRole="Producent" />
+        </EntityType>
         <EntityType Name="Wojewodztwo">
           <Key>
             <PropertyRef Name="Id" />
@@ -1163,74 +1364,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Pracownik" Relationship="Self.Pracownicy_Wyksztalcenie" FromRole="Wyksztalcenie" ToRole="Pracownik" />
-        </EntityType>
-        <EntityType Name="Towar">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="NumerKat" />
-            <PropertyRef Name="Nazwa" />
-            <PropertyRef Name="URL" />
-            <PropertyRef Name="Opis" />
-            <PropertyRef Name="JM" />
-            <PropertyRef Name="UdostepniajWCenniku" />
-            <PropertyRef Name="Waluta" />
-            <PropertyRef Name="Cena" />
-            <PropertyRef Name="ProducentId" />
-            <PropertyRef Name="IloscMin" />
-            <PropertyRef Name="IloscMinJM" />
-            <PropertyRef Name="IloscMax" />
-            <PropertyRef Name="IloscMaxJM" />
-            <PropertyRef Name="IloscZam" />
-            <PropertyRef Name="IloscZamJM" />
-            <PropertyRef Name="Stawka" />
-            <PropertyRef Name="Prog" />
-            <PropertyRef Name="MarzaMin" />
-            <PropertyRef Name="IsActive" />
-            <PropertyRef Name="Masa" />
-            <PropertyRef Name="KrajPochodzenia" />
-            <PropertyRef Name="SplitPay" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="KodCnId" Type="Int32" />
-          <Property Name="NumerKat" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="URL" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="KategoriaId" Type="Int32" />
-          <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="JM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UdostepniajWCenniku" Type="Byte" Nullable="false" />
-          <Property Name="Waluta" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
-          <Property Name="KontrahentId" Type="Int32" />
-          <Property Name="ProducentId" Type="Int32" Nullable="false" />
-          <Property Name="IloscMin" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
-          <Property Name="IloscMinJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IloscMax" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
-          <Property Name="IloscMaxJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IloscZam" Type="Decimal" Precision="15" Scale="4" Nullable="false" />
-          <Property Name="IloscZamJM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Stawka" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="Prog" Type="Byte" Nullable="false" />
-          <Property Name="Upust" Type="Byte" />
-          <Property Name="UpustData" Type="Byte" />
-          <Property Name="UpustDataOd" Type="Int32" />
-          <Property Name="UpustDataDo" Type="Int32" />
-          <Property Name="UpustGodz" Type="Byte" />
-          <Property Name="UpustGodzOd" Type="Int32" />
-          <Property Name="UpustGodzDo" Type="Int32" />
-          <Property Name="BezRabatu" Type="Byte" />
-          <Property Name="MarzaMin" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Masa" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
-          <Property Name="WagaKG" Type="Decimal" Precision="15" Scale="4" />
-          <Property Name="KrajPochodzenia" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SplitPay" Type="Byte" Nullable="false" />
-          <Property Name="OpiekunId" Type="Int32" />
-          <NavigationProperty Name="Kategoria" Relationship="Self.Towary_Kategorie_FK" FromRole="Towar" ToRole="Kategoria" />
-          <NavigationProperty Name="KodCN" Relationship="Self.FK_Towary_KodyCn" FromRole="Towar" ToRole="KodCN" />
-          <NavigationProperty Name="Kontrahent" Relationship="Self.Towary_FK" FromRole="Towar" ToRole="Kontrahent" />
-          <NavigationProperty Name="Pracownik" Relationship="Self.Towary_Pracownicy" FromRole="Towar" ToRole="Pracownik" />
-          <NavigationProperty Name="Producent" Relationship="Self.FK_Towary_Producenci" FromRole="Towar" ToRole="Producent" />
         </EntityType>
         <Association Name="FK_AuEPracownik">
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
@@ -1337,6 +1470,42 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             </Principal>
             <Dependent Role="Pracownik">
               <PropertyRef Name="DzialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Faktura_Kontrahent_FK">
+          <End Role="Kontrahent" Type="Self.Kontrahent" Multiplicity="0..1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontrahent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="IdKontrahenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Faktura_SposobPlatnosci_FK">
+          <End Role="SposobPlatnosci" Type="Self.SposobPlatnosci" Multiplicity="0..1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SposobPlatnosci">
+              <PropertyRef Name="IdSposobuPlatnosci" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="IdSposobuPlatnosci" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PozycjaFaktury_FK">
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="0..1" />
+          <End Role="PozycjaFaktury" Type="Self.PozycjaFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktura">
+              <PropertyRef Name="IdFaktury" />
+            </Principal>
+            <Dependent Role="PozycjaFaktury">
+              <PropertyRef Name="IdFaktury" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1500,6 +1669,18 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="PozycjaFaktury_Towar_FK">
+          <End Role="Towar" Type="Self.Towar" Multiplicity="1" />
+          <End Role="PozycjaFaktury" Type="Self.PozycjaFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towar">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PozycjaFaktury">
+              <PropertyRef Name="IdTowar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Pracownicy_Wojewodztwa">
           <End Role="Wojewodztwo" Type="Self.Wojewodztwo" Multiplicity="1" />
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
@@ -1549,10 +1730,12 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ERPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adres" EntityType="Self.Adres" />
           <EntitySet Name="AutoEwidencja" EntityType="Self.AutoEwidencja" />
           <EntitySet Name="BankNazwa" EntityType="Self.BankNazwa" />
           <EntitySet Name="BankRachunek" EntityType="Self.BankRachunek" />
           <EntitySet Name="Dzial" EntityType="Self.Dzial" />
+          <EntitySet Name="Faktura" EntityType="Self.Faktura" />
           <EntitySet Name="Gmina" EntityType="Self.Gmina" />
           <EntitySet Name="KartaKredytowa" EntityType="Self.KartaKredytowa" />
           <EntitySet Name="Kategoria" EntityType="Self.Kategoria" />
@@ -1561,11 +1744,15 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <EntitySet Name="Kraj" EntityType="Self.Kraj" />
           <EntitySet Name="Miasto" EntityType="Self.Miasto" />
           <EntitySet Name="Powiat" EntityType="Self.Powiat" />
+          <EntitySet Name="PozycjaFaktury" EntityType="Self.PozycjaFaktury" />
           <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
           <EntitySet Name="Producent" EntityType="Self.Producent" />
+          <EntitySet Name="Rodzaj" EntityType="Self.Rodzaj" />
+          <EntitySet Name="SposobPlatnosci" EntityType="Self.SposobPlatnosci" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Towar" EntityType="Self.Towar" />
           <EntitySet Name="Wojewodztwo" EntityType="Self.Wojewodztwo" />
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
-          <EntitySet Name="Towar" EntityType="Self.Towar" />
           <AssociationSet Name="FK_AuEPracownik" Association="Self.FK_AuEPracownik">
             <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="AutoEwidencja" EntitySet="AutoEwidencja" />
@@ -1601,6 +1788,18 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
           <AssociationSet Name="FK_PREDzlLink" Association="Self.FK_PREDzlLink">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="Faktura_Kontrahent_FK" Association="Self.Faktura_Kontrahent_FK">
+            <End Role="Kontrahent" EntitySet="Kontrahent" />
+            <End Role="Faktura" EntitySet="Faktura" />
+          </AssociationSet>
+          <AssociationSet Name="Faktura_SposobPlatnosci_FK" Association="Self.Faktura_SposobPlatnosci_FK">
+            <End Role="SposobPlatnosci" EntitySet="SposobPlatnosci" />
+            <End Role="Faktura" EntitySet="Faktura" />
+          </AssociationSet>
+          <AssociationSet Name="PozycjaFaktury_FK" Association="Self.PozycjaFaktury_FK">
+            <End Role="Faktura" EntitySet="Faktura" />
+            <End Role="PozycjaFaktury" EntitySet="PozycjaFaktury" />
           </AssociationSet>
           <AssociationSet Name="Kontrahenci_FK2" Association="Self.Kontrahenci_FK2">
             <End Role="Gmina" EntitySet="Gmina" />
@@ -1654,6 +1853,10 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
             <End Role="Powiat" EntitySet="Powiat" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <AssociationSet Name="PozycjaFaktury_Towar_FK" Association="Self.PozycjaFaktury_Towar_FK">
+            <End Role="Towar" EntitySet="Towar" />
+            <End Role="PozycjaFaktury" EntitySet="PozycjaFaktury" />
+          </AssociationSet>
           <AssociationSet Name="Pracownicy_Wojewodztwa" Association="Self.Pracownicy_Wojewodztwa">
             <End Role="Wojewodztwo" EntitySet="Wojewodztwo" />
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -1677,6 +1880,21 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities">
+          <EntitySetMapping Name="Adres">
+            <EntityTypeMapping TypeName="ERPModel.Adres">
+              <MappingFragment StoreEntitySet="Adres">
+                <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AutoEwidencja">
             <EntityTypeMapping TypeName="ERPModel.AutoEwidencja">
               <MappingFragment StoreEntitySet="AutoEwidencja">
@@ -1719,6 +1937,8 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="IBAN" ColumnName="IBAN" />
                 <ScalarProperty Name="RachunekNr" ColumnName="RachunekNr" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DataUtworzenia" ColumnName="DataUtworzenia" />
+                <ScalarProperty Name="DataModyfikacji" ColumnName="DataModyfikacji" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1753,6 +1973,20 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faktura">
+            <EntityTypeMapping TypeName="ERPModel.Faktura">
+              <MappingFragment StoreEntitySet="Faktura">
+                <ScalarProperty Name="IdFaktury" ColumnName="IdFaktury" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+                <ScalarProperty Name="IdKontrahenta" ColumnName="IdKontrahenta" />
+                <ScalarProperty Name="TerminPlatnosci" ColumnName="TerminPlatnosci" />
+                <ScalarProperty Name="IdSposobuPlatnosci" ColumnName="IdSposobuPlatnosci" />
+                <ScalarProperty Name="CzyZatwierdzona" ColumnName="CzyZatwierdzona" />
+                <ScalarProperty Name="CzyAktywna" ColumnName="CzyAktywna" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1816,7 +2050,7 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="MiastoId" ColumnName="MiastoId" />
                 <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
                 <ScalarProperty Name="Poczta" ColumnName="Poczta" />
-                <ScalarProperty Name="Adres2" ColumnName="Adres2" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
                 <ScalarProperty Name="Nip" ColumnName="Nip" />
                 <ScalarProperty Name="Regon" ColumnName="Regon" />
                 <ScalarProperty Name="Pesel" ColumnName="Pesel" />
@@ -1856,6 +2090,9 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
                 <ScalarProperty Name="DokumentTozsamosci" ColumnName="DokumentTozsamosci" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IdRodzaju" ColumnName="IdRodzaju" />
+                <ScalarProperty Name="IdAdresu" ColumnName="IdAdresu" />
+                <ScalarProperty Name="IdStatusu" ColumnName="IdStatusu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1883,6 +2120,19 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PozycjaFaktury">
+            <EntityTypeMapping TypeName="ERPModel.PozycjaFaktury">
+              <MappingFragment StoreEntitySet="PozycjaFaktury">
+                <ScalarProperty Name="IdPozycjiFaktury" ColumnName="IdPozycjiFaktury" />
+                <ScalarProperty Name="IdFaktury" ColumnName="IdFaktury" />
+                <ScalarProperty Name="IdTowar" ColumnName="IdTowar" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Rabat" ColumnName="Rabat" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1957,6 +2207,77 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Rodzaj">
+            <EntityTypeMapping TypeName="ERPModel.Rodzaj">
+              <MappingFragment StoreEntitySet="Rodzaj">
+                <ScalarProperty Name="IdRodzaju" ColumnName="IdRodzaju" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SposobPlatnosci">
+            <EntityTypeMapping TypeName="ERPModel.SposobPlatnosci">
+              <MappingFragment StoreEntitySet="SposobPlatnosci">
+                <ScalarProperty Name="IdSposobuPlatnosci" ColumnName="IdSposobuPlatnosci" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="ERPModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="IdStatusu" ColumnName="IdStatusu" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="CzyAktywny" ColumnName="CzyAktywny" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towar">
+            <EntityTypeMapping TypeName="ERPModel.Towar">
+              <MappingFragment StoreEntitySet="Towar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kod" ColumnName="Kod" />
+                <ScalarProperty Name="NumerKat" ColumnName="NumerKat" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="KategoriaId" ColumnName="KategoriaId" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="JM" ColumnName="JM" />
+                <ScalarProperty Name="StawkaVatZakupu" ColumnName="StawkaVatZakupu" />
+                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
+                <ScalarProperty Name="ProducentId" ColumnName="ProducentId" />
+                <ScalarProperty Name="IloscMin" ColumnName="IloscMin" />
+                <ScalarProperty Name="IloscMinJM" ColumnName="IloscMinJM" />
+                <ScalarProperty Name="IloscMax" ColumnName="IloscMax" />
+                <ScalarProperty Name="IloscMaxJM" ColumnName="IloscMaxJM" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="IloscZamJM" ColumnName="IloscZamJM" />
+                <ScalarProperty Name="StawkaVatSprzedazy" ColumnName="StawkaVatSprzedazy" />
+                <ScalarProperty Name="Prog" ColumnName="Prog" />
+                <ScalarProperty Name="Upust" ColumnName="Upust" />
+                <ScalarProperty Name="UpustData" ColumnName="UpustData" />
+                <ScalarProperty Name="UpustDataOd" ColumnName="UpustDataOd" />
+                <ScalarProperty Name="UpustDataDo" ColumnName="UpustDataDo" />
+                <ScalarProperty Name="UpustGodz" ColumnName="UpustGodz" />
+                <ScalarProperty Name="UpustGodzOd" ColumnName="UpustGodzOd" />
+                <ScalarProperty Name="UpustGodzDo" ColumnName="UpustGodzDo" />
+                <ScalarProperty Name="BezRabatu" ColumnName="BezRabatu" />
+                <ScalarProperty Name="Marza" ColumnName="Marza" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Masa" ColumnName="Masa" />
+                <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
+                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
+                <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
+                <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Wojewodztwo">
             <EntityTypeMapping TypeName="ERPModel.Wojewodztwo">
               <MappingFragment StoreEntitySet="Wojewodztwo">
@@ -1972,48 +2293,6 @@ FROM [dbo].[Towar] AS [Towar]</DefiningQuery>
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Towar">
-            <EntityTypeMapping TypeName="ERPModel.Towar">
-              <MappingFragment StoreEntitySet="Towar">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="KodCnId" ColumnName="KodCnId" />
-                <ScalarProperty Name="NumerKat" ColumnName="NumerKat" />
-                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-                <ScalarProperty Name="URL" ColumnName="URL" />
-                <ScalarProperty Name="KategoriaId" ColumnName="KategoriaId" />
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="JM" ColumnName="JM" />
-                <ScalarProperty Name="UdostepniajWCenniku" ColumnName="UdostepniajWCenniku" />
-                <ScalarProperty Name="Waluta" ColumnName="Waluta" />
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="KontrahentId" ColumnName="KontrahentId" />
-                <ScalarProperty Name="ProducentId" ColumnName="ProducentId" />
-                <ScalarProperty Name="IloscMin" ColumnName="IloscMin" />
-                <ScalarProperty Name="IloscMinJM" ColumnName="IloscMinJM" />
-                <ScalarProperty Name="IloscMax" ColumnName="IloscMax" />
-                <ScalarProperty Name="IloscMaxJM" ColumnName="IloscMaxJM" />
-                <ScalarProperty Name="IloscZam" ColumnName="IloscZam" />
-                <ScalarProperty Name="IloscZamJM" ColumnName="IloscZamJM" />
-                <ScalarProperty Name="Stawka" ColumnName="Stawka" />
-                <ScalarProperty Name="Prog" ColumnName="Prog" />
-                <ScalarProperty Name="Upust" ColumnName="Upust" />
-                <ScalarProperty Name="UpustData" ColumnName="UpustData" />
-                <ScalarProperty Name="UpustDataOd" ColumnName="UpustDataOd" />
-                <ScalarProperty Name="UpustDataDo" ColumnName="UpustDataDo" />
-                <ScalarProperty Name="UpustGodz" ColumnName="UpustGodz" />
-                <ScalarProperty Name="UpustGodzOd" ColumnName="UpustGodzOd" />
-                <ScalarProperty Name="UpustGodzDo" ColumnName="UpustGodzDo" />
-                <ScalarProperty Name="BezRabatu" ColumnName="BezRabatu" />
-                <ScalarProperty Name="MarzaMin" ColumnName="MarzaMin" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Masa" ColumnName="Masa" />
-                <ScalarProperty Name="WagaKG" ColumnName="WagaKG" />
-                <ScalarProperty Name="KrajPochodzenia" ColumnName="KrajPochodzenia" />
-                <ScalarProperty Name="SplitPay" ColumnName="SplitPay" />
-                <ScalarProperty Name="OpiekunId" ColumnName="OpiekunId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

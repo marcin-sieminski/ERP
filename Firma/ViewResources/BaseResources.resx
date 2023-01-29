@@ -243,6 +243,9 @@
   <data name="Inne" xml:space="preserve">
     <value>Inne</value>
   </data>
+  <data name="InvalidRabat" xml:space="preserve">
+    <value>Rabat musi być z zakresu od 0 do 100</value>
+  </data>
   <data name="Jm" xml:space="preserve">
     <value>Jm</value>
   </data>
@@ -464,6 +467,9 @@
   </data>
   <data name="TerminPlatnosci" xml:space="preserve">
     <value>Termin Płatności</value>
+  </data>
+  <data name="ThisValueHasToBePositiv" xml:space="preserve">
+    <value>Ta wartość musi być dodatnia</value>
   </data>
   <data name="Towary" xml:space="preserve">
     <value>Towary</value>

@@ -1,26 +1,39 @@
 ﻿using Firma.Models.Entities;
 using Firma.ViewModels.Abstract;
+using System.ComponentModel;
+using System.Windows.Input;
+using Firma.Helpers;
+using Firma.Models.Validators;
+using Firma.Models.EntitiesForView;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Firma.ViewModels
 {
-    public class NowyTowarViewModel : JedenViewModel<Towar>
+    public class NowyTowarViewModel : JedenViewModel<Towar>, IDataErrorInfo
     {
         #region Konstruktor
         public NowyTowarViewModel() : base("Towar")
         {
-            Item = new Towar();
+            Item = new Towar()
+            {
+                IsActive = true
+            };
+
+            Messenger.Default.Register<PracownikForAllView>(this, PrzypiszPracownika);
         }
         #endregion
 
         #region Properties
-        public int Kod 
+        public string Kod 
         {
-            get => Item.Kod.Value;
+            get => Item.Kod;
             set
             {
                 if (value != Item.Kod)
+                {
                     Item.Kod = value;
-                base.OnPropertyChanged(() => Kod);
+                    base.OnPropertyChanged(() => Kod);
+                }
             }
         }
 
@@ -30,8 +43,10 @@ namespace Firma.ViewModels
             set
             {
                 if (value != Item.Nazwa)
+                {
                     Item.Nazwa = value;
-                base.OnPropertyChanged(() => Nazwa);
+                    base.OnPropertyChanged(() => Nazwa);
+                }
             }
         }
 
@@ -41,8 +56,11 @@ namespace Firma.ViewModels
             set
             {
                 if (value != Item.StawkaVatSprzedazy)
+                {
                     Item.StawkaVatSprzedazy = value.Value;
-                base.OnPropertyChanged(() => StawkaVatSprzedazy);
+                    base.OnPropertyChanged(() => StawkaVatSprzedazy);
+                }
+
             }
         }
 
@@ -52,8 +70,10 @@ namespace Firma.ViewModels
             set
             {
                 if (value != Item.StawkaVatZakupu)
+                {
                     Item.StawkaVatZakupu = value;
-                base.OnPropertyChanged(() => StawkaVatZakupu);
+                    base.OnPropertyChanged(() => StawkaVatZakupu);
+                }
             }
         }
 
@@ -63,8 +83,10 @@ namespace Firma.ViewModels
             set
             {
                 if (value != Item.Cena)
+                {
                     Item.Cena = value.Value;
-                base.OnPropertyChanged(() => Cena);
+                    base.OnPropertyChanged(() => Cena);
+                }
             }
         }
 
@@ -74,19 +96,98 @@ namespace Firma.ViewModels
             set
             {
                 if (value != Item.Marza)
+                {
                     Item.Marza = value.Value;
-                base.OnPropertyChanged(() => Marza);
+                    base.OnPropertyChanged(() => Marza);
+                }
             }
         }
+
+        public int? IdPracownika
+        {
+            get => Item.OpiekunId;
+            set
+            {
+                if (value != Item.OpiekunId)
+                {
+                    Item.OpiekunId = value.Value;
+                    base.OnPropertyChanged(() => Marza);
+                }
+            }
+        }
+
+        private string _DanePracownika;
+        public string DanePracownika
+        {
+            get => _DanePracownika;
+            set
+            {
+                if(_DanePracownika != value)
+                {
+                    _DanePracownika = value;
+                    OnPropertyChanged(() => DanePracownika);
+                }    
+            }
+        }
+        private ICommand _ShowPracownicyCommand;
+        public ICommand ShowPracownicyCommand 
+        { 
+            get
+            {
+                if (_ShowPracownicyCommand == null)
+                {
+                    _ShowPracownicyCommand = new BaseCommand(() => ShowPracownicy());
+                    return _ShowPracownicyCommand;
+                }
+
+                return _ShowPracownicyCommand;
+            }
+        }
+
         #endregion
 
-        #region MyRegion
+        #region Metody
         protected override void Save()
         {
             Item.IsActive = true;
             Db.Towar.AddObject(Item);
             Db.SaveChanges();
         }
+        
+        private void ShowPracownicy() => Messenger.Default.Send("Pracownicy Show");
+
+        private void PrzypiszPracownika(PracownikForAllView item)
+        {
+            DanePracownika = $"{item.Imie} {item.Nazwisko}";
+            IdPracownika = item.Id;
+        }
+
         #endregion
+
+        #region Walidacja
+        protected override bool IsValid()
+        {
+            return
+                this[nameof(Kod)] == string.Empty &&
+                KodTowarValidator.SprawdzKodTowaru(Kod) == string.Empty;
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case nameof(Kod):
+                        return KodTowarValidator.SprawdzKodTowaru(Kod);
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+        
+        public string Error => string.Empty;
+        #endregion
+
     }
 }

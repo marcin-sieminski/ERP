@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="Firma.Views.NowyPracownikView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:resx="clr-namespace:Firma.ViewResources"
-             mc:Ignorable="d" >
+﻿<views:JedenViewBase x:Class="Firma.Views.NowyPracownikView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:resx="clr-namespace:Firma.ViewResources"
+                      xmlns:views="clr-namespace:Firma.Views"
+                      mc:Ignorable="d" >
 
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
@@ -30,6 +31,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
@@ -38,19 +40,37 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Imie}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.DrugieImie}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Nazwisko}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.NazwiskoRodowe}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.NIP}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.Pesel}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"
+                                     Text="{Binding Path=Imie, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.Nazwisko}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"
+                                     Text="{Binding Path=Nazwisko, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.DataUrodzenia}" Style="{StaticResource LabelStandardowy}"/>
+                            <DatePicker  Grid.Column="1"  Grid.Row="1"	Margin="0,8,0,8"  
+                                         Width="120" HorizontalAlignment="Left"  
+                                         SelectedDate="{Binding  Path=DataUrodzenia, UpdateSourceTrigger=PropertyChanged}"/>
+                            
+                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.DataZatrudnienia}" Style="{StaticResource LabelStandardowy}"/>
+                            <DatePicker  Grid.Column="1"  Grid.Row="2"	Margin="0,8,0,8"  
+                                         Width="120" HorizontalAlignment="Left"  
+                                         SelectedDate="{Binding  Path=ZatrudnionyOd, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.DataZakonczeniaZatrudnienia}" Style="{StaticResource LabelStandardowy}"/>
+                            <DatePicker  Grid.Column="3"  Grid.Row="2"	Margin="0,8,0,8"  
+                                         Width="120" HorizontalAlignment="Left"  
+                                         SelectedDate="{Binding  Path=ZatrudnionyDo, UpdateSourceTrigger=PropertyChanged}"/>
+                           
+                            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.NIP}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"
+                                     Text="{Binding Path=NIP, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+                            <Label Grid.Row="3" Grid.Column="2" Content="{x:Static resx:BaseResources.Pesel}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"
+                                     Text="{Binding Path=Pesel, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+                            <Label Grid.Row="4" Grid.Column="0" Content="{x:Static resx:BaseResources.Uwagi}" Style="{StaticResource LabelStandardowy}"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxStandardowy}"/>
                         </Grid>
                     </GroupBox>
 
@@ -73,15 +93,30 @@
                                 <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resx:BaseResources.Kraj}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.KrajISO}" Style="{StaticResource LabelStandardowy}"/>
-                            <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
-                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Miasto}" Style="{StaticResource LabelStandardowy}"/>
-                            <ComboBox  Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
-                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.Wojewodztwo}" Style="{StaticResource LabelStandardowy}"/>
-                            <ComboBox  Grid.Row="1" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
-                            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resx:BaseResources.Poczta}" Style="{StaticResource LabelStandardowy}"/>
-                            <ComboBox  Grid.Row="2" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"></ComboBox>
+                            <ComboBox  Grid.Column="1"  Grid.Row="0" Style="{StaticResource ComboBoxStandardowy}"
+                                       ItemsSource="{Binding  Kraje}" 
+                                       DisplayMemberPath="Nazwa"
+                                       SelectedValuePath="Id"  
+                                       SelectedValue="{Binding Path=KrajId,Mode=TwoWay}"/>
+
+                            <Label Grid.Row="0" Grid.Column="2" Content="{x:Static resx:BaseResources.Miasto}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox  Grid.Row="0" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"
+                                       ItemsSource="{Binding  Miasta}" 
+                                       DisplayMemberPath="Nazwa"  SelectedValuePath="Id"  
+                                       SelectedValue="{Binding Path=MiastoId,Mode=TwoWay}"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resx:BaseResources.Wojewodztwo}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"
+                                      ItemsSource="{Binding  Wojewodztwa}" 
+                                      DisplayMemberPath="Nazwa"  SelectedValuePath="Id"  
+                                      SelectedValue="{Binding Path=WojewodztwoId,Mode=TwoWay}"/>
+
+                            <Label Grid.Row="1" Grid.Column="2" Content="{x:Static resx:BaseResources.Gmina}" Style="{StaticResource LabelStandardowy}"/>
+                            <ComboBox Grid.Row="1" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"
+                                      ItemsSource="{Binding  Gminy}" 
+                                      DisplayMemberPath="Nazwa"  SelectedValuePath="Id"  
+                                      SelectedValue="{Binding Path=GminaId,Mode=TwoWay}"/>
+
                             <Label Grid.Row="2" Grid.Column="2" Content="{x:Static resx:BaseResources.KodPocztowy}" Style="{StaticResource LabelStandardowy}"/>
                             <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBoxStandardowy}"/>
                             <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resx:BaseResources.Ulica}" Style="{StaticResource LabelStandardowy}"/>
@@ -239,11 +274,5 @@
             </TabItem>
         </TabControl>
 
-        <StackPanel Grid.Row="1" Style="{StaticResource ButtonStackPanel}">
-            <Button Content="{x:Static resx:BaseResources.Zapisz}" Style="{StaticResource ButtonStandardowy}"/>
-            <Button Content="{x:Static resx:BaseResources.Drukuj}" Style="{StaticResource ButtonStandardowy}"/>
-            <Button Content="{x:Static resx:BaseResources.Anuluj}" Style="{StaticResource ButtonStandardowy}"/>
-        </StackPanel>
     </Grid>
-
-</UserControl>
+</views:JedenViewBase>

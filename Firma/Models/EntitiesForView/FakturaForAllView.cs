@@ -13,6 +13,7 @@ namespace Firma.Models.EntitiesForView
         public string KontrahentAdres { get; set; }
         public DateTime? TerminPlatnosci { get; set; }
         public string SposobPlatnosciNazwa { get; set; }
+        public bool CzyZatwierdzona { get; set; }
         #endregion
     }
 }

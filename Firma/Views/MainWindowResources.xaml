@@ -2,12 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:Firma.ViewModels"
                     xmlns:views="clr-namespace:Firma.Views">
-    
+
     <!--Tu połączenie View z ViewModel zakładek.-->
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieTowaryViewModel}">
         <views:WszystkieTowaryView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieGminyViewModel}">
         <views:WszystkieGminyView/>
     </DataTemplate>
@@ -15,7 +15,7 @@
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieKrajeViewModel}">
         <views:WszystkieKrajeView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:TypeExtension vm:WszystkieMiastaViewModel}">
         <views:WszystkieMiastaView/>
     </DataTemplate>
@@ -75,6 +75,31 @@
     <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">
         <views:NowyPracownikView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaPozycjaFakturyViewModel}">
+        <views:NowaPozycjaFakturyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaGminaViewModel}">
+        <views:NowaGminaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyKrajViewModel}">
+        <views:NowyKrajView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:RaportViewModel}">
+        <views:RaportView/>
+    </DataTemplate>
+
+    <Style TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <!--Tu koniec łączenia View z ViewModel.-->
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
@@ -82,7 +107,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    
+
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -185,12 +210,14 @@
 
     <Style x:Key="StatusBarMain" TargetType="StatusBar">
         <Setter Property="Background" Value="LightGray"></Setter>
+        <Setter Property="Height" Value="25"></Setter>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
     </Style>
 
     <Style x:Key="GridMainWindow" TargetType="Grid">
         <Setter Property="Background" Value="#E6E6E6"></Setter>
     </Style>
 
-    
+
 
 </ResourceDictionary>

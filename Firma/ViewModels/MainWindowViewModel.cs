@@ -1,4 +1,5 @@
 ﻿using Firma.Helpers;
+using Firma.Models.EntitiesForView;
 using Firma.ViewResources;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -41,14 +42,15 @@ namespace Firma.ViewModels
         {
             return new List<CommandViewModel>
         {
-            new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
-            new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel(BaseResources.Faktury, new BaseCommand(showAllFaktury)),
-            new CommandViewModel(BaseResources.NowaFaktura, new BaseCommand(() => createView(new NowaFakturaViewModel()))),
+            //new CommandViewModel(BaseResources.NowaFaktura, new BaseCommand(() => createView(new NowaFakturaViewModel()))),
+            new CommandViewModel(BaseResources.Towary, new BaseCommand(showAllTowar)),
+            //new CommandViewModel(BaseResources.NowyTowar, new BaseCommand(() => createView(new NowyTowarViewModel()))),
             new CommandViewModel(BaseResources.Kontrahenci, new BaseCommand(showAllKontrahenci)),
-            new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel()))),
+            //new CommandViewModel(BaseResources.NowyKontrahent, new BaseCommand(() => createView(new NowyKontrahentViewModel()))),
             new CommandViewModel(BaseResources.Pracownicy, new BaseCommand(showAllPracownicy)),
-            new CommandViewModel(BaseResources.NowyPracownik, new BaseCommand(() => createView(new NowyPracownikViewModel()))),
+            //new CommandViewModel(BaseResources.NowyPracownik, new BaseCommand(() => createView(new NowyPracownikViewModel()))),
+            new CommandViewModel(BaseResources.Producenci, new BaseCommand(showAllProducenci)),
             new CommandViewModel(BaseResources.Gminy, new BaseCommand(showAllGmina)),
             new CommandViewModel(BaseResources.Kraje, new BaseCommand(showAllKraj)),
             new CommandViewModel(BaseResources.Miasta, new BaseCommand(showAllMiasto)),
@@ -58,7 +60,7 @@ namespace Firma.ViewModels
             new CommandViewModel(BaseResources.KodyCN, new BaseCommand(showAllKodCN)),
             new CommandViewModel(BaseResources.KartyKredytowe, new BaseCommand(showAllKartyKredytowe)),
             new CommandViewModel(BaseResources.Kategorie, new BaseCommand(showAllKategorie)),
-            new CommandViewModel(BaseResources.Producenci, new BaseCommand(showAllProducenci))
+            new CommandViewModel(BaseResources.Raport, new BaseCommand(showRaport))
         };
         }
         #endregion
@@ -110,7 +112,34 @@ namespace Firma.ViewModels
             switch (message)
             {
                 case "Towary Show":
-                    WszystkieTowaryViewModel wszystkieTowaryViewModel = showAllTowary();
+                    WszystkieTowaryViewModel wszystkieTowaryViewModel = showAllTowaryMessanger();
+                    wszystkieTowaryViewModel.CzyModyfikowac = false;
+                    break;
+                case "Kontrahenci Show":
+                    WszyscyKontrahenciViewModel wszyscyKontrahenciViewModel = showAllKontrahenciMessanger();
+                    wszyscyKontrahenciViewModel.CzyModyfikowac = false;
+                    break;
+                case "Pracownicy Show":
+                    WszyscyPracownicyViewModel viewModel = showAllPracownicyMessanger();
+                    viewModel.CzyModyfikowac = false;
+                    break;
+                case "Pozycje faktury Add":
+                    createView(new NowaPozycjaFakturyViewModel());
+                    break;
+                case "Faktury Add":
+                    createView(new NowaFakturaViewModel());
+                    break;
+                case "Towary Add":
+                    createView(new NowyTowarViewModel());
+                    break;
+                case "Gminy Add":
+                    createView(new NowaGminaViewModel());
+                    break;
+                case "Kraje Add":
+                    createView(new NowyKrajViewModel());
+                    break;
+                case "Pracownicy Add":
+                    createView(new NowyPracownikViewModel());
                     break;
             };
         }
@@ -147,7 +176,7 @@ namespace Firma.ViewModels
             setActiveWorkspace(workspace);
         }
 
-        private WszystkieTowaryViewModel showAllTowary()
+        private WszystkieTowaryViewModel showAllTowaryMessanger()
         {
             var workspace = Workspaces.FirstOrDefault(vw => vw is WszystkieTowaryViewModel) as WszystkieTowaryViewModel;
             if (workspace is null)
@@ -300,6 +329,18 @@ namespace Firma.ViewModels
             setActiveWorkspace(workspace);
         }
 
+        private WszyscyKontrahenciViewModel showAllKontrahenciMessanger()
+        {
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyKontrahenciViewModel) as WszyscyKontrahenciViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszyscyKontrahenciViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+            return workspace;
+        }
+
         private void showAllPracownicy()
         {
             var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
@@ -311,12 +352,24 @@ namespace Firma.ViewModels
             setActiveWorkspace(workspace);
         }
 
-        private void showRaportSprzedazy()
+        private WszyscyPracownicyViewModel showAllPracownicyMessanger()
         {
-            RaportSprzedazyViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RaportSprzedazyViewModel) as RaportSprzedazyViewModel;
+            var workspace = Workspaces.FirstOrDefault(vw => vw is WszyscyPracownicyViewModel) as WszyscyPracownicyViewModel;
+            if (workspace is null)
+            {
+                workspace = new WszyscyPracownicyViewModel();
+                Workspaces.Add(workspace);
+            }
+            setActiveWorkspace(workspace);
+            return workspace;
+        }
+
+        private void showRaport()
+        {
+            RaportViewModel workspace = this.Workspaces.FirstOrDefault(vm => vm is RaportViewModel) as RaportViewModel;
             if (workspace == null)
             {
-                workspace = new RaportSprzedazyViewModel();
+                workspace = new RaportViewModel();
                 this.Workspaces.Add(workspace);
             }
             this.setActiveWorkspace(workspace);

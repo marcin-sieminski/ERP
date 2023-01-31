@@ -1,12 +1,14 @@
-﻿<local:WszystkieViewBase  
-    x:Class="Firma.Views.WszystkieGminyView" 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:local="clr-namespace:Firma.Views"
-    Height="600" Width="1100">
-    
-    <Grid>
-        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding  List}">
+﻿<local:WszystkieViewBase x:Class="Firma.Views.WszystkieGminyView"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                         xmlns:local="clr-namespace:Firma.Views"
+                         >
+    <UserControl.Resources>
+        <ResourceDictionary Source="StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <DataGrid  AutoGenerateColumns="False"  ItemsSource="{Binding  List}" SelectedItem="{Binding SelectedItem}">
             <DataGrid.Columns>
                 <DataGridTextColumn  x:Name="Id"  Binding="{Binding  Path=Id}" Header="Nr"/> 
                 <DataGridTextColumn  x:Name="Nazwa"  Binding="{Binding  Path=Nazwa}" Header="Nazwa"/>                

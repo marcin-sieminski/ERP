@@ -6,24 +6,25 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Firma.ViewModels
 {
-    public class WszystkieFakturyViewModel: WszystkieViewModel<FakturaForAllView>
+    public class WszystkieFakturyViewModel : WszystkieViewModel<FakturaForAllView>
     {
+        public bool CzyModyfikowac { get; set; }
+
         #region Konstruktor
         public WszystkieFakturyViewModel() : base("Faktury")
         {
-
+            CzyModyfikowac = false;
         }
         #endregion
 
         #region Helpers
         public override void Load()
         {
-            AllList = 
+            AllList =
                 (
                     from faktura in erpEntities.Faktura
                     where faktura.CzyAktywna == true
@@ -34,70 +35,104 @@ namespace Firma.ViewModels
                         DataWystawienia = faktura.DataWystawienia,
                         KontrahentNazwa = faktura.Kontrahent.Nazwa,
                         KontrahentNIP = faktura.Kontrahent.Nip,
-                        KontrahentAdres = 
-                            faktura.Kontrahent.KodPocztowy + " " +
-                            faktura.Kontrahent.Miasto + " " +
-                            faktura.Kontrahent.Ulica,
+                        KontrahentAdres = faktura.Kontrahent.Adres.KodPocztowy + " " + faktura.Kontrahent.Adres.Miejscowosc + " " + faktura.Kontrahent.Adres.Ulica,
                         TerminPlatnosci = faktura.TerminPlatnosci,
-                        SposobPlatnosciNazwa = faktura.SposobPlatnosci.Nazwa
+                        SposobPlatnosciNazwa = faktura.SposobPlatnosci.Nazwa,
+                        CzyZatwierdzona = faktura.CzyZatwierdzona.Value
                     }
                 ).ToList();
+
             Filter();
         }
 
         protected override void Filter()
         {
-            if (string.IsNullOrEmpty(SearchPhrase))
-                return;
-
-            switch(SelectedFilter)
+            if (!string.IsNullOrEmpty(SearchPhrase))
             {
-                case nameof(Faktura.Numer):
-                    List = new ObservableCollection<FakturaForAllView>(AllList
-                        .Where(item => item.Numer?.Contains(SearchPhrase) ?? false));
-                    break;
-                default:
-                    List = new ObservableCollection<FakturaForAllView>(AllList);
-                    break;
-            };
-
-            OrderBy();
-        }
-
-        protected override void Open()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete()
-        {
-            if(SelectedItem != null)
+                switch (SelectedFilter)
+                {
+                    case nameof(Faktura.Numer):
+                        List = new ObservableCollection<FakturaForAllView>(AllList
+                            .Where(item => item.Numer?.ToLower().Contains(SearchPhrase.ToLower()) ?? false));
+                        break;
+                    case nameof(Faktura.Kontrahent.Nazwa):
+                        List = new ObservableCollection<FakturaForAllView>(AllList
+                            .Where(item => item.KontrahentNazwa?.ToLower().Contains(SearchPhrase.ToLower()) ?? false));
+                        break;
+                    default:
+                        List = new ObservableCollection<FakturaForAllView>(AllList);
+                        break;
+                };
+            }
+            else
             {
-                erpEntities.Faktura.First(item => item.IdFaktury == SelectedItem.IdFaktury).CzyAktywna = false;
-                try
-                {
-                    erpEntities.SaveChanges();
-                }
-                catch(Exception e)
-                {
-                    Debug.WriteLine($"Wystąpił błąd usuwania\n{e.Message}");
-                }
+                List = new ObservableCollection<FakturaForAllView>(AllList);
+                OrderBy();
             }
         }
 
         protected override void OrderBy()
         {
-            if (string.IsNullOrEmpty(SelectedFilter))
-                return;
-
-            switch(SelectedOrderBy)
+            if (!string.IsNullOrEmpty(SelectedOrderBy))
             {
-                case nameof(Faktura.Numer):
-                    List = new ObservableCollection<FakturaForAllView>(OrderDescending 
-                        ? List.OrderByDescending(item => item.Numer)
-                        : List.OrderBy(item => item.Numer));
-                    break;
-            };
+                switch (SelectedOrderBy)
+                {
+                    case nameof(Faktura.Numer):
+                        List = new ObservableCollection<FakturaForAllView>(OrderDescending
+                            ? List.OrderByDescending(item => item.Numer)
+                            : List.OrderBy(item => item.Numer));
+                        break;
+                    case nameof(Faktura.DataWystawienia):
+                        List = new ObservableCollection<FakturaForAllView>(OrderDescending
+                            ? List.OrderByDescending(item => item.DataWystawienia)
+                            : List.OrderBy(item => item.DataWystawienia));
+                        break;
+                };
+            }
+        }
+
+        protected override void Open()
+        {
+            if (CzyModyfikowac)
+            {
+                //Otworzyc widok modyfikacji wybranego elemntu
+            }
+            else
+            {
+                if (SelectedItem != null)
+                {
+                    Messenger.Default.Send(SelectedItem);
+                    OnRequestClose();
+                }
+            }
+
+        }
+
+        protected override void ShowAddView()
+        {
+            Messenger.Default.Send(DisplayName + " Add");
+        }
+
+        protected override void Refresh()
+        {
+            Load();
+        }
+
+        protected override void Delete()
+        {
+            if (SelectedItem != null)
+            {
+                try
+                {
+                    erpEntities.Faktura.First(item => item.IdFaktury == SelectedItem.IdFaktury).CzyAktywna = false;
+                    erpEntities.SaveChanges();
+                    Refresh();
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine($"Wystąpił błąd usuwania\n{e.Message}");
+                }
+            }
         }
 
         protected override List<KeyValuePair<string, string>> GetListOfItemsFilter()
@@ -105,6 +140,7 @@ namespace Firma.ViewModels
             return new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string>(nameof(Faktura.Numer), "Numer"),
+                new KeyValuePair<string, string>(nameof(Faktura.Kontrahent.Nazwa), "Nazwa kontrahenta"),
             };
         }
 
@@ -112,6 +148,7 @@ namespace Firma.ViewModels
         {
             return new List<KeyValuePair<string, string>>()
             {
+                new KeyValuePair<string, string>(nameof(Faktura.DataWystawienia), "Data wystawienia"),
                 new KeyValuePair<string, string>(nameof(Faktura.Numer), "Numer"),
             };
         }

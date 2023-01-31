@@ -154,6 +154,46 @@ namespace Firma.ViewModels.Abstract
                 }
             }
         }
+        
+        private ICommand _RefreshCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                if(_RefreshCommand == null)
+                {
+                    _RefreshCommand = new BaseCommand(() => Refresh());
+                }
+                return _RefreshCommand;
+            }
+        }
+        
+        private ICommand _DeleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if(_DeleteCommand == null)
+                {
+                    _DeleteCommand = new BaseCommand(() => Delete());
+                }
+                return _DeleteCommand;
+            }
+        }
+
+        private ICommand _AddCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                if(_AddCommand == null)
+                {
+                    _AddCommand = new BaseCommand(() => ShowAddView());
+                }
+                return _AddCommand;
+            }
+        }
+
         #endregion
 
         #region Konstruktor
@@ -169,6 +209,9 @@ namespace Firma.ViewModels.Abstract
         #region Helpers
         public abstract void Load();
         protected abstract void Open();
+        protected abstract void ShowAddView();
+        protected abstract void Refresh();
+        protected abstract void Delete();
         protected abstract void Filter();
         protected abstract void OrderBy();
         protected abstract List<KeyValuePair<string, string>> GetListOfItemsFilter();

@@ -153,8 +153,14 @@
   <data name="DataSprzedazy" xml:space="preserve">
     <value>Data sprzedaży</value>
   </data>
+  <data name="DataUrodzenia" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
   <data name="DataWystawienia" xml:space="preserve">
     <value>Data wystawienia</value>
+  </data>
+  <data name="DataZakonczeniaZatrudnienia" xml:space="preserve">
+    <value>Data końca zatrudnienia</value>
   </data>
   <data name="DataZatrudnienia" xml:space="preserve">
     <value>Data zatrudnienia</value>
@@ -173,6 +179,9 @@
   </data>
   <data name="Dokument" xml:space="preserve">
     <value>Dokument</value>
+  </data>
+  <data name="DowodOsobisty" xml:space="preserve">
+    <value>Dowód osobisty</value>
   </data>
   <data name="DrugieImie" xml:space="preserve">
     <value>Drugie imię</value>
@@ -199,13 +208,16 @@
     <value>Faktura od</value>
   </data>
   <data name="Faktury" xml:space="preserve">
-    <value>Lista faktur</value>
+    <value>Faktury</value>
   </data>
   <data name="FakturyTooltip" xml:space="preserve">
     <value>Lista wszystkich faktur</value>
   </data>
   <data name="Fax" xml:space="preserve">
     <value>Fax</value>
+  </data>
+  <data name="FieldIsRequired" xml:space="preserve">
+    <value>Pole jest wymagane</value>
   </data>
   <data name="FiltrZaawansowany" xml:space="preserve">
     <value>Filtr zaawansowany</value>
@@ -219,6 +231,9 @@
   <data name="FVMarza" xml:space="preserve">
     <value>FV marża</value>
   </data>
+  <data name="Gmina" xml:space="preserve">
+    <value>Gmina </value>
+  </data>
   <data name="Gminy" xml:space="preserve">
     <value>Gminy</value>
   </data>
@@ -231,6 +246,9 @@
   <data name="Handlowe" xml:space="preserve">
     <value>Handlowe</value>
   </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
   <data name="Ilosc" xml:space="preserve">
     <value>Ilość</value>
   </data>
@@ -242,6 +260,21 @@
   </data>
   <data name="Inne" xml:space="preserve">
     <value>Inne</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Kod powinien zawierać od 2 do 4 liter</value>
+  </data>
+  <data name="InvalidInvoiceNumber" xml:space="preserve">
+    <value>Nieprawidłowy numer faktury</value>
+  </data>
+  <data name="InvalidName" xml:space="preserve">
+    <value>Nazwa powinna składać się z min. 2 liter</value>
+  </data>
+  <data name="InvalidNip" xml:space="preserve">
+    <value>NIP powinien zawierać 10 znaków</value>
+  </data>
+  <data name="InvalidPesel" xml:space="preserve">
+    <value>PESEL powinien zawierac 11 znaków</value>
   </data>
   <data name="InvalidRabat" xml:space="preserve">
     <value>Rabat musi być z zakresu od 0 do 100</value>
@@ -277,7 +310,7 @@
     <value>Kody CN</value>
   </data>
   <data name="Kontrahenci" xml:space="preserve">
-    <value>Lista kontrahentów</value>
+    <value>Kontrahenci</value>
   </data>
   <data name="KontrahenciTooltip" xml:space="preserve">
     <value>Lista wszystkich kontrahentów</value>
@@ -369,6 +402,9 @@
   <data name="NrZezwolenia" xml:space="preserve">
     <value>Nr zezwolenia</value>
   </data>
+  <data name="Numer" xml:space="preserve">
+    <value>Numer</value>
+  </data>
   <data name="NumerDokumentu" xml:space="preserve">
     <value>Numer dokumentu</value>
   </data>
@@ -412,7 +448,7 @@
     <value>Pozycje faktury</value>
   </data>
   <data name="Pracownicy" xml:space="preserve">
-    <value>Lista pracowników</value>
+    <value>Pracownicy</value>
   </data>
   <data name="PracownicyTooltip" xml:space="preserve">
     <value>Lista wszystkich pracowników</value>
@@ -422,6 +458,9 @@
   </data>
   <data name="Rabat" xml:space="preserve">
     <value>Rabat</value>
+  </data>
+  <data name="Raport" xml:space="preserve">
+    <value>Raport</value>
   </data>
   <data name="Razem" xml:space="preserve">
     <value>Razem</value>
@@ -440,6 +479,9 @@
   </data>
   <data name="SchematNumeracji" xml:space="preserve">
     <value>Schemat numeracji</value>
+  </data>
+  <data name="StanCywilny" xml:space="preserve">
+    <value>Stan cywilny</value>
   </data>
   <data name="Stanowisko" xml:space="preserve">
     <value>Stanowisko</value>
@@ -506,6 +548,9 @@
   </data>
   <data name="Wyksztalcenia" xml:space="preserve">
     <value>Wykształcenia</value>
+  </data>
+  <data name="Wyksztalcenie" xml:space="preserve">
+    <value>Wykształcenie</value>
   </data>
   <data name="WyszukiwanieKontrahenta" xml:space="preserve">
     <value>Wyszukiwanie kontrahenta</value>

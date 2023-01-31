@@ -1,55 +1,133 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using Firma.Models.Entities;
 using Firma.ViewModels.Abstract;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Firma.ViewModels
 {
     public class WszystkieWojewodztwaViewModel : WszystkieViewModel<Wojewodztwo>
     {
+        public bool CzyModyfikowac { get; set; }
+
         #region  Constructor
         public  WszystkieWojewodztwaViewModel() : base(ViewResources.BaseResources.Wojewodztwa)
         {
+            CzyModyfikowac = false;
         }
         #endregion
         
         #region  Helpers
         public override void Load()
         {
-            List = new ObservableCollection<Wojewodztwo>
+            AllList = new ObservableCollection<Wojewodztwo>
             (
                 from wojewodztwo in erpEntities.Wojewodztwo 
                 where wojewodztwo.IsActive == true
                 select wojewodztwo
-            );
+            ).ToList();
+            Filter();;
         }
 
-        protected override void Open()
+                protected override void Filter()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void Filter()
-        {
-            throw new System.NotImplementedException();
+            if (!string.IsNullOrEmpty(SearchPhrase))
+            {
+                switch (SelectedFilter)
+                {
+                    case nameof(Wojewodztwo.Nazwa):
+                        List = new ObservableCollection<Wojewodztwo>(AllList
+                            .Where(item => item.Nazwa?.ToLower().Contains(SearchPhrase.ToLower()) ?? false));
+                        break;
+                    default:
+                        List = new ObservableCollection<Wojewodztwo>(AllList);
+                        break;
+                };
+            }
+            else
+            {
+                List = new ObservableCollection<Wojewodztwo>(AllList);
+                OrderBy();
+            }
         }
 
         protected override void OrderBy()
         {
-            throw new System.NotImplementedException();
+            if (!string.IsNullOrEmpty(SelectedOrderBy))
+            {
+                switch (SelectedOrderBy)
+                {
+                    case nameof(Wojewodztwo.Nazwa):
+                        List = new ObservableCollection<Wojewodztwo>(OrderDescending
+                            ? List.OrderByDescending(item => item.Nazwa)
+                            : List.OrderBy(item => item.Nazwa));
+                        break;
+                };
+            }
+        }
+
+        protected override void Open()
+        {
+            if (CzyModyfikowac)
+            {
+                //Otworzyc widok modyfikacji wybranego elemntu
+            }
+            else
+            {
+                if (SelectedItem != null)
+                {
+                    Messenger.Default.Send(SelectedItem);
+                    OnRequestClose();
+                }
+            }
+
+        }
+
+        protected override void ShowAddView()
+        {
+            Messenger.Default.Send(DisplayName + " Add");
+        }
+
+        protected override void Refresh()
+        {
+            Load();
+        }
+
+        protected override void Delete()
+        {
+            if (SelectedItem != null)
+            {
+                try
+                {
+                    erpEntities.Wojewodztwo.First(item => item.Id == SelectedItem.Id).IsActive = false;
+                    erpEntities.SaveChanges();
+                    Refresh();
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine($"Wystąpił błąd usuwania\n{e.Message}");
+                }
+            }
         }
 
         protected override List<KeyValuePair<string, string>> GetListOfItemsFilter()
         {
-            throw new System.NotImplementedException();
+            return new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>(nameof(Wojewodztwo.Nazwa), "Nazwa"),
+            };
         }
 
         protected override List<KeyValuePair<string, string>> GetListOfItemsOrderBy()
         {
-            throw new System.NotImplementedException();
+            return new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>(nameof(Wojewodztwo.Nazwa), "Nazwa"),
+            };
         }
-
         #endregion
     }
 }

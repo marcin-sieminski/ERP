@@ -1,17 +1,18 @@
-﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:resx="clr-namespace:Firma.ViewResources"
-             x:Class="Firma.Views.WszystkieFakturyView"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<views:WszystkieViewBase x:Class="Firma.Views.WszystkieFakturyView"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:resx="clr-namespace:Firma.ViewResources"
+                         xmlns:views="clr-namespace:Firma.Views"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         mc:Ignorable="d" 
+                         d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
         <ResourceDictionary Source="StyleZakladekResources.xaml"/>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -20,19 +21,24 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.Column="0" Style="{StaticResource DataGridStandardowy}">
+        <DataGrid Grid.Row="0" Grid.Column="0" Style="{StaticResource DataGridStandardowy}" 
+                  AutoGenerateColumns="False" 
+                  ItemsSource="{Binding List}"
+                  SelectedItem="{Binding SelectedItem}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.NumerDokumentu}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.Status}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.DataWystawienia}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.Kontrahent}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.Miasto}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.Netto}"/>
-                <DataGridTextColumn Header="{x:Static resx:BaseResources.Brutto}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=IdFaktury}"/>
+                <DataGridTextColumn Header="Numer" Binding="{Binding Path=Numer}"/>
+                <DataGridTextColumn Header="Data wystawienia" Binding="{Binding Path=DataWystawienia}"/>
+                <DataGridTextColumn Header="Nazwa kontrahenta" Binding="{Binding Path=KontrahentNazwa}"/>
+                <DataGridTextColumn Header="NIP kontrahenta" Binding="{Binding Path=KontrahentNIP}"/>
+                <DataGridTextColumn Header="Adres kontrahenta" Binding="{Binding Path=KontrahentAdres}"/>
+                <DataGridTextColumn Header="Termin płatności" Binding="{Binding Path=TerminPlatnosci}"/>
+                <DataGridTextColumn Header="Sposób płatności" Binding="{Binding Path=SposobPlatnosciNazwa}"/>
+                <DataGridTextColumn Header="Czy zatwierdzona" Binding="{Binding Path=CzyZatwierdzona}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Expander Header="{x:Static resx:BaseResources.FiltrZaawansowany}" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="True">
+        <Expander Header="{x:Static resx:BaseResources.FiltrZaawansowany}" Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Margin="2" IsExpanded="False">
             <Border BorderBrush="Gray" BorderThickness="1" Margin="2">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -145,4 +151,5 @@
             </Border>
         </Expander>
     </Grid>
-</UserControl>
+</views:WszystkieViewBase>
+

@@ -19,6 +19,7 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
+[assembly: EdmRelationshipAttribute("ERPModel", "Kontrahent_Adres_FK", "Adres", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Adres), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_AuEPracownik", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "AutoEwidencja", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.AutoEwidencja), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK1", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "BankiNazwy_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "BankNazwa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.BankNazwa), true)]
@@ -32,7 +33,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ERPModel", "Faktura_SposobPlatnosci_FK", "SposobPlatnosci", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.SposobPlatnosci), "Faktura", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Faktura), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "PozycjaFaktury_FK", "Faktura", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Faktura), "PozycjaFaktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjaFaktury), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK2", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Gmina), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Gmina), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Gminy", "Gmina", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Gmina), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Towary_Kategorie_FK", "Kategoria", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kategoria), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_KodyCn", "KodCN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.KodCN), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kraj), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
@@ -41,14 +42,14 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_FK5", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Wojewodztwo), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Kontrahenci_Opiekun_FK", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Kontrahent), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Towary_FK", "Kontrahent", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kontrahent), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Kraj", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Kraj), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Miasta", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Miasto), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Powiaty", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Powiat), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Kraj", "Kraj", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Kraj), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Miasta", "Miasto", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Miasto), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Powiaty", "Powiat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Powiat), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "PozycjaFaktury_Towar_FK", "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Towar), "PozycjaFaktury", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.PozycjaFaktury), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wojewodztwo), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Wyksztalcenie", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Wyksztalcenie), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wojewodztwa", "Wojewodztwo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Wojewodztwo), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "Pracownicy_Wyksztalcenie", "Wyksztalcenie", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Wyksztalcenie), "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Pracownik), true)]
 [assembly: EdmRelationshipAttribute("ERPModel", "Towary_Pracownicy", "Pracownik", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Pracownik), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
-[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_Producenci", "Producent", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Firma.Models.Entities.Producent), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_Towary_Producenci", "Producent", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Firma.Models.Entities.Producent), "Towar", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Firma.Models.Entities.Towar), true)]
 
 #endregion
 
@@ -423,6 +424,22 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<sysdiagrams> sysdiagrams
+        {
+            get
+            {
+                if ((_sysdiagrams == null))
+                {
+                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
+                }
+                return _sysdiagrams;
+            }
+        }
+        private ObjectSet<sysdiagrams> _sysdiagrams;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Towar> Towar
         {
             get
@@ -633,6 +650,14 @@ namespace Firma.Models.Entities
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
+        {
+            base.AddObject("sysdiagrams", sysdiagrams);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Towar EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTowar(Towar towar)
@@ -677,11 +702,11 @@ namespace Firma.Models.Entities
         /// <summary>
         /// Create a new Adres object.
         /// </summary>
-        /// <param name="idAdresu">Initial value of the IdAdresu property.</param>
-        public static Adres CreateAdres(global::System.Int32 idAdresu)
+        /// <param name="id">Initial value of the Id property.</param>
+        public static Adres CreateAdres(global::System.Int32 id)
         {
             Adres adres = new Adres();
-            adres.IdAdresu = idAdresu;
+            adres.Id = id;
             return adres;
         }
 
@@ -694,27 +719,27 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 IdAdresu
+        public global::System.Int32 Id
         {
             get
             {
-                return _IdAdresu;
+                return _Id;
             }
             set
             {
-                if (_IdAdresu != value)
+                if (_Id != value)
                 {
-                    OnIdAdresuChanging(value);
-                    ReportPropertyChanging("IdAdresu");
-                    _IdAdresu = StructuralObject.SetValidValue(value, "IdAdresu");
-                    ReportPropertyChanged("IdAdresu");
-                    OnIdAdresuChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _IdAdresu;
-        partial void OnIdAdresuChanging(global::System.Int32 value);
-        partial void OnIdAdresuChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -907,6 +932,32 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Boolean> _IsActive;
         partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
         partial void OnIsActiveChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahent_Adres_FK", "Kontrahent")]
+        public EntityCollection<Kontrahent> Kontrahent
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Kontrahent>("ERPModel.Kontrahent_Adres_FK", "Kontrahent");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Kontrahent>("ERPModel.Kontrahent_Adres_FK", "Kontrahent", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -4319,30 +4370,6 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Adres
-        {
-            get
-            {
-                return _Adres;
-            }
-            set
-            {
-                OnAdresChanging(value);
-                ReportPropertyChanging("Adres");
-                _Adres = StructuralObject.SetValidValue(value, true, "Adres");
-                ReportPropertyChanged("Adres");
-                OnAdresChanged();
-            }
-        }
-        private global::System.String _Adres;
-        partial void OnAdresChanging(global::System.String value);
-        partial void OnAdresChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String Nip
         {
             get
@@ -5345,10 +5372,72 @@ namespace Firma.Models.Entities
         private Nullable<global::System.Int32> _IdStatusu;
         partial void OnIdStatusuChanging(Nullable<global::System.Int32> value);
         partial void OnIdStatusuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AdresId
+        {
+            get
+            {
+                return _AdresId;
+            }
+            set
+            {
+                OnAdresIdChanging(value);
+                ReportPropertyChanging("AdresId");
+                _AdresId = StructuralObject.SetValidValue(value, "AdresId");
+                ReportPropertyChanged("AdresId");
+                OnAdresIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AdresId;
+        partial void OnAdresIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAdresIdChanged();
 
         #endregion
 
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "Kontrahent_Adres_FK", "Adres")]
+        public Adres Adres
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adres>("ERPModel.Kontrahent_Adres_FK", "Adres").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adres>("ERPModel.Kontrahent_Adres_FK", "Adres").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Adres> AdresReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Adres>("ERPModel.Kontrahent_Adres_FK", "Adres");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Adres>("ERPModel.Kontrahent_Adres_FK", "Adres", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6456,98 +6545,14 @@ namespace Firma.Models.Entities
         /// Create a new Pracownik object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="typPracownika">Initial value of the TypPracownika property.</param>
         /// <param name="nazwisko">Initial value of the Nazwisko property.</param>
-        /// <param name="imie1">Initial value of the Imie1 property.</param>
-        /// <param name="pesel">Initial value of the Pesel property.</param>
-        /// <param name="rodzajZatrudnienia">Initial value of the RodzajZatrudnienia property.</param>
-        /// <param name="dataOd">Initial value of the DataOd property.</param>
-        /// <param name="dataDo">Initial value of the DataDo property.</param>
-        /// <param name="rachunekNr">Initial value of the RachunekNr property.</param>
-        /// <param name="iBAN">Initial value of the IBAN property.</param>
-        /// <param name="zestCzasuPracy">Initial value of the ZestCzasuPracy property.</param>
-        /// <param name="wypNaKonto">Initial value of the WypNaKonto property.</param>
-        /// <param name="nrwAktach">Initial value of the NrwAktach property.</param>
-        /// <param name="nazwRodowe">Initial value of the NazwRodowe property.</param>
-        /// <param name="imie2">Initial value of the Imie2 property.</param>
-        /// <param name="imieOjca">Initial value of the ImieOjca property.</param>
-        /// <param name="imieMatki">Initial value of the ImieMatki property.</param>
-        /// <param name="nazwRodoweM">Initial value of the NazwRodoweM property.</param>
-        /// <param name="miejsceUr">Initial value of the MiejsceUr property.</param>
-        /// <param name="obywatelstwo">Initial value of the Obywatelstwo property.</param>
-        /// <param name="plec">Initial value of the Plec property.</param>
-        /// <param name="stanCywilny">Initial value of the StanCywilny property.</param>
-        /// <param name="krajId">Initial value of the KrajId property.</param>
-        /// <param name="wojewodztwoId">Initial value of the WojewodztwoId property.</param>
-        /// <param name="powiatId">Initial value of the PowiatId property.</param>
-        /// <param name="gminaId">Initial value of the GminaId property.</param>
-        /// <param name="mLDUlica">Initial value of the MLDUlica property.</param>
-        /// <param name="mLDNrDomu">Initial value of the MLDNrDomu property.</param>
-        /// <param name="mLDNrLokalu">Initial value of the MLDNrLokalu property.</param>
-        /// <param name="miastoId">Initial value of the MiastoId property.</param>
-        /// <param name="mLDKodPocztowy">Initial value of the MLDKodPocztowy property.</param>
-        /// <param name="mLDPoczta">Initial value of the MLDPoczta property.</param>
-        /// <param name="mLDAdres2">Initial value of the MLDAdres2 property.</param>
-        /// <param name="mLDGminaKod">Initial value of the MLDGminaKod property.</param>
-        /// <param name="hDKTelefon1">Initial value of the HDKTelefon1 property.</param>
-        /// <param name="hDKTelefon2">Initial value of the HDKTelefon2 property.</param>
-        /// <param name="nipKraj">Initial value of the NipKraj property.</param>
-        /// <param name="nipE">Initial value of the NipE property.</param>
-        /// <param name="dowOsobisty">Initial value of the DowOsobisty property.</param>
-        /// <param name="dowGdzie">Initial value of the DowGdzie property.</param>
-        /// <param name="dowKto">Initial value of the DowKto property.</param>
-        /// <param name="paszport">Initial value of the Paszport property.</param>
-        /// <param name="wyksztalcenieId">Initial value of the WyksztalcenieId property.</param>
-        /// <param name="kodKasyChorych">Initial value of the KodKasyChorych property.</param>
-        /// <param name="isActive">Initial value of the IsActive property.</param>
-        public static Pracownik CreatePracownik(global::System.Int32 id, global::System.Byte typPracownika, global::System.String nazwisko, global::System.String imie1, global::System.String pesel, global::System.Int32 rodzajZatrudnienia, global::System.DateTime dataOd, global::System.DateTime dataDo, global::System.String rachunekNr, global::System.Int16 iBAN, global::System.Byte zestCzasuPracy, global::System.Byte wypNaKonto, global::System.String nrwAktach, global::System.String nazwRodowe, global::System.String imie2, global::System.String imieOjca, global::System.String imieMatki, global::System.String nazwRodoweM, global::System.String miejsceUr, global::System.String obywatelstwo, global::System.String plec, global::System.String stanCywilny, global::System.Int32 krajId, global::System.Int32 wojewodztwoId, global::System.Int32 powiatId, global::System.Int32 gminaId, global::System.String mLDUlica, global::System.String mLDNrDomu, global::System.String mLDNrLokalu, global::System.Int32 miastoId, global::System.String mLDKodPocztowy, global::System.String mLDPoczta, global::System.String mLDAdres2, global::System.Int32 mLDGminaKod, global::System.String hDKTelefon1, global::System.String hDKTelefon2, global::System.String nipKraj, global::System.String nipE, global::System.String dowOsobisty, global::System.String dowGdzie, global::System.String dowKto, global::System.String paszport, global::System.Int32 wyksztalcenieId, global::System.String kodKasyChorych, global::System.Boolean isActive)
+        /// <param name="imie">Initial value of the Imie property.</param>
+        public static Pracownik CreatePracownik(global::System.Int32 id, global::System.String nazwisko, global::System.String imie)
         {
             Pracownik pracownik = new Pracownik();
             pracownik.Id = id;
-            pracownik.TypPracownika = typPracownika;
             pracownik.Nazwisko = nazwisko;
-            pracownik.Imie1 = imie1;
-            pracownik.Pesel = pesel;
-            pracownik.RodzajZatrudnienia = rodzajZatrudnienia;
-            pracownik.DataOd = dataOd;
-            pracownik.DataDo = dataDo;
-            pracownik.RachunekNr = rachunekNr;
-            pracownik.IBAN = iBAN;
-            pracownik.ZestCzasuPracy = zestCzasuPracy;
-            pracownik.WypNaKonto = wypNaKonto;
-            pracownik.NrwAktach = nrwAktach;
-            pracownik.NazwRodowe = nazwRodowe;
-            pracownik.Imie2 = imie2;
-            pracownik.ImieOjca = imieOjca;
-            pracownik.ImieMatki = imieMatki;
-            pracownik.NazwRodoweM = nazwRodoweM;
-            pracownik.MiejsceUr = miejsceUr;
-            pracownik.Obywatelstwo = obywatelstwo;
-            pracownik.Plec = plec;
-            pracownik.StanCywilny = stanCywilny;
-            pracownik.KrajId = krajId;
-            pracownik.WojewodztwoId = wojewodztwoId;
-            pracownik.PowiatId = powiatId;
-            pracownik.GminaId = gminaId;
-            pracownik.MLDUlica = mLDUlica;
-            pracownik.MLDNrDomu = mLDNrDomu;
-            pracownik.MLDNrLokalu = mLDNrLokalu;
-            pracownik.MiastoId = miastoId;
-            pracownik.MLDKodPocztowy = mLDKodPocztowy;
-            pracownik.MLDPoczta = mLDPoczta;
-            pracownik.MLDAdres2 = mLDAdres2;
-            pracownik.MLDGminaKod = mLDGminaKod;
-            pracownik.HDKTelefon1 = hDKTelefon1;
-            pracownik.HDKTelefon2 = hDKTelefon2;
-            pracownik.NipKraj = nipKraj;
-            pracownik.NipE = nipE;
-            pracownik.DowOsobisty = dowOsobisty;
-            pracownik.DowGdzie = dowGdzie;
-            pracownik.DowKto = dowKto;
-            pracownik.Paszport = paszport;
-            pracownik.WyksztalcenieId = wyksztalcenieId;
-            pracownik.KodKasyChorych = kodKasyChorych;
-            pracownik.IsActive = isActive;
+            pracownik.Imie = imie;
             return pracownik;
         }
 
@@ -6609,9 +6614,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte TypPracownika
+        public Nullable<global::System.Byte> TypPracownika
         {
             get
             {
@@ -6626,8 +6631,8 @@ namespace Firma.Models.Entities
                 OnTypPracownikaChanged();
             }
         }
-        private global::System.Byte _TypPracownika;
-        partial void OnTypPracownikaChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _TypPracownika;
+        partial void OnTypPracownikaChanging(Nullable<global::System.Byte> value);
         partial void OnTypPracownikaChanged();
     
         /// <summary>
@@ -6659,29 +6664,29 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Imie1
+        public global::System.String Imie
         {
             get
             {
-                return _Imie1;
+                return _Imie;
             }
             set
             {
-                OnImie1Changing(value);
-                ReportPropertyChanging("Imie1");
-                _Imie1 = StructuralObject.SetValidValue(value, false, "Imie1");
-                ReportPropertyChanged("Imie1");
-                OnImie1Changed();
+                OnImieChanging(value);
+                ReportPropertyChanging("Imie");
+                _Imie = StructuralObject.SetValidValue(value, false, "Imie");
+                ReportPropertyChanged("Imie");
+                OnImieChanged();
             }
         }
-        private global::System.String _Imie1;
-        partial void OnImie1Changing(global::System.String value);
-        partial void OnImie1Changed();
+        private global::System.String _Imie;
+        partial void OnImieChanging(global::System.String value);
+        partial void OnImieChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Pesel
         {
@@ -6693,7 +6698,7 @@ namespace Firma.Models.Entities
             {
                 OnPeselChanging(value);
                 ReportPropertyChanging("Pesel");
-                _Pesel = StructuralObject.SetValidValue(value, false, "Pesel");
+                _Pesel = StructuralObject.SetValidValue(value, true, "Pesel");
                 ReportPropertyChanged("Pesel");
                 OnPeselChanged();
             }
@@ -6705,9 +6710,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 RodzajZatrudnienia
+        public Nullable<global::System.Int32> RodzajZatrudnienia
         {
             get
             {
@@ -6722,16 +6727,16 @@ namespace Firma.Models.Entities
                 OnRodzajZatrudnieniaChanged();
             }
         }
-        private global::System.Int32 _RodzajZatrudnienia;
-        partial void OnRodzajZatrudnieniaChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _RodzajZatrudnienia;
+        partial void OnRodzajZatrudnieniaChanging(Nullable<global::System.Int32> value);
         partial void OnRodzajZatrudnieniaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataOd
+        public Nullable<global::System.DateTime> DataOd
         {
             get
             {
@@ -6746,16 +6751,16 @@ namespace Firma.Models.Entities
                 OnDataOdChanged();
             }
         }
-        private global::System.DateTime _DataOd;
-        partial void OnDataOdChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _DataOd;
+        partial void OnDataOdChanging(Nullable<global::System.DateTime> value);
         partial void OnDataOdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime DataDo
+        public Nullable<global::System.DateTime> DataDo
         {
             get
             {
@@ -6770,8 +6775,8 @@ namespace Firma.Models.Entities
                 OnDataDoChanged();
             }
         }
-        private global::System.DateTime _DataDo;
-        partial void OnDataDoChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _DataDo;
+        partial void OnDataDoChanging(Nullable<global::System.DateTime> value);
         partial void OnDataDoChanged();
     
         /// <summary>
@@ -6825,7 +6830,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String RachunekNr
         {
@@ -6837,7 +6842,7 @@ namespace Firma.Models.Entities
             {
                 OnRachunekNrChanging(value);
                 ReportPropertyChanging("RachunekNr");
-                _RachunekNr = StructuralObject.SetValidValue(value, false, "RachunekNr");
+                _RachunekNr = StructuralObject.SetValidValue(value, true, "RachunekNr");
                 ReportPropertyChanged("RachunekNr");
                 OnRachunekNrChanged();
             }
@@ -6849,9 +6854,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int16 IBAN
+        public Nullable<global::System.Int16> IBAN
         {
             get
             {
@@ -6866,40 +6871,16 @@ namespace Firma.Models.Entities
                 OnIBANChanged();
             }
         }
-        private global::System.Int16 _IBAN;
-        partial void OnIBANChanging(global::System.Int16 value);
+        private Nullable<global::System.Int16> _IBAN;
+        partial void OnIBANChanging(Nullable<global::System.Int16> value);
         partial void OnIBANChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte ZestCzasuPracy
-        {
-            get
-            {
-                return _ZestCzasuPracy;
-            }
-            set
-            {
-                OnZestCzasuPracyChanging(value);
-                ReportPropertyChanging("ZestCzasuPracy");
-                _ZestCzasuPracy = StructuralObject.SetValidValue(value, "ZestCzasuPracy");
-                ReportPropertyChanged("ZestCzasuPracy");
-                OnZestCzasuPracyChanged();
-            }
-        }
-        private global::System.Byte _ZestCzasuPracy;
-        partial void OnZestCzasuPracyChanging(global::System.Byte value);
-        partial void OnZestCzasuPracyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte WypNaKonto
+        public Nullable<global::System.Byte> WypNaKonto
         {
             get
             {
@@ -6914,38 +6895,14 @@ namespace Firma.Models.Entities
                 OnWypNaKontoChanged();
             }
         }
-        private global::System.Byte _WypNaKonto;
-        partial void OnWypNaKontoChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _WypNaKonto;
+        partial void OnWypNaKontoChanging(Nullable<global::System.Byte> value);
         partial void OnWypNaKontoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NrwAktach
-        {
-            get
-            {
-                return _NrwAktach;
-            }
-            set
-            {
-                OnNrwAktachChanging(value);
-                ReportPropertyChanging("NrwAktach");
-                _NrwAktach = StructuralObject.SetValidValue(value, false, "NrwAktach");
-                ReportPropertyChanged("NrwAktach");
-                OnNrwAktachChanged();
-            }
-        }
-        private global::System.String _NrwAktach;
-        partial void OnNrwAktachChanging(global::System.String value);
-        partial void OnNrwAktachChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NazwRodowe
         {
@@ -6957,7 +6914,7 @@ namespace Firma.Models.Entities
             {
                 OnNazwRodoweChanging(value);
                 ReportPropertyChanging("NazwRodowe");
-                _NazwRodowe = StructuralObject.SetValidValue(value, false, "NazwRodowe");
+                _NazwRodowe = StructuralObject.SetValidValue(value, true, "NazwRodowe");
                 ReportPropertyChanged("NazwRodowe");
                 OnNazwRodoweChanged();
             }
@@ -6969,31 +6926,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Imie2
-        {
-            get
-            {
-                return _Imie2;
-            }
-            set
-            {
-                OnImie2Changing(value);
-                ReportPropertyChanging("Imie2");
-                _Imie2 = StructuralObject.SetValidValue(value, false, "Imie2");
-                ReportPropertyChanged("Imie2");
-                OnImie2Changed();
-            }
-        }
-        private global::System.String _Imie2;
-        partial void OnImie2Changing(global::System.String value);
-        partial void OnImie2Changed();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ImieOjca
         {
@@ -7005,7 +6938,7 @@ namespace Firma.Models.Entities
             {
                 OnImieOjcaChanging(value);
                 ReportPropertyChanging("ImieOjca");
-                _ImieOjca = StructuralObject.SetValidValue(value, false, "ImieOjca");
+                _ImieOjca = StructuralObject.SetValidValue(value, true, "ImieOjca");
                 ReportPropertyChanged("ImieOjca");
                 OnImieOjcaChanged();
             }
@@ -7017,7 +6950,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ImieMatki
         {
@@ -7029,7 +6962,7 @@ namespace Firma.Models.Entities
             {
                 OnImieMatkiChanging(value);
                 ReportPropertyChanging("ImieMatki");
-                _ImieMatki = StructuralObject.SetValidValue(value, false, "ImieMatki");
+                _ImieMatki = StructuralObject.SetValidValue(value, true, "ImieMatki");
                 ReportPropertyChanged("ImieMatki");
                 OnImieMatkiChanged();
             }
@@ -7041,7 +6974,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NazwRodoweM
         {
@@ -7053,7 +6986,7 @@ namespace Firma.Models.Entities
             {
                 OnNazwRodoweMChanging(value);
                 ReportPropertyChanging("NazwRodoweM");
-                _NazwRodoweM = StructuralObject.SetValidValue(value, false, "NazwRodoweM");
+                _NazwRodoweM = StructuralObject.SetValidValue(value, true, "NazwRodoweM");
                 ReportPropertyChanged("NazwRodoweM");
                 OnNazwRodoweMChanged();
             }
@@ -7089,7 +7022,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MiejsceUr
         {
@@ -7101,7 +7034,7 @@ namespace Firma.Models.Entities
             {
                 OnMiejsceUrChanging(value);
                 ReportPropertyChanging("MiejsceUr");
-                _MiejsceUr = StructuralObject.SetValidValue(value, false, "MiejsceUr");
+                _MiejsceUr = StructuralObject.SetValidValue(value, true, "MiejsceUr");
                 ReportPropertyChanged("MiejsceUr");
                 OnMiejsceUrChanged();
             }
@@ -7113,7 +7046,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Obywatelstwo
         {
@@ -7125,7 +7058,7 @@ namespace Firma.Models.Entities
             {
                 OnObywatelstwoChanging(value);
                 ReportPropertyChanging("Obywatelstwo");
-                _Obywatelstwo = StructuralObject.SetValidValue(value, false, "Obywatelstwo");
+                _Obywatelstwo = StructuralObject.SetValidValue(value, true, "Obywatelstwo");
                 ReportPropertyChanged("Obywatelstwo");
                 OnObywatelstwoChanged();
             }
@@ -7137,7 +7070,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Plec
         {
@@ -7149,7 +7082,7 @@ namespace Firma.Models.Entities
             {
                 OnPlecChanging(value);
                 ReportPropertyChanging("Plec");
-                _Plec = StructuralObject.SetValidValue(value, false, "Plec");
+                _Plec = StructuralObject.SetValidValue(value, true, "Plec");
                 ReportPropertyChanged("Plec");
                 OnPlecChanged();
             }
@@ -7161,7 +7094,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String StanCywilny
         {
@@ -7173,7 +7106,7 @@ namespace Firma.Models.Entities
             {
                 OnStanCywilnyChanging(value);
                 ReportPropertyChanging("StanCywilny");
-                _StanCywilny = StructuralObject.SetValidValue(value, false, "StanCywilny");
+                _StanCywilny = StructuralObject.SetValidValue(value, true, "StanCywilny");
                 ReportPropertyChanged("StanCywilny");
                 OnStanCywilnyChanged();
             }
@@ -7185,9 +7118,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 KrajId
+        public Nullable<global::System.Int32> KrajId
         {
             get
             {
@@ -7202,16 +7135,16 @@ namespace Firma.Models.Entities
                 OnKrajIdChanged();
             }
         }
-        private global::System.Int32 _KrajId;
-        partial void OnKrajIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _KrajId;
+        partial void OnKrajIdChanging(Nullable<global::System.Int32> value);
         partial void OnKrajIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 WojewodztwoId
+        public Nullable<global::System.Int32> WojewodztwoId
         {
             get
             {
@@ -7226,16 +7159,16 @@ namespace Firma.Models.Entities
                 OnWojewodztwoIdChanged();
             }
         }
-        private global::System.Int32 _WojewodztwoId;
-        partial void OnWojewodztwoIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _WojewodztwoId;
+        partial void OnWojewodztwoIdChanging(Nullable<global::System.Int32> value);
         partial void OnWojewodztwoIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 PowiatId
+        public Nullable<global::System.Int32> PowiatId
         {
             get
             {
@@ -7250,16 +7183,16 @@ namespace Firma.Models.Entities
                 OnPowiatIdChanged();
             }
         }
-        private global::System.Int32 _PowiatId;
-        partial void OnPowiatIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _PowiatId;
+        partial void OnPowiatIdChanging(Nullable<global::System.Int32> value);
         partial void OnPowiatIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 GminaId
+        public Nullable<global::System.Int32> GminaId
         {
             get
             {
@@ -7274,14 +7207,14 @@ namespace Firma.Models.Entities
                 OnGminaIdChanged();
             }
         }
-        private global::System.Int32 _GminaId;
-        partial void OnGminaIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _GminaId;
+        partial void OnGminaIdChanging(Nullable<global::System.Int32> value);
         partial void OnGminaIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDUlica
         {
@@ -7293,7 +7226,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDUlicaChanging(value);
                 ReportPropertyChanging("MLDUlica");
-                _MLDUlica = StructuralObject.SetValidValue(value, false, "MLDUlica");
+                _MLDUlica = StructuralObject.SetValidValue(value, true, "MLDUlica");
                 ReportPropertyChanged("MLDUlica");
                 OnMLDUlicaChanged();
             }
@@ -7305,7 +7238,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDNrDomu
         {
@@ -7317,7 +7250,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDNrDomuChanging(value);
                 ReportPropertyChanging("MLDNrDomu");
-                _MLDNrDomu = StructuralObject.SetValidValue(value, false, "MLDNrDomu");
+                _MLDNrDomu = StructuralObject.SetValidValue(value, true, "MLDNrDomu");
                 ReportPropertyChanged("MLDNrDomu");
                 OnMLDNrDomuChanged();
             }
@@ -7329,7 +7262,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDNrLokalu
         {
@@ -7341,7 +7274,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDNrLokaluChanging(value);
                 ReportPropertyChanging("MLDNrLokalu");
-                _MLDNrLokalu = StructuralObject.SetValidValue(value, false, "MLDNrLokalu");
+                _MLDNrLokalu = StructuralObject.SetValidValue(value, true, "MLDNrLokalu");
                 ReportPropertyChanged("MLDNrLokalu");
                 OnMLDNrLokaluChanged();
             }
@@ -7353,9 +7286,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 MiastoId
+        public Nullable<global::System.Int32> MiastoId
         {
             get
             {
@@ -7370,14 +7303,14 @@ namespace Firma.Models.Entities
                 OnMiastoIdChanged();
             }
         }
-        private global::System.Int32 _MiastoId;
-        partial void OnMiastoIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _MiastoId;
+        partial void OnMiastoIdChanging(Nullable<global::System.Int32> value);
         partial void OnMiastoIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDKodPocztowy
         {
@@ -7389,7 +7322,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDKodPocztowyChanging(value);
                 ReportPropertyChanging("MLDKodPocztowy");
-                _MLDKodPocztowy = StructuralObject.SetValidValue(value, false, "MLDKodPocztowy");
+                _MLDKodPocztowy = StructuralObject.SetValidValue(value, true, "MLDKodPocztowy");
                 ReportPropertyChanged("MLDKodPocztowy");
                 OnMLDKodPocztowyChanged();
             }
@@ -7401,7 +7334,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDPoczta
         {
@@ -7413,7 +7346,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDPocztaChanging(value);
                 ReportPropertyChanging("MLDPoczta");
-                _MLDPoczta = StructuralObject.SetValidValue(value, false, "MLDPoczta");
+                _MLDPoczta = StructuralObject.SetValidValue(value, true, "MLDPoczta");
                 ReportPropertyChanged("MLDPoczta");
                 OnMLDPocztaChanged();
             }
@@ -7425,7 +7358,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MLDAdres2
         {
@@ -7437,7 +7370,7 @@ namespace Firma.Models.Entities
             {
                 OnMLDAdres2Changing(value);
                 ReportPropertyChanging("MLDAdres2");
-                _MLDAdres2 = StructuralObject.SetValidValue(value, false, "MLDAdres2");
+                _MLDAdres2 = StructuralObject.SetValidValue(value, true, "MLDAdres2");
                 ReportPropertyChanged("MLDAdres2");
                 OnMLDAdres2Changed();
             }
@@ -7449,9 +7382,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 MLDGminaKod
+        public Nullable<global::System.Int32> MLDGminaKod
         {
             get
             {
@@ -7466,62 +7399,14 @@ namespace Firma.Models.Entities
                 OnMLDGminaKodChanged();
             }
         }
-        private global::System.Int32 _MLDGminaKod;
-        partial void OnMLDGminaKodChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _MLDGminaKod;
+        partial void OnMLDGminaKodChanging(Nullable<global::System.Int32> value);
         partial void OnMLDGminaKodChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String HDKTelefon1
-        {
-            get
-            {
-                return _HDKTelefon1;
-            }
-            set
-            {
-                OnHDKTelefon1Changing(value);
-                ReportPropertyChanging("HDKTelefon1");
-                _HDKTelefon1 = StructuralObject.SetValidValue(value, false, "HDKTelefon1");
-                ReportPropertyChanged("HDKTelefon1");
-                OnHDKTelefon1Changed();
-            }
-        }
-        private global::System.String _HDKTelefon1;
-        partial void OnHDKTelefon1Changing(global::System.String value);
-        partial void OnHDKTelefon1Changed();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String HDKTelefon2
-        {
-            get
-            {
-                return _HDKTelefon2;
-            }
-            set
-            {
-                OnHDKTelefon2Changing(value);
-                ReportPropertyChanging("HDKTelefon2");
-                _HDKTelefon2 = StructuralObject.SetValidValue(value, false, "HDKTelefon2");
-                ReportPropertyChanged("HDKTelefon2");
-                OnHDKTelefon2Changed();
-            }
-        }
-        private global::System.String _HDKTelefon2;
-        partial void OnHDKTelefon2Changing(global::System.String value);
-        partial void OnHDKTelefon2Changed();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NipKraj
         {
@@ -7533,7 +7418,7 @@ namespace Firma.Models.Entities
             {
                 OnNipKrajChanging(value);
                 ReportPropertyChanging("NipKraj");
-                _NipKraj = StructuralObject.SetValidValue(value, false, "NipKraj");
+                _NipKraj = StructuralObject.SetValidValue(value, true, "NipKraj");
                 ReportPropertyChanged("NipKraj");
                 OnNipKrajChanged();
             }
@@ -7545,7 +7430,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NipE
         {
@@ -7557,7 +7442,7 @@ namespace Firma.Models.Entities
             {
                 OnNipEChanging(value);
                 ReportPropertyChanging("NipE");
-                _NipE = StructuralObject.SetValidValue(value, false, "NipE");
+                _NipE = StructuralObject.SetValidValue(value, true, "NipE");
                 ReportPropertyChanged("NipE");
                 OnNipEChanged();
             }
@@ -7569,7 +7454,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DowOsobisty
         {
@@ -7581,7 +7466,7 @@ namespace Firma.Models.Entities
             {
                 OnDowOsobistyChanging(value);
                 ReportPropertyChanging("DowOsobisty");
-                _DowOsobisty = StructuralObject.SetValidValue(value, false, "DowOsobisty");
+                _DowOsobisty = StructuralObject.SetValidValue(value, true, "DowOsobisty");
                 ReportPropertyChanged("DowOsobisty");
                 OnDowOsobistyChanged();
             }
@@ -7593,7 +7478,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DowGdzie
         {
@@ -7605,7 +7490,7 @@ namespace Firma.Models.Entities
             {
                 OnDowGdzieChanging(value);
                 ReportPropertyChanging("DowGdzie");
-                _DowGdzie = StructuralObject.SetValidValue(value, false, "DowGdzie");
+                _DowGdzie = StructuralObject.SetValidValue(value, true, "DowGdzie");
                 ReportPropertyChanged("DowGdzie");
                 OnDowGdzieChanged();
             }
@@ -7665,7 +7550,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DowKto
         {
@@ -7677,7 +7562,7 @@ namespace Firma.Models.Entities
             {
                 OnDowKtoChanging(value);
                 ReportPropertyChanging("DowKto");
-                _DowKto = StructuralObject.SetValidValue(value, false, "DowKto");
+                _DowKto = StructuralObject.SetValidValue(value, true, "DowKto");
                 ReportPropertyChanged("DowKto");
                 OnDowKtoChanged();
             }
@@ -7689,7 +7574,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Paszport
         {
@@ -7701,7 +7586,7 @@ namespace Firma.Models.Entities
             {
                 OnPaszportChanging(value);
                 ReportPropertyChanging("Paszport");
-                _Paszport = StructuralObject.SetValidValue(value, false, "Paszport");
+                _Paszport = StructuralObject.SetValidValue(value, true, "Paszport");
                 ReportPropertyChanged("Paszport");
                 OnPaszportChanged();
             }
@@ -7713,9 +7598,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 WyksztalcenieId
+        public Nullable<global::System.Int32> WyksztalcenieId
         {
             get
             {
@@ -7730,14 +7615,14 @@ namespace Firma.Models.Entities
                 OnWyksztalcenieIdChanged();
             }
         }
-        private global::System.Int32 _WyksztalcenieId;
-        partial void OnWyksztalcenieIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _WyksztalcenieId;
+        partial void OnWyksztalcenieIdChanging(Nullable<global::System.Int32> value);
         partial void OnWyksztalcenieIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String KodKasyChorych
         {
@@ -7749,7 +7634,7 @@ namespace Firma.Models.Entities
             {
                 OnKodKasyChorychChanging(value);
                 ReportPropertyChanging("KodKasyChorych");
-                _KodKasyChorych = StructuralObject.SetValidValue(value, false, "KodKasyChorych");
+                _KodKasyChorych = StructuralObject.SetValidValue(value, true, "KodKasyChorych");
                 ReportPropertyChanged("KodKasyChorych");
                 OnKodKasyChorychChanged();
             }
@@ -7833,9 +7718,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Boolean IsActive
+        public Nullable<global::System.Boolean> IsActive
         {
             get
             {
@@ -7850,8 +7735,8 @@ namespace Firma.Models.Entities
                 OnIsActiveChanged();
             }
         }
-        private global::System.Boolean _IsActive;
-        partial void OnIsActiveChanging(global::System.Boolean value);
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
         partial void OnIsActiveChanged();
 
         #endregion
@@ -8779,6 +8664,162 @@ namespace Firma.Models.Entities
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="sysdiagrams")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class sysdiagrams : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new sysdiagrams object.
+        /// </summary>
+        /// <param name="name">Initial value of the name property.</param>
+        /// <param name="principal_id">Initial value of the principal_id property.</param>
+        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
+        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        {
+            sysdiagrams sysdiagrams = new sysdiagrams();
+            sysdiagrams.name = name;
+            sysdiagrams.principal_id = principal_id;
+            sysdiagrams.diagram_id = diagram_id;
+            return sysdiagrams;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 principal_id
+        {
+            get
+            {
+                return _principal_id;
+            }
+            set
+            {
+                Onprincipal_idChanging(value);
+                ReportPropertyChanging("principal_id");
+                _principal_id = StructuralObject.SetValidValue(value, "principal_id");
+                ReportPropertyChanged("principal_id");
+                Onprincipal_idChanged();
+            }
+        }
+        private global::System.Int32 _principal_id;
+        partial void Onprincipal_idChanging(global::System.Int32 value);
+        partial void Onprincipal_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 diagram_id
+        {
+            get
+            {
+                return _diagram_id;
+            }
+            set
+            {
+                if (_diagram_id != value)
+                {
+                    Ondiagram_idChanging(value);
+                    ReportPropertyChanging("diagram_id");
+                    _diagram_id = StructuralObject.SetValidValue(value, "diagram_id");
+                    ReportPropertyChanged("diagram_id");
+                    Ondiagram_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _diagram_id;
+        partial void Ondiagram_idChanging(global::System.Int32 value);
+        partial void Ondiagram_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value, "version");
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _version;
+        partial void OnversionChanging(Nullable<global::System.Int32> value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] definition
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_definition);
+            }
+            set
+            {
+                OndefinitionChanging(value);
+                ReportPropertyChanging("definition");
+                _definition = StructuralObject.SetValidValue(value, true, "definition");
+                ReportPropertyChanged("definition");
+                OndefinitionChanged();
+            }
+        }
+        private global::System.Byte[] _definition;
+        partial void OndefinitionChanging(global::System.Byte[] value);
+        partial void OndefinitionChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Towar")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -8790,52 +8831,10 @@ namespace Firma.Models.Entities
         /// Create a new Towar object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="numerKat">Initial value of the NumerKat property.</param>
-        /// <param name="nazwa">Initial value of the Nazwa property.</param>
-        /// <param name="uRL">Initial value of the URL property.</param>
-        /// <param name="opis">Initial value of the Opis property.</param>
-        /// <param name="jM">Initial value of the JM property.</param>
-        /// <param name="waluta">Initial value of the Waluta property.</param>
-        /// <param name="cena">Initial value of the Cena property.</param>
-        /// <param name="producentId">Initial value of the ProducentId property.</param>
-        /// <param name="iloscMin">Initial value of the IloscMin property.</param>
-        /// <param name="iloscMinJM">Initial value of the IloscMinJM property.</param>
-        /// <param name="iloscMax">Initial value of the IloscMax property.</param>
-        /// <param name="iloscMaxJM">Initial value of the IloscMaxJM property.</param>
-        /// <param name="ilosc">Initial value of the Ilosc property.</param>
-        /// <param name="iloscZamJM">Initial value of the IloscZamJM property.</param>
-        /// <param name="stawkaVatSprzedazy">Initial value of the StawkaVatSprzedazy property.</param>
-        /// <param name="prog">Initial value of the Prog property.</param>
-        /// <param name="marza">Initial value of the Marza property.</param>
-        /// <param name="isActive">Initial value of the IsActive property.</param>
-        /// <param name="masa">Initial value of the Masa property.</param>
-        /// <param name="krajPochodzenia">Initial value of the KrajPochodzenia property.</param>
-        /// <param name="splitPay">Initial value of the SplitPay property.</param>
-        public static Towar CreateTowar(global::System.Int32 id, global::System.String numerKat, global::System.String nazwa, global::System.String uRL, global::System.String opis, global::System.String jM, global::System.String waluta, global::System.Decimal cena, global::System.Int32 producentId, global::System.Decimal iloscMin, global::System.String iloscMinJM, global::System.Decimal iloscMax, global::System.String iloscMaxJM, global::System.Decimal ilosc, global::System.String iloscZamJM, global::System.Decimal stawkaVatSprzedazy, global::System.Byte prog, global::System.Decimal marza, global::System.Boolean isActive, global::System.Decimal masa, global::System.String krajPochodzenia, global::System.Byte splitPay)
+        public static Towar CreateTowar(global::System.Int32 id)
         {
             Towar towar = new Towar();
             towar.Id = id;
-            towar.NumerKat = numerKat;
-            towar.Nazwa = nazwa;
-            towar.URL = uRL;
-            towar.Opis = opis;
-            towar.JM = jM;
-            towar.Waluta = waluta;
-            towar.Cena = cena;
-            towar.ProducentId = producentId;
-            towar.IloscMin = iloscMin;
-            towar.IloscMinJM = iloscMinJM;
-            towar.IloscMax = iloscMax;
-            towar.IloscMaxJM = iloscMaxJM;
-            towar.Ilosc = ilosc;
-            towar.IloscZamJM = iloscZamJM;
-            towar.StawkaVatSprzedazy = stawkaVatSprzedazy;
-            towar.Prog = prog;
-            towar.Marza = marza;
-            towar.IsActive = isActive;
-            towar.Masa = masa;
-            towar.KrajPochodzenia = krajPochodzenia;
-            towar.SplitPay = splitPay;
             return towar;
         }
 
@@ -8875,7 +8874,7 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Kod
+        public global::System.String Kod
         {
             get
             {
@@ -8885,19 +8884,19 @@ namespace Firma.Models.Entities
             {
                 OnKodChanging(value);
                 ReportPropertyChanging("Kod");
-                _Kod = StructuralObject.SetValidValue(value, "Kod");
+                _Kod = StructuralObject.SetValidValue(value, true, "Kod");
                 ReportPropertyChanged("Kod");
                 OnKodChanged();
             }
         }
-        private Nullable<global::System.Int32> _Kod;
-        partial void OnKodChanging(Nullable<global::System.Int32> value);
+        private global::System.String _Kod;
+        partial void OnKodChanging(global::System.String value);
         partial void OnKodChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NumerKat
         {
@@ -8909,7 +8908,7 @@ namespace Firma.Models.Entities
             {
                 OnNumerKatChanging(value);
                 ReportPropertyChanging("NumerKat");
-                _NumerKat = StructuralObject.SetValidValue(value, false, "NumerKat");
+                _NumerKat = StructuralObject.SetValidValue(value, true, "NumerKat");
                 ReportPropertyChanged("NumerKat");
                 OnNumerKatChanged();
             }
@@ -8921,7 +8920,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Nazwa
         {
@@ -8933,7 +8932,7 @@ namespace Firma.Models.Entities
             {
                 OnNazwaChanging(value);
                 ReportPropertyChanging("Nazwa");
-                _Nazwa = StructuralObject.SetValidValue(value, false, "Nazwa");
+                _Nazwa = StructuralObject.SetValidValue(value, true, "Nazwa");
                 ReportPropertyChanged("Nazwa");
                 OnNazwaChanged();
             }
@@ -8945,7 +8944,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String URL
         {
@@ -8957,7 +8956,7 @@ namespace Firma.Models.Entities
             {
                 OnURLChanging(value);
                 ReportPropertyChanging("URL");
-                _URL = StructuralObject.SetValidValue(value, false, "URL");
+                _URL = StructuralObject.SetValidValue(value, true, "URL");
                 ReportPropertyChanged("URL");
                 OnURLChanged();
             }
@@ -8993,7 +8992,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Opis
         {
@@ -9005,7 +9004,7 @@ namespace Firma.Models.Entities
             {
                 OnOpisChanging(value);
                 ReportPropertyChanging("Opis");
-                _Opis = StructuralObject.SetValidValue(value, false, "Opis");
+                _Opis = StructuralObject.SetValidValue(value, true, "Opis");
                 ReportPropertyChanged("Opis");
                 OnOpisChanged();
             }
@@ -9017,7 +9016,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String JM
         {
@@ -9029,7 +9028,7 @@ namespace Firma.Models.Entities
             {
                 OnJMChanging(value);
                 ReportPropertyChanging("JM");
-                _JM = StructuralObject.SetValidValue(value, false, "JM");
+                _JM = StructuralObject.SetValidValue(value, true, "JM");
                 ReportPropertyChanged("JM");
                 OnJMChanged();
             }
@@ -9065,7 +9064,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Waluta
         {
@@ -9077,7 +9076,7 @@ namespace Firma.Models.Entities
             {
                 OnWalutaChanging(value);
                 ReportPropertyChanging("Waluta");
-                _Waluta = StructuralObject.SetValidValue(value, false, "Waluta");
+                _Waluta = StructuralObject.SetValidValue(value, true, "Waluta");
                 ReportPropertyChanged("Waluta");
                 OnWalutaChanged();
             }
@@ -9089,9 +9088,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal Cena
+        public Nullable<global::System.Decimal> Cena
         {
             get
             {
@@ -9106,8 +9105,8 @@ namespace Firma.Models.Entities
                 OnCenaChanged();
             }
         }
-        private global::System.Decimal _Cena;
-        partial void OnCenaChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _Cena;
+        partial void OnCenaChanging(Nullable<global::System.Decimal> value);
         partial void OnCenaChanged();
     
         /// <summary>
@@ -9137,9 +9136,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 ProducentId
+        public Nullable<global::System.Int32> ProducentId
         {
             get
             {
@@ -9154,16 +9153,16 @@ namespace Firma.Models.Entities
                 OnProducentIdChanged();
             }
         }
-        private global::System.Int32 _ProducentId;
-        partial void OnProducentIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _ProducentId;
+        partial void OnProducentIdChanging(Nullable<global::System.Int32> value);
         partial void OnProducentIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal IloscMin
+        public Nullable<global::System.Decimal> IloscMin
         {
             get
             {
@@ -9178,14 +9177,14 @@ namespace Firma.Models.Entities
                 OnIloscMinChanged();
             }
         }
-        private global::System.Decimal _IloscMin;
-        partial void OnIloscMinChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _IloscMin;
+        partial void OnIloscMinChanging(Nullable<global::System.Decimal> value);
         partial void OnIloscMinChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String IloscMinJM
         {
@@ -9197,7 +9196,7 @@ namespace Firma.Models.Entities
             {
                 OnIloscMinJMChanging(value);
                 ReportPropertyChanging("IloscMinJM");
-                _IloscMinJM = StructuralObject.SetValidValue(value, false, "IloscMinJM");
+                _IloscMinJM = StructuralObject.SetValidValue(value, true, "IloscMinJM");
                 ReportPropertyChanged("IloscMinJM");
                 OnIloscMinJMChanged();
             }
@@ -9209,9 +9208,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal IloscMax
+        public Nullable<global::System.Decimal> IloscMax
         {
             get
             {
@@ -9226,14 +9225,14 @@ namespace Firma.Models.Entities
                 OnIloscMaxChanged();
             }
         }
-        private global::System.Decimal _IloscMax;
-        partial void OnIloscMaxChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _IloscMax;
+        partial void OnIloscMaxChanging(Nullable<global::System.Decimal> value);
         partial void OnIloscMaxChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String IloscMaxJM
         {
@@ -9245,7 +9244,7 @@ namespace Firma.Models.Entities
             {
                 OnIloscMaxJMChanging(value);
                 ReportPropertyChanging("IloscMaxJM");
-                _IloscMaxJM = StructuralObject.SetValidValue(value, false, "IloscMaxJM");
+                _IloscMaxJM = StructuralObject.SetValidValue(value, true, "IloscMaxJM");
                 ReportPropertyChanged("IloscMaxJM");
                 OnIloscMaxJMChanged();
             }
@@ -9257,9 +9256,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal Ilosc
+        public Nullable<global::System.Decimal> Ilosc
         {
             get
             {
@@ -9274,14 +9273,14 @@ namespace Firma.Models.Entities
                 OnIloscChanged();
             }
         }
-        private global::System.Decimal _Ilosc;
-        partial void OnIloscChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _Ilosc;
+        partial void OnIloscChanging(Nullable<global::System.Decimal> value);
         partial void OnIloscChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String IloscZamJM
         {
@@ -9293,7 +9292,7 @@ namespace Firma.Models.Entities
             {
                 OnIloscZamJMChanging(value);
                 ReportPropertyChanging("IloscZamJM");
-                _IloscZamJM = StructuralObject.SetValidValue(value, false, "IloscZamJM");
+                _IloscZamJM = StructuralObject.SetValidValue(value, true, "IloscZamJM");
                 ReportPropertyChanged("IloscZamJM");
                 OnIloscZamJMChanged();
             }
@@ -9305,9 +9304,9 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal StawkaVatSprzedazy
+        public Nullable<global::System.Decimal> StawkaVatSprzedazy
         {
             get
             {
@@ -9322,33 +9321,9 @@ namespace Firma.Models.Entities
                 OnStawkaVatSprzedazyChanged();
             }
         }
-        private global::System.Decimal _StawkaVatSprzedazy;
-        partial void OnStawkaVatSprzedazyChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _StawkaVatSprzedazy;
+        partial void OnStawkaVatSprzedazyChanging(Nullable<global::System.Decimal> value);
         partial void OnStawkaVatSprzedazyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte Prog
-        {
-            get
-            {
-                return _Prog;
-            }
-            set
-            {
-                OnProgChanging(value);
-                ReportPropertyChanging("Prog");
-                _Prog = StructuralObject.SetValidValue(value, "Prog");
-                ReportPropertyChanged("Prog");
-                OnProgChanged();
-            }
-        }
-        private global::System.Byte _Prog;
-        partial void OnProgChanging(global::System.Byte value);
-        partial void OnProgChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9523,31 +9498,7 @@ namespace Firma.Models.Entities
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Byte> BezRabatu
-        {
-            get
-            {
-                return _BezRabatu;
-            }
-            set
-            {
-                OnBezRabatuChanging(value);
-                ReportPropertyChanging("BezRabatu");
-                _BezRabatu = StructuralObject.SetValidValue(value, "BezRabatu");
-                ReportPropertyChanged("BezRabatu");
-                OnBezRabatuChanged();
-            }
-        }
-        private Nullable<global::System.Byte> _BezRabatu;
-        partial void OnBezRabatuChanging(Nullable<global::System.Byte> value);
-        partial void OnBezRabatuChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Decimal Marza
+        public Nullable<global::System.Decimal> Marza
         {
             get
             {
@@ -9562,16 +9513,16 @@ namespace Firma.Models.Entities
                 OnMarzaChanged();
             }
         }
-        private global::System.Decimal _Marza;
-        partial void OnMarzaChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _Marza;
+        partial void OnMarzaChanging(Nullable<global::System.Decimal> value);
         partial void OnMarzaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Boolean IsActive
+        public Nullable<global::System.Boolean> IsActive
         {
             get
             {
@@ -9586,16 +9537,16 @@ namespace Firma.Models.Entities
                 OnIsActiveChanged();
             }
         }
-        private global::System.Boolean _IsActive;
-        partial void OnIsActiveChanging(global::System.Boolean value);
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
         partial void OnIsActiveChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal Masa
+        public Nullable<global::System.Decimal> Masa
         {
             get
             {
@@ -9610,8 +9561,8 @@ namespace Firma.Models.Entities
                 OnMasaChanged();
             }
         }
-        private global::System.Decimal _Masa;
-        partial void OnMasaChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _Masa;
+        partial void OnMasaChanging(Nullable<global::System.Decimal> value);
         partial void OnMasaChanged();
     
         /// <summary>
@@ -9641,7 +9592,7 @@ namespace Firma.Models.Entities
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String KrajPochodzenia
         {
@@ -9653,7 +9604,7 @@ namespace Firma.Models.Entities
             {
                 OnKrajPochodzeniaChanging(value);
                 ReportPropertyChanging("KrajPochodzenia");
-                _KrajPochodzenia = StructuralObject.SetValidValue(value, false, "KrajPochodzenia");
+                _KrajPochodzenia = StructuralObject.SetValidValue(value, true, "KrajPochodzenia");
                 ReportPropertyChanged("KrajPochodzenia");
                 OnKrajPochodzeniaChanged();
             }
@@ -9661,30 +9612,6 @@ namespace Firma.Models.Entities
         private global::System.String _KrajPochodzenia;
         partial void OnKrajPochodzeniaChanging(global::System.String value);
         partial void OnKrajPochodzeniaChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte SplitPay
-        {
-            get
-            {
-                return _SplitPay;
-            }
-            set
-            {
-                OnSplitPayChanging(value);
-                ReportPropertyChanging("SplitPay");
-                _SplitPay = StructuralObject.SetValidValue(value, "SplitPay");
-                ReportPropertyChanged("SplitPay");
-                OnSplitPayChanged();
-            }
-        }
-        private global::System.Byte _SplitPay;
-        partial void OnSplitPayChanging(global::System.Byte value);
-        partial void OnSplitPayChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

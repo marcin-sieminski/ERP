@@ -6,12 +6,14 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using Firma.Models.Validators;
 
 namespace Firma.ViewModels
 {
-    public class NowaFakturaViewModel : JedenWszystkieViewModel<Faktura, PozycjaFakturyForAllView>
+    public class NowaFakturaViewModel : JedenWszystkieViewModel<Faktura, PozycjaFakturyForAllView>, IDataErrorInfo
     {
         #region Pola i właściwości
         public string Numer 
@@ -126,7 +128,7 @@ namespace Firma.ViewModels
                         Cena = item.Cena,
                         Ilosc = item.Ilosc,
                         Rabat = item.Rabat,
-                        TowarKod = item.Towar.Kod,
+                        TowarKod = item.Towar.Kod.ToString(),
                         TowarNazwa = item.Towar.Nazwa
                     })
                     .ToList()
@@ -134,7 +136,7 @@ namespace Firma.ViewModels
 
             IdSposobuPlatnosci = SposobyPlatnosci.FirstOrDefault()?.IdSposobuPlatnosci;
 
-            Messenger.Default.Register<Kontrahent>(this, PrzypiszKontrahenta);
+            Messenger.Default.Register<KontrahentForAllView>(this, PrzypiszKontrahenta);
 
             Messenger.Default.Register<PozycjaFaktury>(this, PrzypiszPozycjeFaktury);
         }
@@ -151,7 +153,7 @@ namespace Firma.ViewModels
                 Cena = pozycjaFaktury.Cena,
                 Ilosc = pozycjaFaktury.Ilosc,
                 Rabat = pozycjaFaktury.Rabat,
-                TowarKod = towar.Kod,
+                TowarKod = towar.Kod.ToString(),
                 TowarNazwa = towar.Nazwa
             });
         }
@@ -164,9 +166,9 @@ namespace Firma.ViewModels
             Db.SaveChanges();
         }
 
-        private void PrzypiszKontrahenta(Kontrahent kontrahent)
+        private void PrzypiszKontrahenta(KontrahentForAllView kontrahent)
         {
-            DaneKontrahenta = $"{kontrahent.Nazwa} {kontrahent.Nip}";
+            DaneKontrahenta = $"{kontrahent.Nazwa} {kontrahent.NIP}";
             IdKontrahenta = kontrahent.Id;
         }
 
@@ -174,6 +176,31 @@ namespace Firma.ViewModels
         {
             Messenger.Default.Send(WszystkieDisplayName + " Add");
         }
+        #endregion
+
+        #region Walidacja
+        protected override bool IsValid()
+        {
+            return
+                this[nameof(Numer)] == string.Empty &&
+                InvoiceValidator.SprawdzNumerFaktury(Numer) == string.Empty;
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                switch (columnName)
+                {
+                    case nameof(Numer):
+                        return InvoiceValidator.SprawdzNumerFaktury(Numer);
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+        
+        public string Error => string.Empty;
         #endregion
     }
 }

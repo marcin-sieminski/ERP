@@ -1,4 +1,5 @@
-<ResourceDictionary
+<?xml version="1.0" encoding="ISO-8859-2" ?>
+    <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Firma.Views">
@@ -16,10 +17,10 @@
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0" Height="30" Margin="0 2 0 2">
                             <!--Dodanie ikon zamiast nazw!-->
-                            <ToggleButton Content="Dodaj" Margin="0 2 0 2"/>
-                            <ToggleButton Content="Otworz" Margin="0 2 0 2" Command="{Binding OpenCommand}"/>
-                            <ToggleButton Content="Kasuj" Margin="0 2 0 2"/>
-                            <ToggleButton Content="Odswiez" Margin="0 2 0 2"/>
+                            <ToggleButton Content="Dodaj" Margin="0 2 0 2" Command="{Binding AddCommand}"/>
+                            <ToggleButton Content="Otwórz" Margin="0 2 0 2" Command="{Binding OpenCommand}"/>
+                            <ToggleButton Content="Kasuj" Margin="0 2 0 2" Command="{Binding DeleteCommand}"/>
+                            <ToggleButton Content="Odśwież" Margin="0 2 0 2" Command="{Binding RefreshCommand}"/>
                         </ToolBar>
                         <StackPanel Grid.Row="1" Background="Azure" Orientation="Horizontal">
                             <Label Content="Sortuj po:" MinWidth="100"/>
@@ -33,7 +34,7 @@
                             <Label Content="Filtruj po:" MinWidth="100" Margin="5 2"/>
                             <ComboBox ItemsSource="{Binding ListOfItemsFilter}"
                                       MinWidth="100" Margin="5 2"
-                                      SelectedItem="{Binding SelectedFilter}"
+                                      SelectedValue="{Binding SelectedFilter}"
                                       SelectedValuePath="Key"
                                       DisplayMemberPath="Value"/>
                             <Label Content="Szukaj po frazie:" MinWidth="100" Margin="5 2"/>
@@ -60,7 +61,8 @@
                         <ToolBar Grid.Row="0" Height="30" Margin="0 2 0 2">
                             <ToggleButton Content="Zapisz i zamknij" Width="100" Height="30"
                                           Command="{Binding SaveAndCloseCommand}"/>
-                            <ToggleButton Content="Anuluj" Width="100" Height="30"/>
+                            <ToggleButton Content="Anuluj" Width="100" Height="30"
+                                          Command="{Binding CloseCommand}"/>
                         </ToolBar>
                         <ContentPresenter Grid.Row="1" Margin="0 5 0 5"/>
                     </Grid>
@@ -83,7 +85,8 @@
                                           Command="{Binding SaveAndCloseCommand}"/>
                             <ToggleButton Content="{Binding ShowAddViewButtonContent}" MinWidth="100" Height="30"
                                           Command="{Binding ShowAddViewCommand}"/>
-                            <ToggleButton Content="Anuluj" Width="100" Height="30"/>
+                            <ToggleButton Content="Anuluj" Width="100" Height="30"
+                                          Command="{Binding CloseCommand}"/>
                         </ToolBar>
                         <ContentPresenter Grid.Row="1" Margin="0 5 0 5"/>
                     </Grid>

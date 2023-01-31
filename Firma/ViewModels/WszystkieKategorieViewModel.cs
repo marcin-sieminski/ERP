@@ -30,6 +30,21 @@ namespace Firma.ViewModels
             throw new System.NotImplementedException();
         }
 
+        protected override void ShowAddView()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void Refresh()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void Delete()
+        {
+            throw new System.NotImplementedException();
+        }
+
         protected override void Filter()
         {
             throw new System.NotImplementedException();

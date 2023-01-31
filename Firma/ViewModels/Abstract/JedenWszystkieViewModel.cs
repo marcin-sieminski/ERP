@@ -49,7 +49,6 @@ namespace Firma.ViewModels.Abstract
 
         #region Metody
         protected abstract void ShowAddView();
-
         #endregion
     }
 }

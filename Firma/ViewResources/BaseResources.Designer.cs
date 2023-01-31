@@ -169,11 +169,29 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data urodzenia.
+        /// </summary>
+        public static string DataUrodzenia {
+            get {
+                return ResourceManager.GetString("DataUrodzenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data wystawienia.
         /// </summary>
         public static string DataWystawienia {
             get {
                 return ResourceManager.GetString("DataWystawienia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data końca zatrudnienia.
+        /// </summary>
+        public static string DataZakonczeniaZatrudnienia {
+            get {
+                return ResourceManager.GetString("DataZakonczeniaZatrudnienia", resourceCulture);
             }
         }
         
@@ -228,6 +246,15 @@ namespace Firma.ViewResources {
         public static string Dokument {
             get {
                 return ResourceManager.GetString("Dokument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dowód osobisty.
+        /// </summary>
+        public static string DowodOsobisty {
+            get {
+                return ResourceManager.GetString("DowodOsobisty", resourceCulture);
             }
         }
         
@@ -304,7 +331,7 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista faktur.
+        ///   Looks up a localized string similar to Faktury.
         /// </summary>
         public static string Faktury {
             get {
@@ -327,6 +354,15 @@ namespace Firma.ViewResources {
         public static string Fax {
             get {
                 return ResourceManager.GetString("Fax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pole jest wymagane.
+        /// </summary>
+        public static string FieldIsRequired {
+            get {
+                return ResourceManager.GetString("FieldIsRequired", resourceCulture);
             }
         }
         
@@ -367,6 +403,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gmina .
+        /// </summary>
+        public static string Gmina {
+            get {
+                return ResourceManager.GetString("Gmina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gminy.
         /// </summary>
         public static string Gminy {
@@ -403,6 +448,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ilość.
         /// </summary>
         public static string Ilosc {
@@ -435,6 +489,51 @@ namespace Firma.ViewResources {
         public static string Inne {
             get {
                 return ResourceManager.GetString("Inne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kod powinien zawierać od 2 do 4 liter.
+        /// </summary>
+        public static string InvalidCode {
+            get {
+                return ResourceManager.GetString("InvalidCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nieprawidłowy numer faktury.
+        /// </summary>
+        public static string InvalidInvoiceNumber {
+            get {
+                return ResourceManager.GetString("InvalidInvoiceNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa powinna składać się z min. 2 liter.
+        /// </summary>
+        public static string InvalidName {
+            get {
+                return ResourceManager.GetString("InvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NIP powinien zawierać 10 znaków.
+        /// </summary>
+        public static string InvalidNip {
+            get {
+                return ResourceManager.GetString("InvalidNip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PESEL powinien zawierac 11 znaków.
+        /// </summary>
+        public static string InvalidPesel {
+            get {
+                return ResourceManager.GetString("InvalidPesel", resourceCulture);
             }
         }
         
@@ -538,7 +637,7 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista kontrahentów.
+        ///   Looks up a localized string similar to Kontrahenci.
         /// </summary>
         public static string Kontrahenci {
             get {
@@ -817,6 +916,15 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Numer.
+        /// </summary>
+        public static string Numer {
+            get {
+                return ResourceManager.GetString("Numer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Numer dokumentu.
         /// </summary>
         public static string NumerDokumentu {
@@ -943,7 +1051,7 @@ namespace Firma.ViewResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lista pracowników.
+        ///   Looks up a localized string similar to Pracownicy.
         /// </summary>
         public static string Pracownicy {
             get {
@@ -975,6 +1083,15 @@ namespace Firma.ViewResources {
         public static string Rabat {
             get {
                 return ResourceManager.GetString("Rabat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raport.
+        /// </summary>
+        public static string Raport {
+            get {
+                return ResourceManager.GetString("Raport", resourceCulture);
             }
         }
         
@@ -1029,6 +1146,15 @@ namespace Firma.ViewResources {
         public static string SchematNumeracji {
             get {
                 return ResourceManager.GetString("SchematNumeracji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stan cywilny.
+        /// </summary>
+        public static string StanCywilny {
+            get {
+                return ResourceManager.GetString("StanCywilny", resourceCulture);
             }
         }
         
@@ -1227,6 +1353,15 @@ namespace Firma.ViewResources {
         public static string Wyksztalcenia {
             get {
                 return ResourceManager.GetString("Wyksztalcenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wykształcenie.
+        /// </summary>
+        public static string Wyksztalcenie {
+            get {
+                return ResourceManager.GetString("Wyksztalcenie", resourceCulture);
             }
         }
         

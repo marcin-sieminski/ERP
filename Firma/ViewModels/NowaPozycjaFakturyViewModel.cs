@@ -119,7 +119,6 @@ namespace Firma.ViewModels
 
         protected override bool IsValid()
         {
-            //można pozbierać te błędy i wyświetlić w podsumowaniu komunikat
             return 
                 this[nameof(Rabat)] == string.Empty &&
                 this[nameof(Ilosc)] == string.Empty;

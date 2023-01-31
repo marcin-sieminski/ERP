@@ -8,6 +8,7 @@ d:DesignHeight="600"  d:DesignWidth="1100">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="150"/>
             <ColumnDefinition  Width="200"/>
+            <ColumnDefinition  Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="40"/>
@@ -16,9 +17,10 @@ d:DesignHeight="600"  d:DesignWidth="1100">
             <RowDefinition  Height="40"/>
             <RowDefinition  Height="40"/>
             <RowDefinition  Height="40"/>
+            <RowDefinition  Height="40"/>
         </Grid.RowDefinitions>
         <Label  Grid.Column="0"  Grid.Row="0"  Content="Kod"  Margin="0,8,0,8"/>
-        <TextBox  Grid.Column="1"  Grid.Row="0"	Margin="0,8,0,8"  Width="50" HorizontalAlignment="Left"  Text="{Binding  Path=Kod}"/>
+        <TextBox  Grid.Column="1"  Grid.Row="0"	Margin="0,8,0,8"  Width="50" HorizontalAlignment="Left"  Text="{Binding  Path=Kod, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label  Grid.Column="0"  Grid.Row="1"  Content="Nazwa"  Margin="0,8,0,8"  />
         <TextBox  Grid.Column="1"  Grid.Row="1"	Margin="0,8,0,8"  Text="{Binding Path=Nazwa,  UpdateSourceTrigger=PropertyChanged}"/>
@@ -35,6 +37,11 @@ d:DesignHeight="600"  d:DesignWidth="1100">
         <Label  Grid.Column="0"  Grid.Row="5"  Content="Marża"  Margin="0,8,0,8"/>
         <TextBox  Grid.Column="1"  Grid.Row="5"	Margin="0,8,0,8"  Width="50" HorizontalAlignment="Left"  Text="{Binding  Path=Marza, UpdateSourceTrigger=PropertyChanged}"/>
 
+        <Label  Grid.Column="0"  Grid.Row="6"  Content="Pracownik"  Margin="0,8,0,8" Width="150"/>
+        <Label  Grid.Column="1"  Grid.Row="6" Margin="0,8,0,8"
+                Content="{Binding Path=DanePracownika, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="2" Grid.Row="6" Content="Wybierz pracownika" 
+                Command="{Binding ShowPracownicyCommand}"/>
 
     </Grid>
 </views:JedenViewBase>

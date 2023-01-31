@@ -2,6 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!--Dla każdej kontrolki definiujemy style. Jeden standardowy i w razie potrzeby także inne. Style w projektach powinny być bogatsze niż te poniżej.-->
+    <Style TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="LabelStandardowy" TargetType="{x:Type Label}">
         <Setter Property="Margin" Value="3"/>
@@ -66,5 +73,6 @@
         <Setter Property="Width" Value="100"></Setter>
         <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
     </Style>
+
 
 </ResourceDictionary>
